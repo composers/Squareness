@@ -25,7 +25,6 @@
 		26BB4EE31970A2060077FF6F /* squares.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EE21970A2060077FF6F /* squares.jpg */; };
 		26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EE51970A2960077FF6F /* UIImage+Resize.m */; };
 		26BB4EE819711E240077FF6F /* stefce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EE719711E240077FF6F /* stefce.jpg */; };
-		26BB4EEB1971BB990077FF6F /* FSQImageProcessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EEA1971BB990077FF6F /* FSQImageProcessController.m */; };
 		26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */; };
 		26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */; };
 		26BB4EF51971F16A0077FF6F /* squares_drawing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EF41971F16A0077FF6F /* squares_drawing.jpg */; };
@@ -39,6 +38,7 @@
 		26BB4F1F1972F3DE0077FF6F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */; };
 		26BB4F211972F67A0077FF6F /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F201972F67A0077FF6F /* lookup_amatorka.png */; };
 		26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F26197302B00077FF6F /* NSString+ContainsString.m */; };
+		26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F29197473CF0077FF6F /* FSQModelController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +98,6 @@
 		26BB4EE41970A2960077FF6F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		26BB4EE51970A2960077FF6F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		26BB4EE719711E240077FF6F /* stefce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stefce.jpg; sourceTree = "<group>"; };
-		26BB4EE91971BB990077FF6F /* FSQImageProcessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQImageProcessController.h; sourceTree = "<group>"; };
-		26BB4EEA1971BB990077FF6F /* FSQImageProcessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQImageProcessController.m; sourceTree = "<group>"; };
 		26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQOptionsViewController.h; sourceTree = "<group>"; };
 		26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQOptionsViewController.m; sourceTree = "<group>"; };
 		26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQOptionsViewController.xib; sourceTree = "<group>"; };
@@ -115,6 +113,8 @@
 		26BB4F201972F67A0077FF6F /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
 		26BB4F25197302B00077FF6F /* NSString+ContainsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ContainsString.h"; sourceTree = "<group>"; };
 		26BB4F26197302B00077FF6F /* NSString+ContainsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ContainsString.m"; sourceTree = "<group>"; };
+		26BB4F28197473CF0077FF6F /* FSQModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQModelController.h; sourceTree = "<group>"; };
+		26BB4F29197473CF0077FF6F /* FSQModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQModelController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,11 +150,11 @@
 		26BB4E9A197098630077FF6F = {
 			isa = PBXGroup;
 			children = (
-				26BB4F091972F3010077FF6F /* GPUImage.xcodeproj */,
 				26BB4EAC197098630077FF6F /* FSquares */,
 				26BB4EC5197098630077FF6F /* FSquaresTests */,
 				26BB4EA5197098630077FF6F /* Frameworks */,
 				26BB4EA4197098630077FF6F /* Products */,
+				26BB4F091972F3010077FF6F /* GPUImage.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,16 +196,16 @@
 				26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */,
 				26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */,
 				26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */,
+				26BB4F28197473CF0077FF6F /* FSQModelController.h */,
+				26BB4F29197473CF0077FF6F /* FSQModelController.m */,
+				26BB4F26197302B00077FF6F /* NSString+ContainsString.m */,
 				26BB4EE41970A2960077FF6F /* UIImage+Resize.h */,
 				26BB4EE51970A2960077FF6F /* UIImage+Resize.m */,
-				26BB4EE91971BB990077FF6F /* FSQImageProcessController.h */,
-				26BB4EEA1971BB990077FF6F /* FSQImageProcessController.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
 				26BB4EB8197098630077FF6F /* Images.xcassets */,
 				26BB4EAD197098630077FF6F /* Supporting Files */,
 				26BB4F25197302B00077FF6F /* NSString+ContainsString.h */,
-				26BB4F26197302B00077FF6F /* NSString+ContainsString.m */,
 			);
 			path = FSquares;
 			sourceTree = "<group>";
@@ -383,10 +383,10 @@
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
-				26BB4EEB1971BB990077FF6F /* FSQImageProcessController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
 				26BB4EE119709AAA0077FF6F /* FSQImageViewController.m in Sources */,
+				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

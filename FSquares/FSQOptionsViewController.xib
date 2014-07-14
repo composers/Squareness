@@ -24,6 +24,9 @@
                         <segment title="ON"/>
                         <segment title="OFF"/>
                     </segments>
+                    <connections>
+                        <action selector="gridStatusChanged:" destination="-1" eventType="valueChanged" id="4ox-ub-JcB"/>
+                    </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grid" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO0-1e-Vof">
                     <rect key="frame" x="161" y="48" width="33" height="21"/>

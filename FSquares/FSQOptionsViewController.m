@@ -7,6 +7,7 @@
 //
 
 #import "FSQOptionsViewController.h"
+#import "FSQModelController.h"
 
 @interface FSQOptionsViewController ()
 
@@ -25,9 +26,6 @@
         [self setTabBarItem:tabBarItem];
         self.filterPicker.delegate = self;
         self.filterPicker.dataSource = self;
-        
-        NSString *filterNamesPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesUser" ofType:@"plist"];
-        self.filterNames = [NSArray arrayWithContentsOfFile:filterNamesPlistPath];
     }
     return self;
 }
@@ -40,15 +38,15 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
-    NSString *filterNamesPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesCoreImage" ofType:@"plist"];
-    NSArray *filterNames = [NSArray arrayWithContentsOfFile:filterNamesPlistPath];
-    self.filterNameCoreImageSelected = [filterNames objectAtIndex:row];
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+    modelController.filterNameSelectedCI = [modelController.filterNamesCI objectAtIndex:row];
+    
 }
 
 // tell the picker how many rows are available for a given component
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    NSUInteger numRows = self.filterNames.count;
-    return numRows;
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+    return modelController.filterNamesUI.count;
 }
 
 // tell the picker how many components it will have
@@ -58,7 +56,8 @@
 
 // tell the picker the title for a given component
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.filterNames objectAtIndex:row];
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+    return [modelController.filterNamesUI objectAtIndex:row];
 }
 
 
@@ -69,16 +68,32 @@
 }
 
 - (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender {
+    FSQModelController *modelController = [FSQModelController sharedInstance];
     
     switch (sender.selectedSegmentIndex) {
         case 0:
             [self.filterPicker setHidden:YES];
+            modelController.usePreselectedFilterStatus = NO;
             break;
         case 1:
             [self.filterPicker setHidden:NO];
+            modelController.usePreselectedFilterStatus = YES;
             break;
         default:
             break;
     }
+}
+
+- (IBAction)gridStatusChanged:(UISegmentedControl *)sender {
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+
+    if (sender.selectedSegmentIndex == 0) {
+        modelController.gridStatus = YES;
+    }
+    
+    if (sender.selectedSegmentIndex == 1) {
+        modelController.gridStatus = NO;
+    }
+    
 }
 @end

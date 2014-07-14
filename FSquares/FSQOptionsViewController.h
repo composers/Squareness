@@ -11,10 +11,9 @@
 @interface FSQOptionsViewController : UIViewController  <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gridStatus;
 @property (weak, nonatomic) IBOutlet UIPickerView *filterPicker;
-@property (strong,nonatomic) NSArray *filterNames;
-@property (strong, nonatomic) NSString *filterNameCoreImageSelected;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *usePredefinedFilterStatus;
 
 - (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender;
+- (IBAction)gridStatusChanged:(UISegmentedControl *)sender;
 
 @end

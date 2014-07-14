@@ -7,22 +7,19 @@
 //
 
 #import "FSQImageViewController.h"
-#import "FSQOptionsViewController.h"
 #import "UIImage+Resize.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GPUImage.h"
 #import "NSString+ContainsString.h"
+#import "FSQModelController.h"
 
 @interface FSQImageViewController ()
-@property (nonatomic, retain) NSString *filterName;
 @property (nonatomic, assign) NSInteger touchedId;
-@property (nonatomic, retain) UIImage *mainImage;
 @end
 
 @implementation FSQImageViewController
-@synthesize filterName;
 @synthesize touchedId;
-@synthesize mainImage;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,14 +30,6 @@
                                                                   image: nil //or your icon
                                                                     tag: 0];
         [self setTabBarItem:tabBarItem];
-        
-        self.mainImage = [UIImage imageNamed:@"stefce.jpg"];
-        
-        NSString *filterNamesPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesCoreImage" ofType:@"plist"];
-        NSArray *filterNamesCoreImage = [NSArray arrayWithContentsOfFile:filterNamesPlistPath];
-        
-        self.filterName = [NSString stringWithString:[filterNamesCoreImage objectAtIndex:0]];
-        
     }
     return self;
 }
@@ -58,28 +47,19 @@
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height + additionalHeight);
     self.view = scrollView;
     
-    [self divideImage:self.mainImage withBlockSize:80 andPutInView:self.view];
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+    
+    [self divideImage:modelController.image withBlockSize:modelController.gridSquareSize andPutInView:self.view];
 
 
    }
 
 - (void)viewWillAppear:(BOOL)animated{
-    
-    NSInteger gridStatus = 0; //ON
-    
-    for (UIViewController *viewController in self.tabBarController.viewControllers)
-    {
-        if ([viewController isKindOfClass:[FSQOptionsViewController class]])
-        {
-            FSQOptionsViewController *vc = (FSQOptionsViewController *)viewController;
-            gridStatus = vc.gridStatus.selectedSegmentIndex;
-        }
-    }
-    
-    if (gridStatus == 0) {
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+    if (modelController.gridStatus == YES) {
         [self putBorderWithWidth:80/80 aroundImageViewsFromView:self.view];
     }
-    if (gridStatus == 1) {
+    if (modelController.gridStatus == NO) {
         [self removeBorderAroundImageViewsFromView:self.view];
     }
 
@@ -169,42 +149,22 @@
 - (void)tap:(UITapGestureRecognizer*)gesture
 {
     self.touchedId = gesture.view.tag;
+    FSQModelController *modelController = [FSQModelController sharedInstance];
     
-    NSInteger usePredefinedFilterStatus = 0;
-    FSQOptionsViewController *vc;
-    
-    for (UIViewController *viewController in self.tabBarController.viewControllers)
-    {
-        if ([viewController isKindOfClass:[FSQOptionsViewController class]])
-        {
-            vc = (FSQOptionsViewController *)viewController;
-            usePredefinedFilterStatus = vc.usePredefinedFilterStatus.selectedSegmentIndex;
-        }
-    }
-    
-    if (usePredefinedFilterStatus == 1) {
-        
-        if (vc.filterNameCoreImageSelected) {
-            self.filterName = vc.filterNameCoreImageSelected;
-        }
-        
+    if (modelController.usePreselectedFilterStatus == YES) {
         UIImageView *imageView = [self getImageViewWithTag:self.touchedId fromView:self.view];
-        UIImage *image = [self processImage:imageView.image withFilterName:self.filterName];
+        UIImage *image = [self processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
         [imageView setImage:image];
     }
     
-    if (usePredefinedFilterStatus == 0) {
-        
-        NSString *filterNamesPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesUser" ofType:@"plist"];
-        NSArray *filterNamesUser = [NSArray arrayWithContentsOfFile:filterNamesPlistPath];
-        
+    if (modelController.usePreselectedFilterStatus == NO) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Filter options"
                                                         message:@"Choose Filter"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:nil];
         
-        for (NSString *title in filterNamesUser) {
+        for (NSString *title in modelController.filterNamesUI) {
             [alert addButtonWithTitle:title];
         }
         
@@ -219,15 +179,13 @@
     if (buttonIndex == 0) { //Cancel
         return;
     }
+
+    FSQModelController *modelController = [FSQModelController sharedInstance];
     
-    NSString *filterNamesPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesCoreImage" ofType:@"plist"];
-    NSArray *filterNamesCoreImage = [NSArray arrayWithContentsOfFile:filterNamesPlistPath];
-    
-    self.filterName = [NSString stringWithString:[filterNamesCoreImage objectAtIndex:(buttonIndex-1)]];
+    modelController.filterNameSelectedCI = [NSString stringWithString:[modelController.filterNamesCI objectAtIndex:(buttonIndex-1)]];
     
     UIImageView *imageView = [self getImageViewWithTag:self.touchedId fromView:self.view];
-    UIImage *image = [self processImage:imageView.image withFilterName:self.filterName];
-    
+    UIImage *image = [self processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
     [imageView setImage:image];
 }
 
