@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Sepia</string>
+	<string>Mono Grey</string>
+	<string>Noir</string>
+	<string>Cool Vintage</string>
+	<string>Tonal</string>
+	<string>Warm Vintage</string>
+	<string>Invert</string>
+	<string>Poster</string>
+	<string>Crosshatch</string>
+</array>
+</plist>

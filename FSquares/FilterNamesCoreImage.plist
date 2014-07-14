@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>CISepiaTone</string>
+	<string>CIPhotoEffectMono</string>
+	<string>CIPhotoEffectNoir</string>
+	<string>CIPhotoEffectProcess</string>
+	<string>CIPhotoEffectTonal</string>
+	<string>CIPhotoEffectTransfer</string>
+	<string>CIColorInvert</string>
+	<string>CIColorPosterize</string>
+	<string>GPUImageCrosshatchFilter</string>
+</array>
+</plist>

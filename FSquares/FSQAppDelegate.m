@@ -7,14 +7,33 @@
 //
 
 #import "FSQAppDelegate.h"
+#import "FSQFirstViewController.h"
+#import "FSQImageViewController.h"
+#import "FSQOptionsViewController.h"
 
 @implementation FSQAppDelegate
+@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    FSQFirstViewController *firstViewController = [[FSQFirstViewController alloc] init];
+    FSQImageViewController *imageViewController = [[FSQImageViewController alloc] init];
+    FSQOptionsViewController *optionsViewController = [[FSQOptionsViewController alloc] init];
+    
+    
+    [self.tabBarController addChildViewController:firstViewController];
+    [self.tabBarController addChildViewController:imageViewController];
+    [self.tabBarController addChildViewController:optionsViewController];
+    
+    
+    self.window.rootViewController = tabBarController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
