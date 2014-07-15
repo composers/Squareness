@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSQFirstViewController : UIViewController
+@interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+- (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
+- (IBAction)takePhotoWithCamera:(UIButton *)sender;
 
 @end

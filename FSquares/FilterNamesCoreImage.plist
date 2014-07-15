@@ -11,5 +11,8 @@
 	<string>CIColorInvert</string>
 	<string>CIColorPosterize</string>
 	<string>GPUImageCrosshatchFilter</string>
+	<string>GPUImagePixellateFilter</string>
+	<string>GPUImageSmoothToonFilter</string>
+	<string>GPUImageSwirlFilter</string>
 </array>
 </plist>

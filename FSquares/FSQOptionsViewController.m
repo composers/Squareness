@@ -8,6 +8,7 @@
 
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
+#import "UIImage+Resize.h"
 
 @interface FSQOptionsViewController ()
 
@@ -24,8 +25,14 @@
                                                                   image: nil //or your icon
                                                                     tag: 0];
         [self setTabBarItem:tabBarItem];
-        self.filterPicker.delegate = self;
-        self.filterPicker.dataSource = self;
+      
+      NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
+      UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
+      
+      //UIImage *backgroundImage = [[UIImage imageNamed:@"squares.jpg"] resizedImageToSize:self.view.frame.size];
+        
+      self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+
     }
     return self;
 }
@@ -34,6 +41,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.filterPicker.delegate = self;
+    self.filterPicker.dataSource = self;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
@@ -65,6 +74,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+  FSQModelController *modelController = [FSQModelController sharedInstance];
+  modelController.image = nil;
+  modelController.processedImage = nil;
 }
 
 - (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender {
@@ -95,5 +107,34 @@
         modelController.gridStatus = NO;
     }
     
+}
+
+- (IBAction)savePhoto:(UIButton *)sender {
+  FSQModelController *modelController = [FSQModelController sharedInstance];
+  UIImageWriteToSavedPhotosAlbum(modelController.processedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+  NSString *alertTitle;
+  NSString *alertMessage;
+  
+  if(!error)
+  {
+    alertTitle   = @"Image Saved";
+    alertMessage = @"Image saved to photo album successfully.";
+  }
+  else
+  {
+    alertTitle   = @"Error";
+    alertMessage = @"Unable to save to photo album.";
+  }
+  
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                  message:alertMessage
+                                                 delegate:self
+                                        cancelButtonTitle:@"Okay"
+                                        otherButtonTitles:nil];
+  [alert show];
 }
 @end

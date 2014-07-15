@@ -15,5 +15,6 @@
 
 - (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)gridStatusChanged:(UISegmentedControl *)sender;
+- (IBAction)savePhoto:(UIButton *)sender;
 
 @end
