@@ -12,9 +12,9 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gridStatus;
 @property (weak, nonatomic) IBOutlet UIPickerView *filterPicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *usePredefinedFilterStatus;
-
 - (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)gridStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)savePhoto:(UIButton *)sender;
+- (IBAction)squareSizeChanged:(UISegmentedControl *)sender;
 
 @end

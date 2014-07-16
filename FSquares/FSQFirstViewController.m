@@ -30,9 +30,6 @@
       
       NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
       UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-        
-      //UIImage *backgroundImage = [[UIImage imageNamed:@"squares.jpg"] resizedImageToSize:self.view.frame.size];
-        
       self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     }
     return self;
@@ -81,10 +78,5 @@
   [photoPicker dismissViewControllerAnimated:YES completion:nil];
   FSQModelController *modelController = [FSQModelController sharedInstance];
   modelController.image = [info valueForKey:UIImagePickerControllerOriginalImage];
-  
-  
-  FSQImageViewController *vc = self.tabBarController.viewControllers[1];
-  [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize andPutInView:vc.view];
-  [modelController addGestureRecognizersToSubviewsFromViewController:vc];
 }
 @end

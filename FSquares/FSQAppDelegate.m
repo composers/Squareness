@@ -11,9 +11,7 @@
 #import "FSQImageViewController.h"
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
-
 @implementation FSQAppDelegate
-@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,16 +19,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.tabBarController = [[UITabBarController alloc] init];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
     FSQFirstViewController *firstViewController = [[FSQFirstViewController alloc] init];
     FSQImageViewController *imageViewController = [[FSQImageViewController alloc] init];
     FSQOptionsViewController *optionsViewController = [[FSQOptionsViewController alloc] init];
     
     
-    [self.tabBarController addChildViewController:firstViewController];
-    [self.tabBarController addChildViewController:imageViewController];
-    [self.tabBarController addChildViewController:optionsViewController];
+    [tabBarController addChildViewController:firstViewController];
+    [tabBarController addChildViewController:imageViewController];
+    [tabBarController addChildViewController:optionsViewController];
     
     
     self.window.rootViewController = tabBarController;
@@ -49,10 +47,6 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-  
-  FSQModelController *modelController = [FSQModelController sharedInstance];
-  modelController.image = nil;
-  modelController.processedImage = nil;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

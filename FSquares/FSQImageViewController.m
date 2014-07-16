@@ -16,8 +16,6 @@
 
 @implementation FSQImageViewController
 
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -43,16 +41,19 @@
     CGFloat additionalHeight = self.tabBarController.tabBar.frame.size.height;
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height + additionalHeight);
     self.view = scrollView;
-    
-    FSQModelController *modelController = [FSQModelController sharedInstance];
-    [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize andPutInView:self.view];
-    [modelController addGestureRecognizersToSubviewsFromViewController:self];
-   }
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     FSQModelController *modelController = [FSQModelController sharedInstance];
+//    if (modelController.image == nil) {
+//        UIAlertView *alert = [UIAlertView alloc] initWithTitle: message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil
+//    }
+    
+    [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize andPutInView:self.view];
+    [modelController addGestureRecognizersToSubviewsFromViewController:self];
+
     if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:80/80 aroundImageViewsFromView:self.view];
+        [modelController putBorderWithWidth:modelController.gridSquareSize/80 aroundImageViewsFromView:self.view];
     }
     if (modelController.gridStatus == NO) {
         [modelController removeBorderAroundImageViewsFromView:self.view];
@@ -61,8 +62,14 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-  FSQModelController *modelController = [FSQModelController sharedInstance];
-  modelController.processedImage = [FSQModelController imageWithView:self.view];
+    
+    FSQModelController *modelController = [FSQModelController sharedInstance];
+    
+    if (modelController.gridStatus == YES) {
+        [modelController removeBorderAroundImageViewsFromView:self.view];
+    }
+    modelController.processedImage = [modelController snapshot:self.view];
+    modelController.image = modelController.processedImage;
 }
 
 - (void)tap:(UITapGestureRecognizer*)gesture

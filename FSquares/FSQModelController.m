@@ -33,13 +33,10 @@
         NSString *filterNamesCIPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesCoreImage" ofType:@"plist"];
         self.filterNamesCI = [NSArray arrayWithContentsOfFile:filterNamesCIPlistPath];
         
-        //self.filterNameSelectedUI = [self.filterNamesUI objectAtIndex:0];
         self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
       
         NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
         self.image = [UIImage imageWithContentsOfFile:imgPath];
-        
-        //self.image = [UIImage imageNamed:@"stefce.jpg"];
         
         self.gridStatus = YES;
         self.usePreselectedFilterStatus = NO;
@@ -94,45 +91,95 @@
     }
 }
 
-+ (UIImage *)imageWithView:(UIView *)view
+- (UIImage *)imageWithView:(UIView *)view
 {
-  UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+  UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 1.0);
   [view.layer renderInContext:UIGraphicsGetCurrentContext()];
   
-  UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
   
   UIGraphicsEndImageContext();
   
   return img;
 }
 
+- (UIImage *)snapshot:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 1.0);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+-(NSMutableArray *)getImagesFromImage:(UIImage *)image withRow:(NSInteger)rows withColumn:(NSInteger)columns
+{
+    NSMutableArray *images = [NSMutableArray array];
+    CGSize imageSize = image.size;
+    CGFloat xPos = 0.0, yPos = 0.0;
+    CGFloat width = imageSize.width/rows;
+    CGFloat height = imageSize.height/columns;
+    for (int y = 0; y < columns; y++) {
+        xPos = 0.0;
+        for (int x = 0; x < rows; x++) {
+            
+            CGRect rect = CGRectMake(xPos, yPos, width, height);
+            CGImageRef cImage = CGImageCreateWithImageInRect([image CGImage],  rect);
+            
+            UIImage *dImage = [[UIImage alloc] initWithCGImage:cImage];
+            [images addObject:dImage];
+            xPos += width;
+        }
+        yPos += height;
+    }
+    return images;
+}
+
+- (void)putImages:(NSMutableArray *)images withRow:(NSInteger)rows withColumn:(NSInteger)columns intoView:(UIView *)view{
+    
+}
+
+
 - (void)divideImage:(UIImage *)image withBlockSize:(int)blockSize andPutInView:(UIView *)rootView{
   
-  [[rootView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first
+  [[rootView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first!!!
   
   CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
   UIImage *resizedImage = [image resizedImageToSize:screenFrame.size];
   [rootView setBackgroundColor:[UIColor blackColor]];
-  
+    
   int partId = 100;
-  for (int x = 0; x < screenFrame.size.width; x += blockSize) {
-    for(int y = 0; y < screenFrame.size.height; y += blockSize) {
-      
-      CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, blockSize, blockSize));
-      UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
-      UIImageView *subImageView = [[UIImageView alloc] initWithImage:subImage];
-      
-      UIView *subView = [[UIView alloc] initWithFrame:CGRectMake(x, y, blockSize, blockSize)];
-      [subView addSubview:subImageView];
-      
-      subView.tag = partId;
-      
-      [rootView addSubview:subView];
-      partId++;
-      CGImageRelease(cgSubImage);
+    if (blockSize != -1) {
+        for (int x = 0; x < screenFrame.size.width; x += blockSize) {
+            for(int y = 0; y < screenFrame.size.height; y += blockSize) {
+                
+                CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, blockSize, blockSize));
+                UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
+                UIImageView *subImageView = [[UIImageView alloc] initWithImage:subImage];
+                
+                UIView *subView = [[UIView alloc] initWithFrame:CGRectMake(x, y, blockSize, blockSize)];
+                [subView addSubview:subImageView];
+                
+                subView.tag = partId;
+                
+                [rootView addSubview:subView];
+                partId++;
+                CGImageRelease(cgSubImage);
+            }
+        }
+    }
+    else{
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:resizedImage];
+        
+        UIView *view = [[UIView alloc] initWithFrame:screenFrame];
+        [view addSubview:imageView];
+        
+        view.tag = partId;
+        
+        [rootView addSubview:view];
     }
   }
-}
 
 - (void)addGestureRecognizersToSubviewsFromViewController:(UIViewController *)viewController{
   for (UIView *subveiw in viewController.view.subviews) {

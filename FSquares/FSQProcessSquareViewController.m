@@ -9,6 +9,7 @@
 #import "FSQProcessSquareViewController.h"
 #import "FSQModelController.h"
 #import "UIImage+Resize.h"
+#import "FSQImageViewController.h"
 
 @interface FSQProcessSquareViewController ()
 
@@ -37,13 +38,14 @@
   
     NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
     UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-  
-    //UIImage *backgroundImage = [[UIImage imageNamed:@"squares.jpg"] resizedImageToSize:self.view.frame.size];
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     CALayer * l = [self.imageView layer];
     [l setMasksToBounds:YES];
-    [l setCornerRadius:40.0];
+    [l setCornerRadius:45.0];
+    
+    [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.imageView.layer setBorderWidth: 3.0];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -82,8 +84,18 @@
 
 - (IBAction)apply:(id)sender {
     FSQModelController *modelController = [FSQModelController sharedInstance];
+    
     self.imageView.image = [modelController processImage:self.imageView.image withFilterName:modelController.filterNameSelectedCI];
-    modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];    
+    
+    modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
+    
+    UIView *rootView = modelController.selectedSubImageView.superview.superview;
+    modelController.processedImage = [modelController snapshot:rootView];
+    
+    if (modelController.gridStatus == YES) {
+        [modelController removeBorderAroundImageViewsFromView:rootView];
+    }
+    modelController.image = modelController.processedImage;
 }
 
 - (IBAction)reset:(id)sender {

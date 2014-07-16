@@ -27,10 +27,7 @@
         [self setTabBarItem:tabBarItem];
       
       NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
-      UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-      
-      //UIImage *backgroundImage = [[UIImage imageNamed:@"squares.jpg"] resizedImageToSize:self.view.frame.size];
-        
+      UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];        
       self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 
     }
@@ -116,25 +113,49 @@
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-  NSString *alertTitle;
-  NSString *alertMessage;
-  
-  if(!error)
-  {
-    alertTitle   = @"Image Saved";
-    alertMessage = @"Image saved to photo album successfully.";
-  }
-  else
-  {
-    alertTitle   = @"Error";
-    alertMessage = @"Unable to save to photo album.";
-  }
-  
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
-                                                  message:alertMessage
-                                                 delegate:self
-                                        cancelButtonTitle:@"Okay"
-                                        otherButtonTitles:nil];
-  [alert show];
+    NSString *alertTitle;
+    NSString *alertMessage;
+    
+    if(!error)
+    {
+        alertTitle   = @"Image Saved";
+        alertMessage = @"Image saved to photo album successfully.";
+    }
+    else
+    {
+        alertTitle   = @"Error";
+        alertMessage = @"Unable to save to photo album.";
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                    message:alertMessage
+                                                   delegate:self
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
+
+- (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
+    FSQModelController *model = [FSQModelController sharedInstance];
+    
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            model.gridSquareSize = 40;
+            break;
+        case 1:
+            model.gridSquareSize = 80;
+            break;
+        case 2:
+            model.gridSquareSize = 160;
+            break;
+        case 3:
+            model.gridSquareSize = -1;
+            break;
+        default:
+            break;
+    }
+
+}
+
+
 @end
