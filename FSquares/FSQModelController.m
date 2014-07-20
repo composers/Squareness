@@ -11,6 +11,7 @@
 #import "GPUImage.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
+#import "UIView+Copy.h"
 
 @implementation FSQModelController
 
@@ -33,7 +34,7 @@
         self.filterNamesCI = [NSArray arrayWithContentsOfFile:filterNamesCIPlistPath];
         
         self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
-      
+        
         NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"stefce" ofType:@"jpg"];
         self.image = [UIImage imageWithContentsOfFile:imgPath];
         
@@ -50,14 +51,15 @@
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
     
     //DO NOT PROCESS ON THE MAIN THREAD: USE THIS
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        // switch to a background thread and perform your expensive operation
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            // switch back to the main thread to update your UI
-//            
-//        });
-//    });
+    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //        // switch to a background thread and perform your expensive operation
+    //
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            // switch back to the main thread to update your UI
+    //
+    //        });
+    //    });
+    NSLog(@"Image processing...");
     
     if ([filterName containsString:@"GPUImage"]) {
         
@@ -83,7 +85,7 @@
         [filterGPU useNextFrameForImageCapture];
         [inputImage processImage];
         return [filterGPU imageFromCurrentFramebuffer];
-      
+        
         //return [filterGPU imageByFilteringImage:myImage];
     }
     else{
@@ -104,14 +106,14 @@
 
 - (UIImage *)imageWithView:(UIView *)view
 {
-  UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 1.0);
-  [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-  
-  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-  
-  UIGraphicsEndImageContext();
-  
-  return img;
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 1.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 - (UIImage *)snapshot:(UIView *)view
@@ -124,116 +126,102 @@
     return image;
 }
 
--(NSMutableArray *)getImagesFromImage:(UIImage *)image withRow:(NSInteger)rows withColumn:(NSInteger)columns
-{
-    NSMutableArray *images = [NSMutableArray array];
-    CGSize imageSize = image.size;
-    CGFloat xPos = 0.0, yPos = 0.0;
-    CGFloat width = imageSize.width/rows;
-    CGFloat height = imageSize.height/columns;
-    for (int y = 0; y < columns; y++) {
-        xPos = 0.0;
-        for (int x = 0; x < rows; x++) {
-            
-            CGRect rect = CGRectMake(xPos, yPos, width, height);
-            CGImageRef cImage = CGImageCreateWithImageInRect([image CGImage],  rect);
-            
-            UIImage *dImage = [[UIImage alloc] initWithCGImage:cImage];
-            [images addObject:dImage];
-            xPos += width;
-        }
-        yPos += height;
-    }
-    return images;
-}
 
-- (void)putImages:(NSMutableArray *)images withRow:(NSInteger)rows withColumn:(NSInteger)columns intoView:(UIView *)view{
+
+- (void)divideImage:(UIImage *)image withBlockSize:(int)blockSize andPutInView:(UIView *)view{
     
-}
-
-
-- (void)divideImage:(UIImage *)image withBlockSize:(int)blockSize andPutInView:(UIView *)rootView{
-  
-  [[rootView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first!!!
-  
-  CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-  UIImage *resizedImage = [image resizedImageToSize:screenFrame.size];
-  [rootView setBackgroundColor:[UIColor blackColor]];
+    [[view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first!!!
     
-  int partId = 100;
+    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    UIImage *resizedImage = [image resizedImageToSize:screenFrame.size];
+    [view setBackgroundColor:[UIColor blackColor]];
+    
+    int partId = 100;
     if (blockSize != -1) {
         for (int x = 0; x < screenFrame.size.width; x += blockSize) {
             for(int y = 0; y < screenFrame.size.height; y += blockSize) {
                 
                 CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, blockSize, blockSize));
                 UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
-                UIImageView *subImageView = [[UIImageView alloc] initWithImage:subImage];
-                
-                UIView *subView = [[UIView alloc] initWithFrame:CGRectMake(x, y, blockSize, blockSize)];
-                [subView addSubview:subImageView];
-                
-                subView.tag = partId;
-                
-                [rootView addSubview:subView];
+                UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, blockSize, blockSize)];
+                subImageView.userInteractionEnabled = YES;
+                [subImageView setImage:subImage];
+                subImageView.tag = partId;
+                [view addSubview:subImageView];
                 partId++;
                 CGImageRelease(cgSubImage);
             }
         }
     }
     else{
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:resizedImage];
-        
-        UIView *view = [[UIView alloc] initWithFrame:screenFrame];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:screenFrame];
+        imageView.userInteractionEnabled = YES;
+        [imageView setImage:resizedImage];
+        imageView.tag = partId;
         [view addSubview:imageView];
-        
-        view.tag = partId;
-        
-        [rootView addSubview:view];
     }
-  }
+}
 
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController{
-  for (UIView *subveiw in view.subviews) {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
-                                                                          action:@selector(tap:)];
-    tap.numberOfTapsRequired = 1;
-    [subveiw addGestureRecognizer:tap];
-  }
+    for (UIView *subveiw in view.subviews) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
+                                                                              action:@selector(tap:)];
+        tap.numberOfTapsRequired = 1;
+        [subveiw addGestureRecognizer:tap];
+    }
 }
 
-- (UIImageView *)getImageViewWithTag:(NSInteger)tag fromView:(UIView *)rootView{
-  UIView *tempView;
-  for (UIView *view in rootView.subviews) {
-    if (view.tag == tag) {
-      tempView = view;
-      break;
+- (UIImageView *)getImageViewWithTag:(NSInteger)tag fromView:(UIView *)view{
+    UIView *tempView;
+    for (UIView *subview in view.subviews) {
+        if (subview.tag == tag) {
+            tempView = subview;
+            break;
+        }
     }
-  }
-  UIImageView *imageView = tempView.subviews[0];
-  return imageView;
+    UIImageView *subImageView = (UIImageView *)tempView;
+    return subImageView;
 }
 
-- (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView{
-  for (UIView *view in rootView.subviews) {
-    if (view.subviews.count > 0) {
-      if ([view.subviews[0] isKindOfClass:[UIImageView class]]){
-        UIImageView *imageView = view.subviews[0];
-        [imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
-        [imageView.layer setBorderWidth: borderWidth];
-      }
+- (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)view{
+    for (UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:[UIImageView class]]){
+            UIImageView *subImageView = (UIImageView *)subview;
+            [subImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+            [subImageView.layer setBorderWidth: borderWidth];
+        }
     }
-  }
 }
 
-- (void)removeBorderAroundImageViewsFromView:(UIView *)rootView{
-  for (UIView *view in rootView.subviews) {
-    if (view.subviews.count > 0) {
-      if ([view.subviews[0] isKindOfClass:[UIImageView class]]){
-        UIImageView *imageView = view.subviews[0];
-        [imageView.layer setBorderWidth:0.0];
-      }
+- (void)removeBorderAroundImageViewsFromView:(UIView *)view{
+    for (UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:[UIImageView class]]){
+            UIImageView *subImageView = (UIImageView *)subview;
+            [subImageView.layer setBorderWidth:0.0];
+        }
+        
     }
-  }
+}
+
+- (void)applyRandomFiltersToView:(UIView *)view{
+    //DO NOT PROCESS ON THE MAIN THREAD: USE THIS
+    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //        // switch to a background thread and perform your expensive operation
+    //
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            // switch back to the main thread to update your UI
+    //
+    //        });
+    //    });
+    
+    
+    for (UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:[UIImageView class]]){
+            UIImageView *subImageView = (UIImageView *)subview;
+            subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesCI objectAtIndex:(arc4random() % self.filterNamesCI.count)]];
+        }
+    }
+    //TODO:snapshot
 }
 
 - (void)dealloc {

@@ -31,9 +31,7 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor blackColor];
     self.title = @"image processing";
-    UIBarButtonItem* buttonItem = [[UIBarButtonItem alloc] initWithTitle:@"->" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    buttonItem.enabled = NO;
-    [self.navigationItem setRightBarButtonItem:buttonItem];
+    
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
     _carousel.backgroundColor = [UIColor blackColor];

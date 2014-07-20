@@ -146,5 +146,11 @@
 
 }
 
+- (IBAction)aplyRandomFilters:(UIButton *)sender {
+    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    [modelController applyRandomFiltersToView:carouselController.scrollView];
+}
+
 
 @end

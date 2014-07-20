@@ -25,13 +25,13 @@
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName;
 //- (UIImage *)imageWithView:(UIView *)view;
 - (UIImage *)snapshot:(UIView *)view;
-- (void)divideImage:(UIImage *)image withBlockSize:(int)blockSize andPutInView:(UIView *)rootView;
+- (void)divideImage:(UIImage *)image withBlockSize:(int)blockSize andPutInView:(UIView *)view;
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 - (UIImageView *)getImageViewWithTag:(NSInteger)tag fromView:(UIView *)rootView;
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;
 - (void)removeBorderAroundImageViewsFromView:(UIView *)rootView;
 - (void)tap:(UITapGestureRecognizer*)gesture;
-- (NSMutableArray *)getImagesFromImage:(UIImage *)image withRow:(NSInteger)rows withColumn:(NSInteger)columns;
+- (void)applyRandomFiltersToView:(UIView *)view;
 @end
 
 FSQModelController *modelController;

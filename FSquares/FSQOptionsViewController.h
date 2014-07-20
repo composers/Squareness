@@ -15,5 +15,6 @@
 - (IBAction)gridStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)savePhoto:(UIButton *)sender;
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender;
+- (IBAction)aplyRandomFilters:(UIButton *)sender;
 
 @end
