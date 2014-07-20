@@ -18,7 +18,6 @@
 @property (nonatomic, assign) NSInteger gridSquareSize;
 
 @property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) UIImage *processedImage;
 @property (nonatomic, retain) UIImageView *selectedSubImageView;
 
 
@@ -27,10 +26,12 @@
 //- (UIImage *)imageWithView:(UIView *)view;
 - (UIImage *)snapshot:(UIView *)view;
 - (void)divideImage:(UIImage *)image withBlockSize:(int)blockSize andPutInView:(UIView *)rootView;
-- (void)addGestureRecognizersToSubviewsFromViewController:(UIViewController *)viewController;
+- (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 - (UIImageView *)getImageViewWithTag:(NSInteger)tag fromView:(UIView *)rootView;
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;
 - (void)removeBorderAroundImageViewsFromView:(UIView *)rootView;
 - (void)tap:(UITapGestureRecognizer*)gesture;
 - (NSMutableArray *)getImagesFromImage:(UIImage *)image withRow:(NSInteger)rows withColumn:(NSInteger)columns;
 @end
+
+FSQModelController *modelController;

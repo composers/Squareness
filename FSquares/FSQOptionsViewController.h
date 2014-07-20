@@ -10,7 +10,6 @@
 
 @interface FSQOptionsViewController : UIViewController  <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gridStatus;
-@property (weak, nonatomic) IBOutlet UIPickerView *filterPicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *usePredefinedFilterStatus;
 - (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)gridStatusChanged:(UISegmentedControl *)sender;

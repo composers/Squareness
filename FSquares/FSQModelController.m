@@ -11,7 +11,6 @@
 #import "GPUImage.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
-#import "FSQProcessSquareViewController.h"
 
 @implementation FSQModelController
 
@@ -35,18 +34,30 @@
         
         self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
       
-        NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
+        NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"stefce" ofType:@"jpg"];
         self.image = [UIImage imageWithContentsOfFile:imgPath];
         
         self.gridStatus = YES;
         self.usePreselectedFilterStatus = NO;
         self.gridSquareSize = 80;
         
+        self.selectedSubImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"squares.jpg"]];
+        
     }
     return self;
 }
 
-- (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{;
+- (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
+    
+    //DO NOT PROCESS ON THE MAIN THREAD: USE THIS
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        // switch to a background thread and perform your expensive operation
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // switch back to the main thread to update your UI
+//            
+//        });
+//    });
     
     if ([filterName containsString:@"GPUImage"]) {
         
@@ -181,8 +192,8 @@
     }
   }
 
-- (void)addGestureRecognizersToSubviewsFromViewController:(UIViewController *)viewController{
-  for (UIView *subveiw in viewController.view.subviews) {
+- (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController{
+  for (UIView *subveiw in view.subviews) {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
                                                                           action:@selector(tap:)];
     tap.numberOfTapsRequired = 1;

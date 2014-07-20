@@ -21,13 +21,10 @@
 		26BB4ECC197098630077FF6F /* FSquaresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4ECB197098630077FF6F /* FSquaresTests.m */; };
 		26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */; };
 		26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */; };
-		26BB4EE119709AAA0077FF6F /* FSQImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EE019709AAA0077FF6F /* FSQImageViewController.m */; };
 		26BB4EE31970A2060077FF6F /* squares.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EE21970A2060077FF6F /* squares.jpg */; };
 		26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EE51970A2960077FF6F /* UIImage+Resize.m */; };
-		26BB4EE819711E240077FF6F /* stefce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EE719711E240077FF6F /* stefce.jpg */; };
 		26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */; };
 		26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */; };
-		26BB4EF51971F16A0077FF6F /* squares_drawing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EF41971F16A0077FF6F /* squares_drawing.jpg */; };
 		26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */; };
 		26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */; };
 		26BB4F171972F3AF0077FF6F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F161972F3AF0077FF6F /* CoreMedia.framework */; };
@@ -35,12 +32,29 @@
 		26BB4F1B1972F3C80077FF6F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F1A1972F3C80077FF6F /* OpenGLES.framework */; };
 		26BB4F1D1972F3D30077FF6F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F1C1972F3D30077FF6F /* AVFoundation.framework */; };
 		26BB4F1F1972F3DE0077FF6F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */; };
-		26BB4F211972F67A0077FF6F /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F201972F67A0077FF6F /* lookup_amatorka.png */; };
 		26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F26197302B00077FF6F /* NSString+ContainsString.m */; };
 		26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F29197473CF0077FF6F /* FSQModelController.m */; };
-		26BB4F2E19748A420077FF6F /* FSQProcessSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F2C19748A420077FF6F /* FSQProcessSquareViewController.m */; };
-		26BB4F2F19748A420077FF6F /* FSQProcessSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F2D19748A420077FF6F /* FSQProcessSquareViewController.xib */; };
+		26BB4F5C1979E39C0077FF6F /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F591979E39C0077FF6F /* JASidePanelController.m */; };
+		26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */; };
+		26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F5F197A6E690077FF6F /* iCarousel.m */; };
+		26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F62197AB86E0077FF6F /* CarouselViewController.m */; };
+		26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */; };
+		26BB4F67197AD86D0077FF6F /* stefce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F66197AD86D0077FF6F /* stefce.jpg */; };
+		26BB4F6D197BC31E0077FF6F /* UIView+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */; };
+		26BB4F6F197BDE320077FF6F /* squares-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F6E197BDE320077FF6F /* squares-29.png */; };
+		26BB4F71197BDE710077FF6F /* squares-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F70197BDE710077FF6F /* squares-40.png */; };
+		26BB4F73197BDED00077FF6F /* squares-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F72197BDED00077FF6F /* squares-57.png */; };
+		26BB4F75197BDF860077FF6F /* squares-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F74197BDF860077FF6F /* squares-114.png */; };
+		26BB4F77197BDFBF0077FF6F /* squares-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F76197BDFBF0077FF6F /* squares-72.png */; };
+		26BB4F79197BDFD90077FF6F /* squares-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F78197BDFD90077FF6F /* squares-144.png */; };
+		26BB4F7C197BE0280077FF6F /* squares-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F7A197BE0280077FF6F /* squares-50.png */; };
+		26BB4F7D197BE0280077FF6F /* squares-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F7B197BE0280077FF6F /* squares-100.png */; };
 		26FF865119757C690092C547 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FF865019757C690092C547 /* libGPUImage.a */; };
+		26FF86861977FBCA0092C547 /* touch-icon-ipad-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF86821977FBCA0092C547 /* touch-icon-ipad-retina.png */; };
+		26FF86871977FBCA0092C547 /* touch-icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF86831977FBCA0092C547 /* touch-icon-ipad.png */; };
+		26FF86881977FBCA0092C547 /* touch-icon-iphone-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF86841977FBCA0092C547 /* touch-icon-iphone-retina.png */; };
+		26FF86891977FBCA0092C547 /* touch-icon-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF86851977FBCA0092C547 /* touch-icon-iphone.png */; };
+		26FF868B1978011A0092C547 /* squares-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF868A1978011A0092C547 /* squares-58.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,16 +87,12 @@
 		26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQFirstViewController.h; sourceTree = "<group>"; };
 		26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQFirstViewController.m; sourceTree = "<group>"; };
 		26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQFirstViewController.xib; sourceTree = "<group>"; };
-		26BB4EDF19709AAA0077FF6F /* FSQImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQImageViewController.h; sourceTree = "<group>"; };
-		26BB4EE019709AAA0077FF6F /* FSQImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQImageViewController.m; sourceTree = "<group>"; };
 		26BB4EE21970A2060077FF6F /* squares.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = squares.jpg; sourceTree = "<group>"; };
 		26BB4EE41970A2960077FF6F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		26BB4EE51970A2960077FF6F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		26BB4EE719711E240077FF6F /* stefce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stefce.jpg; sourceTree = "<group>"; };
 		26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQOptionsViewController.h; sourceTree = "<group>"; };
 		26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQOptionsViewController.m; sourceTree = "<group>"; };
 		26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQOptionsViewController.xib; sourceTree = "<group>"; };
-		26BB4EF41971F16A0077FF6F /* squares_drawing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = squares_drawing.jpg; sourceTree = "<group>"; };
 		26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FilterNamesUser.plist; sourceTree = "<group>"; };
 		26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FilterNamesCoreImage.plist; sourceTree = "<group>"; };
 		26BB4F161972F3AF0077FF6F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -90,14 +100,30 @@
 		26BB4F1A1972F3C80077FF6F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		26BB4F1C1972F3D30077FF6F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		26BB4F201972F67A0077FF6F /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
 		26BB4F25197302B00077FF6F /* NSString+ContainsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ContainsString.h"; sourceTree = "<group>"; };
 		26BB4F26197302B00077FF6F /* NSString+ContainsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ContainsString.m"; sourceTree = "<group>"; };
 		26BB4F28197473CF0077FF6F /* FSQModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQModelController.h; sourceTree = "<group>"; };
 		26BB4F29197473CF0077FF6F /* FSQModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQModelController.m; sourceTree = "<group>"; };
-		26BB4F2B19748A420077FF6F /* FSQProcessSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQProcessSquareViewController.h; sourceTree = "<group>"; };
-		26BB4F2C19748A420077FF6F /* FSQProcessSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQProcessSquareViewController.m; sourceTree = "<group>"; };
-		26BB4F2D19748A420077FF6F /* FSQProcessSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQProcessSquareViewController.xib; sourceTree = "<group>"; };
+		26BB4F581979E39C0077FF6F /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		26BB4F591979E39C0077FF6F /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
+		26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		26BB4F5E197A6E690077FF6F /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		26BB4F5F197A6E690077FF6F /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		26BB4F61197AB86E0077FF6F /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
+		26BB4F62197AB86E0077FF6F /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
+		26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
+		26BB4F66197AD86D0077FF6F /* stefce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stefce.jpg; sourceTree = "<group>"; };
+		26BB4F6B197BC31E0077FF6F /* UIView+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Copy.h"; sourceTree = "<group>"; };
+		26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Copy.m"; sourceTree = "<group>"; };
+		26BB4F6E197BDE320077FF6F /* squares-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-29.png"; sourceTree = "<group>"; };
+		26BB4F70197BDE710077FF6F /* squares-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-40.png"; sourceTree = "<group>"; };
+		26BB4F72197BDED00077FF6F /* squares-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-57.png"; sourceTree = "<group>"; };
+		26BB4F74197BDF860077FF6F /* squares-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-114.png"; sourceTree = "<group>"; };
+		26BB4F76197BDFBF0077FF6F /* squares-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-72.png"; sourceTree = "<group>"; };
+		26BB4F78197BDFD90077FF6F /* squares-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-144.png"; sourceTree = "<group>"; };
+		26BB4F7A197BE0280077FF6F /* squares-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-50.png"; sourceTree = "<group>"; };
+		26BB4F7B197BE0280077FF6F /* squares-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-100.png"; sourceTree = "<group>"; };
 		26FF85AC19757C690092C547 /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		26FF85AD19757C690092C547 /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
 		26FF85AE19757C690092C547 /* GPUImage3x3ConvolutionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage3x3ConvolutionFilter.h; sourceTree = "<group>"; };
@@ -262,6 +288,11 @@
 		26FF864D19757C690092C547 /* GPUImageXYDerivativeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageXYDerivativeFilter.h; sourceTree = "<group>"; };
 		26FF864E19757C690092C547 /* GPUImageZoomBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageZoomBlurFilter.h; sourceTree = "<group>"; };
 		26FF865019757C690092C547 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
+		26FF86821977FBCA0092C547 /* touch-icon-ipad-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch-icon-ipad-retina.png"; sourceTree = "<group>"; };
+		26FF86831977FBCA0092C547 /* touch-icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch-icon-ipad.png"; sourceTree = "<group>"; };
+		26FF86841977FBCA0092C547 /* touch-icon-iphone-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch-icon-iphone-retina.png"; sourceTree = "<group>"; };
+		26FF86851977FBCA0092C547 /* touch-icon-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch-icon-iphone.png"; sourceTree = "<group>"; };
+		26FF868A1978011A0092C547 /* squares-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-58.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,20 +369,26 @@
 				26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */,
 				26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */,
 				26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */,
-				26BB4EDF19709AAA0077FF6F /* FSQImageViewController.h */,
-				26BB4EE019709AAA0077FF6F /* FSQImageViewController.m */,
 				26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */,
 				26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */,
 				26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */,
-				26BB4F2B19748A420077FF6F /* FSQProcessSquareViewController.h */,
-				26BB4F2C19748A420077FF6F /* FSQProcessSquareViewController.m */,
-				26BB4F2D19748A420077FF6F /* FSQProcessSquareViewController.xib */,
+				26BB4F61197AB86E0077FF6F /* CarouselViewController.h */,
+				26BB4F62197AB86E0077FF6F /* CarouselViewController.m */,
+				26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */,
 				26BB4F28197473CF0077FF6F /* FSQModelController.h */,
 				26BB4F29197473CF0077FF6F /* FSQModelController.m */,
 				26BB4F26197302B00077FF6F /* NSString+ContainsString.m */,
 				26BB4F25197302B00077FF6F /* NSString+ContainsString.h */,
 				26BB4EE41970A2960077FF6F /* UIImage+Resize.h */,
 				26BB4EE51970A2960077FF6F /* UIImage+Resize.m */,
+				26BB4F581979E39C0077FF6F /* JASidePanelController.h */,
+				26BB4F591979E39C0077FF6F /* JASidePanelController.m */,
+				26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */,
+				26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */,
+				26BB4F6B197BC31E0077FF6F /* UIView+Copy.h */,
+				26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */,
+				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
+				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
 				26BB4EB8197098630077FF6F /* Images.xcassets */,
@@ -363,10 +400,9 @@
 		26BB4EAD197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26FF86811977FBCA0092C547 /* icons */,
 				26BB4EE21970A2060077FF6F /* squares.jpg */,
-				26BB4F201972F67A0077FF6F /* lookup_amatorka.png */,
-				26BB4EE719711E240077FF6F /* stefce.jpg */,
-				26BB4EF41971F16A0077FF6F /* squares_drawing.jpg */,
+				26BB4F66197AD86D0077FF6F /* stefce.jpg */,
 				26BB4EAE197098630077FF6F /* FSquares-Info.plist */,
 				26BB4EAF197098630077FF6F /* InfoPlist.strings */,
 				26BB4EB2197098630077FF6F /* main.m */,
@@ -581,6 +617,26 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		26FF86811977FBCA0092C547 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F70197BDE710077FF6F /* squares-40.png */,
+				26BB4F6E197BDE320077FF6F /* squares-29.png */,
+				26BB4F72197BDED00077FF6F /* squares-57.png */,
+				26BB4F7A197BE0280077FF6F /* squares-50.png */,
+				26BB4F7B197BE0280077FF6F /* squares-100.png */,
+				26FF868A1978011A0092C547 /* squares-58.png */,
+				26BB4F76197BDFBF0077FF6F /* squares-72.png */,
+				26BB4F74197BDF860077FF6F /* squares-114.png */,
+				26BB4F78197BDFD90077FF6F /* squares-144.png */,
+				26FF86821977FBCA0092C547 /* touch-icon-ipad-retina.png */,
+				26FF86831977FBCA0092C547 /* touch-icon-ipad.png */,
+				26FF86841977FBCA0092C547 /* touch-icon-iphone-retina.png */,
+				26FF86851977FBCA0092C547 /* touch-icon-iphone.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -657,17 +713,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26BB4F79197BDFD90077FF6F /* squares-144.png in Resources */,
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
+				26FF86861977FBCA0092C547 /* touch-icon-ipad-retina.png in Resources */,
+				26FF86881977FBCA0092C547 /* touch-icon-iphone-retina.png in Resources */,
+				26FF86891977FBCA0092C547 /* touch-icon-iphone.png in Resources */,
+				26BB4F71197BDE710077FF6F /* squares-40.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
-				26BB4F2F19748A420077FF6F /* FSQProcessSquareViewController.xib in Resources */,
-				26BB4EF51971F16A0077FF6F /* squares_drawing.jpg in Resources */,
-				26BB4F211972F67A0077FF6F /* lookup_amatorka.png in Resources */,
+				26FF86871977FBCA0092C547 /* touch-icon-ipad.png in Resources */,
+				26BB4F7D197BE0280077FF6F /* squares-100.png in Resources */,
+				26BB4F73197BDED00077FF6F /* squares-57.png in Resources */,
+				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
+				26BB4F67197AD86D0077FF6F /* stefce.jpg in Resources */,
+				26BB4F7C197BE0280077FF6F /* squares-50.png in Resources */,
+				26BB4F6F197BDE320077FF6F /* squares-29.png in Resources */,
+				26FF868B1978011A0092C547 /* squares-58.png in Resources */,
 				26BB4EE31970A2060077FF6F /* squares.jpg in Resources */,
+				26BB4F77197BDFBF0077FF6F /* squares-72.png in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
-				26BB4EE819711E240077FF6F /* stefce.jpg in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
+				26BB4F75197BDF860077FF6F /* squares-114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,11 +755,14 @@
 			files = (
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
-				26BB4F2E19748A420077FF6F /* FSQProcessSquareViewController.m in Sources */,
+				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
+				26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
-				26BB4EE119709AAA0077FF6F /* FSQImageViewController.m in Sources */,
+				26BB4F5C1979E39C0077FF6F /* JASidePanelController.m in Sources */,
+				26BB4F6D197BC31E0077FF6F /* UIView+Copy.m in Sources */,
+				26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
 			);
@@ -825,6 +895,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -846,6 +917,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

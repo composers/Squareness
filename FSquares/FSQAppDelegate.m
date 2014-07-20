@@ -8,34 +8,34 @@
 
 #import "FSQAppDelegate.h"
 #import "FSQFirstViewController.h"
-#import "FSQImageViewController.h"
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
+#import "CarouselViewController.h"
+
+
+
 @implementation FSQAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    modelController = [FSQModelController sharedInstance];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    self.viewController = [[JASidePanelController alloc] init];
     
-    FSQFirstViewController *firstViewController = [[FSQFirstViewController alloc] init];
-    FSQImageViewController *imageViewController = [[FSQImageViewController alloc] init];
-    FSQOptionsViewController *optionsViewController = [[FSQOptionsViewController alloc] init];
-    
-    
-    [tabBarController addChildViewController:firstViewController];
-    [tabBarController addChildViewController:imageViewController];
-    [tabBarController addChildViewController:optionsViewController];
-    
-    
-    self.window.rootViewController = tabBarController;
+    self.viewController.leftPanel = [[FSQFirstViewController alloc] init];
+    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CarouselViewController alloc] init]];
+
+   
+    self.viewController.rightPanel = [[FSQOptionsViewController alloc] init];
+    self.window.rootViewController = self.viewController;
     
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

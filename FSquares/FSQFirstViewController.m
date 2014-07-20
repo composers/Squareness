@@ -9,7 +9,7 @@
 #import "FSQFirstViewController.h"
 #import "UIImage+Resize.h"
 #import "FSQModelController.h"
-#import "FSQImageViewController.h"
+
 
 @interface FSQFirstViewController ()
 
@@ -22,15 +22,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        UITabBarItem * tabBarItem = [[UITabBarItem alloc] initWithTitle: @"new image"
-                                                                image: nil //or your icon
-                                                                  tag: 0];
-        [self setTabBarItem:tabBarItem];
-      
-      NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
-      UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-      self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     }
     return self;
 }
@@ -41,6 +32,17 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
+    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+  
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -49,10 +51,6 @@
 
 
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender {
-  FSQModelController *modelController = [FSQModelController sharedInstance];
-  modelController.image = nil;
-  modelController.processedImage = nil;
-  
   UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
   photoPicker.delegate = self;
   photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -61,22 +59,18 @@
 }
 
 - (IBAction)takePhotoWithCamera:(UIButton *)sender {
-  FSQModelController *modelController = [FSQModelController sharedInstance];
-  modelController.image = nil;
-  modelController.processedImage = nil;
   
   UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-  
   photoPicker.delegate = self;
   photoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
   
   [self presentViewController:photoPicker animated:YES completion:NULL];
+  
 }
 
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  [photoPicker dismissViewControllerAnimated:YES completion:nil];
-  FSQModelController *modelController = [FSQModelController sharedInstance];
-  modelController.image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    modelController.image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [photoPicker dismissViewControllerAnimated:YES completion:nil];
 }
 @end
