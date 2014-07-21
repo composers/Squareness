@@ -27,10 +27,11 @@
     
     self.viewController.leftPanel = [[FSQFirstViewController alloc] init];
     self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CarouselViewController alloc] init]];
-
-   
     self.viewController.rightPanel = [[FSQOptionsViewController alloc] init];
+
+    
     self.window.rootViewController = self.viewController;
+    
     
     [self.window makeKeyAndVisible];
     return YES;

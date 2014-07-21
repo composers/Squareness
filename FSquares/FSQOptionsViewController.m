@@ -48,19 +48,6 @@
   modelController.image = nil;
 }
 
-- (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender {
-    
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            modelController.usePreselectedFilterStatus = NO;
-            break;
-        case 1:
-            modelController.usePreselectedFilterStatus = YES;
-            break;
-        default:
-            break;
-    }
-}
 
 - (IBAction)gridStatusChanged:(UISegmentedControl *)sender {
     
@@ -149,7 +136,10 @@
 - (IBAction)aplyRandomFilters:(UIButton *)sender {
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    [self.sidePanelController showCenterPanelAnimated:YES];
     [modelController applyRandomFiltersToView:carouselController.scrollView];
+    modelController.image = [modelController snapshot:carouselController.scrollView];
+    
 }
 
 

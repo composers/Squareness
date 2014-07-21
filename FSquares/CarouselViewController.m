@@ -9,6 +9,8 @@
 #import "CarouselViewController.h"
 #import "FSQModelController.h"
 #import "UIImage+Resize.h"
+#import "UIViewController+JASidePanel.h"
+#import "JASidePanelController.h"
 
 @interface CarouselViewController ()
 
@@ -43,6 +45,10 @@
     self.scrollView.contentSize = screenFrame.size;
     
     
+    [self.sidePanelController showLeftPanelAnimated:YES];
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -75,16 +81,6 @@
     modelController.selectedSubImageView = [modelController getImageViewWithTag:gesture.view.tag fromView:gesture.view.superview];
     
     [self.carousel reloadData];
-    
-//    if (modelController.usePreselectedFilterStatus == YES) {
-//        modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
-//        
-//    }
-    
-//    if (modelController.usePreselectedFilterStatus == NO) {
-//        FSQProcessSquareViewController *processSquareController = [[FSQProcessSquareViewController alloc] init];
-//        [self presentViewController:processSquareController animated:YES completion:nil];
-//    }
 }
 
 
@@ -150,7 +146,7 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.03f;
+        return value * 1.04f;
     }
     return value;
 }

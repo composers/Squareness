@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSQOptionsViewController : UIViewController  <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FSQOptionsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gridStatus;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *usePredefinedFilterStatus;
-- (IBAction)usePredefinedFilterStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)gridStatusChanged:(UISegmentedControl *)sender;
 - (IBAction)savePhoto:(UIButton *)sender;
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender;

@@ -39,7 +39,6 @@
         self.image = [UIImage imageWithContentsOfFile:imgPath];
         
         self.gridStatus = YES;
-        self.usePreselectedFilterStatus = NO;
         self.gridSquareSize = 80;
         
         self.selectedSubImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"squares.jpg"]];
@@ -220,8 +219,7 @@
             UIImageView *subImageView = (UIImageView *)subview;
             subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesCI objectAtIndex:(arc4random() % self.filterNamesCI.count)]];
         }
-    }
-    //TODO:snapshot
+    }    
 }
 
 - (void)dealloc {

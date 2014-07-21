@@ -14,7 +14,6 @@
 @property (nonatomic, retain) NSString *filterNameSelectedCI;
 
 @property (nonatomic, assign) BOOL gridStatus;
-@property (nonatomic, assign) BOOL usePreselectedFilterStatus;
 @property (nonatomic, assign) NSInteger gridSquareSize;
 
 @property (nonatomic, retain) UIImage *image;

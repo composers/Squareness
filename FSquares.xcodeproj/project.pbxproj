@@ -49,6 +49,16 @@
 		26BB4F79197BDFD90077FF6F /* squares-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F78197BDFD90077FF6F /* squares-144.png */; };
 		26BB4F7C197BE0280077FF6F /* squares-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F7A197BE0280077FF6F /* squares-50.png */; };
 		26BB4F7D197BE0280077FF6F /* squares-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F7B197BE0280077FF6F /* squares-100.png */; };
+		26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */; };
+		26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F85197DBC520077FF6F /* FAKFoundationIcons.m */; };
+		26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F87197DBC520077FF6F /* FAKIcon.m */; };
+		26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F89197DBC520077FF6F /* FAKIonIcons.m */; };
+		26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F8B197DBC520077FF6F /* FAKZocial.m */; };
+		26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F8C197DBC520077FF6F /* FontAwesome.otf */; };
+		26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F8E197DBC520077FF6F /* foundation-icons.ttf */; };
+		26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F8F197DBC520077FF6F /* ionicons.ttf */; };
+		26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */; };
+		26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F9A197DBC670077FF6F /* CoreText.framework */; };
 		26FF865119757C690092C547 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FF865019757C690092C547 /* libGPUImage.a */; };
 		26FF86861977FBCA0092C547 /* touch-icon-ipad-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF86821977FBCA0092C547 /* touch-icon-ipad-retina.png */; };
 		26FF86871977FBCA0092C547 /* touch-icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FF86831977FBCA0092C547 /* touch-icon-ipad.png */; };
@@ -124,6 +134,22 @@
 		26BB4F78197BDFD90077FF6F /* squares-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-144.png"; sourceTree = "<group>"; };
 		26BB4F7A197BE0280077FF6F /* squares-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-50.png"; sourceTree = "<group>"; };
 		26BB4F7B197BE0280077FF6F /* squares-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-100.png"; sourceTree = "<group>"; };
+		26BB4F82197DBC520077FF6F /* FAKFontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFontAwesome.h; sourceTree = "<group>"; };
+		26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKFontAwesome.m; sourceTree = "<group>"; };
+		26BB4F84197DBC520077FF6F /* FAKFoundationIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFoundationIcons.h; sourceTree = "<group>"; };
+		26BB4F85197DBC520077FF6F /* FAKFoundationIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKFoundationIcons.m; sourceTree = "<group>"; };
+		26BB4F86197DBC520077FF6F /* FAKIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKIcon.h; sourceTree = "<group>"; };
+		26BB4F87197DBC520077FF6F /* FAKIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKIcon.m; sourceTree = "<group>"; };
+		26BB4F88197DBC520077FF6F /* FAKIonIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKIonIcons.h; sourceTree = "<group>"; };
+		26BB4F89197DBC520077FF6F /* FAKIonIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKIonIcons.m; sourceTree = "<group>"; };
+		26BB4F8A197DBC520077FF6F /* FAKZocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKZocial.h; sourceTree = "<group>"; };
+		26BB4F8B197DBC520077FF6F /* FAKZocial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKZocial.m; sourceTree = "<group>"; };
+		26BB4F8C197DBC520077FF6F /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		26BB4F8D197DBC520077FF6F /* FontAwesomeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesomeKit.h; sourceTree = "<group>"; };
+		26BB4F8E197DBC520077FF6F /* foundation-icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "foundation-icons.ttf"; sourceTree = "<group>"; };
+		26BB4F8F197DBC520077FF6F /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
+		26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
+		26BB4F9A197DBC670077FF6F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		26FF85AC19757C690092C547 /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		26FF85AD19757C690092C547 /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
 		26FF85AE19757C690092C547 /* GPUImage3x3ConvolutionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage3x3ConvolutionFilter.h; sourceTree = "<group>"; };
@@ -300,6 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */,
 				26BB4F1F1972F3DE0077FF6F /* QuartzCore.framework in Frameworks */,
 				26FF865119757C690092C547 /* libGPUImage.a in Frameworks */,
 				26BB4F1D1972F3D30077FF6F /* AVFoundation.framework in Frameworks */,
@@ -348,6 +375,7 @@
 		26BB4EA5197098630077FF6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26BB4F9A197DBC670077FF6F /* CoreText.framework */,
 				26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */,
 				26BB4F1C1972F3D30077FF6F /* AVFoundation.framework */,
 				26BB4F1A1972F3C80077FF6F /* OpenGLES.framework */,
@@ -391,6 +419,7 @@
 				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
+				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
 				26BB4EB8197098630077FF6F /* Images.xcassets */,
 				26BB4EAD197098630077FF6F /* Supporting Files */,
 			);
@@ -427,6 +456,28 @@
 				26BB4EC8197098630077FF6F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26BB4F81197DBC520077FF6F /* FontAwesomeKit */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F82197DBC520077FF6F /* FAKFontAwesome.h */,
+				26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */,
+				26BB4F84197DBC520077FF6F /* FAKFoundationIcons.h */,
+				26BB4F85197DBC520077FF6F /* FAKFoundationIcons.m */,
+				26BB4F86197DBC520077FF6F /* FAKIcon.h */,
+				26BB4F87197DBC520077FF6F /* FAKIcon.m */,
+				26BB4F88197DBC520077FF6F /* FAKIonIcons.h */,
+				26BB4F89197DBC520077FF6F /* FAKIonIcons.m */,
+				26BB4F8A197DBC520077FF6F /* FAKZocial.h */,
+				26BB4F8B197DBC520077FF6F /* FAKZocial.m */,
+				26BB4F8C197DBC520077FF6F /* FontAwesome.otf */,
+				26BB4F8D197DBC520077FF6F /* FontAwesomeKit.h */,
+				26BB4F8E197DBC520077FF6F /* foundation-icons.ttf */,
+				26BB4F8F197DBC520077FF6F /* ionicons.ttf */,
+				26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */,
+			);
+			path = FontAwesomeKit;
 			sourceTree = "<group>";
 		};
 		26FF85AA19757C690092C547 /* GPUImage */ = {
@@ -722,12 +773,16 @@
 				26FF86891977FBCA0092C547 /* touch-icon-iphone.png in Resources */,
 				26BB4F71197BDE710077FF6F /* squares-40.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
+				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26FF86871977FBCA0092C547 /* touch-icon-ipad.png in Resources */,
 				26BB4F7D197BE0280077FF6F /* squares-100.png in Resources */,
+				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				26BB4F73197BDED00077FF6F /* squares-57.png in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				26BB4F67197AD86D0077FF6F /* stefce.jpg in Resources */,
 				26BB4F7C197BE0280077FF6F /* squares-50.png in Resources */,
+				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
+				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				26BB4F6F197BDE320077FF6F /* squares-29.png in Resources */,
 				26FF868B1978011A0092C547 /* squares-58.png in Resources */,
 				26BB4EE31970A2060077FF6F /* squares.jpg in Resources */,
@@ -759,10 +814,15 @@
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
 				26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */,
+				26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
 				26BB4F5C1979E39C0077FF6F /* JASidePanelController.m in Sources */,
+				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
 				26BB4F6D197BC31E0077FF6F /* UIView+Copy.m in Sources */,
 				26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */,
+				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,
+				26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */,
+				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
 			);
