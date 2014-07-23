@@ -9,6 +9,7 @@
 #import "FSQFirstViewController.h"
 #import "UIImage+Resize.h"
 #import "FSQModelController.h"
+#import "MLPSpotlight.h"
 
 
 @interface FSQFirstViewController ()
@@ -30,13 +31,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
-    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];
+//    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
+//    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
+//self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];
+    
+    [self.view setAlpha:0];
+    [UIView animateWithDuration:0.8
+                          delay:0.1
+                        options:UIViewAnimationCurveEaseOut
+                     animations:^{
+                         [self.view setAlpha:1.0];
+                     }completion:nil];
+
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -70,7 +83,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    modelController.image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [photoPicker dismissViewControllerAnimated:YES completion:nil];
+  CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+  UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+  modelController.image = [image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
+  [photoPicker dismissViewControllerAnimated:YES completion:nil];
 }
 @end

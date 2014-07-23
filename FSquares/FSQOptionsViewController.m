@@ -12,6 +12,7 @@
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "CarouselViewController.h"
+#import "MLPSpotlight.h"
 
 @interface FSQOptionsViewController ()
 
@@ -32,12 +33,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
-    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];;
+//    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
+//    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];;
+    [self.view setAlpha:0];
+    [UIView animateWithDuration:0.8
+                          delay:0.1
+                        options:UIViewAnimationCurveEaseOut
+                     animations:^{
+                         [self.view setAlpha:1.0];
+                     }completion:nil];
 }
 
 
@@ -56,7 +65,7 @@
     
     if (sender.selectedSegmentIndex == 0) {
         modelController.gridStatus = YES;
-        [modelController putBorderWithWidth:1.0 aroundImageViewsFromView:carouselController.scrollView];
+        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
     
     }
     
@@ -121,15 +130,17 @@
             break;
     }
     
-    [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+    modelController.subImageViews = [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize];
+    [modelController putSubImageViews:modelController.subImageViews InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     
     if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:1.0 aroundImageViewsFromView:carouselController.scrollView];
+        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
     }
     if (modelController.gridStatus == NO) {
         [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     }
+
 
 }
 

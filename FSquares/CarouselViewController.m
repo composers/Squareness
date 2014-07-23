@@ -56,11 +56,12 @@
     //        UIAlertView *alert = [UIAlertView alloc] initWithTitle: message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil
     //    }
     
-    [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize andPutInView:self.scrollView];
+    modelController.subImageViews = [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize];
+    [modelController putSubImageViews:modelController.subImageViews InView:self.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:self.scrollView andViewController:self];
     
     if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:1.0 aroundImageViewsFromView:self.scrollView];
+        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:self.scrollView];
     }
     if (modelController.gridStatus == NO) {
         [modelController removeBorderAroundImageViewsFromView:self.scrollView];
@@ -81,6 +82,11 @@
     modelController.selectedSubImageView = [modelController getImageViewWithTag:gesture.view.tag fromView:gesture.view.superview];
     
     [self.carousel reloadData];
+
+    UIImageView *subImageView = (UIImageView *)gesture.view;
+    [subImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [subImageView.layer setBorderWidth: 4.0];
+
 }
 
 
@@ -112,9 +118,10 @@
         view.contentMode = UIViewContentModeCenter;
     }
     
-    
+    if (modelController.selectedSubImageView.image) {
     UIImage *outputImage = [modelController processImage:[modelController.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[modelController.filterNamesCI objectAtIndex:index]];
     ((UIImageView *)view).image = outputImage;
+    }
 
     return view;
 }
@@ -133,7 +140,7 @@
     modelController.image = [modelController snapshot:self.scrollView];
     
     if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:1.0 aroundImageViewsFromView:self.scrollView];
+        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:self.scrollView];
     }
     if (modelController.gridStatus == NO) {
         [modelController removeBorderAroundImageViewsFromView:self.scrollView];

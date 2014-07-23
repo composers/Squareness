@@ -15,10 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-Hi-nIp">
-                    <rect key="frame" x="211" y="57" width="81" height="29"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-Hi-nIp">
+                    <rect key="frame" x="202" y="57" width="90" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.67217221467391308" green="0.37304016549319524" blue="0.10900994281932337" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.67217221469999999" green="0.37304016550000002" blue="0.1090099428" alpha="1" colorSpace="calibratedRGB"/>
                     <segments>
                         <segment title="ON"/>
                         <segment title="OFF"/>
@@ -60,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Wye-xv-t7L">
-                    <rect key="frame" x="101" y="280" width="199" height="29"/>
+                    <rect key="frame" x="95" y="280" width="205" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="40"/>

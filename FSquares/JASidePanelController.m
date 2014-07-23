@@ -25,6 +25,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "JASidePanelController.h"
+#import "FontAwesomeKit/FAKFontAwesome.h"
+
 
 static char ja_kvoContext;
 
@@ -971,11 +973,13 @@ static char ja_kvoContext;
 #pragma mark - Public Methods
 
 - (UIBarButtonItem *)leftButtonForCenterPanel {
-    return [[UIBarButtonItem alloc] initWithImage:[[self class] defaultImage] style:UIBarButtonItemStylePlain target:self action:@selector(toggleLeftPanel:)];
+    UIImage *icon = [[FAKFontAwesome cameraRetroIconWithSize:20] imageWithSize:CGSizeMake(20.f, 20.f)];
+    return [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(toggleLeftPanel:)];
 }
 
 - (UIBarButtonItem *)rightButtonForCenterPanel {
-    return [[UIBarButtonItem alloc] initWithImage:[[self class] defaultImage] style:UIBarButtonItemStylePlain target:self action:@selector(toggleRightPanel:)];
+    UIImage *icon = [[FAKFontAwesome cogIconWithSize:20] imageWithSize:CGSizeMake(20.f, 20.f)];
+    return [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(toggleRightPanel:)];
 }
 
 - (void)showLeftPanel:(BOOL)animated {

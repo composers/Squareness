@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 26229189198027CC0001C116 /* MLPSpotlight.m */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -78,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26229188198027CC0001C116 /* MLPSpotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPSpotlight.h; sourceTree = "<group>"; };
+		26229189198027CC0001C116 /* MLPSpotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPSpotlight.m; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* FSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -417,6 +420,8 @@
 				26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */,
 				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
 				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
+				26229188198027CC0001C116 /* MLPSpotlight.h */,
+				26229189198027CC0001C116 /* MLPSpotlight.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
 				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
@@ -824,6 +829,7 @@
 				26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */,
 				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
+				2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

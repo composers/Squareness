@@ -12,5 +12,7 @@
 	<string>GPUImagePixellateFilter</string>
 	<string>GPUImageSmoothToonFilter</string>
 	<string>GPUImageSwirlFilter</string>
+	<string>GPUImageiOSBlurFilter</string>
+	<string>GPUImagePolkaDotFilter</string>
 </array>
 </plist>
