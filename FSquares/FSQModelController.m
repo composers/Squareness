@@ -238,23 +238,20 @@
 }
 
 - (void)applyRandomFiltersToView:(UIView *)view{
-  //DO NOT PROCESS ON THE MAIN THREAD: USE THIS
-  //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-  //        // switch to a background thread and perform your expensive operation
-  //
-  //        dispatch_async(dispatch_get_main_queue(), ^{
-  //            // switch back to the main thread to update your UI
-  //
-  //        });
-  //    });
-  
-  
   for (UIView *subview in view.subviews) {
     if ([subview isKindOfClass:[UIImageView class]]){
       UIImageView *subImageView = (UIImageView *)subview;
       subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesCI objectAtIndex:(arc4random() % self.filterNamesCI.count)]];
     }
   }
+}
+- (void)applyRandomFiltersToSubImageViews:(NSMutableDictionary *)subImageViews{
+    NSArray *subImageViewsArray = [subImageViews allValues];
+    
+    for (UIImageView *subImageView in subImageViewsArray) {
+        subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesCI objectAtIndex:(arc4random() % self.filterNamesCI.count)]];
+    }
+
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color andFrame:(CGRect)rect

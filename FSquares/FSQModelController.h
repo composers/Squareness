@@ -22,7 +22,6 @@
 
 + (id)sharedInstance;
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName;
-//- (UIImage *)imageWithView:(UIView *)view;
 - (UIImage *)snapshot:(UIView *)view;
 - (NSMutableDictionary *)divideImage:(UIImage *)image withBlockSize:(int)blockSize;
 - (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view;
@@ -32,6 +31,7 @@
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;
 - (void)removeBorderAroundImageViewsFromView:(UIView *)rootView;
 - (void)applyRandomFiltersToView:(UIView *)view;
+- (void)applyRandomFiltersToSubImageViews:(NSMutableDictionary *)subImageViews;
 - (UIImage *)imageWithColor:(UIColor *)color andFrame:(CGRect)rect;
 @end
 

@@ -115,23 +115,23 @@
     
     switch (sender.selectedSegmentIndex) {
         case 0:
-            modelController.gridSquareSize = 40;
+            modelController.gridSquareSize = 20;
             break;
         case 1:
-            modelController.gridSquareSize = 80;
+            modelController.gridSquareSize = 40;
             break;
         case 2:
-            modelController.gridSquareSize = 160;
+            modelController.gridSquareSize = 80;
             break;
         case 3:
-            modelController.gridSquareSize = -1;
+            modelController.gridSquareSize = 160;
             break;
         default:
             break;
     }
     
     modelController.subImageViews = [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize];
-    [modelController putSubImageViews:modelController.subImageViews InView:carouselController.scrollView];
+    [modelController putSubImageViews:[modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize] InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     
     if (modelController.gridStatus == YES) {
@@ -140,18 +140,6 @@
     if (modelController.gridStatus == NO) {
         [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     }
-
-
 }
-
-- (IBAction)aplyRandomFilters:(UIButton *)sender {
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    [self.sidePanelController showCenterPanelAnimated:YES];
-    [modelController applyRandomFiltersToView:carouselController.scrollView];
-    modelController.image = [modelController snapshot:carouselController.scrollView];
-    
-}
-
 
 @end
