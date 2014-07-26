@@ -41,9 +41,9 @@
 //    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];;
     [self.view setAlpha:0];
-    [UIView animateWithDuration:0.8
+    [UIView animateWithDuration:0.9
                           delay:0.1
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          [self.view setAlpha:1.0];
                      }completion:nil];
@@ -130,8 +130,8 @@
             break;
     }
     
-    modelController.subImageViews = [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize];
-    [modelController putSubImageViews:[modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize] InView:carouselController.scrollView];
+    modelController.subImageViews = [modelController divideImage];
+    [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     
     if (modelController.gridStatus == YES) {

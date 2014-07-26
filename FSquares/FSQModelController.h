@@ -23,15 +23,13 @@
 + (id)sharedInstance;
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName;
 - (UIImage *)snapshot:(UIView *)view;
-- (NSMutableDictionary *)divideImage:(UIImage *)image withBlockSize:(int)blockSize;
+- (NSMutableDictionary *)divideImage;
 - (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view;
-
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 - (UIImageView *)getImageViewWithTag:(NSInteger)tag fromView:(UIView *)rootView;
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;
 - (void)removeBorderAroundImageViewsFromView:(UIView *)rootView;
 - (void)applyRandomFiltersToView:(UIView *)view;
-- (void)applyRandomFiltersToSubImageViews:(NSMutableDictionary *)subImageViews;
 - (UIImage *)imageWithColor:(UIColor *)color andFrame:(CGRect)rect;
 @end
 

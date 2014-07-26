@@ -12,6 +12,7 @@
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "FontAwesomeKit/FAKFontAwesome.h"
+#import "DDIndicator.h"
 
 @interface CarouselViewController ()
 
@@ -29,9 +30,12 @@
 }
 
 - (void)applyRandomFilters:(id)sender{
-    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.navigationItem.titleView = aiView;
-    [aiView startAnimating];
+//    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [self.view addSubview:ind];
+    [ind startAnimating];
+    self.navigationItem.titleView = ind;
+    //[aiView startAnimating];
     [self performSelectorInBackground:@selector(applyRandomFiltersBackground) withObject:nil];
 }
 
@@ -40,7 +44,6 @@
         UIImageView *subImageView = (UIImageView *)subview;
         subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesCI objectAtIndex:(arc4random() % modelController.filterNamesCI.count)]];
     }
-    
     self.navigationItem.titleView = [self buttonForTitleView];
 }
 
@@ -85,9 +88,9 @@
     //        UIAlertView *alert = [UIAlertView alloc] initWithTitle: message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil
     //    }
     
-    modelController.subImageViews = [modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize];
+    modelController.subImageViews = [modelController divideImage];
     
-    [modelController putSubImageViews:[modelController divideImage:modelController.image withBlockSize:modelController.gridSquareSize] InView:self.scrollView];
+    [modelController putSubImageViews:[modelController divideImage] InView:self.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:self.scrollView andViewController:self];
     
     if (modelController.gridStatus == YES) {

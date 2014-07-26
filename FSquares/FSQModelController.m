@@ -11,7 +11,6 @@
 #import "GPUImage.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
-#import "UIView+Copy.h"
 
 @interface FSQModelController()
 @property (nonatomic, retain) GPUImagePixellateFilter *gpuImagePixellateFilter;
@@ -68,17 +67,13 @@
 }
 
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
-  
-  //DO NOT PROCESS ON THE MAIN THREAD: USE THIS
-  //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-  //        // switch to a background thread and perform your expensive operation
-  //
-  //        dispatch_async(dispatch_get_main_queue(), ^{
-  //            // switch back to the main thread to update your UI
-  //
-  //        });
-  //    });
-  NSLog(@"Image processing...");
+    
+    if (myImage == nil) {
+        NSLog(@"No image loaded");
+        return nil;
+    }
+    
+  NSLog(@"Image processing with filter %@", filterName);
   
   if ([filterName containsString:@"GPUImage"]) {
     
@@ -134,18 +129,6 @@
   }
 }
 
-- (UIImage *)imageWithView:(UIView *)view
-{
-  UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 1.0);
-  [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-  
-  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-  
-  UIGraphicsEndImageContext();
-  
-  return img;
-}
-
 - (UIImage *)snapshot:(UIView *)view
 {
   UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 1.0);
@@ -156,18 +139,18 @@
   return image;
 }
 
-- (NSMutableDictionary *)divideImage:(UIImage *)image withBlockSize:(int)blockSize{
+- (NSMutableDictionary *)divideImage{
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    UIImage *resizedImage = [image resizedImageToSize:screenFrame.size];
+    UIImage *resizedImage = [self.image resizedImageToSize:screenFrame.size];
     NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
     int partId = 100;
-    if (blockSize != -1) {
-        for (int x = 0; x < screenFrame.size.width; x += blockSize) {
-            for(int y = 0; y < screenFrame.size.height; y += blockSize) {
+ 
+        for (int x = 0; x < screenFrame.size.width; x += self.gridSquareSize) {
+            for(int y = 0; y < screenFrame.size.height; y += self.gridSquareSize) {
                 
-                CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, blockSize, blockSize));
+                CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, self.gridSquareSize, self.gridSquareSize));
                 UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
-                UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, blockSize, blockSize)];
+                UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, self.gridSquareSize, self.gridSquareSize)];
                 subImageView.userInteractionEnabled = YES;
                 [subImageView setImage:subImage];
                 subImageView.tag = partId;
@@ -176,14 +159,6 @@
                 CGImageRelease(cgSubImage);
             }
         }
-    }
-    else{
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:screenFrame];
-        imageView.userInteractionEnabled = YES;
-        [imageView setImage:resizedImage];
-        imageView.tag = partId;
-        [subImageViews setObject:imageView forKey:[NSNumber numberWithInt:imageView.tag]];
-    }
     return subImageViews;
 }
 

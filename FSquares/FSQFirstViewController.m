@@ -42,9 +42,9 @@
 //self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];
     
     [self.view setAlpha:0];
-    [UIView animateWithDuration:0.8
+    [UIView animateWithDuration:0.9
                           delay:0.1
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          [self.view setAlpha:1.0];
                      }completion:nil];

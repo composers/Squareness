@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 26229189198027CC0001C116 /* MLPSpotlight.m */; };
+		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
+		262291901983A2820001C116 /* FlipSquaresNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918F1983A2820001C116 /* FlipSquaresNavigationController.m */; };
+		262291991983A2FC0001C116 /* NSObject+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 262291921983A2FC0001C116 /* NSObject+ABExtras.m */; };
+		2622919A1983A2FC0001C116 /* UIImageView+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 262291941983A2FC0001C116 /* UIImageView+ABExtras.m */; };
+		2622919B1983A2FC0001C116 /* UINavigationController+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 262291961983A2FC0001C116 /* UINavigationController+ABExtras.m */; };
+		2622919C1983A2FC0001C116 /* UIView+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 262291981983A2FC0001C116 /* UIView+ABExtras.m */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -41,7 +47,6 @@
 		26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F62197AB86E0077FF6F /* CarouselViewController.m */; };
 		26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */; };
 		26BB4F67197AD86D0077FF6F /* stefce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F66197AD86D0077FF6F /* stefce.jpg */; };
-		26BB4F6D197BC31E0077FF6F /* UIView+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */; };
 		26BB4F6F197BDE320077FF6F /* squares-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F6E197BDE320077FF6F /* squares-29.png */; };
 		26BB4F71197BDE710077FF6F /* squares-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F70197BDE710077FF6F /* squares-40.png */; };
 		26BB4F73197BDED00077FF6F /* squares-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F72197BDED00077FF6F /* squares-57.png */; };
@@ -81,6 +86,18 @@
 /* Begin PBXFileReference section */
 		26229188198027CC0001C116 /* MLPSpotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPSpotlight.h; sourceTree = "<group>"; };
 		26229189198027CC0001C116 /* MLPSpotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPSpotlight.m; sourceTree = "<group>"; };
+		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
+		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
+		2622918E1983A2820001C116 /* FlipSquaresNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipSquaresNavigationController.h; sourceTree = "<group>"; };
+		2622918F1983A2820001C116 /* FlipSquaresNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipSquaresNavigationController.m; sourceTree = "<group>"; };
+		262291911983A2FC0001C116 /* NSObject+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABExtras.h"; sourceTree = "<group>"; };
+		262291921983A2FC0001C116 /* NSObject+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABExtras.m"; sourceTree = "<group>"; };
+		262291931983A2FC0001C116 /* UIImageView+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ABExtras.h"; sourceTree = "<group>"; };
+		262291941983A2FC0001C116 /* UIImageView+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ABExtras.m"; sourceTree = "<group>"; };
+		262291951983A2FC0001C116 /* UINavigationController+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ABExtras.h"; sourceTree = "<group>"; };
+		262291961983A2FC0001C116 /* UINavigationController+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ABExtras.m"; sourceTree = "<group>"; };
+		262291971983A2FC0001C116 /* UIView+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ABExtras.h"; sourceTree = "<group>"; };
+		262291981983A2FC0001C116 /* UIView+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ABExtras.m"; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* FSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,8 +144,6 @@
 		26BB4F62197AB86E0077FF6F /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
 		26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
 		26BB4F66197AD86D0077FF6F /* stefce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stefce.jpg; sourceTree = "<group>"; };
-		26BB4F6B197BC31E0077FF6F /* UIView+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Copy.h"; sourceTree = "<group>"; };
-		26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Copy.m"; sourceTree = "<group>"; };
 		26BB4F6E197BDE320077FF6F /* squares-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-29.png"; sourceTree = "<group>"; };
 		26BB4F70197BDE710077FF6F /* squares-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-40.png"; sourceTree = "<group>"; };
 		26BB4F72197BDED00077FF6F /* squares-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squares-57.png"; sourceTree = "<group>"; };
@@ -397,6 +412,8 @@
 			children = (
 				26BB4EB5197098630077FF6F /* FSQAppDelegate.h */,
 				26BB4EB6197098630077FF6F /* FSQAppDelegate.m */,
+				2622918E1983A2820001C116 /* FlipSquaresNavigationController.h */,
+				2622918F1983A2820001C116 /* FlipSquaresNavigationController.m */,
 				26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */,
 				26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */,
 				26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */,
@@ -416,12 +433,20 @@
 				26BB4F591979E39C0077FF6F /* JASidePanelController.m */,
 				26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */,
 				26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */,
-				26BB4F6B197BC31E0077FF6F /* UIView+Copy.h */,
-				26BB4F6C197BC31E0077FF6F /* UIView+Copy.m */,
 				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
 				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
 				26229188198027CC0001C116 /* MLPSpotlight.h */,
 				26229189198027CC0001C116 /* MLPSpotlight.m */,
+				2622918B19839E200001C116 /* DDIndicator.h */,
+				2622918C19839E200001C116 /* DDIndicator.m */,
+				262291911983A2FC0001C116 /* NSObject+ABExtras.h */,
+				262291921983A2FC0001C116 /* NSObject+ABExtras.m */,
+				262291931983A2FC0001C116 /* UIImageView+ABExtras.h */,
+				262291941983A2FC0001C116 /* UIImageView+ABExtras.m */,
+				262291951983A2FC0001C116 /* UINavigationController+ABExtras.h */,
+				262291961983A2FC0001C116 /* UINavigationController+ABExtras.m */,
+				262291971983A2FC0001C116 /* UIView+ABExtras.h */,
+				262291981983A2FC0001C116 /* UIView+ABExtras.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
 				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
@@ -818,19 +843,24 @@
 				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
+				262291901983A2820001C116 /* FlipSquaresNavigationController.m in Sources */,
 				26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
 				26BB4F5C1979E39C0077FF6F /* JASidePanelController.m in Sources */,
+				2622919A1983A2FC0001C116 /* UIImageView+ABExtras.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
-				26BB4F6D197BC31E0077FF6F /* UIView+Copy.m in Sources */,
 				26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */,
+				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
 				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,
 				26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */,
+				262291991983A2FC0001C116 /* NSObject+ABExtras.m in Sources */,
+				2622919B1983A2FC0001C116 /* UINavigationController+ABExtras.m in Sources */,
 				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
+				2622919C1983A2FC0001C116 /* UIView+ABExtras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

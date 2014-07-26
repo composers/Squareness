@@ -11,6 +11,7 @@
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
 #import "CarouselViewController.h"
+#import "FlipSquaresNavigationController.h"
 
 
 
@@ -28,7 +29,6 @@
     self.viewController.leftPanel = [[FSQFirstViewController alloc] init];
     self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CarouselViewController alloc] init]];
     self.viewController.rightPanel = [[FSQOptionsViewController alloc] init];
-
     
     self.window.rootViewController = self.viewController;
     
