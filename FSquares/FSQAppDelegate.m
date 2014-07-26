@@ -11,7 +11,6 @@
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
 #import "CarouselViewController.h"
-#import "FlipSquaresNavigationController.h"
 
 
 

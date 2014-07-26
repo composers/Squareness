@@ -37,9 +37,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-//    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
-//    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];;
     [self.view setAlpha:0];
     [UIView animateWithDuration:0.9
                           delay:0.1
@@ -76,6 +73,7 @@
     
 }
 
+
 - (IBAction)savePhoto:(UIButton *)sender {
   UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
@@ -105,13 +103,6 @@
 }
 
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    
-    if (modelController.gridStatus == YES) {
-        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    }
-    modelController.image = [modelController snapshot:carouselController.scrollView];
     
     switch (sender.selectedSegmentIndex) {
         case 0:
@@ -130,6 +121,17 @@
             break;
     }
     
+    [self performSelector:@selector(applySquareSizeChanges) withObject:nil afterDelay:0.2];
+}
+- (void)applySquareSizeChanges{
+    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    
+    if (modelController.gridStatus == YES) {
+        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+    }
+    modelController.image = [modelController snapshot:carouselController.scrollView];
+    
     modelController.subImageViews = [modelController divideImage];
     [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
@@ -140,6 +142,8 @@
     if (modelController.gridStatus == NO) {
         [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     }
+
+    
 }
 
 @end

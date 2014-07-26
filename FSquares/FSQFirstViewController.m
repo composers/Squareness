@@ -37,10 +37,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
-//    NSString *imgPath= [[NSBundle mainBundle] pathForResource:@"squares" ofType:@"jpg"];
-//    UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imgPath];
-//self.view.backgroundColor = [UIColor colorWithPatternImage:[backgroundImage resizedImageToSize:self.view.frame.size]];
-    
     [self.view setAlpha:0];
     [UIView animateWithDuration:0.9
                           delay:0.1
@@ -85,7 +81,8 @@
 {
   CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
   UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-  modelController.image = [image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
+    modelController.image = [image resizedImageToSize:screenFrame.size];
+    
   [photoPicker dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -11,6 +11,7 @@
 #import "GPUImage.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
+#import "UIImage+Rotate.h"
 
 @interface FSQModelController()
 @property (nonatomic, retain) GPUImagePixellateFilter *gpuImagePixellateFilter;
@@ -45,8 +46,8 @@
     
     self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
 
-//    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-//    self.image = [self imageWithColor:[UIColor grayColor] andFrame:screenFrame];
+    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    self.image = [self imageWithColor:[UIColor grayColor] andFrame:screenFrame];
     
     self.gridStatus = YES;
     self.gridSquareSize = 80;
@@ -141,12 +142,15 @@
 
 - (NSMutableDictionary *)divideImage{
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    if (modelController.image.size.height < modelController.image.size.width) {
+        modelController.image = [modelController.image imageRotatedByDegrees:90];
+    }
     UIImage *resizedImage = [self.image resizedImageToSize:screenFrame.size];
     NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
     int partId = 100;
  
-        for (int x = 0; x < screenFrame.size.width; x += self.gridSquareSize) {
-            for(int y = 0; y < screenFrame.size.height; y += self.gridSquareSize) {
+        for (int x = 0; x < resizedImage.size.width; x += self.gridSquareSize) {
+            for(int y = 0; y < resizedImage.size.height; y += self.gridSquareSize) {
                 
                 CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, self.gridSquareSize, self.gridSquareSize));
                 UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
