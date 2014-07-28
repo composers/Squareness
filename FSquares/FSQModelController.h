@@ -12,6 +12,7 @@
 @property (nonatomic, retain) NSArray *filterNamesUI;
 @property (nonatomic, retain) NSArray *filterNamesCI;
 @property (nonatomic, retain) NSString *filterNameSelectedCI;
+@property (nonatomic, retain) NSMutableArray *filterNamesChosen;
 
 @property (nonatomic, assign) BOOL gridStatus;
 @property (nonatomic, assign) NSInteger gridSquareSize;

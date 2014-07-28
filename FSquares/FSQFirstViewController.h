@@ -11,5 +11,6 @@
 @interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
 - (IBAction)takePhotoWithCamera:(UIButton *)sender;
+- (IBAction)saveImage:(UIButton *)sender;
 
 @end

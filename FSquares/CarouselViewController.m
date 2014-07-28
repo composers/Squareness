@@ -42,7 +42,7 @@
 - (void)applyRandomFiltersBackground{
     for (UIView *subview in self.scrollView.subviews) {
         UIImageView *subImageView = (UIImageView *)subview;
-        subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesCI objectAtIndex:(arc4random() % modelController.filterNamesCI.count)]];
+        subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
     }
     self.navigationItem.titleView = [self buttonForTitleView];
 }
@@ -79,6 +79,8 @@
     self.scrollView.contentSize = screenFrame.size;
     
     [self.sidePanelController showLeftPanelAnimated:YES];
+     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+
 }
 
 
@@ -135,7 +137,7 @@
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-    return modelController.filterNamesCI.count;
+    return modelController.filterNamesChosen.count;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -152,7 +154,7 @@
     }
     
     if (modelController.selectedSubImageView.image) {
-        UIImage *outputImage = [modelController processImage:[modelController.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[modelController.filterNamesCI objectAtIndex:index]];
+        UIImage *outputImage = [modelController processImage:[modelController.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[modelController.filterNamesChosen objectAtIndex:index]];
         ((UIImageView *)view).image = outputImage;
     }
     
@@ -162,7 +164,7 @@
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
     NSLog(@"carousel item selected %d", index);
     
-    modelController.filterNameSelectedCI = [modelController.filterNamesCI objectAtIndex:index];
+    modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
     [carousel reloadData];
     

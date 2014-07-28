@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
+		260E372619842D4500E5985E /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 260E372519842D4500E5985E /* artwork-source.png */; };
+		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
+		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
+		260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372D1984915700E5985E /* TNCheckBoxGroup.m */; };
+		260E373E1984915700E5985E /* TNCircularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37301984915700E5985E /* TNCircularCheckBox.m */; };
+		260E373F1984915700E5985E /* TNCircularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37321984915700E5985E /* TNCircularCheckBoxData.m */; };
+		260E37401984915700E5985E /* TNImageCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37341984915700E5985E /* TNImageCheckbox.m */; };
+		260E37411984915700E5985E /* TNImageCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37361984915700E5985E /* TNImageCheckBoxData.m */; };
+		260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37381984915700E5985E /* TNRectangularCheckBox.m */; };
+		260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */; };
 		2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 26229189198027CC0001C116 /* MLPSpotlight.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
 		262291AB1984209B0001C116 /* IMG_0009-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2622919E1984209B0001C116 /* IMG_0009-100.png */; };
@@ -82,6 +92,27 @@
 /* Begin PBXFileReference section */
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		260E372519842D4500E5985E /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
+		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
+		260E37281984915700E5985E /* TNCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBox.m; sourceTree = "<group>"; };
+		260E37291984915700E5985E /* TNCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxData.h; sourceTree = "<group>"; };
+		260E372A1984915700E5985E /* TNCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBoxData.m; sourceTree = "<group>"; };
+		260E372B1984915700E5985E /* TNCheckBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxDelegate.h; sourceTree = "<group>"; };
+		260E372C1984915700E5985E /* TNCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxGroup.h; sourceTree = "<group>"; };
+		260E372D1984915700E5985E /* TNCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBoxGroup.m; sourceTree = "<group>"; };
+		260E372E1984915700E5985E /* TNCheckBoxProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxProtocol.h; sourceTree = "<group>"; };
+		260E372F1984915700E5985E /* TNCircularCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularCheckBox.h; sourceTree = "<group>"; };
+		260E37301984915700E5985E /* TNCircularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularCheckBox.m; sourceTree = "<group>"; };
+		260E37311984915700E5985E /* TNCircularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularCheckBoxData.h; sourceTree = "<group>"; };
+		260E37321984915700E5985E /* TNCircularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularCheckBoxData.m; sourceTree = "<group>"; };
+		260E37331984915700E5985E /* TNImageCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageCheckbox.h; sourceTree = "<group>"; };
+		260E37341984915700E5985E /* TNImageCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageCheckbox.m; sourceTree = "<group>"; };
+		260E37351984915700E5985E /* TNImageCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageCheckBoxData.h; sourceTree = "<group>"; };
+		260E37361984915700E5985E /* TNImageCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageCheckBoxData.m; sourceTree = "<group>"; };
+		260E37371984915700E5985E /* TNRectangularCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBox.h; sourceTree = "<group>"; };
+		260E37381984915700E5985E /* TNRectangularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBox.m; sourceTree = "<group>"; };
+		260E37391984915700E5985E /* TNRectangularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBoxData.h; sourceTree = "<group>"; };
+		260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBoxData.m; sourceTree = "<group>"; };
 		26229188198027CC0001C116 /* MLPSpotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPSpotlight.h; sourceTree = "<group>"; };
 		26229189198027CC0001C116 /* MLPSpotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPSpotlight.m; sourceTree = "<group>"; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
@@ -361,6 +392,7 @@
 		2622919D1984209B0001C116 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				260E372519842D4500E5985E /* artwork-source.png */,
 				2622919E1984209B0001C116 /* IMG_0009-100.png */,
 				2622919F1984209B0001C116 /* IMG_0009-114.png */,
 				262291A01984209B0001C116 /* IMG_0009-120.png */,
@@ -447,6 +479,26 @@
 				260E3723198428D300E5985E /* UIImage+Rotate.m */,
 				26BB4EE41970A2960077FF6F /* UIImage+Resize.h */,
 				26BB4EE51970A2960077FF6F /* UIImage+Resize.m */,
+				260E37271984915700E5985E /* TNCheckBox.h */,
+				260E37281984915700E5985E /* TNCheckBox.m */,
+				260E37291984915700E5985E /* TNCheckBoxData.h */,
+				260E372A1984915700E5985E /* TNCheckBoxData.m */,
+				260E372B1984915700E5985E /* TNCheckBoxDelegate.h */,
+				260E372C1984915700E5985E /* TNCheckBoxGroup.h */,
+				260E372D1984915700E5985E /* TNCheckBoxGroup.m */,
+				260E372E1984915700E5985E /* TNCheckBoxProtocol.h */,
+				260E372F1984915700E5985E /* TNCircularCheckBox.h */,
+				260E37301984915700E5985E /* TNCircularCheckBox.m */,
+				260E37311984915700E5985E /* TNCircularCheckBoxData.h */,
+				260E37321984915700E5985E /* TNCircularCheckBoxData.m */,
+				260E37331984915700E5985E /* TNImageCheckbox.h */,
+				260E37341984915700E5985E /* TNImageCheckbox.m */,
+				260E37351984915700E5985E /* TNImageCheckBoxData.h */,
+				260E37361984915700E5985E /* TNImageCheckBoxData.m */,
+				260E37371984915700E5985E /* TNRectangularCheckBox.h */,
+				260E37381984915700E5985E /* TNRectangularCheckBox.m */,
+				260E37391984915700E5985E /* TNRectangularCheckBoxData.h */,
+				260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
 				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
@@ -774,6 +826,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				260E372619842D4500E5985E /* artwork-source.png in Resources */,
 				262291B41984209B0001C116 /* IMG_0009-58.png in Resources */,
 				262291B11984209B0001C116 /* IMG_0009-40.png in Resources */,
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
@@ -818,21 +871,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				260E373B1984915700E5985E /* TNCheckBox.m in Sources */,
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
 				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
+				260E37411984915700E5985E /* TNImageCheckBoxData.m in Sources */,
 				26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */,
+				260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */,
+				260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
 				26BB4F5C1979E39C0077FF6F /* JASidePanelController.m in Sources */,
+				260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */,
+				260E373E1984915700E5985E /* TNCircularCheckBox.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
 				26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */,
 				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
+				260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */,
 				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,
 				26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */,
+				260E37401984915700E5985E /* TNImageCheckbox.m in Sources */,
 				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
+				260E373F1984915700E5985E /* TNCircularCheckBoxData.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,

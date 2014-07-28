@@ -31,7 +31,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
+    //[MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
+    
+    
+    
+    for (UIView *square in self.view.subviews) {
+        if ([square isKindOfClass:[UIButton class]]) {
+            continue;
+        }
+        [square.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+        [square.layer setBorderWidth: 2.0];
+    }
+
+
     
 }
 
@@ -85,4 +97,33 @@
     
   [photoPicker dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)saveImage:(UIButton *)sender {
+    UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *alertTitle;
+    NSString *alertMessage;
+    
+    if(!error)
+    {
+        alertTitle   = @"Image Saved";
+        alertMessage = @"Image saved to photo album successfully.";
+    }
+    else
+    {
+        alertTitle   = @"Error";
+        alertMessage = @"Unable to save to photo album.";
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                    message:alertMessage
+                                                   delegate:self
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 @end

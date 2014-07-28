@@ -45,6 +45,8 @@
     self.filterNamesCI = [NSArray arrayWithContentsOfFile:filterNamesCIPlistPath];
     
     self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
+      
+    self.filterNamesChosen = [NSMutableArray arrayWithContentsOfFile:filterNamesCIPlistPath];
 
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
     self.image = [self imageWithColor:[UIColor grayColor] andFrame:screenFrame];
@@ -220,7 +222,7 @@
   for (UIView *subview in view.subviews) {
     if ([subview isKindOfClass:[UIImageView class]]){
       UIImageView *subImageView = (UIImageView *)subview;
-      subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesCI objectAtIndex:(arc4random() % self.filterNamesCI.count)]];
+      subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesChosen objectAtIndex:(arc4random() % self.filterNamesChosen.count)]];
     }
   }
 }
@@ -228,7 +230,7 @@
     NSArray *subImageViewsArray = [subImageViews allValues];
     
     for (UIImageView *subImageView in subImageViewsArray) {
-        subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesCI objectAtIndex:(arc4random() % self.filterNamesCI.count)]];
+        subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesChosen objectAtIndex:(arc4random() % self.filterNamesChosen.count)]];
     }
 
 }

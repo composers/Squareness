@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface FSQOptionsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UISegmentedControl *gridStatus;
-- (IBAction)gridStatusChanged:(UISegmentedControl *)sender;
-- (IBAction)savePhoto:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UIView *gridStatusCheckboxContainer;
+@property (weak, nonatomic) IBOutlet UIScrollView *chooseFiltersCheckboxContainer;
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender;
+- (IBAction)savePhoto:(UIButton *)sender;
 @end
