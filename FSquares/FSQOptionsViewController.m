@@ -182,7 +182,6 @@
     }
     modelController.image = [modelController snapshot:carouselController.scrollView];
     
-    modelController.subImageViews = [modelController divideImage];
     [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     

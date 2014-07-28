@@ -42,14 +42,12 @@
     self.filterNamesUI = [NSArray arrayWithContentsOfFile:filterNamesUIPlistPath];
     
     NSString *filterNamesCIPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesCoreImage" ofType:@"plist"];
+      
     self.filterNamesCI = [NSArray arrayWithContentsOfFile:filterNamesCIPlistPath];
     
     self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
       
     self.filterNamesChosen = [NSMutableArray arrayWithContentsOfFile:filterNamesCIPlistPath];
-
-    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    self.image = [self imageWithColor:[UIColor grayColor] andFrame:screenFrame];
     
     self.gridStatus = YES;
     self.gridSquareSize = 80;
@@ -186,18 +184,6 @@
   }
 }
 
-- (UIImageView *)getImageViewWithTag:(NSInteger)tag fromView:(UIView *)view{
-  UIView *tempView;
-  for (UIView *subview in view.subviews) {
-    if (subview.tag == tag) {
-      tempView = subview;
-      break;
-    }
-  }
-  UIImageView *subImageView = (UIImageView *)tempView;
-  return subImageView;
-}
-
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)view{
   for (UIView *subview in view.subviews) {
     if ([subview isKindOfClass:[UIImageView class]]){
@@ -216,37 +202,6 @@
     }
     
   }
-}
-
-- (void)applyRandomFiltersToView:(UIView *)view{
-  for (UIView *subview in view.subviews) {
-    if ([subview isKindOfClass:[UIImageView class]]){
-      UIImageView *subImageView = (UIImageView *)subview;
-      subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesChosen objectAtIndex:(arc4random() % self.filterNamesChosen.count)]];
-    }
-  }
-}
-- (void)applyRandomFiltersToSubImageViews:(NSMutableDictionary *)subImageViews{
-    NSArray *subImageViewsArray = [subImageViews allValues];
-    
-    for (UIImageView *subImageView in subImageViewsArray) {
-        subImageView.image = [self processImage:subImageView.image withFilterName:[self.filterNamesChosen objectAtIndex:(arc4random() % self.filterNamesChosen.count)]];
-    }
-
-}
-
-- (UIImage *)imageWithColor:(UIColor *)color andFrame:(CGRect)rect
-{
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
 }
 
 - (void)dealloc {

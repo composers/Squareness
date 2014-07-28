@@ -30,13 +30,13 @@
 }
 
 - (void)applyRandomFilters:(id)sender{
-//    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    if (modelController.image) {
     DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [self.view addSubview:ind];
     [ind startAnimating];
     self.navigationItem.titleView = ind;
-    //[aiView startAnimating];
     [self performSelectorInBackground:@selector(applyRandomFiltersBackground) withObject:nil];
+    }
 }
 
 - (void)applyRandomFiltersBackground{
@@ -44,6 +44,7 @@
         UIImageView *subImageView = (UIImageView *)subview;
         subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
     }
+        
     self.navigationItem.titleView = [self buttonForTitleView];
 }
 
@@ -71,8 +72,7 @@
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
     _carousel.backgroundColor = [UIColor blackColor];
-    _carousel.delegate = self;
-    _carousel.dataSource = self;
+
     
     self.scrollView.scrollEnabled = YES;
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
@@ -83,45 +83,22 @@
 
 }
 
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    //    if (modelController.image == nil) {
-    //        UIAlertView *alert = [UIAlertView alloc] initWithTitle: message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil
-    //    }
-    
-    modelController.subImageViews = [modelController divideImage];
-    
-    [modelController putSubImageViews:[modelController divideImage] InView:self.scrollView];
-    [modelController addGestureRecognizersToSubviewsFromView:self.scrollView andViewController:self];
-    
-    if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:self.scrollView];
-    }
-    if (modelController.gridStatus == NO) {
-        [modelController removeBorderAroundImageViewsFromView:self.scrollView];
-    }
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    
-    if (modelController.gridStatus == YES) {
-        [modelController removeBorderAroundImageViewsFromView:self.scrollView];
-    }
-    modelController.image = [modelController snapshot:self.scrollView];
-}
-
 - (void)tap:(UITapGestureRecognizer*)gesture
 {
-    modelController.selectedSubImageView = [modelController getImageViewWithTag:gesture.view.tag fromView:gesture.view.superview];
+    if (modelController.gridStatus == YES) {
+        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+        [modelController.selectedSubImageView.layer setBorderWidth:0.8];
+    }
+    else{
+        [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+    }
+
+    modelController.selectedSubImageView = (UIImageView *)gesture.view;
+    
+    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [modelController.selectedSubImageView.layer setBorderWidth: 4.0];
     
     [self.carousel reloadData];
-    
-    UIImageView *subImageView = (UIImageView *)gesture.view;
-    [subImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [subImageView.layer setBorderWidth: 4.0];
-    
 }
 
 
@@ -167,21 +144,6 @@
     modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
     [carousel reloadData];
-    
-    
-    if (modelController.gridStatus == YES) {
-        [modelController removeBorderAroundImageViewsFromView:self.scrollView];
-    }
-    modelController.image = [modelController snapshot:self.scrollView];
-    
-    if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:self.scrollView];
-    }
-    if (modelController.gridStatus == NO) {
-        [modelController removeBorderAroundImageViewsFromView:self.scrollView];
-    }
-    
-    
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value

@@ -10,6 +10,9 @@
 #import "UIImage+Resize.h"
 #import "FSQModelController.h"
 #import "MLPSpotlight.h"
+#import "CarouselViewController.h"
+#import "UIViewController+JASidePanel.h"
+#import "JASidePanelController.h"
 
 
 @interface FSQFirstViewController ()
@@ -91,14 +94,44 @@
 
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+  
   UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    modelController.image = [image resizedImageToSize:screenFrame.size];
     
-  [photoPicker dismissViewControllerAnimated:YES completion:nil];
+    if (image) {
+        CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+        modelController.image = [image resizedImageToSize:screenFrame.size];
+        
+        [photoPicker dismissViewControllerAnimated:YES completion:nil];
+        
+        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+        
+        [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
+        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        
+        if (modelController.gridStatus == YES) {
+            [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
+        }
+        if (modelController.gridStatus == NO) {
+            [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+        }
+        
+        carouselController.carousel.delegate = carouselController;
+        carouselController.carousel.dataSource = carouselController;
+    }
+    else{
+        //user chose cancel
+    }
 }
 
 - (IBAction)saveImage:(UIButton *)sender {
+    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    
+    if (modelController.gridStatus == YES) {
+        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+    }
+    modelController.image = [modelController snapshot:carouselController.scrollView];
     UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
