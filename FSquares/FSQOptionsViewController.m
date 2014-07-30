@@ -177,9 +177,8 @@
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-    if (modelController.gridStatus == YES) {
-        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    }
+    [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+    
     modelController.image = [modelController snapshot:carouselController.scrollView];
     
     [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];

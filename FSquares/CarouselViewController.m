@@ -98,7 +98,7 @@
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 4.0];
     
-    [self.carousel reloadData];
+    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
 }
 
 

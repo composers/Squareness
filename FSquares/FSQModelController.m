@@ -106,13 +106,13 @@
         filterGPU = _gpuImageMosaicFilter;
     }
     
-    GPUImagePicture *inputImage = [[GPUImagePicture alloc] initWithImage:myImage];
-    [inputImage addTarget:filterGPU];
-    [filterGPU useNextFrameForImageCapture];
-    [inputImage processImage];
-    return [filterGPU imageFromCurrentFramebuffer];
+//    GPUImagePicture *inputImage = [[GPUImagePicture alloc] initWithImage:myImage];
+//    [inputImage addTarget:filterGPU];
+//    [filterGPU useNextFrameForImageCapture];
+//    [inputImage processImage];
+//    return [filterGPU imageFromCurrentFramebuffer];
     
-    //return [filterGPU imageByFilteringImage:myImage];
+    return [filterGPU imageByFilteringImage:myImage];
   }
   else{
     

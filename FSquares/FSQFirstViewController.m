@@ -98,8 +98,7 @@
   UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     if (image) {
-        CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-        modelController.image = [image resizedImageToSize:screenFrame.size];
+        modelController.image = image;
         
         [photoPicker dismissViewControllerAnimated:YES completion:nil];
         
