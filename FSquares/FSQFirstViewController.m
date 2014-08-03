@@ -130,7 +130,7 @@
     if (modelController.gridStatus == YES) {
         [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     }
-    modelController.image = [modelController snapshot:carouselController.scrollView];
+    modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
     UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 

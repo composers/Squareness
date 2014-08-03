@@ -178,8 +178,7 @@
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
     [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    
-    modelController.image = [modelController snapshot:carouselController.scrollView];
+    modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
     
     [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];

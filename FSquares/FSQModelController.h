@@ -24,7 +24,7 @@
 
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName;
 
-- (UIImage *)snapshot:(UIView *)view;
+- (UIImage *)scrollViewSnapshot:(UIScrollView *)scrollView;
 
 - (NSMutableDictionary *)divideImage;
 - (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view;
