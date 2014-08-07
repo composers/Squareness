@@ -53,7 +53,7 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
     [button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
-    [button setImage:[[FAKFontAwesome qrcodeIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateHighlighted];
+    //[button setImage:[[FAKFontAwesome qrcodeIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateHighlighted];
     
     [button sizeToFit];
     return button;
@@ -72,6 +72,7 @@
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
     _carousel.backgroundColor = [UIColor blackColor];
+    _carousel.centerItemWhenSelected = YES;
 
     
     self.scrollView.scrollEnabled = YES;
@@ -80,7 +81,22 @@
     
     [self.sidePanelController showLeftPanelAnimated:YES];
      self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    
+    self.tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(emptyBackgroundTapped:)];
+    self.tapBackground.numberOfTapsRequired = 1;
 
+    
+    [self.scrollView addGestureRecognizer:self.tapBackground];
+
+}
+
+- (void)emptyBackgroundTapped:(UITapGestureRecognizer*)gesture{
+    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+    photoPicker.delegate = self.sidePanelController.leftPanel;
+    photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:photoPicker animated:YES completion:NULL];
 }
 
 - (void)tap:(UITapGestureRecognizer*)gesture
@@ -119,7 +135,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    NSLog(@"filter index %d", index);
+    NSLog(@"filter index %lu", (unsigned long)index);
     //create new view if no view is available for recycling
     if (view == nil)
     {
@@ -139,7 +155,7 @@
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-    NSLog(@"carousel item selected %d", index);
+    NSLog(@"carousel item selected %ld", (long)index);
     
     modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];

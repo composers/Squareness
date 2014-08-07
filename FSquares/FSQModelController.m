@@ -158,8 +158,8 @@
     if (modelController.image.size.height < modelController.image.size.width) {
         modelController.image = [modelController.image imageRotatedByDegrees:90];
     }
-    UIImage *resizedImage = [self.image resizedImageToSize:screenFrame.size];
-    
+    //UIImage *resizedImage = [self.image resizedImageToSize:screenFrame.size];
+  UIImage *resizedImage = [self.image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
     NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
     int partId = 100;
     CGFloat squareWidth =  self.gridSquareSize;

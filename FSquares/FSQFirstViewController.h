@@ -12,5 +12,7 @@
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
 - (IBAction)takePhotoWithCamera:(UIButton *)sender;
 - (IBAction)saveImage:(UIButton *)sender;
+- (IBAction)displayInfo:(UIButton *)sender;
+
 
 @end

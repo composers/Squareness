@@ -154,15 +154,12 @@
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
         case 0:
-            modelController.gridSquareSize = 20;
-            break;
-        case 1:
             modelController.gridSquareSize = 40;
             break;
-        case 2:
+        case 1:
             modelController.gridSquareSize = 80;
             break;
-        case 3:
+        case 2:
             modelController.gridSquareSize = 160;
             break;
         default:

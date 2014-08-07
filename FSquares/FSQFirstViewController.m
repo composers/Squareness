@@ -36,8 +36,6 @@
     // Do any additional setup after loading the view from its nib.
     //[MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
     
-    
-    
     for (UIView *square in self.view.subviews) {
         if ([square isKindOfClass:[UIButton class]]) {
             continue;
@@ -45,8 +43,6 @@
         [square.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
         [square.layer setBorderWidth: 2.0];
     }
-
-
     
 }
 
@@ -115,8 +111,17 @@
             [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
         }
         
+        
         carouselController.carousel.delegate = carouselController;
         carouselController.carousel.dataSource = carouselController;
+        
+        modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+        
+        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [modelController.selectedSubImageView.layer setBorderWidth: 4.0];
+      
+      [carouselController.carousel reloadData];
+      [carouselController.scrollView removeGestureRecognizer:carouselController.tapBackground];
     }
     else{
         //user chose cancel
@@ -153,9 +158,21 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
                                                     message:alertMessage
                                                    delegate:self
-                                          cancelButtonTitle:@"Okay"
+                                          cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
 }
+
+- (IBAction)displayInfo:(UIButton *)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Squareness"
+                                                    message:@"Ready to give your image all the squareness it needs and create new and exciting digital art? With this app, you divide the image into squares and apply different effect to each! Just tap on a square and choose the result image from the carousel in the bottom of the screen. If you are feeling lazy, you can always let the app aply random filters using the top grid like button."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
+}
+
+
 
 @end

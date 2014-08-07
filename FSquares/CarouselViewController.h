@@ -12,5 +12,6 @@
 @interface CarouselViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) UITapGestureRecognizer *tapBackground;
 
 @end
