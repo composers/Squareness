@@ -49,7 +49,7 @@
     gridStatusCheckboxData.rectangleColor = [UIColor grayColor];
     gridStatusCheckboxData.borderWidth = gridStatusCheckboxData.borderHeight = 20;
     gridStatusCheckboxData.rectangleWidth = gridStatusCheckboxData.rectangleHeight = 15;
-    gridStatusCheckboxData.checked = YES;
+    gridStatusCheckboxData.checked = NO;
     
     TNCheckBoxGroup *gridStatusCheckbox = [[TNCheckBoxGroup alloc] initWithCheckBoxData:@[gridStatusCheckboxData] style:TNCheckBoxLayoutVertical];
     [gridStatusCheckbox create];

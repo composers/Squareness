@@ -49,9 +49,7 @@
       
     self.filterNamesChosen = [NSMutableArray arrayWithContentsOfFile:filterNamesCIPlistPath];
       
-     
-    
-    self.gridStatus = YES;
+    self.gridStatus = NO;
     self.gridSquareSize = 80;
     
     [self initFilters];
@@ -135,12 +133,12 @@
 - (UIImage *)scrollViewSnapshot:(UIScrollView *)scrollView
 {
     UIImage *image;
-
-    UIGraphicsBeginImageContext(scrollView.contentSize);
+    
+    UIGraphicsBeginImageContext(self.image.size);
     {
         CGPoint savedContentOffset = scrollView.contentOffset;
         CGRect savedFrame = scrollView.frame;
-        
+
         scrollView.contentOffset = CGPointZero;
         scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
         
@@ -160,31 +158,30 @@
     if (modelController.image.size.height < modelController.image.size.width) {
         modelController.image = [modelController.image imageRotatedByDegrees:90];
     }
-    //UIImage *resizedImage = [self.image resizedImageToSize:screenFrame.size];
-  UIImage *resizedImage = [self.image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
+    self.image = [self.image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
     NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
     int partId = 100;
     CGFloat squareWidth =  self.gridSquareSize;
     CGFloat squareHeight = self.gridSquareSize;
  
-        for (CGFloat x = 0; x < resizedImage.size.width; x += self.gridSquareSize) {
-            for(CGFloat y = 0; y < resizedImage.size.height; y += self.gridSquareSize) {
+        for (CGFloat x = 0; x < self.image.size.width; x += self.gridSquareSize) {
+            for(CGFloat y = 0; y < self.image.size.height; y += self.gridSquareSize) {
                 
-                if (x + self.gridSquareSize > resizedImage.size.width) {
-                    squareWidth = resizedImage.size.width - x;
+                if (x + self.gridSquareSize > self.image.size.width) {
+                    squareWidth = self.image.size.width - x;
                 }
                 else{
                     squareWidth = self.gridSquareSize;
                 }
                 
-                if (y + self.gridSquareSize > resizedImage.size.height) {
-                    squareHeight = resizedImage.size.height - y;
+                if (y + self.gridSquareSize > self.image.size.height) {
+                    squareHeight = self.image.size.height - y;
                 }
                 else{
                     squareHeight = self.gridSquareSize;
                 }
                 
-                CGImageRef cgSubImage = CGImageCreateWithImageInRect(resizedImage.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
+                CGImageRef cgSubImage = CGImageCreateWithImageInRect(self.image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
                 UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
                 UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, squareWidth, squareHeight)];
                 subImageView.userInteractionEnabled = YES;
