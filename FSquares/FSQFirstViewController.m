@@ -13,6 +13,7 @@
 #import "CarouselViewController.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
+#import "SIAlertView.h"
 
 
 @interface FSQFirstViewController ()
@@ -43,6 +44,10 @@
         [square.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
         [square.layer setBorderWidth: 2.0];
     }
+    
+
+    self.saveImageButton.enabled = NO;
+    self.saveImageButton.alpha = 0.3;
     
 }
 
@@ -76,16 +81,6 @@
   photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
   
   [self presentViewController:photoPicker animated:YES completion:NULL];
-}
-
-- (IBAction)takePhotoWithCamera:(UIButton *)sender {
-  
-  UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-  photoPicker.delegate = self;
-  photoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-  
-  [self presentViewController:photoPicker animated:YES completion:NULL];
-  
 }
 
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -122,9 +117,13 @@
       
       [carouselController.carousel reloadData];
       [carouselController.scrollView removeGestureRecognizer:carouselController.tapBackground];
+        
+        self.saveImageButton.enabled = YES;
+        self.saveImageButton.alpha = 1.0;
     }
     else{
         //user chose cancel
+        
     }
 }
 
@@ -155,21 +154,41 @@
         alertMessage = @"Unable to save to photo album.";
     }
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
-                                                    message:alertMessage
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:alertTitle andMessage:alertMessage];
+    
+    [alertView addButtonWithTitle:@"OK"
+                             type:SIAlertViewButtonTypeDefault
+                          handler:^(SIAlertView *alert) {
+                              [alert dismissAnimated:YES];
+                          }];
+    
+    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+    alertView.titleColor = [UIColor lightGrayColor];
+    alertView.messageColor = [UIColor grayColor];
+    
+    
+    [alertView show];
+
 }
 
 - (IBAction)displayInfo:(UIButton *)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Squareness"
-                                                    message:@"Ready to give your image all the squareness it needs and create new and exciting digital art? With this app, you divide the image into squares and apply different effect to each! Just tap on a square and choose the result image from the carousel in the bottom of the screen. If you are feeling lazy, you can always let the app aply random filters using the top grid like button."
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Squareness" andMessage:@"Ready to give your image all the squareness it needs and create new and exciting digital art? With this app, you divide the image into squares and apply different effect to each! Just tap on a square and choose the result image from the carousel in the bottom of the screen. If you are feeling lazy, you can always let the app aply random filters using the top grid like button."];
+    
+    [alertView addButtonWithTitle:@"OK"
+                             type:SIAlertViewButtonTypeDefault
+                          handler:^(SIAlertView *alert) {
+                              [alert dismissAnimated:YES];
+                          }];
+ 
+    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+    alertView.titleColor = [UIColor lightGrayColor];
+    alertView.messageColor = [UIColor grayColor];
+
+    
+    [alertView show];
 
 }
 

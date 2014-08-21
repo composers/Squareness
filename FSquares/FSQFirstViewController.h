@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *saveImageButton;
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
-- (IBAction)takePhotoWithCamera:(UIButton *)sender;
 - (IBAction)saveImage:(UIButton *)sender;
 - (IBAction)displayInfo:(UIButton *)sender;
 

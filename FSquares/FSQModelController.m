@@ -48,6 +48,8 @@
     self.filterNameSelectedCI = [self.filterNamesCI objectAtIndex:0];
       
     self.filterNamesChosen = [NSMutableArray arrayWithContentsOfFile:filterNamesCIPlistPath];
+      
+     
     
     self.gridStatus = YES;
     self.gridSquareSize = 80;
@@ -133,7 +135,7 @@
 - (UIImage *)scrollViewSnapshot:(UIScrollView *)scrollView
 {
     UIImage *image;
-    
+
     UIGraphicsBeginImageContext(scrollView.contentSize);
     {
         CGPoint savedContentOffset = scrollView.contentOffset;

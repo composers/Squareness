@@ -82,7 +82,7 @@
     chooseFiltersCheckbox.position = CGPointMake(20, 20);
     [self.chooseFiltersCheckboxContainer addSubview:chooseFiltersCheckbox];
     UIScrollView *scrollView = (UIScrollView *)self.chooseFiltersCheckboxContainer;
-    scrollView.contentSize = CGSizeMake(0, chooseFiltersCheckbox.frame.size.height);
+    scrollView.contentSize = CGSizeMake(0, chooseFiltersCheckbox.frame.size.height + 20);
     [scrollView.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
     [scrollView.layer setBorderWidth: 2.0];
 

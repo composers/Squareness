@@ -166,7 +166,7 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.04f;
+        return value * 1.05f;
     }
     return value;
 }
