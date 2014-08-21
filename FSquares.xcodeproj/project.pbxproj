@@ -47,7 +47,6 @@
 		26BB4ECC197098630077FF6F /* FSquaresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4ECB197098630077FF6F /* FSquaresTests.m */; };
 		26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */; };
 		26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */; };
-		26BB4EE31970A2060077FF6F /* squares.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EE21970A2060077FF6F /* squares.jpg */; };
 		26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EE51970A2960077FF6F /* UIImage+Resize.m */; };
 		26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */; };
 		26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */; };
@@ -65,7 +64,6 @@
 		26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F5F197A6E690077FF6F /* iCarousel.m */; };
 		26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F62197AB86E0077FF6F /* CarouselViewController.m */; };
 		26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */; };
-		26BB4F67197AD86D0077FF6F /* stefce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F66197AD86D0077FF6F /* stefce.jpg */; };
 		26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */; };
 		26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F85197DBC520077FF6F /* FAKFoundationIcons.m */; };
 		26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F87197DBC520077FF6F /* FAKIcon.m */; };
@@ -79,6 +77,8 @@
 		26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26FA903E19955DE6001B1B79 /* SIAlertView.bundle */; };
 		26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904019955DE6001B1B79 /* SIAlertView.m */; };
 		26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */; };
+		26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FA904C19A68013001B1B79 /* Default-568h@2x.png */; };
+		26FA904F19A68018001B1B79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FA904E19A68018001B1B79 /* Default@2x.png */; };
 		26FF865119757C690092C547 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FF865019757C690092C547 /* libGPUImage.a */; };
 /* End PBXBuildFile section */
 
@@ -152,7 +152,6 @@
 		26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQFirstViewController.h; sourceTree = "<group>"; };
 		26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQFirstViewController.m; sourceTree = "<group>"; };
 		26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQFirstViewController.xib; sourceTree = "<group>"; };
-		26BB4EE21970A2060077FF6F /* squares.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = squares.jpg; sourceTree = "<group>"; };
 		26BB4EE41970A2960077FF6F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		26BB4EE51970A2960077FF6F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQOptionsViewController.h; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 		26BB4F61197AB86E0077FF6F /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
 		26BB4F62197AB86E0077FF6F /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
 		26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
-		26BB4F66197AD86D0077FF6F /* stefce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stefce.jpg; sourceTree = "<group>"; };
 		26BB4F82197DBC520077FF6F /* FAKFontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFontAwesome.h; sourceTree = "<group>"; };
 		26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKFontAwesome.m; sourceTree = "<group>"; };
 		26BB4F84197DBC520077FF6F /* FAKFoundationIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFoundationIcons.h; sourceTree = "<group>"; };
@@ -200,6 +198,8 @@
 		26FA904019955DE6001B1B79 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
 		26FA904119955DE6001B1B79 /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
 		26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
+		26FA904C19A68013001B1B79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		26FA904E19A68018001B1B79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		26FF85AC19757C690092C547 /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		26FF85AD19757C690092C547 /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
 		26FF85AE19757C690092C547 /* GPUImage3x3ConvolutionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage3x3ConvolutionFilter.h; sourceTree = "<group>"; };
@@ -521,8 +521,8 @@
 			isa = PBXGroup;
 			children = (
 				2622919D1984209B0001C116 /* Icons */,
-				26BB4EE21970A2060077FF6F /* squares.jpg */,
-				26BB4F66197AD86D0077FF6F /* stefce.jpg */,
+				26FA904C19A68013001B1B79 /* Default-568h@2x.png */,
+				26FA904E19A68018001B1B79 /* Default@2x.png */,
 				26BB4EAE197098630077FF6F /* FSquares-Info.plist */,
 				26BB4EAF197098630077FF6F /* InfoPlist.strings */,
 				26BB4EB2197098630077FF6F /* main.m */,
@@ -856,11 +856,13 @@
 				262291B11984209B0001C116 /* IMG_0009-40.png in Resources */,
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
 				262291B01984209B0001C116 /* IMG_0009-29.png in Resources */,
+				26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				262291AC1984209B0001C116 /* IMG_0009-114.png in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
 				262291AF1984209B0001C116 /* IMG_0009-152.png in Resources */,
+				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				262291AE1984209B0001C116 /* IMG_0009-144.png in Resources */,
@@ -868,12 +870,10 @@
 				262291B21984209B0001C116 /* IMG_0009-50.png in Resources */,
 				262291AD1984209B0001C116 /* IMG_0009-120.png in Resources */,
 				262291B31984209B0001C116 /* IMG_0009-57.png in Resources */,
-				26BB4F67197AD86D0077FF6F /* stefce.jpg in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				262291AB1984209B0001C116 /* IMG_0009-100.png in Resources */,
 				262291B71984209B0001C116 /* IMG_0009-80.png in Resources */,
-				26BB4EE31970A2060077FF6F /* squares.jpg in Resources */,
 				262291B51984209B0001C116 /* IMG_0009-72.png in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
 				262291B61984209B0001C116 /* IMG_0009-76.png in Resources */,

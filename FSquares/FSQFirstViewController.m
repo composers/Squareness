@@ -131,11 +131,15 @@
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-    if (modelController.gridStatus == YES) {
-        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    }
+
+    [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+    
     modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
     UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    
+    if (modelController.gridStatus == YES) {
+        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
+    }
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo

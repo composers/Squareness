@@ -183,11 +183,9 @@
     if (modelController.gridStatus == YES) {
         [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
     }
-    if (modelController.gridStatus == NO) {
-        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    }
-
-    
+//    if (modelController.gridStatus == NO) {
+//        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+//    }
 }
 
 - (void)dealloc {
