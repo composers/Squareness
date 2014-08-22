@@ -42,7 +42,10 @@
 - (void)applyRandomFiltersBackground{
     for (UIView *subview in self.scrollView.subviews) {
         UIImageView *subImageView = (UIImageView *)subview;
-        subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
+        
+        if (arc4random() % 2 == 1) { //skip some sub images - we don't need to process every sub image
+            subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
+        }
     }
         
     self.navigationItem.titleView = [self buttonForTitleView];
