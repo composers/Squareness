@@ -115,7 +115,7 @@
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: 4.0];
+    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
 }

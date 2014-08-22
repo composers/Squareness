@@ -12,6 +12,8 @@
 	<string>GPUImagePixellateFilter</string>
 	<string>GPUImageSmoothToonFilter</string>
 	<string>GPUImageSwirlFilter</string>
+	<string>GPUImagePinchDistortionFilter</string>
+	<string>GPUImageStretchDistortionFilter</string>
 	<string>GPUImageiOSBlurFilter</string>
 	<string>GPUImagePolkaDotFilter</string>
 </array>
