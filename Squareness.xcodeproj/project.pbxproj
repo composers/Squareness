@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
-		260E372619842D4500E5985E /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 260E372519842D4500E5985E /* artwork-source.png */; };
 		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
 		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
 		260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372D1984915700E5985E /* TNCheckBoxGroup.m */; };
@@ -20,19 +19,9 @@
 		260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */; };
 		2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 26229189198027CC0001C116 /* MLPSpotlight.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
-		262291AB1984209B0001C116 /* IMG_0009-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2622919E1984209B0001C116 /* IMG_0009-100.png */; };
-		262291AC1984209B0001C116 /* IMG_0009-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2622919F1984209B0001C116 /* IMG_0009-114.png */; };
-		262291AD1984209B0001C116 /* IMG_0009-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A01984209B0001C116 /* IMG_0009-120.png */; };
-		262291AE1984209B0001C116 /* IMG_0009-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A11984209B0001C116 /* IMG_0009-144.png */; };
-		262291AF1984209B0001C116 /* IMG_0009-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A21984209B0001C116 /* IMG_0009-152.png */; };
-		262291B01984209B0001C116 /* IMG_0009-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A31984209B0001C116 /* IMG_0009-29.png */; };
-		262291B11984209B0001C116 /* IMG_0009-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A41984209B0001C116 /* IMG_0009-40.png */; };
-		262291B21984209B0001C116 /* IMG_0009-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A51984209B0001C116 /* IMG_0009-50.png */; };
-		262291B31984209B0001C116 /* IMG_0009-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A61984209B0001C116 /* IMG_0009-57.png */; };
-		262291B41984209B0001C116 /* IMG_0009-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A71984209B0001C116 /* IMG_0009-58.png */; };
-		262291B51984209B0001C116 /* IMG_0009-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A81984209B0001C116 /* IMG_0009-72.png */; };
-		262291B61984209B0001C116 /* IMG_0009-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291A91984209B0001C116 /* IMG_0009-76.png */; };
-		262291B71984209B0001C116 /* IMG_0009-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 262291AA1984209B0001C116 /* IMG_0009-80.png */; };
+		2684DEC119B5B82400143826 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEBE19B5B82400143826 /* icon_58.png */; };
+		2684DEC219B5B82400143826 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEBF19B5B82400143826 /* icon_80.png */; };
+		2684DEC319B5B82400143826 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEC019B5B82400143826 /* icon_120.png */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -93,9 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
-		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
-		260E372519842D4500E5985E /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
+		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
 		260E37281984915700E5985E /* TNCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBox.m; sourceTree = "<group>"; };
 		260E37291984915700E5985E /* TNCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxData.h; sourceTree = "<group>"; };
@@ -120,42 +108,32 @@
 		26229189198027CC0001C116 /* MLPSpotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPSpotlight.m; sourceTree = "<group>"; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
-		2622919E1984209B0001C116 /* IMG_0009-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-100.png"; sourceTree = "<group>"; };
-		2622919F1984209B0001C116 /* IMG_0009-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-114.png"; sourceTree = "<group>"; };
-		262291A01984209B0001C116 /* IMG_0009-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-120.png"; sourceTree = "<group>"; };
-		262291A11984209B0001C116 /* IMG_0009-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-144.png"; sourceTree = "<group>"; };
-		262291A21984209B0001C116 /* IMG_0009-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-152.png"; sourceTree = "<group>"; };
-		262291A31984209B0001C116 /* IMG_0009-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-29.png"; sourceTree = "<group>"; };
-		262291A41984209B0001C116 /* IMG_0009-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-40.png"; sourceTree = "<group>"; };
-		262291A51984209B0001C116 /* IMG_0009-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-50.png"; sourceTree = "<group>"; };
-		262291A61984209B0001C116 /* IMG_0009-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-57.png"; sourceTree = "<group>"; };
-		262291A71984209B0001C116 /* IMG_0009-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-58.png"; sourceTree = "<group>"; };
-		262291A81984209B0001C116 /* IMG_0009-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-72.png"; sourceTree = "<group>"; };
-		262291A91984209B0001C116 /* IMG_0009-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-76.png"; sourceTree = "<group>"; };
-		262291AA1984209B0001C116 /* IMG_0009-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IMG_0009-80.png"; sourceTree = "<group>"; };
-		26BB4EA3197098630077FF6F /* FSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2684DEBE19B5B82400143826 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
+		2684DEBF19B5B82400143826 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
+		2684DEC019B5B82400143826 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26BB4EAA197098630077FF6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		26BB4EAE197098630077FF6F /* FSquares-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FSquares-Info.plist"; sourceTree = "<group>"; };
+		26BB4EAE197098630077FF6F /* Squareness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Squareness-Info.plist"; sourceTree = "<group>"; };
 		26BB4EB0197098630077FF6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		26BB4EB2197098630077FF6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		26BB4EB4197098630077FF6F /* FSquares-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FSquares-Prefix.pch"; sourceTree = "<group>"; };
-		26BB4EB5197098630077FF6F /* FSQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSQAppDelegate.h; sourceTree = "<group>"; };
-		26BB4EB6197098630077FF6F /* FSQAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSQAppDelegate.m; sourceTree = "<group>"; };
+		26BB4EB2197098630077FF6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26BB4EB4197098630077FF6F /* Squareness-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Squareness-Prefix.pch"; sourceTree = "<group>"; };
+		26BB4EB5197098630077FF6F /* FSQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FSQAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		26BB4EB6197098630077FF6F /* FSQAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSQAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26BB4EB8197098630077FF6F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		26BB4EBE197098630077FF6F /* FSquaresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSquaresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26BB4EBE197098630077FF6F /* SquarenessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquarenessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EBF197098630077FF6F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		26BB4EC7197098630077FF6F /* FSquaresTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FSquaresTests-Info.plist"; sourceTree = "<group>"; };
+		26BB4EC7197098630077FF6F /* SquarenessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SquarenessTests-Info.plist"; sourceTree = "<group>"; };
 		26BB4EC9197098630077FF6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		26BB4ECB197098630077FF6F /* FSquaresTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSquaresTests.m; sourceTree = "<group>"; };
-		26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQFirstViewController.h; sourceTree = "<group>"; };
-		26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQFirstViewController.m; sourceTree = "<group>"; };
+		26BB4ECB197098630077FF6F /* FSquaresTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSquaresTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FSQFirstViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSQFirstViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQFirstViewController.xib; sourceTree = "<group>"; };
 		26BB4EE41970A2960077FF6F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		26BB4EE51970A2960077FF6F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQOptionsViewController.h; sourceTree = "<group>"; };
-		26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQOptionsViewController.m; sourceTree = "<group>"; };
+		26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FSQOptionsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSQOptionsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQOptionsViewController.xib; sourceTree = "<group>"; };
 		26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FilterNamesUser.plist; sourceTree = "<group>"; };
 		26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FilterNamesCoreImage.plist; sourceTree = "<group>"; };
@@ -164,18 +142,18 @@
 		26BB4F1A1972F3C80077FF6F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		26BB4F1C1972F3D30077FF6F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		26BB4F25197302B00077FF6F /* NSString+ContainsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ContainsString.h"; sourceTree = "<group>"; };
-		26BB4F26197302B00077FF6F /* NSString+ContainsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ContainsString.m"; sourceTree = "<group>"; };
-		26BB4F28197473CF0077FF6F /* FSQModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQModelController.h; sourceTree = "<group>"; };
-		26BB4F29197473CF0077FF6F /* FSQModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQModelController.m; sourceTree = "<group>"; };
+		26BB4F25197302B00077FF6F /* NSString+ContainsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSString+ContainsString.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		26BB4F26197302B00077FF6F /* NSString+ContainsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSString+ContainsString.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		26BB4F28197473CF0077FF6F /* FSQModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FSQModelController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		26BB4F29197473CF0077FF6F /* FSQModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSQModelController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26BB4F581979E39C0077FF6F /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		26BB4F591979E39C0077FF6F /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
 		26BB4F5E197A6E690077FF6F /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		26BB4F5F197A6E690077FF6F /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		26BB4F61197AB86E0077FF6F /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
-		26BB4F62197AB86E0077FF6F /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
+		26BB4F61197AB86E0077FF6F /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CarouselViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		26BB4F62197AB86E0077FF6F /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CarouselViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
 		26BB4F82197DBC520077FF6F /* FAKFontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFontAwesome.h; sourceTree = "<group>"; };
 		26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKFontAwesome.m; sourceTree = "<group>"; };
@@ -398,27 +376,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2622919D1984209B0001C116 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				260E372519842D4500E5985E /* artwork-source.png */,
-				2622919E1984209B0001C116 /* IMG_0009-100.png */,
-				2622919F1984209B0001C116 /* IMG_0009-114.png */,
-				262291A01984209B0001C116 /* IMG_0009-120.png */,
-				262291A11984209B0001C116 /* IMG_0009-144.png */,
-				262291A21984209B0001C116 /* IMG_0009-152.png */,
-				262291A31984209B0001C116 /* IMG_0009-29.png */,
-				262291A41984209B0001C116 /* IMG_0009-40.png */,
-				262291A51984209B0001C116 /* IMG_0009-50.png */,
-				262291A61984209B0001C116 /* IMG_0009-57.png */,
-				262291A71984209B0001C116 /* IMG_0009-58.png */,
-				262291A81984209B0001C116 /* IMG_0009-72.png */,
-				262291A91984209B0001C116 /* IMG_0009-76.png */,
-				262291AA1984209B0001C116 /* IMG_0009-80.png */,
-			);
-			path = Icons;
-			sourceTree = "<group>";
-		};
 		26BB4E9A197098630077FF6F = {
 			isa = PBXGroup;
 			children = (
@@ -433,8 +390,8 @@
 		26BB4EA4197098630077FF6F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26BB4EA3197098630077FF6F /* FSquares.app */,
-				26BB4EBE197098630077FF6F /* FSquaresTests.xctest */,
+				26BB4EA3197098630077FF6F /* Squareness.app */,
+				26BB4EBE197098630077FF6F /* SquarenessTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -521,13 +478,15 @@
 		26BB4EAD197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2622919D1984209B0001C116 /* Icons */,
+				2684DEBE19B5B82400143826 /* icon_58.png */,
+				2684DEBF19B5B82400143826 /* icon_80.png */,
+				2684DEC019B5B82400143826 /* icon_120.png */,
 				26FA904C19A68013001B1B79 /* Default-568h@2x.png */,
 				26FA904E19A68018001B1B79 /* Default@2x.png */,
-				26BB4EAE197098630077FF6F /* FSquares-Info.plist */,
+				26BB4EAE197098630077FF6F /* Squareness-Info.plist */,
 				26BB4EAF197098630077FF6F /* InfoPlist.strings */,
 				26BB4EB2197098630077FF6F /* main.m */,
-				26BB4EB4197098630077FF6F /* FSquares-Prefix.pch */,
+				26BB4EB4197098630077FF6F /* Squareness-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -544,7 +503,7 @@
 		26BB4EC6197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				26BB4EC7197098630077FF6F /* FSquaresTests-Info.plist */,
+				26BB4EC7197098630077FF6F /* SquarenessTests-Info.plist */,
 				26BB4EC8197098630077FF6F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -776,9 +735,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		26BB4EA2197098630077FF6F /* FSquares */ = {
+		26BB4EA2197098630077FF6F /* Squareness */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26BB4ECF197098630077FF6F /* Build configuration list for PBXNativeTarget "FSquares" */;
+			buildConfigurationList = 26BB4ECF197098630077FF6F /* Build configuration list for PBXNativeTarget "Squareness" */;
 			buildPhases = (
 				26BB4E9F197098630077FF6F /* Sources */,
 				26BB4EA0197098630077FF6F /* Frameworks */,
@@ -788,14 +747,14 @@
 			);
 			dependencies = (
 			);
-			name = FSquares;
+			name = Squareness;
 			productName = FSquares;
-			productReference = 26BB4EA3197098630077FF6F /* FSquares.app */;
+			productReference = 26BB4EA3197098630077FF6F /* Squareness.app */;
 			productType = "com.apple.product-type.application";
 		};
-		26BB4EBD197098630077FF6F /* FSquaresTests */ = {
+		26BB4EBD197098630077FF6F /* SquarenessTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26BB4ED2197098630077FF6F /* Build configuration list for PBXNativeTarget "FSquaresTests" */;
+			buildConfigurationList = 26BB4ED2197098630077FF6F /* Build configuration list for PBXNativeTarget "SquarenessTests" */;
 			buildPhases = (
 				26BB4EBA197098630077FF6F /* Sources */,
 				26BB4EBB197098630077FF6F /* Frameworks */,
@@ -806,9 +765,9 @@
 			dependencies = (
 				26BB4EC4197098630077FF6F /* PBXTargetDependency */,
 			);
-			name = FSquaresTests;
+			name = SquarenessTests;
 			productName = FSquaresTests;
-			productReference = 26BB4EBE197098630077FF6F /* FSquaresTests.xctest */;
+			productReference = 26BB4EBE197098630077FF6F /* SquarenessTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -829,7 +788,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 26BB4E9E197098630077FF6F /* Build configuration list for PBXProject "FSquares" */;
+			buildConfigurationList = 26BB4E9E197098630077FF6F /* Build configuration list for PBXProject "Squareness" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -841,8 +800,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				26BB4EA2197098630077FF6F /* FSquares */,
-				26BB4EBD197098630077FF6F /* FSquaresTests */,
+				26BB4EA2197098630077FF6F /* Squareness */,
+				26BB4EBD197098630077FF6F /* SquarenessTests */,
 			);
 		};
 /* End PBXProject section */
@@ -852,33 +811,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				260E372619842D4500E5985E /* artwork-source.png in Resources */,
 				26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */,
-				262291B41984209B0001C116 /* IMG_0009-58.png in Resources */,
-				262291B11984209B0001C116 /* IMG_0009-40.png in Resources */,
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
-				262291B01984209B0001C116 /* IMG_0009-29.png in Resources */,
 				26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
-				262291AC1984209B0001C116 /* IMG_0009-114.png in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
+				2684DEC319B5B82400143826 /* icon_120.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
-				262291AF1984209B0001C116 /* IMG_0009-152.png in Resources */,
 				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
+				2684DEC119B5B82400143826 /* icon_58.png in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
-				262291AE1984209B0001C116 /* IMG_0009-144.png in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
-				262291B21984209B0001C116 /* IMG_0009-50.png in Resources */,
-				262291AD1984209B0001C116 /* IMG_0009-120.png in Resources */,
-				262291B31984209B0001C116 /* IMG_0009-57.png in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
-				262291AB1984209B0001C116 /* IMG_0009-100.png in Resources */,
-				262291B71984209B0001C116 /* IMG_0009-80.png in Resources */,
-				262291B51984209B0001C116 /* IMG_0009-72.png in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
-				262291B61984209B0001C116 /* IMG_0009-76.png in Resources */,
+				2684DEC219B5B82400143826 /* icon_80.png in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,7 +892,7 @@
 /* Begin PBXTargetDependency section */
 		26BB4EC4197098630077FF6F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 26BB4EA2197098630077FF6F /* FSquares */;
+			target = 26BB4EA2197098630077FF6F /* Squareness */;
 			targetProxy = 26BB4EC3197098630077FF6F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1049,18 +997,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FSquares/FSquares-Prefix.pch";
+				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "FSquares/FSquares-Info.plist";
+				INFOPLIST_FILE = "FSquares/Squareness-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Squareness;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1075,18 +1023,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FSquares/FSquares-Prefix.pch";
+				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "FSquares/FSquares-Info.plist";
+				INFOPLIST_FILE = "FSquares/Squareness-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Squareness;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1108,8 +1056,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "FSquaresTests/FSquaresTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FSquaresTests/SquarenessTests-Info.plist";
+				PRODUCT_NAME = SquarenessTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1126,8 +1074,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/FSquares-Prefix.pch";
-				INFOPLIST_FILE = "FSquaresTests/FSquaresTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FSquaresTests/SquarenessTests-Info.plist";
+				PRODUCT_NAME = SquarenessTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1136,7 +1084,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		26BB4E9E197098630077FF6F /* Build configuration list for PBXProject "FSquares" */ = {
+		26BB4E9E197098630077FF6F /* Build configuration list for PBXProject "Squareness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26BB4ECD197098630077FF6F /* Debug */,
@@ -1145,7 +1093,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26BB4ECF197098630077FF6F /* Build configuration list for PBXNativeTarget "FSquares" */ = {
+		26BB4ECF197098630077FF6F /* Build configuration list for PBXNativeTarget "Squareness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26BB4ED0197098630077FF6F /* Debug */,
@@ -1154,7 +1102,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26BB4ED2197098630077FF6F /* Build configuration list for PBXNativeTarget "FSquaresTests" */ = {
+		26BB4ED2197098630077FF6F /* Build configuration list for PBXNativeTarget "SquarenessTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26BB4ED3197098630077FF6F /* Debug */,

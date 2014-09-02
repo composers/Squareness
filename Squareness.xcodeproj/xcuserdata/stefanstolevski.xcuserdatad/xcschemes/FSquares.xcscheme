@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26BB4EA2197098630077FF6F"
-               BuildableName = "FSquares.app"
-               BlueprintName = "FSquares"
-               ReferencedContainer = "container:FSquares.xcodeproj">
+               BuildableName = "Squareness.app"
+               BlueprintName = "Squareness"
+               ReferencedContainer = "container:Squareness.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26BB4EBD197098630077FF6F"
-               BuildableName = "FSquaresTests.xctest"
-               BlueprintName = "FSquaresTests"
-               ReferencedContainer = "container:FSquares.xcodeproj">
+               BuildableName = "SquarenessTests.xctest"
+               BlueprintName = "SquarenessTests"
+               ReferencedContainer = "container:Squareness.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26BB4EA2197098630077FF6F"
-            BuildableName = "FSquares.app"
-            BlueprintName = "FSquares"
-            ReferencedContainer = "container:FSquares.xcodeproj">
+            BuildableName = "Squareness.app"
+            BlueprintName = "Squareness"
+            ReferencedContainer = "container:Squareness.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26BB4EA2197098630077FF6F"
-            BuildableName = "FSquares.app"
-            BlueprintName = "FSquares"
-            ReferencedContainer = "container:FSquares.xcodeproj">
+            BuildableName = "Squareness.app"
+            BlueprintName = "Squareness"
+            ReferencedContainer = "container:Squareness.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26BB4EA2197098630077FF6F"
-            BuildableName = "FSquares.app"
-            BlueprintName = "FSquares"
-            ReferencedContainer = "container:FSquares.xcodeproj">
+            BuildableName = "Squareness.app"
+            BlueprintName = "Squareness"
+            ReferencedContainer = "container:Squareness.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

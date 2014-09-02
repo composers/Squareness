@@ -1,6 +1,6 @@
 //
 //  FSQAppDelegate.m
-//  FSquares
+//  Squareness
 //
 //  Created by Stefan Stolevski on 7/12/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.

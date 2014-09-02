@@ -3,18 +3,15 @@
 <plist version="1.0">
 <array>
 	<string>CISepiaTone</string>
+	<string>CIPhotoEffectProcess</string>
+	<string>CIPhotoEffectTransfer</string>
+	<string>CIPhotoEffectTonal</string>
 	<string>CIPhotoEffectMono</string>
 	<string>CIPhotoEffectNoir</string>
-	<string>CIPhotoEffectProcess</string>
-	<string>CIPhotoEffectTonal</string>
-	<string>CIPhotoEffectTransfer</string>
-	<string>CIColorPosterize</string>
-	<string>GPUImagePixellateFilter</string>
 	<string>GPUImageSmoothToonFilter</string>
 	<string>GPUImageSwirlFilter</string>
-	<string>GPUImagePinchDistortionFilter</string>
-	<string>GPUImageStretchDistortionFilter</string>
-	<string>GPUImageiOSBlurFilter</string>
-	<string>GPUImagePolkaDotFilter</string>
+	<string>GPUImageRedFilter</string>
+	<string>GPUImageGreenFilter</string>
+	<string>GPUImageBlueFilter</string>
 </array>
 </plist>

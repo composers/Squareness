@@ -3,18 +3,15 @@
 <plist version="1.0">
 <array>
 	<string>Sepia</string>
+	<string>Cool Vintage</string>
+	<string>Warm Vintage</string>
+	<string>Tonal</string>
 	<string>Mono Gray</string>
 	<string>Noir</string>
-	<string>Cool Vintage</string>
-	<string>Tonal</string>
-	<string>Warm Vintage</string>
-	<string>Poster</string>
-	<string>Pixellate</string>
 	<string>Toons</string>
 	<string>Swirl</string>
-	<string>Pinch</string>
-	<string>Stretch</string>
-	<string>Blur</string>
-	<string>Polka Dot</string>
+	<string>Red</string>
+	<string>Green</string>
+	<string>Blue</string>
 </array>
 </plist>

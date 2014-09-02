@@ -1,6 +1,6 @@
 //
-//  FSquaresTests.m
-//  FSquaresTests
+//  SquarenessTests.m
+//  SquarenessTests
 //
 //  Created by Stefan Stolevski on 7/12/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface FSquaresTests : XCTestCase
+@interface SquarenessTests : XCTestCase
 
 @end
 
-@implementation FSquaresTests
+@implementation SquarenessTests
 
 - (void)setUp
 {

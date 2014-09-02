@@ -1,6 +1,6 @@
 //
 //  FSQFirstViewController.m
-//  FSquares
+//  Squareness
 //
 //  Created by Stefan Stolevski on 7/12/14.
 //  Copyright (c) 2014 Stefan Stolevski. All rights reserved.
@@ -113,7 +113,7 @@
         modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
         
         [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth: 4.0];
+        [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
       
       [carouselController.carousel reloadData];
       [carouselController.scrollView removeGestureRecognizer:carouselController.tapBackground];
@@ -178,7 +178,7 @@
 
 - (IBAction)displayInfo:(UIButton *)sender {
     
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Squareness" andMessage:@"Ready to give your image all the squareness it needs and create new and exciting digital art? With this app, you divide the image into squares and apply different effect to each! Just tap on a square and choose the result image from the carousel in the bottom of the screen. If you are feeling lazy, you can always let the app aply random filters using the top grid like button."];
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Squareness" andMessage:@"Ready to give your image all the squareness it needs and create new and exciting digital art? With this app, you divide an image into squares and apply different effect to each! Just tap on a square and choose an effect from the carousel in the bottom of the screen. If you are feeling lazy, you can always let the app apply random effects using the button above the image. If you get bored try changing the square size..."];
     
     [alertView addButtonWithTitle:@"OK"
                              type:SIAlertViewButtonTypeDefault

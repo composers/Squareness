@@ -1,6 +1,6 @@
 //
 //  FSQModelController.h
-//  FSquares
+//  Squareness
 //
 //  Created by Stefan Stolevski on 7/14/14.
 //  Copyright (c) 2014 Stefan Stolevski. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  FSQModelController.m
-//  FSquares
+//  Squareness
 //
 //  Created by Stefan Stolevski on 7/14/14.
 //  Copyright (c) 2014 Stefan Stolevski. All rights reserved.
@@ -14,14 +14,10 @@
 #import "UIImage+Rotate.h"
 
 @interface FSQModelController()
-@property (nonatomic, retain) GPUImagePixellateFilter *gpuImagePixellateFilter;
+
 @property (nonatomic, retain) GPUImageSmoothToonFilter *gpuImageSmoothToonFilter;
 @property (nonatomic, retain) GPUImageSwirlFilter *gpuImageSwirlFilter;
-@property (nonatomic, retain) GPUImageiOSBlurFilter *gpuImageiOSBlurFilter;
-@property (nonatomic, retain) GPUImagePolkaDotFilter *gpuImagePolkaDotFilter;
-@property (nonatomic, retain) GPUImagePinchDistortionFilter *gpuImagePinchFilter;
-@property (nonatomic, retain) GPUImageStretchDistortionFilter *gpuImageStretchFilter;
-
+@property (nonatomic, retain) GPUImageMonochromeFilter *gpuImageMonochromeFilter;
 
 @end
 
@@ -60,13 +56,10 @@
 }
 
 - (void)initFilters {
-    _gpuImageiOSBlurFilter = [[GPUImageiOSBlurFilter alloc] init];
-    _gpuImagePixellateFilter = [[GPUImagePixellateFilter alloc] init];
-    _gpuImagePolkaDotFilter = [[GPUImagePolkaDotFilter alloc] init];
+
     _gpuImageSmoothToonFilter = [[GPUImageSmoothToonFilter alloc] init];
     _gpuImageSwirlFilter = [[GPUImageSwirlFilter alloc] init];
-    _gpuImagePinchFilter = [[GPUImagePinchDistortionFilter alloc] init];
-    _gpuImageStretchFilter = [[GPUImageStretchDistortionFilter alloc] init];
+    _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
 }
 
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
@@ -83,9 +76,6 @@
         id filterGPU;
         
         
-        if ([filterName isEqualToString:@"GPUImagePixellateFilter"]) {
-            filterGPU = _gpuImagePixellateFilter;
-        }
         if ([filterName isEqualToString:@"GPUImageSmoothToonFilter"]) {
             filterGPU = _gpuImageSmoothToonFilter;
         }
@@ -94,24 +84,22 @@
             filterGPU = _gpuImageSwirlFilter;
         }
         
-        if ([filterName isEqualToString:@"GPUImagePinchDistortionFilter"]) {
-            filterGPU = _gpuImagePinchFilter;
+        
+        if ([filterName isEqualToString:@"GPUImageRedFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:1.0 green:0.68 blue:0.68];
+            filterGPU = _gpuImageMonochromeFilter;
         }
         
-        if ([filterName isEqualToString:@"GPUImageStretchDistortionFilter"]) {
-            filterGPU = _gpuImageStretchFilter;
+        if ([filterName isEqualToString:@"GPUImageGreenFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:0.68 green:1.0 blue:0.68];
+            filterGPU = _gpuImageMonochromeFilter;
         }
         
-        
-        if ([filterName isEqualToString:@"GPUImageiOSBlurFilter"]) {
-            filterGPU = _gpuImageiOSBlurFilter;
-            GPUImageiOSBlurFilter *blurFilter = (GPUImageiOSBlurFilter *)filterGPU;
-            blurFilter.blurRadiusInPixels = 1.0;
+        if ([filterName isEqualToString:@"GPUImageBlueFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:0.68 green:0.68 blue:1.0];
+            filterGPU = _gpuImageMonochromeFilter;
         }
-        
-        if ([filterName isEqualToString:@"GPUImagePolkaDotFilter"]) {
-            filterGPU = _gpuImagePolkaDotFilter;
-        }
+
         
 //            GPUImagePicture *inputImage = [[GPUImagePicture alloc] initWithImage:myImage];
 //            [inputImage addTarget:filterGPU];
