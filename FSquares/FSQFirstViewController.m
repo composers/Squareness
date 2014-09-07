@@ -134,12 +134,14 @@
 
     [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     
-    modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
-    UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
     if (modelController.gridStatus == YES) {
         [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
     }
+    
+    modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
+    UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    
+
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
