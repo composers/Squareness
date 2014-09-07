@@ -9,7 +9,6 @@
 #import "FSQFirstViewController.h"
 #import "UIImage+Resize.h"
 #import "FSQModelController.h"
-#import "MLPSpotlight.h"
 #import "CarouselViewController.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
@@ -35,7 +34,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //[MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
     
     for (UIView *square in self.view.subviews) {
         if ([square isKindOfClass:[UIButton class]]) {

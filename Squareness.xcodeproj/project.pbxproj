@@ -17,7 +17,6 @@
 		260E37411984915700E5985E /* TNImageCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37361984915700E5985E /* TNImageCheckBoxData.m */; };
 		260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37381984915700E5985E /* TNRectangularCheckBox.m */; };
 		260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */; };
-		2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 26229189198027CC0001C116 /* MLPSpotlight.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
 		2684DEC119B5B82400143826 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEBE19B5B82400143826 /* icon_58.png */; };
 		2684DEC219B5B82400143826 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEBF19B5B82400143826 /* icon_80.png */; };
@@ -104,8 +103,6 @@
 		260E37381984915700E5985E /* TNRectangularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBox.m; sourceTree = "<group>"; };
 		260E37391984915700E5985E /* TNRectangularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBoxData.h; sourceTree = "<group>"; };
 		260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBoxData.m; sourceTree = "<group>"; };
-		26229188198027CC0001C116 /* MLPSpotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPSpotlight.h; sourceTree = "<group>"; };
-		26229189198027CC0001C116 /* MLPSpotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPSpotlight.m; sourceTree = "<group>"; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
 		2684DEBE19B5B82400143826 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
@@ -437,8 +434,6 @@
 				26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */,
 				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
 				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
-				26229188198027CC0001C116 /* MLPSpotlight.h */,
-				26229189198027CC0001C116 /* MLPSpotlight.m */,
 				2622918B19839E200001C116 /* DDIndicator.h */,
 				2622918C19839E200001C116 /* DDIndicator.m */,
 				260E3722198428D300E5985E /* UIImage+Rotate.h */,
@@ -871,7 +866,6 @@
 				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
 				260E373F1984915700E5985E /* TNCircularCheckBoxData.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
-				2622918A198027CC0001C116 /* MLPSpotlight.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
 				26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */,
 				260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */,

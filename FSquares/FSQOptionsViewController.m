@@ -12,7 +12,6 @@
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "CarouselViewController.h"
-#import "MLPSpotlight.h"
 #import "TNCheckBoxGroup.h"
 
 @interface FSQOptionsViewController ()
@@ -34,7 +33,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //[MLPSpotlight addSpotlightInView:self.view atPoint:self.view.center];
     [self createGridStatusCheckbox];
     [self createChooseFiltersCheckbox];
     [self createSquareSizeSegmentedControl];
