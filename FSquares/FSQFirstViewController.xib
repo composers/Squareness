@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSQFirstViewController">
             <connections>
+                <outlet property="resetImageButton" destination="eDx-PZ-Hoy" id="rSx-l1-pnG"/>
                 <outlet property="saveImageButton" destination="yD5-CO-d2w" id="DiR-SM-LFR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-ij-gN3">
-                    <rect key="frame" x="20" y="179" width="88" height="38"/>
+                    <rect key="frame" x="20" y="157" width="88" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Photo library">
@@ -28,7 +29,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD5-CO-d2w">
-                    <rect key="frame" x="20" y="410" width="83" height="30"/>
+                    <rect key="frame" x="20" y="362" width="83" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Save image">
@@ -37,6 +38,18 @@
                     </state>
                     <connections>
                         <action selector="saveImage:" destination="-1" eventType="touchUpInside" id="5aU-DZ-U6Z"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDx-PZ-Hoy">
+                    <rect key="frame" x="20" y="426" width="83" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Reset image">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resetImage:" destination="-1" eventType="touchUpInside" id="5YB-ob-3g0"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9Q-R9-Bml">
@@ -69,8 +82,8 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-hN-IGS">
-                    <rect key="frame" x="20" y="225" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-hN-IGS">
+                    <rect key="frame" x="20" y="217" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Info">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,9 +96,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="cfh-hN-IGS" firstAttribute="top" secondItem="LhS-ij-gN3" secondAttribute="bottom" constant="22" id="55S-y6-dNA"/>
+                <constraint firstItem="eDx-PZ-Hoy" firstAttribute="top" secondItem="yD5-CO-d2w" secondAttribute="bottom" constant="22" id="Ik5-jJ-QrF"/>
                 <constraint firstItem="LhS-ij-gN3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SlB-jl-fA4"/>
                 <constraint firstItem="yD5-CO-d2w" firstAttribute="leading" secondItem="LhS-ij-gN3" secondAttribute="leading" id="c9U-vA-q5O"/>
                 <constraint firstItem="cfh-hN-IGS" firstAttribute="leading" secondItem="LhS-ij-gN3" secondAttribute="leading" id="gae-sC-5d9"/>
+                <constraint firstItem="yD5-CO-d2w" firstAttribute="top" secondItem="cfh-hN-IGS" secondAttribute="bottom" constant="115" id="kNx-zI-lNo"/>
+                <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="yD5-CO-d2w" secondAttribute="leading" id="mpd-Ze-Pai"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

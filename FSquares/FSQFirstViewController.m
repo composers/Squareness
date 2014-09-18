@@ -47,6 +47,9 @@
     self.saveImageButton.enabled = NO;
     self.saveImageButton.alpha = 0.3;
     
+    self.resetImageButton.enabled = NO;
+    self.resetImageButton.alpha = 0.3;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -87,7 +90,10 @@
   UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     if (image) {
-        modelController.image = image;
+        modelController.originalImage = image;
+        
+        CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
+        modelController.image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
         
         [photoPicker dismissViewControllerAnimated:YES completion:nil];
         
@@ -118,6 +124,9 @@
         
         self.saveImageButton.enabled = YES;
         self.saveImageButton.alpha = 1.0;
+        
+        self.resetImageButton.enabled = YES;
+        self.resetImageButton.alpha = 1.0;
     }
     else{
         //user chose cancel
@@ -195,6 +204,32 @@
     [alertView show];
 
 }
+
+- (IBAction)resetImage:(UIButton *)sender {
+    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
+    
+    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+    
+        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+        
+        [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
+        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        
+        if (modelController.gridStatus == YES) {
+            [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
+        }
+    
+    
+        modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+        
+        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+        
+        [carouselController.carousel reloadData];
+    
+}
+
 
 
 

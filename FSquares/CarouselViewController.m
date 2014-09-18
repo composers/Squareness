@@ -40,6 +40,19 @@
 }
 
 - (void)applyRandomFiltersBackground{
+    
+//    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
+//    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+//    
+//    [modelController putSubImageViews:[modelController divideImage] InView:self.scrollView];
+//    [modelController addGestureRecognizersToSubviewsFromView:self.scrollView andViewController:self];
+//    
+//    if (modelController.gridStatus == YES) {
+//        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:self.scrollView];
+//    }
+
+//THIS IS IF WE WANT TO APPLY RANDOM ON THE ORIGINAL IMAGE
+    
     for (UIView *subview in self.scrollView.subviews) {
         UIImageView *subImageView = (UIImageView *)subview;
         

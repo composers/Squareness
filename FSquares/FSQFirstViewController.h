@@ -13,6 +13,6 @@
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
 - (IBAction)saveImage:(UIButton *)sender;
 - (IBAction)displayInfo:(UIButton *)sender;
-
-
+- (IBAction)resetImage:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *resetImageButton;
 @end

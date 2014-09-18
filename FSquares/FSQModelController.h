@@ -18,6 +18,7 @@
 @property (nonatomic, assign) NSInteger gridSquareSize;
 
 @property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) UIImage *originalImage;
 @property (nonatomic, retain) UIImageView *selectedSubImageView;
 
 + (id)sharedInstance;
