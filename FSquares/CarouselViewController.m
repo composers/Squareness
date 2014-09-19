@@ -44,7 +44,7 @@
 //    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
 //    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
 //    
-//    [modelController putSubImageViews:[modelController divideImage] InView:self.scrollView];
+//    [modelController putSubImageViews:[modelController divideImage:modelController.image] InView:self.scrollView];
 //    [modelController addGestureRecognizersToSubviewsFromView:self.scrollView andViewController:self];
 //    
 //    if (modelController.gridStatus == YES) {

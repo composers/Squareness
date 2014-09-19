@@ -148,35 +148,35 @@
     return image;
 }
 
-- (NSMutableDictionary *)divideImage{
+- (NSMutableDictionary *)divideImage:(UIImage *)image{
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    if (modelController.image.size.height < modelController.image.size.width) {
-        modelController.image = [modelController.image imageRotatedByDegrees:90];
+    if (image.size.height < image.size.width) {
+        image = [image imageRotatedByDegrees:90];
     }
-    self.image = [self.image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
+    image = [image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
     NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
     int partId = 100;
     CGFloat squareWidth =  self.gridSquareSize;
     CGFloat squareHeight = self.gridSquareSize;
     
-    for (CGFloat x = 0; x < self.image.size.width; x += self.gridSquareSize) {
-        for(CGFloat y = 0; y < self.image.size.height; y += self.gridSquareSize) {
+    for (CGFloat x = 0; x < image.size.width; x += self.gridSquareSize) {
+        for(CGFloat y = 0; y < image.size.height; y += self.gridSquareSize) {
             
-            if (x + self.gridSquareSize > self.image.size.width) {
-                squareWidth = self.image.size.width - x;
+            if (x + self.gridSquareSize > image.size.width) {
+                squareWidth = image.size.width - x;
             }
             else{
                 squareWidth = self.gridSquareSize;
             }
             
-            if (y + self.gridSquareSize > self.image.size.height) {
-                squareHeight = self.image.size.height - y;
+            if (y + self.gridSquareSize > image.size.height) {
+                squareHeight = image.size.height - y;
             }
             else{
                 squareHeight = self.gridSquareSize;
             }
             
-            CGImageRef cgSubImage = CGImageCreateWithImageInRect(self.image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
+            CGImageRef cgSubImage = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
             UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
             UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, squareWidth, squareHeight)];
             subImageView.userInteractionEnabled = YES;

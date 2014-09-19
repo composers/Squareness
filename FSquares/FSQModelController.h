@@ -27,7 +27,7 @@
 
 - (UIImage *)scrollViewSnapshot:(UIScrollView *)scrollView;
 
-- (NSMutableDictionary *)divideImage;
+- (NSMutableDictionary *)divideImage:(UIImage *)image;
 - (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view;
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 
