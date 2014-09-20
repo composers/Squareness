@@ -20,6 +20,7 @@
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) UIImage *originalImage;
 @property (nonatomic, retain) UIImageView *selectedSubImageView;
+@property (nonatomic, retain) NSMutableDictionary *originalSubImageViews;
 
 + (id)sharedInstance;
 
@@ -27,7 +28,8 @@
 
 - (UIImage *)scrollViewSnapshot:(UIScrollView *)scrollView;
 
-- (NSMutableDictionary *)divideImage:(UIImage *)image;
+- (NSMutableDictionary *)divideImage;
+- (NSMutableDictionary *)divideOriginalImage;
 - (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view;
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 

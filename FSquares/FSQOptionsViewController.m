@@ -175,7 +175,8 @@
     [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
     
-    [modelController putSubImageViews:[modelController divideImage:modelController.image] InView:carouselController.scrollView];
+    modelController.originalSubImageViews = [modelController divideOriginalImage];
+    [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     
     if (modelController.gridStatus == YES) {

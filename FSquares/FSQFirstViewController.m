@@ -100,7 +100,8 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        [modelController putSubImageViews:[modelController divideImage:modelController.image] InView:carouselController.scrollView];
+        modelController.originalSubImageViews = [modelController divideOriginalImage];
+        [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
         [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
         
         if (modelController.gridStatus == YES) {
@@ -213,7 +214,7 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        [modelController putSubImageViews:[modelController divideImage:modelController.image] InView:carouselController.scrollView];
+        [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
         [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
         
         if (modelController.gridStatus == YES) {

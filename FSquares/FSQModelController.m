@@ -148,35 +148,35 @@
     return image;
 }
 
-- (NSMutableDictionary *)divideImage:(UIImage *)image{
+- (NSMutableDictionary *)divideImage{
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    if (image.size.height < image.size.width) {
-        image = [image imageRotatedByDegrees:90];
+    if (self.image.size.height < self.image.size.width) {
+        self.image = [self.image imageRotatedByDegrees:90];
     }
-    image = [image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
+    self.image = [self.image resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
     NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
     int partId = 100;
     CGFloat squareWidth =  self.gridSquareSize;
     CGFloat squareHeight = self.gridSquareSize;
     
-    for (CGFloat x = 0; x < image.size.width; x += self.gridSquareSize) {
-        for(CGFloat y = 0; y < image.size.height; y += self.gridSquareSize) {
+    for (CGFloat x = 0; x < self.image.size.width; x += self.gridSquareSize) {
+        for(CGFloat y = 0; y < self.image.size.height; y += self.gridSquareSize) {
             
-            if (x + self.gridSquareSize > image.size.width) {
-                squareWidth = image.size.width - x;
+            if (x + self.gridSquareSize > self.image.size.width) {
+                squareWidth = self.image.size.width - x;
             }
             else{
                 squareWidth = self.gridSquareSize;
             }
             
-            if (y + self.gridSquareSize > image.size.height) {
-                squareHeight = image.size.height - y;
+            if (y + self.gridSquareSize > self.image.size.height) {
+                squareHeight = self.image.size.height - y;
             }
             else{
                 squareHeight = self.gridSquareSize;
             }
             
-            CGImageRef cgSubImage = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
+            CGImageRef cgSubImage = CGImageCreateWithImageInRect(self.image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
             UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
             UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, squareWidth, squareHeight)];
             subImageView.userInteractionEnabled = YES;
@@ -189,6 +189,50 @@
     }
     return subImageViews;
 }
+
+- (NSMutableDictionary *)divideOriginalImage{
+    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    if (self.originalImage.size.height < self.originalImage.size.width) {
+        self.originalImage = [self.originalImage imageRotatedByDegrees:90];
+    }
+    self.originalImage = [self.originalImage resizedImageToFitInSize:screenFrame.size scaleIfSmaller:YES];
+    NSMutableDictionary *subImageViews = [[NSMutableDictionary alloc] init];
+    int partId = 100;
+    CGFloat squareWidth =  self.gridSquareSize;
+    CGFloat squareHeight = self.gridSquareSize;
+    
+    for (CGFloat x = 0; x < self.originalImage.size.width; x += self.gridSquareSize) {
+        for(CGFloat y = 0; y < self.originalImage.size.height; y += self.gridSquareSize) {
+            
+            if (x + self.gridSquareSize > self.originalImage.size.width) {
+                squareWidth = self.originalImage.size.width - x;
+            }
+            else{
+                squareWidth = self.gridSquareSize;
+            }
+            
+            if (y + self.gridSquareSize > self.originalImage.size.height) {
+                squareHeight = self.originalImage.size.height - y;
+            }
+            else{
+                squareHeight = self.gridSquareSize;
+            }
+            
+            CGImageRef cgSubImage = CGImageCreateWithImageInRect(self.originalImage.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
+            UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
+            UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, squareWidth, squareHeight)];
+            subImageView.userInteractionEnabled = YES;
+            [subImageView setImage:subImage];
+            subImageView.tag = partId;
+            [subImageViews setObject:subImageView forKey:[NSNumber numberWithInt:subImageView.tag]];
+            partId++;
+            CGImageRelease(cgSubImage);
+        }
+    }
+    return subImageViews;
+}
+
+
 
 - (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view{
     [[view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first!!!
@@ -205,6 +249,11 @@
                                                                               action:@selector(tap:)];
         tap.numberOfTapsRequired = 1;
         [subveiw addGestureRecognizer:tap];
+        
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
+                                                                              action:@selector(doubletapAction:)];
+        doubleTap.numberOfTapsRequired = 2;
+        [subveiw addGestureRecognizer:doubleTap];
     }
 }
 

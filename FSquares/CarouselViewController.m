@@ -40,19 +40,6 @@
 }
 
 - (void)applyRandomFiltersBackground{
-    
-//    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
-//    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
-//    
-//    [modelController putSubImageViews:[modelController divideImage:modelController.image] InView:self.scrollView];
-//    [modelController addGestureRecognizersToSubviewsFromView:self.scrollView andViewController:self];
-//    
-//    if (modelController.gridStatus == YES) {
-//        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:self.scrollView];
-//    }
-
-//THIS IS IF WE WANT TO APPLY RANDOM ON THE ORIGINAL IMAGE
-    
     for (UIView *subview in self.scrollView.subviews) {
         UIImageView *subImageView = (UIImageView *)subview;
         
@@ -126,6 +113,32 @@
     }
 
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
+    
+    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    
+    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+}
+
+- (void)doubletapAction:(UITapGestureRecognizer*)gesture
+{
+    if (modelController.gridStatus == YES) {
+        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+        [modelController.selectedSubImageView.layer setBorderWidth:0.8];
+    }
+    else{
+        [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+    }
+    
+    UIImageView *touchedSubImageView = (UIImageView *)gesture.view;
+    
+        UIImageView *originalSubImageView = (UIImageView *)[modelController.originalSubImageViews objectForKey:[NSNumber numberWithInt:touchedSubImageView.tag]];
+    
+        [touchedSubImageView setImage:originalSubImageView.image];
+    
+    
+    modelController.selectedSubImageView = touchedSubImageView;
+    
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
