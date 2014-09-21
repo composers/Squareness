@@ -13,8 +13,12 @@
 #import "JASidePanelController.h"
 #import "FontAwesomeKit/FAKFontAwesome.h"
 #import "DDIndicator.h"
+#import "SIAlertView.h"
 
 @interface CarouselViewController ()
+
+@property(assign, nonatomic) int tapCount;
+@property(assign, nonatomic) BOOL shouldNotDisplayDoubleTapAlert;
 
 @end
 
@@ -56,7 +60,6 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
     [button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
-    //[button setImage:[[FAKFontAwesome qrcodeIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateHighlighted];
     
     [button sizeToFit];
     return button;
@@ -91,7 +94,10 @@
 
     
     [self.scrollView addGestureRecognizer:self.tapBackground];
-
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
 }
 
 - (void)emptyBackgroundTapped:(UITapGestureRecognizer*)gesture{
@@ -102,8 +108,29 @@
     [self presentViewController:photoPicker animated:YES completion:NULL];
 }
 
+- (IBAction)displayInfoForDoubleTap{
+    
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Tip" andMessage:@"If you need to undo the applied effects for a particular square, just double tap on the square"];
+    
+    [alertView addButtonWithTitle:@"OK"
+                             type:SIAlertViewButtonTypeDefault
+                          handler:^(SIAlertView *alert) {
+                              [alert dismissAnimated:YES];
+                          }];
+    
+    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+    alertView.titleColor = [UIColor lightGrayColor];
+    alertView.messageColor = [UIColor grayColor];
+    
+    
+    [alertView show];
+    
+}
+
 - (void)tap:(UITapGestureRecognizer*)gesture
 {
+    self.tapCount++;
     if (modelController.gridStatus == YES) {
         [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
         [modelController.selectedSubImageView.layer setBorderWidth:0.8];
@@ -117,6 +144,16 @@
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
+    if (self.tapCount == 4) {
+        if (!self.shouldNotDisplayDoubleTapAlert) {
+            [self displayInfoForDoubleTap];
+            
+  
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:YES forKey:@"shouldNotDisplayDoubleTapAlert"];
+            [defaults synchronize];
+        }
+    }
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
 }
 

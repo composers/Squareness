@@ -18,9 +18,6 @@
 		260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37381984915700E5985E /* TNRectangularCheckBox.m */; };
 		260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
-		2684DEC119B5B82400143826 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEBE19B5B82400143826 /* icon_58.png */; };
-		2684DEC219B5B82400143826 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEBF19B5B82400143826 /* icon_80.png */; };
-		2684DEC319B5B82400143826 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684DEC019B5B82400143826 /* icon_120.png */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -62,6 +59,10 @@
 		26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F8F197DBC520077FF6F /* ionicons.ttf */; };
 		26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */; };
 		26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F9A197DBC670077FF6F /* CoreText.framework */; };
+		26E5A90819CEFA12006C4014 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90519CEFA12006C4014 /* icon_58.png */; };
+		26E5A90919CEFA12006C4014 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90619CEFA12006C4014 /* icon_80.png */; };
+		26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90719CEFA12006C4014 /* icon_120.png */; };
+		26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90B19CEFA2B006C4014 /* artwork-source.png */; };
 		26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26FA903E19955DE6001B1B79 /* SIAlertView.bundle */; };
 		26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904019955DE6001B1B79 /* SIAlertView.m */; };
 		26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */; };
@@ -105,9 +106,6 @@
 		260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBoxData.m; sourceTree = "<group>"; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
-		2684DEBE19B5B82400143826 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
-		2684DEBF19B5B82400143826 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
-		2684DEC019B5B82400143826 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -168,6 +166,10 @@
 		26BB4F8F197DBC520077FF6F /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
 		26BB4F9A197DBC670077FF6F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		26E5A90519CEFA12006C4014 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
+		26E5A90619CEFA12006C4014 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
+		26E5A90719CEFA12006C4014 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		26E5A90B19CEFA2B006C4014 /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
 		26FA903E19955DE6001B1B79 /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
 		26FA903F19955DE6001B1B79 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		26FA904019955DE6001B1B79 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
@@ -473,9 +475,10 @@
 		26BB4EAD197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2684DEBE19B5B82400143826 /* icon_58.png */,
-				2684DEBF19B5B82400143826 /* icon_80.png */,
-				2684DEC019B5B82400143826 /* icon_120.png */,
+				26E5A90B19CEFA2B006C4014 /* artwork-source.png */,
+				26E5A90519CEFA12006C4014 /* icon_58.png */,
+				26E5A90619CEFA12006C4014 /* icon_80.png */,
+				26E5A90719CEFA12006C4014 /* icon_120.png */,
 				26FA904C19A68013001B1B79 /* Default-568h@2x.png */,
 				26FA904E19A68018001B1B79 /* Default@2x.png */,
 				26BB4EAE197098630077FF6F /* Squareness-Info.plist */,
@@ -811,17 +814,18 @@
 				26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
-				2684DEC319B5B82400143826 /* icon_120.png in Resources */,
+				26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
 				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
-				2684DEC119B5B82400143826 /* icon_58.png in Resources */,
+				26E5A90819CEFA12006C4014 /* icon_58.png in Resources */,
+				26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
-				2684DEC219B5B82400143826 /* icon_80.png in Resources */,
+				26E5A90919CEFA12006C4014 /* icon_80.png in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

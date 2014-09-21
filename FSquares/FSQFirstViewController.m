@@ -188,7 +188,7 @@
 
 - (IBAction)displayInfo:(UIButton *)sender {
     
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Squareness" andMessage:@"Ready to give your image all the squareness it needs and create new and exciting digital art? With this app, you divide an image into squares and apply different effect to each! Just tap on a square and choose an effect from the carousel in the bottom of the screen. If you are feeling lazy, you can always let the app apply random effects using the button above the image. If you get bored try changing the square size..."];
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Usage" andMessage:@"Import an image from the photo library. Pick a square area from the image and apply an effect using the carousel in the bottom. By clicking the grid button above the image, you can apply effects to all the squares randomly. Using the in-app settings, you can apply a grid around the squares, change the square size or remove/select an effect from the carousel. If you need to undo the applied effects for a particular square, just double tap on the square"];
     
     [alertView addButtonWithTitle:@"OK"
                              type:SIAlertViewButtonTypeDefault
