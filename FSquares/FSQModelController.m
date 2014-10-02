@@ -51,6 +51,7 @@
         
         [self initFilters];
         
+        self.originalImage = [UIImage imageNamed:@"artwork-source.png"];
     }
     return self;
 }

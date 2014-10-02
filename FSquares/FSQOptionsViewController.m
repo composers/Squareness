@@ -131,24 +131,6 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.view setAlpha:0];
-    [UIView animateWithDuration:0.9
-                          delay:0.1
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         [self.view setAlpha:1.0];
-                     }completion:nil];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-  modelController.image = nil;
-}
-
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
         case 0:

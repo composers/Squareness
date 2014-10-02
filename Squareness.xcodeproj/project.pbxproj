@@ -18,6 +18,9 @@
 		260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37381984915700E5985E /* TNRectangularCheckBox.m */; };
 		260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
+		2635DEB919DE0EB000AB4D19 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEB819DE0EB000AB4D19 /* favicon.ico */; };
+		2635DEBB19DE0FE400AB4D19 /* spirala.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEBA19DE0FE400AB4D19 /* spirala.ico */; };
+		2635DEBD19DE110100AB4D19 /* favicon1.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEBC19DE110100AB4D19 /* favicon1.ico */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -63,6 +66,7 @@
 		26E5A90919CEFA12006C4014 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90619CEFA12006C4014 /* icon_80.png */; };
 		26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90719CEFA12006C4014 /* icon_120.png */; };
 		26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90B19CEFA2B006C4014 /* artwork-source.png */; };
+		26E5A90E19D89D13006C4014 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E5A90D19D89D13006C4014 /* FacebookSDK.framework */; };
 		26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26FA903E19955DE6001B1B79 /* SIAlertView.bundle */; };
 		26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904019955DE6001B1B79 /* SIAlertView.m */; };
 		26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */; };
@@ -106,6 +110,9 @@
 		260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBoxData.m; sourceTree = "<group>"; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
+		2635DEB819DE0EB000AB4D19 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
+		2635DEBA19DE0FE400AB4D19 /* spirala.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = spirala.ico; sourceTree = "<group>"; };
+		2635DEBC19DE110100AB4D19 /* favicon1.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon1.ico; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,6 +177,7 @@
 		26E5A90619CEFA12006C4014 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
 		26E5A90719CEFA12006C4014 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		26E5A90B19CEFA2B006C4014 /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
+		26E5A90D19D89D13006C4014 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		26FA903E19955DE6001B1B79 /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
 		26FA903F19955DE6001B1B79 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		26FA904019955DE6001B1B79 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
@@ -357,6 +365,7 @@
 				26BB4F171972F3AF0077FF6F /* CoreMedia.framework in Frameworks */,
 				26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */,
 				26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */,
+				26E5A90E19D89D13006C4014 /* FacebookSDK.framework in Frameworks */,
 				26FA90F719A74D3E001B1B79 /* libGPUImage.a in Frameworks */,
 				26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */,
 			);
@@ -398,6 +407,7 @@
 		26BB4EA5197098630077FF6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26E5A90D19D89D13006C4014 /* FacebookSDK.framework */,
 				26BB4F9A197DBC670077FF6F /* CoreText.framework */,
 				26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */,
 				26BB4F1C1972F3D30077FF6F /* AVFoundation.framework */,
@@ -475,6 +485,9 @@
 		26BB4EAD197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2635DEB819DE0EB000AB4D19 /* favicon.ico */,
+				2635DEBC19DE110100AB4D19 /* favicon1.ico */,
+				2635DEBA19DE0FE400AB4D19 /* spirala.ico */,
 				26E5A90B19CEFA2B006C4014 /* artwork-source.png */,
 				26E5A90519CEFA12006C4014 /* icon_58.png */,
 				26E5A90619CEFA12006C4014 /* icon_80.png */,
@@ -813,17 +826,20 @@
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
 				26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
+				2635DEB919DE0EB000AB4D19 /* favicon.ico in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
 				26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
 				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
 				26E5A90819CEFA12006C4014 /* icon_58.png in Resources */,
 				26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */,
+				2635DEBD19DE110100AB4D19 /* favicon1.ico in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
+				2635DEBB19DE0FE400AB4D19 /* spirala.ico in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
 				26E5A90919CEFA12006C4014 /* icon_80.png in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
@@ -994,6 +1010,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1020,6 +1040,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

@@ -13,6 +13,7 @@
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "SIAlertView.h"
+//#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface FSQFirstViewController ()
@@ -43,36 +44,6 @@
         [square.layer setBorderWidth: 2.0];
     }
     
-
-    self.saveImageButton.enabled = NO;
-    self.saveImageButton.alpha = 0.3;
-    
-    self.resetImageButton.enabled = NO;
-    self.resetImageButton.alpha = 0.3;
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [self.view setAlpha:0];
-    [UIView animateWithDuration:0.9
-                          delay:0.1
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         [self.view setAlpha:1.0];
-                     }completion:nil];
-
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-  
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -121,13 +92,6 @@
         [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
       
       [carouselController.carousel reloadData];
-      [carouselController.scrollView removeGestureRecognizer:carouselController.tapBackground];
-        
-        self.saveImageButton.enabled = YES;
-        self.saveImageButton.alpha = 1.0;
-        
-        self.resetImageButton.enabled = YES;
-        self.resetImageButton.alpha = 1.0;
     }
     else{
         //user chose cancel
@@ -232,6 +196,36 @@
 }
 
 
+
+
+- (IBAction)shareImage:(UIButton *)sender {
+//    // If the Facebook app is installed and we can present the share dialog
+//    if ([FBDialogs canPresentShareDialogWithPhotos]) {
+//        FBPhotoParams *params = [[FBPhotoParams alloc] init];
+//        
+//        // Note that params.photos can be an array of images.  In this example
+//        // we only use a single image, wrapped in an array.
+//        params.photos = @[modelController.image];
+//        
+//        [FBDialogs presentShareDialogWithPhotoParams:params
+//                                         clientState:nil
+//                                             handler:^(FBAppCall *call,
+//                                                       NSDictionary *results,
+//                                                       NSError *error) {
+//                                                 if (error) {
+//                                                     NSLog(@"Error: %@",
+//                                                           error.description);
+//                                                 } else {
+//                                                     NSLog(@"Success!");
+//                                                 }
+//                                             }];
+//
+//       
+//    } else {
+//        // The user doesn't have the Facebook for iOS app installed.  You
+//        // may be able to use a fallback.
+//    }
+}
 
 
 @end

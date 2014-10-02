@@ -88,24 +88,41 @@
     [self.sidePanelController showLeftPanelAnimated:YES];
      self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     
-    self.tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(emptyBackgroundTapped:)];
-    self.tapBackground.numberOfTapsRequired = 1;
-
-    
-    [self.scrollView addGestureRecognizer:self.tapBackground];
-    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
-}
-
-- (void)emptyBackgroundTapped:(UITapGestureRecognizer*)gesture{
-    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-    photoPicker.delegate = self.sidePanelController.leftPanel;
-    photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [self presentViewController:photoPicker animated:YES completion:NULL];
+    
+    
+    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
+    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+    
+    
+    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    
+    modelController.originalSubImageViews = [modelController divideOriginalImage];
+    [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
+    [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+    
+    if (modelController.gridStatus == YES) {
+        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
+    }
+    if (modelController.gridStatus == NO) {
+        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
+    }
+    
+    
+    carouselController.carousel.delegate = carouselController;
+    carouselController.carousel.dataSource = carouselController;
+    
+    modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+    
+    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    
+    [carouselController.carousel reloadData];
+
 }
 
 - (IBAction)displayInfoForDoubleTap{
@@ -183,13 +200,6 @@
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
 }
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark iCarousel methods
 

@@ -15,4 +15,5 @@
 - (IBAction)displayInfo:(UIButton *)sender;
 - (IBAction)resetImage:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *resetImageButton;
+- (IBAction)shareImage:(UIButton *)sender;
 @end
