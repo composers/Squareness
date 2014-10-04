@@ -42,9 +42,10 @@
 - (void)createGridStatusCheckbox{
     TNRectangularCheckBoxData *gridStatusCheckboxData = [[TNRectangularCheckBoxData alloc] init];
     gridStatusCheckboxData.identifier = @"gridstatus";
-    gridStatusCheckboxData.labelText = @"Grid";
-    gridStatusCheckboxData.borderColor = [UIColor grayColor];
-    gridStatusCheckboxData.rectangleColor = [UIColor grayColor];
+    gridStatusCheckboxData.labelText = @"g r i d";
+    gridStatusCheckboxData.labelColor = [UIColor darkGrayColor];
+    gridStatusCheckboxData.borderColor = [UIColor darkGrayColor];
+    gridStatusCheckboxData.rectangleColor = [UIColor darkGrayColor];
     gridStatusCheckboxData.borderWidth = gridStatusCheckboxData.borderHeight = 20;
     gridStatusCheckboxData.rectangleWidth = gridStatusCheckboxData.rectangleHeight = 15;
     gridStatusCheckboxData.checked = NO;
@@ -66,8 +67,9 @@
         TNRectangularCheckBoxData *checkboxData = [[TNRectangularCheckBoxData alloc] init];
         checkboxData.identifier = [modelController.filterNamesCI objectAtIndex:i];
         checkboxData.labelText = [modelController.filterNamesUI objectAtIndex:i];
-        checkboxData.borderColor = [UIColor grayColor];
-        checkboxData.rectangleColor = [UIColor grayColor];
+        checkboxData.labelColor = [UIColor darkGrayColor];
+        checkboxData.borderColor = [UIColor darkGrayColor];
+        checkboxData.rectangleColor = [UIColor darkGrayColor];
         checkboxData.borderWidth = checkboxData.borderHeight = 20;
         checkboxData.rectangleWidth = checkboxData.rectangleHeight = 15;
         checkboxData.checked = YES;

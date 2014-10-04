@@ -34,7 +34,7 @@
 }
 
 - (void)applyRandomFilters:(id)sender{
-    if (modelController.image) {
+    if (modelController.image && (modelController.filterNamesChosen.count > 0)) {
     DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [self.view addSubview:ind];
     [ind startAnimating];

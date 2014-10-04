@@ -31,21 +31,6 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    for (UIView *square in self.view.subviews) {
-        if ([square isKindOfClass:[UIButton class]]) {
-            continue;
-        }
-        [square.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
-        [square.layer setBorderWidth: 2.0];
-    }
-    
-}
-
 
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender {
   UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
