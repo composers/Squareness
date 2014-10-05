@@ -7,12 +7,14 @@
 //
 
 #import "FSQFirstViewController.h"
-#import "UIImage+Resize.h"
+//#import "UIImage+Resize.h"
 #import "FSQModelController.h"
 #import "CarouselViewController.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "SIAlertView.h"
+#import "EAIntroPage.h"
+#import "EAIntroView.h"
 //#import <FacebookSDK/FacebookSDK.h>
 
 
@@ -108,18 +110,18 @@
     
     if(!error)
     {
-        alertTitle   = @"Image Saved";
-        alertMessage = @"Image saved to photo album successfully.";
+        alertTitle   = @"p h o t o   s a v e d";
+        alertMessage = @"photo saved to the photo library";
     }
     else
     {
-        alertTitle   = @"Error";
-        alertMessage = @"Unable to save to photo album.";
+        alertTitle   = @"E r r o r";
+        alertMessage = @"Unable to save to photo library";
     }
     
     SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:alertTitle andMessage:alertMessage];
     
-    [alertView addButtonWithTitle:@"OK"
+    [alertView addButtonWithTitle:@"O K"
                              type:SIAlertViewButtonTypeDefault
                           handler:^(SIAlertView *alert) {
                               [alert dismissAnimated:YES];
@@ -127,7 +129,7 @@
     
     alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
     alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor lightGrayColor];
+    alertView.titleColor = [UIColor grayColor];
     alertView.messageColor = [UIColor grayColor];
     
     
@@ -137,22 +139,58 @@
 
 - (IBAction)displayInfo:(UIButton *)sender {
     
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Usage" andMessage:@"Import an image from the photo library. Pick a square area from the image and apply an effect using the carousel in the bottom. By clicking the grid button above the image, you can apply effects to all the squares randomly. Using the in-app settings, you can apply a grid around the squares, change the square size or remove/select an effect from the carousel. If you need to undo the applied effects for a particular square, just double tap on the square"];
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.title = @"p h o t o";
+    page1.desc = @"Import a photo from the photo library. Pick a square area from the photo and apply an effect using the carousel in the bottom. You can always play around with the default image before choosing your own.";
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_mountain.ico"]];
+    page1.titleIconPositionY = 200;
+    page1.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    page1.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page1.descColor = [UIColor grayColor];
     
-    [alertView addButtonWithTitle:@"OK"
-                             type:SIAlertViewButtonTypeDefault
-                          handler:^(SIAlertView *alert) {
-                              [alert dismissAnimated:YES];
-                          }];
- 
-    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
-    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor lightGrayColor];
-    alertView.messageColor = [UIColor grayColor];
-
+    EAIntroPage *page2 = [EAIntroPage page];
+    page2.title = @"r a n d o m n e s s";
+    page2.desc = @"Using the grid button above the image, you can apply effects to all the squares randomly. Only the effects included in the carousel are taken into consideration.";
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"random_icon.ico"]];
+    page2.titleIconPositionY = 200;
+    page2.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    page2.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page2.descColor = [UIColor grayColor];
     
-    [alertView show];
+    EAIntroPage *page3 = [EAIntroPage page];
+    page3.title = @"r e s e t";
+    page3.desc = @"If you need to undo the applied effects for a particular square, just double tap on the square. If you need to start over with the original photo, tap on the reset button.";
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_grid.ico"]];
+    page3.titleIconPositionY = 200;
+    page3.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    page3.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page3.descColor = [UIColor grayColor];
 
+    EAIntroPage *page4 = [EAIntroPage page];
+    page4.title = @"c o n f i g u r e";
+    page4.desc = @"Using the in-app settings, you can apply a grid around the squares, change the square size or add/remove effects from the carousel. By default, all available effects are included.";
+    
+    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_settings_icon.ico"]];
+    page4.titleIconPositionY = 200;
+    
+    page4.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    page4.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page4.descColor = [UIColor grayColor];
+    
+    EAIntroView *introView = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1, page2, page3, page4]];
+    
+    page1 = nil;
+    page2 = nil;
+    page3 = nil;
+    page4 = nil;
+    
+    [introView setDelegate:self];
+    
+    [introView showInView:self.sidePanelController.view animateDuration:0.2];
+}
+
+- (void)introDidFinish:(EAIntroView *)introView{
+    introView = nil;
 }
 
 - (IBAction)resetImage:(UIButton *)sender {

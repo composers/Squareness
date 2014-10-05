@@ -22,6 +22,16 @@
 		2635DEC919DF7B4D00AB4D19 /* little_mountain.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */; };
 		2635DECB19DF7C7700AB4D19 /* little_info.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DECA19DF7C7700AB4D19 /* little_info.ico */; };
 		2635DECD19DFF16D00AB4D19 /* little_floppy.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DECC19DFF16D00AB4D19 /* little_floppy.ico */; };
+		2635DED819E0012500AB4D19 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635DED519E0012400AB4D19 /* EAIntroPage.m */; };
+		2635DED919E0012500AB4D19 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635DED719E0012500AB4D19 /* EAIntroView.m */; };
+		2635DEE019E00BD200AB4D19 /* spirala.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEDF19E00BD200AB4D19 /* spirala.ico */; };
+		2635DEE419E032DE00AB4D19 /* random_spiral_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEE319E032DE00AB4D19 /* random_spiral_icon.ico */; };
+		2635DEE619E035CA00AB4D19 /* random_spiral_icon_new.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEE519E035CA00AB4D19 /* random_spiral_icon_new.ico */; };
+		2635DEEA19E0384700AB4D19 /* random_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEE919E0384700AB4D19 /* random_icon.ico */; };
+		2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEB19E03EB000AB4D19 /* list_icon.ico */; };
+		2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEF19E0486400AB4D19 /* big_mountain.ico */; };
+		2635DEF219E04A1200AB4D19 /* big_grid.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF119E04A1200AB4D19 /* big_grid.ico */; };
+		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -63,6 +73,7 @@
 		26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F8F197DBC520077FF6F /* ionicons.ttf */; };
 		26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */; };
 		26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F9A197DBC670077FF6F /* CoreText.framework */; };
+		26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */; };
 		26E5A90819CEFA12006C4014 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90519CEFA12006C4014 /* icon_58.png */; };
 		26E5A90919CEFA12006C4014 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90619CEFA12006C4014 /* icon_80.png */; };
 		26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90719CEFA12006C4014 /* icon_120.png */; };
@@ -115,6 +126,18 @@
 		2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_mountain.ico; sourceTree = "<group>"; };
 		2635DECA19DF7C7700AB4D19 /* little_info.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_info.ico; sourceTree = "<group>"; };
 		2635DECC19DFF16D00AB4D19 /* little_floppy.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_floppy.ico; sourceTree = "<group>"; };
+		2635DED419E0012400AB4D19 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		2635DED519E0012400AB4D19 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		2635DED619E0012500AB4D19 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		2635DED719E0012500AB4D19 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		2635DEDF19E00BD200AB4D19 /* spirala.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = spirala.ico; sourceTree = "<group>"; };
+		2635DEE319E032DE00AB4D19 /* random_spiral_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = random_spiral_icon.ico; sourceTree = "<group>"; };
+		2635DEE519E035CA00AB4D19 /* random_spiral_icon_new.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = random_spiral_icon_new.ico; sourceTree = "<group>"; };
+		2635DEE919E0384700AB4D19 /* random_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = random_icon.ico; sourceTree = "<group>"; };
+		2635DEEB19E03EB000AB4D19 /* list_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = list_icon.ico; sourceTree = "<group>"; };
+		2635DEEF19E0486400AB4D19 /* big_mountain.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_mountain.ico; sourceTree = "<group>"; };
+		2635DEF119E04A1200AB4D19 /* big_grid.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_grid.ico; sourceTree = "<group>"; };
+		2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_settings_icon.ico; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -175,6 +198,7 @@
 		26BB4F8F197DBC520077FF6F /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
 		26BB4F9A197DBC670077FF6F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_settings_icon.ico; sourceTree = "<group>"; };
 		26E5A90519CEFA12006C4014 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
 		26E5A90619CEFA12006C4014 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
 		26E5A90719CEFA12006C4014 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
@@ -474,6 +498,10 @@
 				260E37381984915700E5985E /* TNRectangularCheckBox.m */,
 				260E37391984915700E5985E /* TNRectangularCheckBoxData.h */,
 				260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */,
+				2635DED419E0012400AB4D19 /* EAIntroPage.h */,
+				2635DED519E0012400AB4D19 /* EAIntroPage.m */,
+				2635DED619E0012500AB4D19 /* EAIntroView.h */,
+				2635DED719E0012500AB4D19 /* EAIntroView.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
 				26FA903D19955DE6001B1B79 /* SIAlertView */,
@@ -489,8 +517,17 @@
 			children = (
 				2635DECA19DF7C7700AB4D19 /* little_info.ico */,
 				2635DEC419DF6EA800AB4D19 /* little_grid.ico */,
+				2635DEF119E04A1200AB4D19 /* big_grid.ico */,
 				2635DECC19DFF16D00AB4D19 /* little_floppy.ico */,
 				2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */,
+				2635DEEF19E0486400AB4D19 /* big_mountain.ico */,
+				2635DEE319E032DE00AB4D19 /* random_spiral_icon.ico */,
+				2635DEE519E035CA00AB4D19 /* random_spiral_icon_new.ico */,
+				2635DEE919E0384700AB4D19 /* random_icon.ico */,
+				2635DEEB19E03EB000AB4D19 /* list_icon.ico */,
+				2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */,
+				26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */,
+				2635DEDF19E00BD200AB4D19 /* spirala.ico */,
 				26E5A90B19CEFA2B006C4014 /* artwork-source.png */,
 				26E5A90519CEFA12006C4014 /* icon_58.png */,
 				26E5A90619CEFA12006C4014 /* icon_80.png */,
@@ -829,21 +866,30 @@
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
 				2635DEC919DF7B4D00AB4D19 /* little_mountain.ico in Resources */,
 				26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */,
+				2635DEF219E04A1200AB4D19 /* big_grid.ico in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
+				26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */,
 				26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
+				2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */,
 				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
 				26E5A90819CEFA12006C4014 /* icon_58.png in Resources */,
+				2635DEE619E035CA00AB4D19 /* random_spiral_icon_new.ico in Resources */,
 				26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */,
+				2635DEE019E00BD200AB4D19 /* spirala.ico in Resources */,
+				2635DEE419E032DE00AB4D19 /* random_spiral_icon.ico in Resources */,
+				2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
+				2635DEEA19E0384700AB4D19 /* random_icon.ico in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				2635DECB19DF7C7700AB4D19 /* little_info.ico in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
 				2635DEC519DF6EA800AB4D19 /* little_grid.ico in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				2635DECD19DFF16D00AB4D19 /* little_floppy.ico in Resources */,
+				2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
 				26E5A90919CEFA12006C4014 /* icon_80.png in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
@@ -867,6 +913,7 @@
 			files = (
 				260E373B1984915700E5985E /* TNCheckBox.m in Sources */,
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
+				2635DED919E0012500AB4D19 /* EAIntroView.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
 				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
@@ -882,6 +929,7 @@
 				260E373E1984915700E5985E /* TNCircularCheckBox.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
 				26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */,
+				2635DED819E0012500AB4D19 /* EAIntroPage.m in Sources */,
 				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
 				260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */,
 				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,

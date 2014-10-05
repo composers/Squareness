@@ -12,8 +12,6 @@
 #import "FSQModelController.h"
 #import "CarouselViewController.h"
 
-
-
 @implementation FSQAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

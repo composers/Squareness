@@ -13,5 +13,6 @@
 	<string>GPUImageRedFilter</string>
 	<string>GPUImageGreenFilter</string>
 	<string>GPUImageBlueFilter</string>
+	<string>GPUImageOrangeFilter</string>
 </array>
 </plist>

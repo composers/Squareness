@@ -59,7 +59,8 @@
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
+    //[button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
+     [button setImage:[UIImage imageNamed:@"random_icon.ico"] forState:UIControlStateNormal];
     
     [button sizeToFit];
     return button;
@@ -127,9 +128,9 @@
 
 - (IBAction)displayInfoForDoubleTap{
     
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Tip" andMessage:@"If you need to undo the applied effects for a particular square, just double tap on the square"];
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"T i p" andMessage:@"If you need to undo the applied effects for a particular square, just double tap on the square"];
     
-    [alertView addButtonWithTitle:@"OK"
+    [alertView addButtonWithTitle:@"O K"
                              type:SIAlertViewButtonTypeDefault
                           handler:^(SIAlertView *alert) {
                               [alert dismissAnimated:YES];
@@ -137,7 +138,7 @@
     
     alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
     alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor lightGrayColor];
+    alertView.titleColor = [UIColor grayColor];
     alertView.messageColor = [UIColor grayColor];
     
     

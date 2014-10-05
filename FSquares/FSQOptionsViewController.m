@@ -8,7 +8,7 @@
 
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
-#import "UIImage+Resize.h"
+//#import "UIImage+Resize.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "CarouselViewController.h"

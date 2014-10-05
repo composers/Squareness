@@ -59,6 +59,8 @@
 - (void)initFilters {
 
     _gpuImageSmoothToonFilter = [[GPUImageSmoothToonFilter alloc] init];
+     _gpuImageSmoothToonFilter.threshold = 0.4;
+    
     _gpuImageSwirlFilter = [[GPUImageSwirlFilter alloc] init];
     _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
 }
@@ -98,6 +100,11 @@
         
         if ([filterName isEqualToString:@"GPUImageBlueFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:0.68 green:0.68 blue:1.0];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
+        
+        if ([filterName isEqualToString:@"GPUImageOrangeFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0];
             filterGPU = _gpuImageMonochromeFilter;
         }
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EAIntroView.h"
 
-@interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, EAIntroDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *saveImageButton;
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
 - (IBAction)saveImage:(UIButton *)sender;

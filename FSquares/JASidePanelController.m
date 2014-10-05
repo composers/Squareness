@@ -973,12 +973,14 @@ static char ja_kvoContext;
 #pragma mark - Public Methods
 
 - (UIBarButtonItem *)leftButtonForCenterPanel {
-    UIImage *icon = [[FAKFontAwesome cameraRetroIconWithSize:20] imageWithSize:CGSizeMake(20.f, 20.f)];
+    //UIImage *icon = [[FAKFontAwesome cameraRetroIconWithSize:25] imageWithSize:CGSizeMake(25.f, 25.f)];
+    UIImage *icon = [UIImage imageNamed:@"list_icon.ico"];
     return [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(toggleLeftPanel:)];
 }
 
 - (UIBarButtonItem *)rightButtonForCenterPanel {
-    UIImage *icon = [[FAKFontAwesome cogIconWithSize:20] imageWithSize:CGSizeMake(20.f, 20.f)];
+    //UIImage *icon = [[FAKFontAwesome cogIconWithSize:25] imageWithSize:CGSizeMake(25.f, 25.f)];
+    UIImage *icon = [UIImage imageNamed:@"little_settings_icon.ico"];
     return [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(toggleRightPanel:)];
 }
 

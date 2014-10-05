@@ -49,26 +49,6 @@
                         <action selector="resetImage:" destination="-1" eventType="touchUpInside" id="5YB-ob-3g0"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nc7-8V-76J">
-                    <rect key="frame" x="54" y="41" width="40" height="40"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-F4-lmb">
-                    <rect key="frame" x="190" y="333" width="40" height="40"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4M-Jo-U4f">
-                    <rect key="frame" x="210" y="51" width="20" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Urg-GQ-AMZ">
-                    <rect key="frame" x="161" y="110" width="20" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLk-Vz-MXd">
-                    <rect key="frame" x="131" y="443" width="15" height="15"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-hN-IGS">
                     <rect key="frame" x="20" y="217" width="70" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -92,20 +72,30 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="little_mountain.ico" translatesAutoresizingMaskIntoConstraints="NO" id="gYQ-Mn-jiw">
                     <rect key="frame" x="85" y="160" width="32" height="32"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="s q u a r e n e s s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x5-51-1Jd">
-                    <rect key="frame" x="98" y="263" width="132" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="s q u a r e n e s s " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x5-51-1Jd">
+                    <rect key="frame" x="98" y="263" width="137" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9AL-8K-tJA">
+                    <rect key="frame" x="195" y="285" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s93-yM-gji">
+                    <rect key="frame" x="152" y="285" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-yz-Rgc">
+                    <rect key="frame" x="195" y="225" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="centerY" secondItem="csb-en-ux0" secondAttribute="centerY" id="4eB-e8-EpE"/>
                 <constraint firstItem="cfh-hN-IGS" firstAttribute="top" secondItem="LhS-ij-gN3" secondAttribute="bottom" constant="22" id="55S-y6-dNA"/>
-                <constraint firstItem="e1i-F4-lmb" firstAttribute="trailing" secondItem="4x5-51-1Jd" secondAttribute="trailing" id="FdO-38-oMB"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="top" secondItem="yD5-CO-d2w" secondAttribute="bottom" constant="22" id="Ik5-jJ-QrF"/>
-                <constraint firstItem="e1i-F4-lmb" firstAttribute="trailing" secondItem="J4M-Jo-U4f" secondAttribute="trailing" id="MP4-In-nKz"/>
                 <constraint firstItem="LhS-ij-gN3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SlB-jl-fA4"/>
                 <constraint firstItem="8Sf-Fv-VjD" firstAttribute="centerY" secondItem="cfh-hN-IGS" secondAttribute="centerY" id="ZKe-be-u12"/>
                 <constraint firstItem="Jeu-GL-yrt" firstAttribute="centerY" secondItem="yD5-CO-d2w" secondAttribute="centerY" id="brR-LD-Sdr"/>
