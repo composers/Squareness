@@ -212,7 +212,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    NSLog(@"filter index %lu", (unsigned long)index);
+    //NSLog(@"filter index %lu", (unsigned long)index);
     //create new view if no view is available for recycling
     if (view == nil)
     {
@@ -232,7 +232,7 @@
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-    NSLog(@"carousel item selected %ld", (long)index);
+    //NSLog(@"carousel item selected %ld", (long)index);
     
     modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
