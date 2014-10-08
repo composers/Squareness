@@ -68,11 +68,11 @@
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
     
     if (myImage == nil) {
-        NSLog(@"No image loaded");
+        //NSLog(@"No image loaded");
         return nil;
     }
     
-    NSLog(@"Image processing with filter %@", filterName);
+    //NSLog(@"Image processing with filter %@", filterName);
     
     if ([filterName containsString:@"GPUImage"]) {
         
@@ -95,6 +95,7 @@
         
         if ([filterName isEqualToString:@"GPUImageGreenFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:0.68 green:1.0 blue:0.68];
+            //[_gpuImageMonochromeFilter setColorRed:170.0/255.0 green:212.0/255.0 blue:80.0/255.0];
             filterGPU = _gpuImageMonochromeFilter;
         }
         
@@ -105,6 +106,7 @@
         
         if ([filterName isEqualToString:@"GPUImageOrangeFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0];
+          
             filterGPU = _gpuImageMonochromeFilter;
         }
 
