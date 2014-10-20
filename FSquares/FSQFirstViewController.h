@@ -11,6 +11,7 @@
 
 @interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, EAIntroDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *saveImageButton;
+@property (weak, nonatomic) IBOutlet UIView *littleSquare;
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
 - (IBAction)saveImage:(UIButton *)sender;
 - (IBAction)displayInfo:(UIButton *)sender;

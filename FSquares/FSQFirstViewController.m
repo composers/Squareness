@@ -20,6 +20,8 @@
 
 @interface FSQFirstViewController ()
 
+@property (nonatomic, strong) UIDynamicAnimator *animator;
+
 @end
 
 @implementation FSQFirstViewController
@@ -31,6 +33,25 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [self performSelector:@selector(squareFalling) withObject:self afterDelay:0.4];
+}
+
+-(void)squareFalling{
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.littleSquare]];
+    [self.animator addBehavior:gravityBehavior];
+    
+    UICollisionBehavior* collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.littleSquare]];
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    [self.animator addBehavior:collisionBehavior];
+    
+    UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.littleSquare]];
+    elasticityBehavior.elasticity = 0.3f;
+    [self.animator addBehavior:elasticityBehavior];
 }
 
 
@@ -45,7 +66,7 @@
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
   
-  UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     if (image) {
         modelController.originalImage = image;
@@ -115,7 +136,7 @@
     }
     else
     {
-        alertTitle   = @"E r r o r";
+        alertTitle   = @"e r r o r";
         alertMessage = @"Unable to save to photo library";
     }
     
@@ -129,8 +150,9 @@
     
     alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
     alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor grayColor];
-    alertView.messageColor = [UIColor grayColor];
+    alertView.titleColor = [UIColor darkGrayColor];
+    alertView.messageColor = [UIColor darkGrayColor];
+    alertView.alpha = 0.85;
     
     
     [alertView show];
@@ -165,24 +187,35 @@
     page3.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page3.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
     page3.descColor = [UIColor grayColor];
-
+    
     EAIntroPage *page4 = [EAIntroPage page];
-    page4.title = @"c o n f i g u r e";
-    page4.desc = @"Using the in-app settings, you can apply a grid around the squares, change the square size or add/remove effects from the carousel. By default, all available effects are included.";
-    
-    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_settings_icon.ico"]];
+    page4.title = @"s t r i p e s";
+    page4.desc = @"You can apply an effect to horizontal or vertical stripes of squares. Just tap on a square, and then long-press on another square that is on the same vertical or horizontal line.";
+    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lines.ico"]];
     page4.titleIconPositionY = 200;
-    
     page4.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page4.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
     page4.descColor = [UIColor grayColor];
     
-    EAIntroView *introView = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1, page2, page3, page4]];
+    
+    EAIntroPage *page5 = [EAIntroPage page];
+    page5.title = @"c o n f i g u r e";
+    page5.desc = @"Using the in-app settings, you can apply a grid around the squares, change the square size or add/remove effects from the carousel. By default, all available effects are included.";
+    
+    page5.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_settings_icon.ico"]];
+    page5.titleIconPositionY = 200;
+    
+    page5.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    page5.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page5.descColor = [UIColor grayColor];
+    
+    EAIntroView *introView = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1, page2, page3, page4, page5]];
     
     page1 = nil;
     page2 = nil;
     page3 = nil;
     page4 = nil;
+    page5 = nil;
     
     [introView setDelegate:self];
     

@@ -19,6 +19,7 @@
 
 @property(assign, nonatomic) int tapCount;
 @property(assign, nonatomic) BOOL shouldNotDisplayDoubleTapAlert;
+@property(assign, nonatomic) int selectedIndex;
 
 @end
 
@@ -35,11 +36,11 @@
 
 - (void)applyRandomFilters:(id)sender{
     if (modelController.image && (modelController.filterNamesChosen.count > 0)) {
-    DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [self.view addSubview:ind];
-    [ind startAnimating];
-    self.navigationItem.titleView = ind;
-    [self performSelectorInBackground:@selector(applyRandomFiltersBackground) withObject:nil];
+        DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [self.view addSubview:ind];
+        [ind startAnimating];
+        self.navigationItem.titleView = ind;
+        [self performSelectorInBackground:@selector(applyRandomFiltersBackground) withObject:nil];
     }
 }
 
@@ -51,7 +52,7 @@
             subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
         }
     }
-        
+    
     self.navigationItem.titleView = [self buttonForTitleView];
 }
 
@@ -60,7 +61,7 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
     //[button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
-     [button setImage:[UIImage imageNamed:@"random_icon.ico"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"random_icon.ico"] forState:UIControlStateNormal];
     
     [button sizeToFit];
     return button;
@@ -73,21 +74,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor blackColor];
-
+    
     self.navigationItem.titleView = [self buttonForTitleView];
     
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
     _carousel.backgroundColor = [UIColor blackColor];
     _carousel.centerItemWhenSelected = YES;
-
+    
     
     self.scrollView.scrollEnabled = YES;
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
     self.scrollView.contentSize = screenFrame.size;
     
     [self.sidePanelController showLeftPanelAnimated:YES];
-     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -123,7 +124,7 @@
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
     [carouselController.carousel reloadData];
-
+    
 }
 
 - (IBAction)displayInfoForDoubleTap{
@@ -138,9 +139,9 @@
     
     alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
     alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor grayColor];
-    alertView.messageColor = [UIColor grayColor];
-    
+    alertView.titleColor = [UIColor darkGrayColor];
+    alertView.messageColor = [UIColor darkGrayColor];
+    alertView.alpha = 0.85;
     
     [alertView show];
     
@@ -156,7 +157,7 @@
     else{
         [modelController.selectedSubImageView.layer setBorderWidth:0.0];
     }
-
+    
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
@@ -166,12 +167,13 @@
         if (!self.shouldNotDisplayDoubleTapAlert) {
             [self displayInfoForDoubleTap];
             
-  
+            
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:YES forKey:@"shouldNotDisplayDoubleTapAlert"];
             [defaults synchronize];
         }
     }
+    
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
 }
 
@@ -187,9 +189,9 @@
     
     UIImageView *touchedSubImageView = (UIImageView *)gesture.view;
     
-        UIImageView *originalSubImageView = (UIImageView *)[modelController.originalSubImageViews objectForKey:[NSNumber numberWithInt:touchedSubImageView.tag]];
+    UIImageView *originalSubImageView = (UIImageView *)[modelController.originalSubImageViews objectForKey:[NSNumber numberWithInt:touchedSubImageView.tag]];
     
-        [touchedSubImageView setImage:originalSubImageView.image];
+    [touchedSubImageView setImage:originalSubImageView.image];
     
     
     modelController.selectedSubImageView = touchedSubImageView;
@@ -200,6 +202,66 @@
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
 }
+
+- (void)longPressAction:(UILongPressGestureRecognizer*)gesture{
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint previousPoint = modelController.selectedSubImageView.frame.origin;
+        UIImageView *touchedSubImageView = (UIImageView *)gesture.view;
+        CGPoint currentPoint = touchedSubImageView.frame.origin;
+        
+        if (previousPoint.x == currentPoint.x)
+        {
+            for (UIImageView *imageView in modelController.selectedSubImageView.superview.subviews)
+            {
+                if ([imageView isKindOfClass:[UIImageView class]])
+                {
+                    if (imageView.frame.origin.x == currentPoint.x)
+                    {
+                        if((imageView.frame.origin.y >= previousPoint.y && imageView.frame.origin.y <= currentPoint.y) || (imageView.frame.origin.y <= previousPoint.y && imageView.frame.origin.y >= currentPoint.y))
+                        {
+                            imageView.image = [modelController processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (previousPoint.y == currentPoint.y)
+        {
+            for (UIImageView *imageView in modelController.selectedSubImageView.superview.subviews)
+            {
+                if ([imageView isKindOfClass:[UIImageView class]])
+                {
+                    if (imageView.frame.origin.y == currentPoint.y)
+                    {
+                        if((imageView.frame.origin.x >= previousPoint.x && imageView.frame.origin.x <= currentPoint.x) || (imageView.frame.origin.x <= previousPoint.x && imageView.frame.origin.x >= currentPoint.x))
+                        {
+                            imageView.image = [modelController processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    if (modelController.gridStatus == YES) {
+        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+        [modelController.selectedSubImageView.layer setBorderWidth:0.8];
+    }
+    else{
+        [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+    }
+    
+    modelController.selectedSubImageView = (UIImageView *)gesture.view;
+    
+    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    
+     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+}
+
+
 
 
 #pragma mark iCarousel methods
@@ -225,7 +287,13 @@
     
     if (modelController.selectedSubImageView.image) {
         UIImage *outputImage = [modelController processImage:[modelController.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[modelController.filterNamesChosen objectAtIndex:index]];
+        
         ((UIImageView *)view).image = outputImage;
+        
+        if (index == self.selectedIndex) {
+            [view.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+            [view.layer setBorderWidth: 1.5];
+        }
     }
     
     return view;
@@ -234,8 +302,11 @@
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
     //NSLog(@"carousel item selected %ld", (long)index);
     
+    self.selectedIndex = index;
+    
     modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
+    
     [carousel reloadData];
 }
 

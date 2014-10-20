@@ -32,6 +32,7 @@
 		2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEF19E0486400AB4D19 /* big_mountain.ico */; };
 		2635DEF219E04A1200AB4D19 /* big_grid.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF119E04A1200AB4D19 /* big_grid.ico */; };
 		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
+		26AB7A9C19F5B56200A7BB46 /* lines.ico in Resources */ = {isa = PBXBuildFile; fileRef = 26AB7A9B19F5B56200A7BB46 /* lines.ico */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
 		26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
@@ -138,6 +139,7 @@
 		2635DEEF19E0486400AB4D19 /* big_mountain.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_mountain.ico; sourceTree = "<group>"; };
 		2635DEF119E04A1200AB4D19 /* big_grid.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_grid.ico; sourceTree = "<group>"; };
 		2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_settings_icon.ico; sourceTree = "<group>"; };
+		26AB7A9B19F5B56200A7BB46 /* lines.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = lines.ico; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26BB4EA8197098630077FF6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -518,6 +520,7 @@
 				2635DECA19DF7C7700AB4D19 /* little_info.ico */,
 				2635DEC419DF6EA800AB4D19 /* little_grid.ico */,
 				2635DEF119E04A1200AB4D19 /* big_grid.ico */,
+				26AB7A9B19F5B56200A7BB46 /* lines.ico */,
 				2635DECC19DFF16D00AB4D19 /* little_floppy.ico */,
 				2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */,
 				2635DEEF19E0486400AB4D19 /* big_mountain.ico */,
@@ -875,6 +878,7 @@
 				2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */,
 				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
 				26E5A90819CEFA12006C4014 /* icon_58.png in Resources */,
+				26AB7A9C19F5B56200A7BB46 /* lines.ico in Resources */,
 				2635DEE619E035CA00AB4D19 /* random_spiral_icon_new.ico in Resources */,
 				26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */,
 				2635DEE019E00BD200AB4D19 /* spirala.ico in Resources */,
@@ -1066,6 +1070,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1096,6 +1101,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
