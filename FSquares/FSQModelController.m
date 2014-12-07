@@ -178,7 +178,7 @@
     CGFloat imageHeight = self.image.size.height;
     
     for (CGFloat x = 0; x < imageWidth; x += squareWidth) {
-        for(CGFloat y = 0; y < imageHeight; y += squareWidth) {
+        for(CGFloat y = 0; y < imageHeight; y += squareHeight) {
             
             if (x + squareWidth > imageWidth) {
                 squareWidth = imageWidth - x;
@@ -228,7 +228,7 @@
     CGFloat imageHeight = self.originalImage.size.height;
     
     for (CGFloat x = 0; x < imageWidth; x += squareWidth) {
-        for(CGFloat y = 0; y < imageHeight; y += squareWidth) {
+        for(CGFloat y = 0; y < imageHeight; y += squareHeight) {
             
             if (x + squareWidth > imageWidth) {
                 squareWidth = imageWidth - x;

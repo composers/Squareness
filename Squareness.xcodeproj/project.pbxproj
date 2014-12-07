@@ -75,6 +75,8 @@
 		26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */; };
 		26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F9A197DBC670077FF6F /* CoreText.framework */; };
 		26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */; };
+		26E2C29D19F5CD1A0093F062 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E2C29C19F5CD1A0093F062 /* CustomView.m */; };
+		26E2C29F19F5CD420093F062 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E2C29E19F5CD420093F062 /* CustomView.xib */; };
 		26E5A90819CEFA12006C4014 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90519CEFA12006C4014 /* icon_58.png */; };
 		26E5A90919CEFA12006C4014 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90619CEFA12006C4014 /* icon_80.png */; };
 		26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90719CEFA12006C4014 /* icon_120.png */; };
@@ -201,6 +203,9 @@
 		26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
 		26BB4F9A197DBC670077FF6F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_settings_icon.ico; sourceTree = "<group>"; };
+		26E2C29B19F5CD1A0093F062 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		26E2C29C19F5CD1A0093F062 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
+		26E2C29E19F5CD420093F062 /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		26E5A90519CEFA12006C4014 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
 		26E5A90619CEFA12006C4014 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
 		26E5A90719CEFA12006C4014 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
@@ -510,6 +515,9 @@
 				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
 				26BB4EB8197098630077FF6F /* Images.xcassets */,
 				26BB4EAD197098630077FF6F /* Supporting Files */,
+				26E2C29B19F5CD1A0093F062 /* CustomView.h */,
+				26E2C29C19F5CD1A0093F062 /* CustomView.m */,
+				26E2C29E19F5CD420093F062 /* CustomView.xib */,
 			);
 			path = FSquares;
 			sourceTree = "<group>";
@@ -870,6 +878,7 @@
 				2635DEC919DF7B4D00AB4D19 /* little_mountain.ico in Resources */,
 				26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */,
 				2635DEF219E04A1200AB4D19 /* big_grid.ico in Resources */,
+				26E2C29F19F5CD420093F062 /* CustomView.xib in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
 				26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */,
@@ -944,6 +953,7 @@
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
 				26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */,
+				26E2C29D19F5CD1A0093F062 /* CustomView.m in Sources */,
 				260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */,
 				26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */,
 			);
@@ -1064,7 +1074,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stefan Stolevski (63P2Y2YE5J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1084,7 +1094,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = Squareness;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "458a9e6a-cd9b-4ea8-9fe1-a40a13b87334";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1095,7 +1105,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stefan Stolevski (63P2Y2YE5J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1115,7 +1125,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = Squareness;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "458a9e6a-cd9b-4ea8-9fe1-a40a13b87334";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
