@@ -32,6 +32,12 @@
 		2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEF19E0486400AB4D19 /* big_mountain.ico */; };
 		2635DEF219E04A1200AB4D19 /* big_grid.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF119E04A1200AB4D19 /* big_grid.ico */; };
 		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
+		268FCE5A1A3487840079E38E /* icon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE591A3487840079E38E /* icon_180.png */; };
+		268FCE611A3489130079E38E /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5B1A3489130079E38E /* icon_29.png */; };
+		268FCE621A3489130079E38E /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5C1A3489130079E38E /* icon_40.png */; };
+		268FCE631A3489130079E38E /* icon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5D1A3489130079E38E /* icon_76.png */; };
+		268FCE641A3489130079E38E /* icon_87.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5E1A3489130079E38E /* icon_87.png */; };
+		268FCE651A3489130079E38E /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5F1A3489130079E38E /* icon_152.png */; };
 		26AB7A9C19F5B56200A7BB46 /* lines.ico in Resources */ = {isa = PBXBuildFile; fileRef = 26AB7A9B19F5B56200A7BB46 /* lines.ico */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
@@ -141,6 +147,12 @@
 		2635DEEF19E0486400AB4D19 /* big_mountain.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_mountain.ico; sourceTree = "<group>"; };
 		2635DEF119E04A1200AB4D19 /* big_grid.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_grid.ico; sourceTree = "<group>"; };
 		2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_settings_icon.ico; sourceTree = "<group>"; };
+		268FCE591A3487840079E38E /* icon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_180.png; sourceTree = "<group>"; };
+		268FCE5B1A3489130079E38E /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = "<group>"; };
+		268FCE5C1A3489130079E38E /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
+		268FCE5D1A3489130079E38E /* icon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_76.png; sourceTree = "<group>"; };
+		268FCE5E1A3489130079E38E /* icon_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_87.png; sourceTree = "<group>"; };
+		268FCE5F1A3489130079E38E /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
 		26AB7A9B19F5B56200A7BB46 /* lines.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = lines.ico; sourceTree = "<group>"; };
 		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BB4EA6197098630077FF6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -543,6 +555,12 @@
 				26E5A90519CEFA12006C4014 /* icon_58.png */,
 				26E5A90619CEFA12006C4014 /* icon_80.png */,
 				26E5A90719CEFA12006C4014 /* icon_120.png */,
+				268FCE591A3487840079E38E /* icon_180.png */,
+				268FCE5B1A3489130079E38E /* icon_29.png */,
+				268FCE5C1A3489130079E38E /* icon_40.png */,
+				268FCE5D1A3489130079E38E /* icon_76.png */,
+				268FCE5E1A3489130079E38E /* icon_87.png */,
+				268FCE5F1A3489130079E38E /* icon_152.png */,
 				26FA904C19A68013001B1B79 /* Default-568h@2x.png */,
 				26FA904E19A68018001B1B79 /* Default@2x.png */,
 				26BB4EAE197098630077FF6F /* Squareness-Info.plist */,
@@ -882,12 +900,14 @@
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
 				26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */,
+				268FCE641A3489130079E38E /* icon_87.png in Resources */,
 				26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
 				2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */,
 				26FA904F19A68018001B1B79 /* Default@2x.png in Resources */,
 				26E5A90819CEFA12006C4014 /* icon_58.png in Resources */,
 				26AB7A9C19F5B56200A7BB46 /* lines.ico in Resources */,
+				268FCE651A3489130079E38E /* icon_152.png in Resources */,
 				2635DEE619E035CA00AB4D19 /* random_spiral_icon_new.ico in Resources */,
 				26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */,
 				2635DEE019E00BD200AB4D19 /* spirala.ico in Resources */,
@@ -895,15 +915,19 @@
 				2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
+				268FCE621A3489130079E38E /* icon_40.png in Resources */,
+				268FCE5A1A3487840079E38E /* icon_180.png in Resources */,
 				2635DEEA19E0384700AB4D19 /* random_icon.ico in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				2635DECB19DF7C7700AB4D19 /* little_info.ico in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
+				268FCE611A3489130079E38E /* icon_29.png in Resources */,
 				2635DEC519DF6EA800AB4D19 /* little_grid.ico in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				2635DECD19DFF16D00AB4D19 /* little_floppy.ico in Resources */,
 				2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
+				268FCE631A3489130079E38E /* icon_76.png in Resources */,
 				26E5A90919CEFA12006C4014 /* icon_80.png in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
 			);
@@ -1074,8 +1098,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
@@ -1094,7 +1118,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = Squareness;
-				PROVISIONING_PROFILE = "458a9e6a-cd9b-4ea8-9fe1-a40a13b87334";
+				PROVISIONING_PROFILE = "8ae40f1e-c6fd-448f-94b1-895fb72bbae6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1105,8 +1129,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
@@ -1125,7 +1149,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = Squareness;
-				PROVISIONING_PROFILE = "458a9e6a-cd9b-4ea8-9fe1-a40a13b87334";
+				PROVISIONING_PROFILE = "8ae40f1e-c6fd-448f-94b1-895fb72bbae6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
