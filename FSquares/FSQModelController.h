@@ -15,22 +15,25 @@
 @property (nonatomic, retain) NSMutableArray *filterNamesChosen;
 
 @property (nonatomic, assign) BOOL gridStatus;
-@property (nonatomic, assign) NSInteger gridSquareSize;
+@property (nonatomic, assign) int gridSquareSize;
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) UIImage *originalImage;
+
 @property (nonatomic, retain) UIImageView *selectedSubImageView;
-@property (nonatomic, retain) NSMutableDictionary *originalSubImageViews;
+
+@property (nonatomic, retain) NSMutableDictionary *originalSubImages;
+@property (nonatomic, retain) NSMutableDictionary *subImages;
+
 
 + (id)sharedInstance;
 
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName;
 
-- (UIImage *)scrollViewSnapshot:(UIScrollView *)scrollView;
+- (UIImage *)generateImageFromSubimages:(NSMutableDictionary *)subImages;
 
-- (NSMutableDictionary *)divideImage;
-- (NSMutableDictionary *)divideOriginalImage;
-- (void)putSubImageViews:(NSMutableDictionary *)subImageViews InView:(UIView *)view;
+- (NSMutableDictionary *)divideImage:(UIImage *)image withSquareSize:(NSInteger)squareSize andPutInView:(UIView *)view;
+
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;

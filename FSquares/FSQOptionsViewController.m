@@ -8,11 +8,11 @@
 
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
-//#import "UIImage+Resize.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "CarouselViewController.h"
 #import "TNCheckBoxGroup.h"
+
 
 @interface FSQOptionsViewController ()
 
@@ -35,8 +35,6 @@
     // Do any additional setup after loading the view from its nib.
     [self createGridStatusCheckbox];
     [self createChooseFiltersCheckbox];
-    [self createSquareSizeSegmentedControl];
-   
 }
 
 - (void)createGridStatusCheckbox{
@@ -63,7 +61,8 @@
     
     NSMutableArray *filtersData = [[NSMutableArray alloc] initWithCapacity:modelController.filterNamesUI.count];
     
-    for (int i = 0; i < modelController.filterNamesUI.count; i++) {
+    for (int i = 0; i < modelController.filterNamesUI.count; i++)
+    {
         TNRectangularCheckBoxData *checkboxData = [[TNRectangularCheckBoxData alloc] init];
         checkboxData.identifier = [modelController.filterNamesCI objectAtIndex:i];
         checkboxData.labelText = [modelController.filterNamesUI objectAtIndex:i];
@@ -90,10 +89,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseFiltersUpdate:) name:GROUP_CHANGED object:chooseFiltersCheckbox];
 }
 
-- (void)createSquareSizeSegmentedControl{
-
-}
-
 
 - (void)chooseFiltersUpdate:(NSNotification *)notification {
     
@@ -101,7 +96,8 @@
     [modelController.filterNamesChosen removeAllObjects];
     TNCheckBoxGroup *chooseFiltersCheckbox = notification.object;
     
-    for (TNRectangularCheckBoxData *checkboxData in chooseFiltersCheckbox.checkedCheckBoxes) {
+    for (TNRectangularCheckBoxData *checkboxData in chooseFiltersCheckbox.checkedCheckBoxes)
+    {
         [modelController.filterNamesChosen addObject:checkboxData.identifier];
     }
     
@@ -118,54 +114,45 @@
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     TNCheckBoxGroup *gridStatusCheckbox = notification.object;
     
-    
-    if (gridStatusCheckbox.checkedCheckBoxes.count > 0) {
+    if (gridStatusCheckbox.checkedCheckBoxes.count > 0)
+    {
         modelController.gridStatus = YES;
-        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
+        [modelController putBorderWithWidth:2.5 aroundImageViewsFromView:carouselController.scrollView];
         
     }
-    
-    if (gridStatusCheckbox.checkedCheckBoxes.count == 0) {
-        modelController.gridStatus = NO;
-        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    }
-    
 }
 
 
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            modelController.gridSquareSize = 40;
-            break;
-        case 1:
-            modelController.gridSquareSize = 80;
-            break;
-        case 2:
-            modelController.gridSquareSize = 160;
-            break;
-        default:
-            break;
-    }
     
-    [self performSelector:@selector(applySquareSizeChanges) withObject:nil afterDelay:0.2];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+        
+        modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
+        
+        switch (sender.selectedSegmentIndex)
+        {
+            case 0:
+                modelController.gridSquareSize = 80;
+                break;
+            case 1:
+                modelController.gridSquareSize =  160;
+                break;
+            case 2:
+                modelController.gridSquareSize = 320;
+                break;
+            default:
+                break;
+        }
 
-}
-
-- (void)applySquareSizeChanges{
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    
-    [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
-    
-    modelController.originalSubImageViews = [modelController divideOriginalImage];
-    [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
-    [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
-    
-    if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
-    }
+        
+        modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        
+        modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        
+        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+    });
 }
 
 - (void)dealloc {

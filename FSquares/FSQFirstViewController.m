@@ -7,7 +7,6 @@
 //
 
 #import "FSQFirstViewController.h"
-//#import "UIImage+Resize.h"
 #import "FSQModelController.h"
 #import "CarouselViewController.h"
 #import "UIViewController+JASidePanel.h"
@@ -15,7 +14,6 @@
 #import "SIAlertView.h"
 #import "EAIntroPage.h"
 #import "EAIntroView.h"
-//#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface FSQFirstViewController ()
@@ -36,11 +34,11 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    
     [self performSelector:@selector(squareFalling) withObject:self afterDelay:0.4];
 }
 
 -(void)squareFalling{
+    
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.littleSquare]];
     [self.animator addBehavior:gravityBehavior];
@@ -56,19 +54,20 @@
 
 
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender {
-  UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-  photoPicker.delegate = self;
-  photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  
-  [self presentViewController:photoPicker animated:YES completion:NULL];
+    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+    photoPicker.delegate = self;
+    photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:photoPicker animated:YES completion:NULL];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  
+    
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
-    if (image) {
+    if (image)
+    {
         modelController.originalImage = image;
         
         CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
@@ -79,18 +78,15 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        modelController.originalSubImageViews = [modelController divideOriginalImage];
-        [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
+        
+        //TODO: No need to put in view original subImages -> change this
+        modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        //
+        
+        modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        
         [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
-        
-        if (modelController.gridStatus == YES) {
-            [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
-        }
-        if (modelController.gridStatus == NO) {
-            [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-        }
-        
-        
+                
         carouselController.carousel.delegate = carouselController;
         carouselController.carousel.dataSource = carouselController;
         
@@ -98,12 +94,12 @@
         
         [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
         [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
-      
-      [carouselController.carousel reloadData];
-    }
-    else{
-        //user chose cancel
         
+        [carouselController.carousel reloadData];
+    }
+    else
+    {
+        //user chose cancel
     }
 }
 
@@ -111,17 +107,11 @@
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-
     [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     
-    if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
-    }
+    modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
     
-    modelController.image = [modelController scrollViewSnapshot:carouselController.scrollView];
     UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
-
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -156,7 +146,7 @@
     
     
     [alertView show];
-
+    
 }
 
 - (IBAction)displayInfo:(UIButton *)sender {
@@ -231,56 +221,49 @@
     
     modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
     
-        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-        
-        [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
-        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
-        
-        if (modelController.gridStatus == YES) {
-            [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
-        }
+    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
     
-        modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
-        
-        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
-        
-        [carouselController.carousel reloadData];
+    modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
     
+    [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+    
+    modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+    
+    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    
+    [carouselController.carousel reloadData];
 }
 
-
-
-
 - (IBAction)shareImage:(UIButton *)sender {
-//    // If the Facebook app is installed and we can present the share dialog
-//    if ([FBDialogs canPresentShareDialogWithPhotos]) {
-//        FBPhotoParams *params = [[FBPhotoParams alloc] init];
-//        
-//        // Note that params.photos can be an array of images.  In this example
-//        // we only use a single image, wrapped in an array.
-//        params.photos = @[modelController.image];
-//        
-//        [FBDialogs presentShareDialogWithPhotoParams:params
-//                                         clientState:nil
-//                                             handler:^(FBAppCall *call,
-//                                                       NSDictionary *results,
-//                                                       NSError *error) {
-//                                                 if (error) {
-//                                                     NSLog(@"Error: %@",
-//                                                           error.description);
-//                                                 } else {
-//                                                     NSLog(@"Success!");
-//                                                 }
-//                                             }];
-//
-//       
-//    } else {
-//        // The user doesn't have the Facebook for iOS app installed.  You
-//        // may be able to use a fallback.
-//    }
+    //    // If the Facebook app is installed and we can present the share dialog
+    //    if ([FBDialogs canPresentShareDialogWithPhotos]) {
+    //        FBPhotoParams *params = [[FBPhotoParams alloc] init];
+    //
+    //        // Note that params.photos can be an array of images.  In this example
+    //        // we only use a single image, wrapped in an array.
+    //        params.photos = @[modelController.image];
+    //
+    //        [FBDialogs presentShareDialogWithPhotoParams:params
+    //                                         clientState:nil
+    //                                             handler:^(FBAppCall *call,
+    //                                                       NSDictionary *results,
+    //                                                       NSError *error) {
+    //                                                 if (error) {
+    //                                                     NSLog(@"Error: %@",
+    //                                                           error.description);
+    //                                                 } else {
+    //                                                     NSLog(@"Success!");
+    //                                                 }
+    //                                             }];
+    //
+    //
+    //    } else {
+    //        // The user doesn't have the Facebook for iOS app installed.  You
+    //        // may be able to use a fallback.
+    //    }
 }
 
 

@@ -19,7 +19,7 @@
 
 @property(assign, nonatomic) int tapCount;
 @property(assign, nonatomic) BOOL shouldNotDisplayDoubleTapAlert;
-@property(assign, nonatomic) int selectedIndex;
+@property(assign, nonatomic) NSUInteger selectedIndex;
 
 @end
 
@@ -35,25 +35,34 @@
 }
 
 - (void)applyRandomFilters:(id)sender{
-    if (modelController.image && (modelController.filterNamesChosen.count > 0)) {
+    if (modelController.image && (modelController.filterNamesChosen.count > 0))
+    {
         DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [self.view addSubview:ind];
         [ind startAnimating];
         self.navigationItem.titleView = ind;
-        [self performSelectorInBackground:@selector(applyRandomFiltersBackground) withObject:nil];
-    }
-}
-
-- (void)applyRandomFiltersBackground{
-    for (UIView *subview in self.scrollView.subviews) {
-        UIImageView *subImageView = (UIImageView *)subview;
         
-        if (arc4random() % 2 == 1) { //skip some sub images - we don't need to process every sub image
-            subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            for (UIView *subview in self.scrollView.subviews)
+            {
+                if ([subview isKindOfClass:[UIImageView class]])
+                {
+                    if (arc4random() % 20 < 7)
+                    {
+                        UIImageView *subImageView = (UIImageView *)subview;
+                        dispatch_sync(dispatch_get_main_queue(), ^{
+                            subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
+                            [modelController.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
+                        });
+
+                    }
+                }
+            }
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                self.navigationItem.titleView = [self buttonForTitleView];
+            });
+        });
     }
-    
-    self.navigationItem.titleView = [self buttonForTitleView];
 }
 
 - (UIButton *)buttonForTitleView{
@@ -66,8 +75,6 @@
     [button sizeToFit];
     return button;
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -103,17 +110,11 @@
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-    modelController.originalSubImageViews = [modelController divideOriginalImage];
-    [modelController putSubImageViews:[modelController divideImage] InView:carouselController.scrollView];
+    modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+    
+    modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+    
     [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
-    
-    if (modelController.gridStatus == YES) {
-        [modelController putBorderWithWidth:0.8 aroundImageViewsFromView:carouselController.scrollView];
-    }
-    if (modelController.gridStatus == NO) {
-        [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
-    }
-    
     
     carouselController.carousel.delegate = carouselController;
     carouselController.carousel.dataSource = carouselController;
@@ -150,21 +151,19 @@
 - (void)tap:(UITapGestureRecognizer*)gesture
 {
     self.tapCount++;
-    if (modelController.gridStatus == YES) {
-        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth:0.8];
-    }
-    else{
-        [modelController.selectedSubImageView.layer setBorderWidth:0.0];
-    }
+
+    [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+
     
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
-    if (self.tapCount == 4) {
-        if (!self.shouldNotDisplayDoubleTapAlert) {
+    if (self.tapCount == 4)
+    {
+        if (!self.shouldNotDisplayDoubleTapAlert)
+        {
             [self displayInfoForDoubleTap];
             
             
@@ -174,33 +173,29 @@
         }
     }
     
-    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.carousel reloadData];
+    });
 }
 
 - (void)doubletapAction:(UITapGestureRecognizer*)gesture
 {
-    if (modelController.gridStatus == YES) {
-        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth:0.8];
-    }
-    else{
-        [modelController.selectedSubImageView.layer setBorderWidth:0.0];
-    }
-    
+    [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+
     UIImageView *touchedSubImageView = (UIImageView *)gesture.view;
     
-    UIImageView *originalSubImageView = (UIImageView *)[modelController.originalSubImageViews objectForKey:[NSNumber numberWithInt:touchedSubImageView.tag]];
+    UIImage *originalSubImage = [modelController.originalSubImages objectForKey:[NSNumber numberWithInteger:touchedSubImageView.tag]];
     
-    [touchedSubImageView setImage:originalSubImageView.image];
-    
+    [touchedSubImageView setImage:originalSubImage];
     
     modelController.selectedSubImageView = touchedSubImageView;
-    
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
-    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.carousel reloadData];
+    });
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer*)gesture{
@@ -221,6 +216,7 @@
                         if((imageView.frame.origin.y >= previousPoint.y && imageView.frame.origin.y <= currentPoint.y) || (imageView.frame.origin.y <= previousPoint.y && imageView.frame.origin.y >= currentPoint.y))
                         {
                             imageView.image = [modelController processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
+                            [modelController.subImages setObject:imageView.image forKey:[NSNumber numberWithInteger:imageView.tag]];
                         }
                     }
                 }
@@ -238,6 +234,7 @@
                         if((imageView.frame.origin.x >= previousPoint.x && imageView.frame.origin.x <= currentPoint.x) || (imageView.frame.origin.x <= previousPoint.x && imageView.frame.origin.x >= currentPoint.x))
                         {
                             imageView.image = [modelController processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
+                            [modelController.subImages setObject:imageView.image forKey:[NSNumber numberWithInteger:imageView.tag]];
                         }
                     }
                 }
@@ -245,20 +242,18 @@
         }
     }
     
-    if (modelController.gridStatus == YES) {
-        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth:0.8];
-    }
-    else{
-        [modelController.selectedSubImageView.layer setBorderWidth:0.0];
-    }
+
+    [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+
     
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
-     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.carousel reloadData];
+    });
 }
 
 
@@ -285,14 +280,20 @@
         view.contentMode = UIViewContentModeCenter;
     }
     
-    if (modelController.selectedSubImageView.image) {
+    if (modelController.selectedSubImageView.image)
+    {
         UIImage *outputImage = [modelController processImage:[modelController.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[modelController.filterNamesChosen objectAtIndex:index]];
         
         ((UIImageView *)view).image = outputImage;
         
-        if (index == self.selectedIndex) {
+        if (index == self.selectedIndex)
+        {
             [view.layer setBorderColor:[[UIColor whiteColor] CGColor]];
             [view.layer setBorderWidth: 1.5];
+        }
+        else
+        {
+            [view.layer setBorderWidth:0.0];
         }
     }
     
@@ -305,9 +306,13 @@
     self.selectedIndex = index;
     
     modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
+
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
+    [modelController.subImages setObject:modelController.selectedSubImageView.image forKey:[NSNumber numberWithInteger:modelController.selectedSubImageView.tag]];
     
-    [carousel reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.carousel reloadData];
+    });
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
