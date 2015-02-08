@@ -101,11 +101,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
     
-    
-    
     CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
     modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
-    
+    CGImageRelease(newCgIm);
     
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
@@ -124,8 +122,10 @@
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
-    [carouselController.carousel reloadData];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [carouselController.carousel reloadData];
+    });
 }
 
 - (IBAction)displayInfoForDoubleTap{
@@ -173,9 +173,11 @@
         }
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.carousel reloadData];
-    });
+    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.carousel reloadData];
+//    });
 }
 
 - (void)doubletapAction:(UITapGestureRecognizer*)gesture
@@ -193,9 +195,11 @@
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.carousel reloadData];
-    });
+    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    
+//      dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.carousel reloadData];
+//    });
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer*)gesture{
@@ -251,9 +255,11 @@
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.carousel reloadData];
-    });
+    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.carousel reloadData];
+//    });
 }
 
 
@@ -310,9 +316,11 @@
     modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
     [modelController.subImages setObject:modelController.selectedSubImageView.image forKey:[NSNumber numberWithInteger:modelController.selectedSubImageView.tag]];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.carousel reloadData];
-    });
+    [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.carousel reloadData];
+//    });
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value

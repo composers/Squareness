@@ -131,7 +131,12 @@
         CIImage *result = [filter valueForKey:kCIOutputImageKey];              // 4
         CGRect extent = [result extent];
         CGImageRef cgImage = [context createCGImage:result fromRect:extent];   // 5
-        return [UIImage imageWithCGImage:cgImage];
+        
+        UIImage *outImage =  [UIImage imageWithCGImage:cgImage];
+        
+        CGImageRelease(cgImage);
+
+        return outImage;
     }
 }
 

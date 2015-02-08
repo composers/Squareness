@@ -37,7 +37,6 @@
 - (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
 
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;
-- (void)removeBorderAroundImageViewsFromView:(UIView *)rootView;
 
 @end
 

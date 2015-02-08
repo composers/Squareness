@@ -104,8 +104,11 @@
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
 
-    [carouselController.carousel reloadData];
+    [carouselController.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        [carouselController.carousel reloadData];
+    //    });
 }
 
 - (void)gridStatusChanged:(NSNotification *)notification {

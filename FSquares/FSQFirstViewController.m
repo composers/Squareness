@@ -34,6 +34,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self performSelector:@selector(squareFalling) withObject:self afterDelay:0.4];
 }
 
@@ -72,6 +73,7 @@
         
         CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
         modelController.image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
+        CGImageRelease(newCgIm);
         
         [photoPicker dismissViewControllerAnimated:YES completion:nil];
         
@@ -104,14 +106,10 @@
 }
 
 - (IBAction)saveImage:(UIButton *)sender {
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    
-    [modelController removeBorderAroundImageViewsFromView:carouselController.scrollView];
     
     modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
-    
     UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -217,13 +215,13 @@
 }
 
 - (IBAction)resetImage:(UIButton *)sender {
-    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
     
+    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
     modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+    CGImageRelease(newCgIm);
     
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    
     
     modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
     
