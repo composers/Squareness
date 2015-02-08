@@ -33,7 +33,8 @@
 }
 
 - (id)init {
-    if (self = [super init]) {
+    if (self = [super init])
+    {
         
         NSString *filterNamesUIPlistPath = [[NSBundle mainBundle] pathForResource:@"FilterNamesUser" ofType:@"plist"];
         self.filterNamesUI = [NSArray arrayWithContentsOfFile:filterNamesUIPlistPath];
@@ -51,7 +52,17 @@
         
         [self initFilters];
         
-        self.originalImage = [UIImage imageNamed:@"artwork-source.png"];
+        UIImage *image = [UIImage imageNamed:@"artwork-source.png"];
+        
+        CGSize newSize = CGSizeMake(640.0, 640.0);
+        
+        image = [image resizedImageToSize:newSize];
+        
+        _originalImage = image;
+        
+        CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
+        _image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
+        CGImageRelease(newCgIm);
     }
     return self;
 }

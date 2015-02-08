@@ -9,21 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface FSQModelController : NSObject
-@property (nonatomic, retain) NSArray *filterNamesUI;
-@property (nonatomic, retain) NSArray *filterNamesCI;
-@property (nonatomic, retain) NSString *filterNameSelectedCI;
-@property (nonatomic, retain) NSMutableArray *filterNamesChosen;
+@property (nonatomic, strong) NSArray *filterNamesUI;
+@property (nonatomic, strong) NSArray *filterNamesCI;
+@property (nonatomic, strong) NSString *filterNameSelectedCI;
+@property (nonatomic, strong) NSMutableArray *filterNamesChosen;
 
 @property (nonatomic, assign) BOOL gridStatus;
 @property (nonatomic, assign) int gridSquareSize;
 
-@property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) UIImage *originalImage;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage *originalImage;
 
-@property (nonatomic, retain) UIImageView *selectedSubImageView;
+@property (nonatomic, strong) UIImageView *selectedSubImageView;
 
-@property (nonatomic, retain) NSMutableDictionary *originalSubImages;
-@property (nonatomic, retain) NSMutableDictionary *subImages;
+@property (nonatomic, strong) NSMutableDictionary *originalSubImages;
+@property (nonatomic, strong) NSMutableDictionary *subImages;
 
 
 + (id)sharedInstance;

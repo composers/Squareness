@@ -35,7 +35,7 @@
 }
 
 - (void)applyRandomFilters:(id)sender{
-    if (modelController.image && (modelController.filterNamesChosen.count > 0))
+    if (modelController.filterNamesChosen.count > 0)
     {
         DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [self.view addSubview:ind];
@@ -63,11 +63,30 @@
             });
         });
     }
+    else
+    {
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"N o  e f f e c t s  s e l e c t e d" andMessage:@"Add some effects into the carousel from the effects palette"];
+        
+        [alertView addButtonWithTitle:@"O K"
+                                 type:SIAlertViewButtonTypeDefault
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                              }];
+        
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+        alertView.titleColor = [UIColor darkGrayColor];
+        alertView.messageColor = [UIColor darkGrayColor];
+        alertView.alpha = 0.85;
+        
+        [alertView show];
+
+    }
 }
 
 - (UIButton *)buttonForTitleView{
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
     //[button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"random_icon.ico"] forState:UIControlStateNormal];
@@ -86,13 +105,15 @@
     
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
-    _carousel.backgroundColor = [UIColor blackColor];
+    _carousel.backgroundColor = [UIColor darkGrayColor];
     _carousel.centerItemWhenSelected = YES;
     
     
     self.scrollView.scrollEnabled = YES;
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
     self.scrollView.contentSize = screenFrame.size;
+    self.scrollView.backgroundColor = [UIColor blackColor];
+    
     
     [self.sidePanelController showLeftPanelAnimated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
@@ -282,7 +303,7 @@
         //don't do anything specific to the index within
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, carousel.frame.size.height, carousel.frame.size.height)];
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, carousel.frame.size.height - 5, carousel.frame.size.height - 5)];
         view.contentMode = UIViewContentModeCenter;
     }
     
@@ -327,7 +348,7 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.05f;
+        return value * 1.06f;
     }
     return value;
 }

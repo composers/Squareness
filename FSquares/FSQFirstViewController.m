@@ -14,6 +14,8 @@
 #import "SIAlertView.h"
 #import "EAIntroPage.h"
 #import "EAIntroView.h"
+#import "UIImage+Rotate.h"
+#import "UIImage+Resize.h"
 
 
 @interface FSQFirstViewController ()
@@ -69,6 +71,21 @@
     
     if (image)
     {
+        if (image.size.height < image.size.width)
+        {
+            image = [image imageRotatedByDegrees:90];
+        }
+        
+        int imageWidth = (int)image.size.width;
+        int imageHeight = (int)image.size.height;
+        
+        int newWidth = imageWidth - imageWidth % 160;
+        int newHeight = imageHeight - imageHeight % 160;
+        
+        CGSize newSize = CGSizeMake(newWidth, newHeight);
+        
+        image = [image resizedImageToSize:newSize];
+        
         modelController.originalImage = image;
         
         CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
