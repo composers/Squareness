@@ -14,16 +14,15 @@
 @property (nonatomic, strong) NSString *filterNameSelectedCI;
 @property (nonatomic, strong) NSMutableArray *filterNamesChosen;
 
-@property (nonatomic, assign) BOOL gridStatus;
 @property (nonatomic, assign) int gridSquareSize;
 
-@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UIImage *originalImage;
-
-@property (nonatomic, strong) UIImageView *selectedSubImageView;
+@property (nonatomic, strong) UIImage *image;
 
 @property (nonatomic, strong) NSMutableDictionary *originalSubImages;
 @property (nonatomic, strong) NSMutableDictionary *subImages;
+
+@property (nonatomic, strong) UIImageView *selectedSubImageView;
 
 
 + (id)sharedInstance;

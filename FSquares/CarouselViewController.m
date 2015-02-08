@@ -211,6 +211,8 @@
     
     [touchedSubImageView setImage:originalSubImage];
     
+    [modelController.subImages setObject:originalSubImage forKey:[NSNumber numberWithInteger:touchedSubImageView.tag]];
+    
     modelController.selectedSubImageView = touchedSubImageView;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
@@ -224,6 +226,7 @@
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer*)gesture{
+    
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
         CGPoint previousPoint = modelController.selectedSubImageView.frame.origin;
@@ -269,7 +272,6 @@
     
 
     [modelController.selectedSubImageView.layer setBorderWidth:0.0];
-
     
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     

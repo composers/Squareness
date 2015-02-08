@@ -47,7 +47,6 @@
         
         self.filterNamesChosen = [NSMutableArray arrayWithContentsOfFile:filterNamesCIPlistPath];
         
-        self.gridStatus = NO;
         self.gridSquareSize = 160;
         
         [self initFilters];

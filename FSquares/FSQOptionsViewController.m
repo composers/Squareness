@@ -33,28 +33,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self createGridStatusCheckbox];
     [self createChooseFiltersCheckbox];
 }
 
-- (void)createGridStatusCheckbox{
-    TNRectangularCheckBoxData *gridStatusCheckboxData = [[TNRectangularCheckBoxData alloc] init];
-    gridStatusCheckboxData.identifier = @"gridstatus";
-    gridStatusCheckboxData.labelText = @"g r i d";
-    gridStatusCheckboxData.labelColor = [UIColor darkGrayColor];
-    gridStatusCheckboxData.borderColor = [UIColor darkGrayColor];
-    gridStatusCheckboxData.rectangleColor = [UIColor darkGrayColor];
-    gridStatusCheckboxData.borderWidth = gridStatusCheckboxData.borderHeight = 20;
-    gridStatusCheckboxData.rectangleWidth = gridStatusCheckboxData.rectangleHeight = 15;
-    gridStatusCheckboxData.checked = NO;
-    
-    TNCheckBoxGroup *gridStatusCheckbox = [[TNCheckBoxGroup alloc] initWithCheckBoxData:@[gridStatusCheckboxData] style:TNCheckBoxLayoutVertical];
-    [gridStatusCheckbox create];
-    gridStatusCheckbox.position = CGPointMake(20, 20);
-    [self.gridStatusCheckboxContainer addSubview:gridStatusCheckbox];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gridStatusChanged:) name:GROUP_CHANGED object:gridStatusCheckbox];
-}
 
 
 - (void)createChooseFiltersCheckbox{
@@ -111,20 +92,6 @@
     //    });
 }
 
-- (void)gridStatusChanged:(NSNotification *)notification {
-    
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    TNCheckBoxGroup *gridStatusCheckbox = notification.object;
-    
-    if (gridStatusCheckbox.checkedCheckBoxes.count > 0)
-    {
-        modelController.gridStatus = YES;
-        [modelController putBorderWithWidth:2.5 aroundImageViewsFromView:carouselController.scrollView];
-        
-    }
-}
-
 
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
     
@@ -140,7 +107,7 @@
                 modelController.gridSquareSize = 40;
                 break;
             case 1:
-                modelController.gridSquareSize =  80;
+                modelController.gridSquareSize = 80;
                 break;
             case 2:
                 modelController.gridSquareSize = 160;
@@ -156,6 +123,12 @@
         
         [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     });
+}
+- (IBAction)applyGrid:(UIButton *)sender {
+    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    
+    [modelController putBorderWithWidth:2.5 aroundImageViewsFromView:carouselController.scrollView];
 }
 
 - (void)dealloc {

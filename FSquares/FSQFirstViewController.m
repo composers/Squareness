@@ -233,23 +233,25 @@
 
 - (IBAction)resetImage:(UIButton *)sender {
     
-    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
-    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
-    CGImageRelease(newCgIm);
-    
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    
-    modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
-    
-    [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
-    
-    modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
-    
-    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
-    
-    [carouselController.carousel reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
+        modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+        CGImageRelease(newCgIm);
+        
+        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+        
+        modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        
+        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        
+        modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+        
+        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+        
+        [carouselController.carousel reloadData];
+    });
 }
 
 - (IBAction)shareImage:(UIButton *)sender {
