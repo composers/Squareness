@@ -67,9 +67,9 @@
 }
 
 - (void)initFilters {
-
+    
     _gpuImageSmoothToonFilter = [[GPUImageSmoothToonFilter alloc] init];
-     _gpuImageSmoothToonFilter.threshold = 0.4;
+    _gpuImageSmoothToonFilter.threshold = 0.4;
     
     _gpuImageSwirlFilter = [[GPUImageSwirlFilter alloc] init];
     _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
@@ -116,16 +116,16 @@
         
         if ([filterName isEqualToString:@"GPUImageOrangeFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0];
-          
+            
             filterGPU = _gpuImageMonochromeFilter;
         }
-
         
-//            GPUImagePicture *inputImage = [[GPUImagePicture alloc] initWithImage:myImage];
-//            [inputImage addTarget:filterGPU];
-//            [filterGPU useNextFrameForImageCapture];
-//            [inputImage processImage];
-//            return [filterGPU imageFromCurrentFramebuffer];
+        
+        //            GPUImagePicture *inputImage = [[GPUImagePicture alloc] initWithImage:myImage];
+        //            [inputImage addTarget:filterGPU];
+        //            [filterGPU useNextFrameForImageCapture];
+        //            [inputImage processImage];
+        //            return [filterGPU imageFromCurrentFramebuffer];
         
         return [filterGPU imageByFilteringImage:myImage];
     }
@@ -145,7 +145,7 @@
         UIImage *outImage =  [UIImage imageWithCGImage:cgImage];
         
         CGImageRelease(cgImage);
-
+        
         return outImage;
     }
 }
@@ -182,13 +182,13 @@
             {
                 squareHeight = modelController.gridSquareSize;
             }
-
-    
-    [[subImages objectForKey:[NSNumber numberWithInteger:partId]] drawAtPoint:CGPointMake(x, y)];
+            
+            
+            [[subImages objectForKey:[NSNumber numberWithInteger:partId]] drawAtPoint:CGPointMake(x, y)];
             partId++;
         }
     }
-
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
@@ -233,8 +233,9 @@
             }
             
             CGImageRef cgSubImage = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
+            
             UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
-    
+            
             [subImages setObject:subImage forKey:[NSNumber numberWithInteger:partId]];
             
             UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x * ratio, y * ratio, squareWidth * ratio, squareHeight * ratio)];
@@ -243,7 +244,8 @@
             subImageView.tag = partId;
             [view addSubview:subImageView];
             partId++;
- 
+            
+            
             CGImageRelease(cgSubImage);
         }
     }
@@ -259,7 +261,7 @@
         [subveiw addGestureRecognizer:tap];
         
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
-                                                                              action:@selector(doubletapAction:)];
+                                                                                    action:@selector(doubletapAction:)];
         doubleTap.numberOfTapsRequired = 2;
         [subveiw addGestureRecognizer:doubleTap];
         

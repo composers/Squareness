@@ -28,6 +28,7 @@
                         <segment title="x1"/>
                         <segment title="x2"/>
                         <segment title="x4"/>
+                        <segment title="x8"/>
                     </segments>
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>

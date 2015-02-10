@@ -75,16 +75,10 @@
         {
             image = [image imageRotatedByDegrees:90];
         }
+
+        CGSize newSize = CGSizeMake(960.0, 1280.0);
         
-        int imageWidth = (int)image.size.width;
-        int imageHeight = (int)image.size.height;
-        
-        int newWidth = imageWidth - imageWidth % 160;
-        int newHeight = imageHeight - imageHeight % 160;
-        
-        CGSize newSize = CGSizeMake(newWidth, newHeight);
-        
-        image = [image resizedImageToSize:newSize];
+        image = [image scaleImageToSize:newSize];
         
         modelController.originalImage = image;
         
@@ -112,7 +106,7 @@
         modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
         
         [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+        [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
         [carouselController.carousel reloadData];
     }
@@ -248,7 +242,7 @@
         modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
         
         [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+        [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
         [carouselController.carousel reloadData];
     });

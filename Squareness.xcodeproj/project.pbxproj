@@ -1118,7 +1118,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = Squareness;
-				PROVISIONING_PROFILE = "8ae40f1e-c6fd-448f-94b1-895fb72bbae6";
+				PROVISIONING_PROFILE = "458a9e6a-cd9b-4ea8-9fe1-a40a13b87334";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1149,7 +1149,7 @@
 					"$(PROJECT_DIR)/Release-iphone/lib",
 				);
 				PRODUCT_NAME = Squareness;
-				PROVISIONING_PROFILE = "8ae40f1e-c6fd-448f-94b1-895fb72bbae6";
+				PROVISIONING_PROFILE = "458a9e6a-cd9b-4ea8-9fe1-a40a13b87334";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

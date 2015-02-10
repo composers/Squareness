@@ -112,6 +112,8 @@
             case 2:
                 modelController.gridSquareSize = 160;
                 break;
+            case 3:
+                modelController.gridSquareSize = 320;
             default:
                 break;
         }
@@ -128,7 +130,7 @@
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-    [modelController putBorderWithWidth:2.5 aroundImageViewsFromView:carouselController.scrollView];
+    [modelController putBorderWithWidth:BLACK_BORDER_WIDTH aroundImageViewsFromView:carouselController.scrollView];
 }
 
 - (void)dealloc {

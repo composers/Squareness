@@ -141,7 +141,7 @@
     modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -179,7 +179,7 @@
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     if (self.tapCount == 4)
     {
@@ -216,7 +216,7 @@
     modelController.selectedSubImageView = touchedSubImageView;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     
@@ -276,7 +276,7 @@
     modelController.selectedSubImageView = (UIImageView *)gesture.view;
     
     [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: 2.0];
+    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     
@@ -318,7 +318,7 @@
         if (index == self.selectedIndex)
         {
             [view.layer setBorderColor:[[UIColor whiteColor] CGColor]];
-            [view.layer setBorderWidth: 1.5];
+            [view.layer setBorderWidth: WHITE_BORDER_WIDTH];
         }
         else
         {
