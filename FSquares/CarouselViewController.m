@@ -105,7 +105,7 @@
     
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
-    _carousel.backgroundColor = [UIColor darkGrayColor];
+    _carousel.backgroundColor = [UIColor blackColor];
     _carousel.centerItemWhenSelected = YES;
     
     
