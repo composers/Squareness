@@ -83,6 +83,10 @@
     }
     
     //NSLog(@"Image processing with filter %@", filterName);
+    if ([filterName isEqualToString:@"AddBorderFilter"])
+    {
+        return [self imageWithBorderWidth:BLACK_BORDER_WIDTH * 2 FromImage:myImage];
+    }
     
     if ([filterName containsString:@"GPUImage"]) {
         
@@ -129,7 +133,8 @@
         
         return [filterGPU imageByFilteringImage:myImage];
     }
-    else{
+    else
+    {
         
         CIContext *context = [CIContext contextWithOptions:nil];               // 1
         CIImage *image = [CIImage imageWithCGImage:myImage.CGImage];               // 2
