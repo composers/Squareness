@@ -16,12 +16,13 @@
 #import "EAIntroView.h"
 #import "UIImage+Rotate.h"
 #import "UIImage+Resize.h"
+#import <Social/Social.h>
 
 
 @interface FSQFirstViewController ()
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
-
+@property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @end
 
 @implementation FSQFirstViewController
@@ -77,6 +78,22 @@
         }
 
         CGSize newSize = CGSizeMake(960.0, 1280.0);
+                
+        //TODO: Uncomment to strech photos that are not right size
+//        int temp1 = (int) 960 * image.size.height/image.size.width;
+//        
+//        int temp2;
+//        if (temp1 % 320 == 0)
+//        {
+//            temp2 = (temp1 / 320);
+//        }
+//        else
+//        {
+//             temp2 = (temp1 / 320) + 1;
+//        }
+//        
+//        
+//        CGSize newSize = CGSizeMake(960.0, temp2 * 320);
         
         image = [image scaleImageToSize:newSize];
         
@@ -248,34 +265,28 @@
     });
 }
 
-- (IBAction)shareImage:(UIButton *)sender {
-    //    // If the Facebook app is installed and we can present the share dialog
-    //    if ([FBDialogs canPresentShareDialogWithPhotos]) {
-    //        FBPhotoParams *params = [[FBPhotoParams alloc] init];
-    //
-    //        // Note that params.photos can be an array of images.  In this example
-    //        // we only use a single image, wrapped in an array.
-    //        params.photos = @[modelController.image];
-    //
-    //        [FBDialogs presentShareDialogWithPhotoParams:params
-    //                                         clientState:nil
-    //                                             handler:^(FBAppCall *call,
-    //                                                       NSDictionary *results,
-    //                                                       NSError *error) {
-    //                                                 if (error) {
-    //                                                     NSLog(@"Error: %@",
-    //                                                           error.description);
-    //                                                 } else {
-    //                                                     NSLog(@"Success!");
-    //                                                 }
-    //                                             }];
-    //
-    //
-    //    } else {
-    //        // The user doesn't have the Facebook for iOS app installed.  You
-    //        // may be able to use a fallback.
-    //    }
+- (IBAction)shareImage:(UIButton *)sender
+{
+    SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    [mySLComposerSheet setInitialText:@"#squareness\nAvailable on the App Store\n"];
+    [mySLComposerSheet addURL:[NSURL URLWithString:@"https://itunes.apple.com/mk/app/squareness/id914835206?mt=8"]];
+    [mySLComposerSheet addImage:modelController.image];
+    [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                NSLog(@"Post Canceled");
+                break;
+            case SLComposeViewControllerResultDone:
+                NSLog(@"Post Sucessful");
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+    [self presentViewController:mySLComposerSheet animated:YES completion:nil];
 }
-
 
 @end

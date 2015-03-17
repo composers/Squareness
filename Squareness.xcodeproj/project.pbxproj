@@ -32,6 +32,7 @@
 		2635DEF019E0486400AB4D19 /* big_mountain.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEF19E0486400AB4D19 /* big_mountain.ico */; };
 		2635DEF219E04A1200AB4D19 /* big_grid.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF119E04A1200AB4D19 /* big_grid.ico */; };
 		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
+		268666741AB8DB1600071C38 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 268666731AB8DB1600071C38 /* Social.framework */; };
 		268FCE5A1A3487840079E38E /* icon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE591A3487840079E38E /* icon_180.png */; };
 		268FCE611A3489130079E38E /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5B1A3489130079E38E /* icon_29.png */; };
 		268FCE621A3489130079E38E /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 268FCE5C1A3489130079E38E /* icon_40.png */; };
@@ -147,6 +148,8 @@
 		2635DEEF19E0486400AB4D19 /* big_mountain.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_mountain.ico; sourceTree = "<group>"; };
 		2635DEF119E04A1200AB4D19 /* big_grid.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_grid.ico; sourceTree = "<group>"; };
 		2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_settings_icon.ico; sourceTree = "<group>"; };
+		268666731AB8DB1600071C38 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		268666751AB8DB2500071C38 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		268FCE591A3487840079E38E /* icon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_180.png; sourceTree = "<group>"; };
 		268FCE5B1A3489130079E38E /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = "<group>"; };
 		268FCE5C1A3489130079E38E /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
@@ -402,6 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				268666741AB8DB1600071C38 /* Social.framework in Frameworks */,
 				26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */,
 				26BB4F1F1972F3DE0077FF6F /* QuartzCore.framework in Frameworks */,
 				26BB4F1D1972F3D30077FF6F /* AVFoundation.framework in Frameworks */,
@@ -452,6 +456,8 @@
 		26BB4EA5197098630077FF6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				268666751AB8DB2500071C38 /* Accounts.framework */,
+				268666731AB8DB1600071C38 /* Social.framework */,
 				26E5A90D19D89D13006C4014 /* FacebookSDK.framework */,
 				26BB4F9A197DBC670077FF6F /* CoreText.framework */,
 				26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */,
@@ -1104,7 +1110,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 				);
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1135,7 +1141,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 				);
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
