@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
+@property (nonatomic, assign) BOOL imageRotated;
 @end
 
 @implementation FSQFirstViewController
@@ -32,6 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _imageRotated = NO;
     }
     return self;
 }
@@ -75,25 +77,25 @@
         if (image.size.height < image.size.width)
         {
             image = [image imageRotatedByDegrees:90];
+            self.imageRotated = YES;
         }
-
-        CGSize newSize = CGSizeMake(960.0, 1280.0);
+        else
+        {
+            self.imageRotated = NO;
+        }
                 
-        //TODO: Uncomment to strech photos that are not right size
-//        int temp1 = (int) 960 * image.size.height/image.size.width;
-//        
-//        int temp2;
-//        if (temp1 % 320 == 0)
-//        {
-//            temp2 = (temp1 / 320);
-//        }
-//        else
-//        {
-//             temp2 = (temp1 / 320) + 1;
-//        }
-//        
-//        
-//        CGSize newSize = CGSizeMake(960.0, temp2 * 320);
+        //Find the closes height (upper limit) that is a multiple of 320 (full largest squares)
+        int temp1 = (int) 960 * image.size.height/image.size.width;
+        int temp2;
+        if (temp1 % 320 == 0)
+        {
+            temp2 = (temp1 / 320);
+        }
+        else
+        {
+            temp2 = (temp1 / 320) + 1;
+        }
+        CGSize newSize = CGSizeMake(960.0, temp2 * 320);
         
         image = [image scaleImageToSize:newSize];
         
@@ -108,6 +110,9 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
+        CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+        CGFloat scrollViewHeight = screenFrame.size.width * modelController.image.size.height / modelController.image.size.width;
+        carouselController.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
         
         //TODO: No need to put in view original subImages -> change this
         modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
@@ -136,8 +141,18 @@
 - (IBAction)saveImage:(UIButton *)sender {
     
     modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
-    UIImageWriteToSavedPhotosAlbum(modelController.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
+    UIImage *imageToSave;
+    if (self.imageRotated)
+    {
+        imageToSave = [modelController.image imageRotatedByDegrees:-90];
+    }
+    else
+    {
+        imageToSave = modelController.image;
+    }
+    
+    UIImageWriteToSavedPhotosAlbum(imageToSave, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -267,11 +282,23 @@
 
 - (IBAction)shareImage:(UIButton *)sender
 {
+    modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
+    
+    UIImage *imageToShare;
+    if (self.imageRotated)
+    {
+        imageToShare = [modelController.image imageRotatedByDegrees:-90];
+    }
+    else
+    {
+        imageToShare = modelController.image;
+    }
+
     SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
     [mySLComposerSheet setInitialText:@"#squareness\nAvailable on the App Store\n"];
     [mySLComposerSheet addURL:[NSURL URLWithString:@"https://itunes.apple.com/mk/app/squareness/id914835206?mt=8"]];
-    [mySLComposerSheet addImage:modelController.image];
+    [mySLComposerSheet addImage:imageToShare];
     [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
         switch (result) {
             case SLComposeViewControllerResultCancelled:

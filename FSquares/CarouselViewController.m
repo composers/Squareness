@@ -111,7 +111,9 @@
     
     self.scrollView.scrollEnabled = YES;
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    self.scrollView.contentSize = screenFrame.size;
+    CGFloat scrollViewHeight = screenFrame.size.width * modelController.image.size.height / modelController.image.size.width;
+    self.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
+
     self.scrollView.backgroundColor = [UIColor blackColor];
     
     
