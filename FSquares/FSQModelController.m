@@ -47,6 +47,9 @@
         
         self.filterNamesChosen = [NSMutableArray arrayWithContentsOfFile:filterNamesCIPlistPath];
         
+        [self.filterNamesChosen removeObject:@"AddBorderFilter"];
+        [self.filterNamesChosen removeObject:@"GPUImageSwirlFilter"];
+        
         self.gridSquareSize = 160;
         
         [self initFilters];
@@ -73,6 +76,15 @@
     
     _gpuImageSwirlFilter = [[GPUImageSwirlFilter alloc] init];
     _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
+}
+
+- (UIColor *)colorFromHexString:(NSString *)hexString
+{
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
 - (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
@@ -102,25 +114,54 @@
         }
         
         
-        if ([filterName isEqualToString:@"GPUImageRedFilter"]) {
-            [_gpuImageMonochromeFilter setColorRed:1.0 green:0.68 blue:0.68];
-            filterGPU = _gpuImageMonochromeFilter;
-        }
-        
-        if ([filterName isEqualToString:@"GPUImageGreenFilter"]) {
-            [_gpuImageMonochromeFilter setColorRed:0.68 green:1.0 blue:0.68];
-            //[_gpuImageMonochromeFilter setColorRed:170.0/255.0 green:212.0/255.0 blue:80.0/255.0];
-            filterGPU = _gpuImageMonochromeFilter;
-        }
-        
-        if ([filterName isEqualToString:@"GPUImageBlueFilter"]) {
-            [_gpuImageMonochromeFilter setColorRed:0.68 green:0.68 blue:1.0];
+        if ([filterName isEqualToString:@"GPUImagePinkFilter"])
+        {
+            UIColor *color = [self colorFromHexString:@"#ED81B4"];
+            CGFloat red = 0.0;
+            CGFloat green = 0.0;
+            CGFloat blue = 0.0;
+            CGFloat alpha = 0.0;
+            
+            [color getRed:&red green:&green blue:&blue alpha:&alpha];
+            [_gpuImageMonochromeFilter setColorRed:red green:green blue:blue];
             filterGPU = _gpuImageMonochromeFilter;
         }
         
         if ([filterName isEqualToString:@"GPUImageOrangeFilter"]) {
-            [_gpuImageMonochromeFilter setColorRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0];
+            UIColor *color = [self colorFromHexString:@"#FF7F3B"];
+            CGFloat red = 0.0;
+            CGFloat green = 0.0;
+            CGFloat blue = 0.0;
+            CGFloat alpha = 0.0;
             
+            [color getRed:&red green:&green blue:&blue alpha:&alpha];
+            [_gpuImageMonochromeFilter setColorRed:red green:green blue:blue];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
+        
+        if ([filterName isEqualToString:@"GPUImageGreenFilter"])
+        {
+            UIColor *color = [self colorFromHexString:@"#D6D669"];
+            CGFloat red = 0.0;
+            CGFloat green = 0.0;
+            CGFloat blue = 0.0;
+            CGFloat alpha = 0.0;
+            
+            [color getRed:&red green:&green blue:&blue alpha:&alpha];
+            [_gpuImageMonochromeFilter setColorRed:red green:green blue:blue];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
+        
+        if ([filterName isEqualToString:@"GPUImageYellowFilter"])
+        {
+            UIColor *color = [self colorFromHexString:@"#FFDD91"];
+            CGFloat red = 0.0;
+            CGFloat green = 0.0;
+            CGFloat blue = 0.0;
+            CGFloat alpha = 0.0;
+            
+            [color getRed:&red green:&green blue:&blue alpha:&alpha];
+            [_gpuImageMonochromeFilter setColorRed:red green:green blue:blue];
             filterGPU = _gpuImageMonochromeFilter;
         }
         

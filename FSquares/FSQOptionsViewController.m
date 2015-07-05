@@ -52,11 +52,19 @@
         checkboxData.rectangleColor = [UIColor darkGrayColor];
         checkboxData.borderWidth = checkboxData.borderHeight = 20;
         checkboxData.rectangleWidth = checkboxData.rectangleHeight = 15;
-        checkboxData.checked = YES;
+        
+        if([modelController.filterNamesChosen containsObject:checkboxData.identifier])
+        {
+            checkboxData.checked = YES;
+        }
+        else
+        {
+            checkboxData.checked = NO;
+        }
+        
         [filtersData addObject:checkboxData];
     }
-
-
+    
     TNCheckBoxGroup *chooseFiltersCheckbox = [[TNCheckBoxGroup alloc] initWithCheckBoxData:filtersData style:TNCheckBoxLayoutVertical];
     [chooseFiltersCheckbox create];
     chooseFiltersCheckbox.position = CGPointMake(20, 20);
