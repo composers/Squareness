@@ -35,10 +35,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>2.1</string>
-	<key>FacebookAppID</key>
-	<string>833319103353774</string>
-	<key>FacebookDisplayName</key>
-	<string>Squareness</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -88,7 +88,6 @@
 		26E5A90919CEFA12006C4014 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90619CEFA12006C4014 /* icon_80.png */; };
 		26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90719CEFA12006C4014 /* icon_120.png */; };
 		26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90B19CEFA2B006C4014 /* artwork-source.png */; };
-		26E5A90E19D89D13006C4014 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E5A90D19D89D13006C4014 /* FacebookSDK.framework */; };
 		26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26FA903E19955DE6001B1B79 /* SIAlertView.bundle */; };
 		26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904019955DE6001B1B79 /* SIAlertView.m */; };
 		26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */; };
@@ -225,7 +224,6 @@
 		26E5A90619CEFA12006C4014 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
 		26E5A90719CEFA12006C4014 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		26E5A90B19CEFA2B006C4014 /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
-		26E5A90D19D89D13006C4014 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		26FA903E19955DE6001B1B79 /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
 		26FA903F19955DE6001B1B79 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		26FA904019955DE6001B1B79 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 				26BB4F171972F3AF0077FF6F /* CoreMedia.framework in Frameworks */,
 				26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */,
 				26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */,
-				26E5A90E19D89D13006C4014 /* FacebookSDK.framework in Frameworks */,
 				26FA90F719A74D3E001B1B79 /* libGPUImage.a in Frameworks */,
 				26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */,
 			);
@@ -458,7 +455,6 @@
 			children = (
 				268666751AB8DB2500071C38 /* Accounts.framework */,
 				268666731AB8DB1600071C38 /* Social.framework */,
-				26E5A90D19D89D13006C4014 /* FacebookSDK.framework */,
 				26BB4F9A197DBC670077FF6F /* CoreText.framework */,
 				26BB4F1E1972F3DE0077FF6F /* QuartzCore.framework */,
 				26BB4F1C1972F3D30077FF6F /* AVFoundation.framework */,
@@ -1043,8 +1039,10 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1082,8 +1080,10 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1106,10 +1106,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FacebookSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
@@ -1137,10 +1134,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stefan Stolevski (7N365M3AC6)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FacebookSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
