@@ -11,9 +11,9 @@
 	<string>CIPhotoEffectNoir</string>
 	<string>GPUImageSmoothToonFilter</string>
 	<string>GPUImageSwirlFilter</string>
-	<string>GPUImagePinkFilter</string>
-	<string>GPUImageOrangeFilter</string>
+	<string>GPUImageRedFilter</string>
 	<string>GPUImageGreenFilter</string>
-	<string>GPUImageYellowFilter</string>
+	<string>GPUImageBlueFilter</string>
+	<string>GPUImageOrangeFilter</string>
 </array>
 </plist>
