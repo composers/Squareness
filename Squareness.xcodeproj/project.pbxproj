@@ -430,6 +430,176 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2607C8C11C9D5B4C008B05A9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2607C8CF1C9D5CF7008B05A9 /* CarouselViewController */,
+				2607C8CE1C9D5CE6008B05A9 /* OptionsViewController */,
+				2607C8CD1C9D5CD7008B05A9 /* FirstViewController */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2607C8C21C9D5B55008B05A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26E2C29B19F5CD1A0093F062 /* CustomView.h */,
+				26E2C29C19F5CD1A0093F062 /* CustomView.m */,
+				26E2C29E19F5CD420093F062 /* CustomView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2607C8C31C9D5B6F008B05A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F28197473CF0077FF6F /* FSQModelController.h */,
+				26BB4F29197473CF0077FF6F /* FSQModelController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2607C8C41C9D5BB2008B05A9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2607C8CC1C9D5CB4008B05A9 /* NSString */,
+				2607C8CB1C9D5CA8008B05A9 /* UIImage */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		2607C8C51C9D5BCC008B05A9 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				26FF85AA19757C690092C547 /* GPUImage */,
+				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
+				2607C8CA1C9D5C89008B05A9 /* EAIntro */,
+				2607C8C91C9D5C7C008B05A9 /* DDIndicator */,
+				2607C8C81C9D5C63008B05A9 /* iCarousel */,
+				2607C8C71C9D5C53008B05A9 /* JASidePanel */,
+				2607C8C61C9D5C2E008B05A9 /* TNCheckBox */,
+				26FA903D19955DE6001B1B79 /* SIAlertView */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		2607C8C61C9D5C2E008B05A9 /* TNCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				260E37271984915700E5985E /* TNCheckBox.h */,
+				260E37281984915700E5985E /* TNCheckBox.m */,
+				260E37291984915700E5985E /* TNCheckBoxData.h */,
+				260E372A1984915700E5985E /* TNCheckBoxData.m */,
+				260E372B1984915700E5985E /* TNCheckBoxDelegate.h */,
+				260E372C1984915700E5985E /* TNCheckBoxGroup.h */,
+				260E372D1984915700E5985E /* TNCheckBoxGroup.m */,
+				260E372E1984915700E5985E /* TNCheckBoxProtocol.h */,
+				260E372F1984915700E5985E /* TNCircularCheckBox.h */,
+				260E37301984915700E5985E /* TNCircularCheckBox.m */,
+				260E37311984915700E5985E /* TNCircularCheckBoxData.h */,
+				260E37321984915700E5985E /* TNCircularCheckBoxData.m */,
+				260E37331984915700E5985E /* TNImageCheckbox.h */,
+				260E37341984915700E5985E /* TNImageCheckbox.m */,
+				260E37351984915700E5985E /* TNImageCheckBoxData.h */,
+				260E37361984915700E5985E /* TNImageCheckBoxData.m */,
+				260E37371984915700E5985E /* TNRectangularCheckBox.h */,
+				260E37381984915700E5985E /* TNRectangularCheckBox.m */,
+				260E37391984915700E5985E /* TNRectangularCheckBoxData.h */,
+				260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */,
+			);
+			name = TNCheckBox;
+			sourceTree = "<group>";
+		};
+		2607C8C71C9D5C53008B05A9 /* JASidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F581979E39C0077FF6F /* JASidePanelController.h */,
+				26BB4F591979E39C0077FF6F /* JASidePanelController.m */,
+				26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */,
+				26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */,
+			);
+			name = JASidePanel;
+			sourceTree = "<group>";
+		};
+		2607C8C81C9D5C63008B05A9 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
+				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
+			);
+			name = iCarousel;
+			sourceTree = "<group>";
+		};
+		2607C8C91C9D5C7C008B05A9 /* DDIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				2622918B19839E200001C116 /* DDIndicator.h */,
+				2622918C19839E200001C116 /* DDIndicator.m */,
+			);
+			name = DDIndicator;
+			sourceTree = "<group>";
+		};
+		2607C8CA1C9D5C89008B05A9 /* EAIntro */ = {
+			isa = PBXGroup;
+			children = (
+				2635DED419E0012400AB4D19 /* EAIntroPage.h */,
+				2635DED519E0012400AB4D19 /* EAIntroPage.m */,
+				2635DED619E0012500AB4D19 /* EAIntroView.h */,
+				2635DED719E0012500AB4D19 /* EAIntroView.m */,
+			);
+			name = EAIntro;
+			sourceTree = "<group>";
+		};
+		2607C8CB1C9D5CA8008B05A9 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				260E3722198428D300E5985E /* UIImage+Rotate.h */,
+				260E3723198428D300E5985E /* UIImage+Rotate.m */,
+				26BB4EE41970A2960077FF6F /* UIImage+Resize.h */,
+				26BB4EE51970A2960077FF6F /* UIImage+Resize.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
+		2607C8CC1C9D5CB4008B05A9 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F26197302B00077FF6F /* NSString+ContainsString.m */,
+				26BB4F25197302B00077FF6F /* NSString+ContainsString.h */,
+			);
+			name = NSString;
+			sourceTree = "<group>";
+		};
+		2607C8CD1C9D5CD7008B05A9 /* FirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */,
+				26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */,
+				26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */,
+			);
+			name = FirstViewController;
+			sourceTree = "<group>";
+		};
+		2607C8CE1C9D5CE6008B05A9 /* OptionsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */,
+				26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */,
+				26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */,
+			);
+			name = OptionsViewController;
+			sourceTree = "<group>";
+		};
+		2607C8CF1C9D5CF7008B05A9 /* CarouselViewController */ = {
+			isa = PBXGroup;
+			children = (
+				26BB4F61197AB86E0077FF6F /* CarouselViewController.h */,
+				26BB4F62197AB86E0077FF6F /* CarouselViewController.m */,
+				26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */,
+			);
+			name = CarouselViewController;
+			sourceTree = "<group>";
+		};
 		26BB4E9A197098630077FF6F = {
 			isa = PBXGroup;
 			children = (
@@ -437,7 +607,6 @@
 				26BB4EC5197098630077FF6F /* FSquaresTests */,
 				26BB4EA5197098630077FF6F /* Frameworks */,
 				26BB4EA4197098630077FF6F /* Products */,
-				26FF85AA19757C690092C547 /* GPUImage */,
 			);
 			sourceTree = "<group>";
 		};
@@ -472,66 +641,17 @@
 		26BB4EAC197098630077FF6F /* FSquares */ = {
 			isa = PBXGroup;
 			children = (
+				2607C8C51C9D5BCC008B05A9 /* External */,
+				2607C8C41C9D5BB2008B05A9 /* Categories */,
+				2607C8C31C9D5B6F008B05A9 /* Model */,
+				2607C8C21C9D5B55008B05A9 /* Views */,
+				2607C8C11C9D5B4C008B05A9 /* ViewControllers */,
 				26BB4EB5197098630077FF6F /* FSQAppDelegate.h */,
 				26BB4EB6197098630077FF6F /* FSQAppDelegate.m */,
-				26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */,
-				26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */,
-				26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */,
-				26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */,
-				26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */,
-				26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */,
-				26BB4F61197AB86E0077FF6F /* CarouselViewController.h */,
-				26BB4F62197AB86E0077FF6F /* CarouselViewController.m */,
-				26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */,
-				26BB4F28197473CF0077FF6F /* FSQModelController.h */,
-				26BB4F29197473CF0077FF6F /* FSQModelController.m */,
-				26BB4F26197302B00077FF6F /* NSString+ContainsString.m */,
-				26BB4F25197302B00077FF6F /* NSString+ContainsString.h */,
-				26BB4F581979E39C0077FF6F /* JASidePanelController.h */,
-				26BB4F591979E39C0077FF6F /* JASidePanelController.m */,
-				26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */,
-				26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */,
-				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
-				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
-				2622918B19839E200001C116 /* DDIndicator.h */,
-				2622918C19839E200001C116 /* DDIndicator.m */,
-				260E3722198428D300E5985E /* UIImage+Rotate.h */,
-				260E3723198428D300E5985E /* UIImage+Rotate.m */,
-				26BB4EE41970A2960077FF6F /* UIImage+Resize.h */,
-				26BB4EE51970A2960077FF6F /* UIImage+Resize.m */,
-				260E37271984915700E5985E /* TNCheckBox.h */,
-				260E37281984915700E5985E /* TNCheckBox.m */,
-				260E37291984915700E5985E /* TNCheckBoxData.h */,
-				260E372A1984915700E5985E /* TNCheckBoxData.m */,
-				260E372B1984915700E5985E /* TNCheckBoxDelegate.h */,
-				260E372C1984915700E5985E /* TNCheckBoxGroup.h */,
-				260E372D1984915700E5985E /* TNCheckBoxGroup.m */,
-				260E372E1984915700E5985E /* TNCheckBoxProtocol.h */,
-				260E372F1984915700E5985E /* TNCircularCheckBox.h */,
-				260E37301984915700E5985E /* TNCircularCheckBox.m */,
-				260E37311984915700E5985E /* TNCircularCheckBoxData.h */,
-				260E37321984915700E5985E /* TNCircularCheckBoxData.m */,
-				260E37331984915700E5985E /* TNImageCheckbox.h */,
-				260E37341984915700E5985E /* TNImageCheckbox.m */,
-				260E37351984915700E5985E /* TNImageCheckBoxData.h */,
-				260E37361984915700E5985E /* TNImageCheckBoxData.m */,
-				260E37371984915700E5985E /* TNRectangularCheckBox.h */,
-				260E37381984915700E5985E /* TNRectangularCheckBox.m */,
-				260E37391984915700E5985E /* TNRectangularCheckBoxData.h */,
-				260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */,
-				2635DED419E0012400AB4D19 /* EAIntroPage.h */,
-				2635DED519E0012400AB4D19 /* EAIntroPage.m */,
-				2635DED619E0012500AB4D19 /* EAIntroView.h */,
-				2635DED719E0012500AB4D19 /* EAIntroView.m */,
 				26BB4EFB1972894A0077FF6F /* FilterNamesUser.plist */,
 				26BB4EFD19728A070077FF6F /* FilterNamesCoreImage.plist */,
-				26FA903D19955DE6001B1B79 /* SIAlertView */,
-				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
 				26BB4EB8197098630077FF6F /* Images.xcassets */,
 				26BB4EAD197098630077FF6F /* Supporting Files */,
-				26E2C29B19F5CD1A0093F062 /* CustomView.h */,
-				26E2C29C19F5CD1A0093F062 /* CustomView.m */,
-				26E2C29E19F5CD420093F062 /* CustomView.xib */,
 			);
 			path = FSquares;
 			sourceTree = "<group>";
@@ -811,7 +931,7 @@
 				26FA90F519A74D3E001B1B79 /* lib */,
 			);
 			name = GPUImage;
-			path = "Release-iphone";
+			path = "../Release-iphone";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
