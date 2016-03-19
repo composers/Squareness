@@ -201,8 +201,8 @@
     
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"p h o t o";
-    page1.desc = @"Import a photo from the photo library. Pick a square area from the photo and apply an effect using the carousel in the bottom. You can always play around with the default image before choosing your own.";
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_mountain.ico"]];
+    page1.desc = @"Import a photo or take one with the camera. Pick a square area from the photo and apply an effect using the carousel in the bottom. You can always play around with the default image before choosing your own.";
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera.png"]];
     page1.titleIconPositionY = 200;
     page1.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page1.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
