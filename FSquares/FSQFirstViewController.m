@@ -65,6 +65,15 @@
     [self presentViewController:photoPicker animated:YES completion:NULL];
 }
 
+- (IBAction)takePhoto:(id)sender
+{
+    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+    photoPicker.delegate = self;
+    photoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:photoPicker animated:YES completion:NULL];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *littleSquare;
 @property (weak, nonatomic) IBOutlet UIButton *resetImageButton;
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
+- (IBAction)takePhoto:(id)sender;
 - (IBAction)saveImage:(UIButton *)sender;
 - (IBAction)displayInfo:(UIButton *)sender;
 - (IBAction)resetImage:(UIButton *)sender;

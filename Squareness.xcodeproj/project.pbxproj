@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2607C8D31C9D6A10008B05A9 /* FSQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8D21C9D6A10008B05A9 /* FSQBaseViewController.m */; };
 		2607C8D61C9D7CB9008B05A9 /* UIImage+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */; };
+		2607C8D81C9D8FF6008B05A9 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 2607C8D71C9D8FF6008B05A9 /* camera.png */; };
+		2607C8DA1C9D919E008B05A9 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 2607C8D91C9D919E008B05A9 /* info.png */; };
+		2607C8DC1C9D9239008B05A9 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 2607C8DB1C9D9239008B05A9 /* save.png */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
 		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
 		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
@@ -113,6 +116,9 @@
 		2607C8D21C9D6A10008B05A9 /* FSQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQBaseViewController.m; sourceTree = "<group>"; };
 		2607C8D41C9D7CB9008B05A9 /* UIImage+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Border.h"; sourceTree = "<group>"; };
 		2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Border.m"; sourceTree = "<group>"; };
+		2607C8D71C9D8FF6008B05A9 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		2607C8D91C9D919E008B05A9 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		2607C8DB1C9D9239008B05A9 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
@@ -677,10 +683,13 @@
 		26BB4EAD197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2607C8D71C9D8FF6008B05A9 /* camera.png */,
 				2635DECA19DF7C7700AB4D19 /* little_info.ico */,
+				2607C8DB1C9D9239008B05A9 /* save.png */,
 				2635DEC419DF6EA800AB4D19 /* little_grid.ico */,
 				2635DEF119E04A1200AB4D19 /* big_grid.ico */,
 				26AB7A9B19F5B56200A7BB46 /* lines.ico */,
+				2607C8D91C9D919E008B05A9 /* info.png */,
 				2635DECC19DFF16D00AB4D19 /* little_floppy.ico */,
 				2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */,
 				2635DEEF19E0486400AB4D19 /* big_mountain.ico */,
@@ -1057,18 +1066,21 @@
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				268FCE621A3489130079E38E /* icon_40.png in Resources */,
 				268FCE5A1A3487840079E38E /* icon_180.png in Resources */,
+				2607C8DC1C9D9239008B05A9 /* save.png in Resources */,
 				2635DEEA19E0384700AB4D19 /* random_icon.ico in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				2635DECB19DF7C7700AB4D19 /* little_info.ico in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
 				268FCE611A3489130079E38E /* icon_29.png in Resources */,
 				2635DEC519DF6EA800AB4D19 /* little_grid.ico in Resources */,
+				2607C8D81C9D8FF6008B05A9 /* camera.png in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				2635DECD19DFF16D00AB4D19 /* little_floppy.ico in Resources */,
 				2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
 				268FCE631A3489130079E38E /* icon_76.png in Resources */,
 				26E5A90919CEFA12006C4014 /* icon_80.png in Resources */,
+				2607C8DA1C9D919E008B05A9 /* info.png in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1247,7 +1259,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSquares/Squareness-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
