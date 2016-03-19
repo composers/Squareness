@@ -14,6 +14,7 @@
 		2607C8DC1C9D9239008B05A9 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 2607C8DB1C9D9239008B05A9 /* save.png */; };
 		2607C8E01C9D9A70008B05A9 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8DF1C9D9A70008B05A9 /* UIColor+HexString.m */; };
 		2607C9931C9DC91D008B05A9 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2607C9921C9DC91D008B05A9 /* libGPUImage.a */; };
+		2607C9961C9DCA9E008B05A9 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9951C9DCA9E008B05A9 /* iCarousel.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
 		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
 		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
@@ -75,7 +76,6 @@
 		26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F29197473CF0077FF6F /* FSQModelController.m */; };
 		26BB4F5C1979E39C0077FF6F /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F591979E39C0077FF6F /* JASidePanelController.m */; };
 		26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */; };
-		26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F5F197A6E690077FF6F /* iCarousel.m */; };
 		26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F62197AB86E0077FF6F /* CarouselViewController.m */; };
 		26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */; };
 		26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4F83197DBC520077FF6F /* FAKFontAwesome.m */; };
@@ -296,6 +296,8 @@
 		2607C98F1C9DC91D008B05A9 /* GPUImageXYDerivativeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageXYDerivativeFilter.h; sourceTree = "<group>"; };
 		2607C9901C9DC91D008B05A9 /* GPUImageZoomBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageZoomBlurFilter.h; sourceTree = "<group>"; };
 		2607C9921C9DC91D008B05A9 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
+		2607C9941C9DCA9E008B05A9 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		2607C9951C9DCA9E008B05A9 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
@@ -384,8 +386,6 @@
 		26BB4F591979E39C0077FF6F /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		26BB4F5A1979E39C0077FF6F /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		26BB4F5B1979E39C0077FF6F /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
-		26BB4F5E197A6E690077FF6F /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
-		26BB4F5F197A6E690077FF6F /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		26BB4F61197AB86E0077FF6F /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CarouselViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		26BB4F62197AB86E0077FF6F /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CarouselViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		26BB4F63197AB86E0077FF6F /* CarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
@@ -550,8 +550,8 @@
 		2607C8C81C9D5C63008B05A9 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				26BB4F5E197A6E690077FF6F /* iCarousel.h */,
-				26BB4F5F197A6E690077FF6F /* iCarousel.m */,
+				2607C9941C9DCA9E008B05A9 /* iCarousel.h */,
+				2607C9951C9DCA9E008B05A9 /* iCarousel.m */,
 			);
 			name = iCarousel;
 			sourceTree = "<group>";
@@ -1156,7 +1156,6 @@
 				260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */,
 				260E373E1984915700E5985E /* TNCircularCheckBox.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
-				26BB4F60197A6E690077FF6F /* iCarousel.m in Sources */,
 				2635DED819E0012500AB4D19 /* EAIntroPage.m in Sources */,
 				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
 				260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */,
@@ -1165,6 +1164,7 @@
 				260E37401984915700E5985E /* TNImageCheckbox.m in Sources */,
 				2607C8E01C9D9A70008B05A9 /* UIColor+HexString.m in Sources */,
 				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
+				2607C9961C9DCA9E008B05A9 /* iCarousel.m in Sources */,
 				260E373F1984915700E5985E /* TNCircularCheckBoxData.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
