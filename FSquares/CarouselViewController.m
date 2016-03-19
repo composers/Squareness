@@ -17,7 +17,6 @@
 
 @interface CarouselViewController ()
 
-@property (nonatomic, strong) FSQModelController *sharedModel;
 @property(assign, nonatomic) int tapCount;
 @property(assign, nonatomic) BOOL shouldNotDisplayDoubleTapAlert;
 @property(assign, nonatomic) NSUInteger selectedIndex;
@@ -318,13 +317,13 @@
 
 #pragma mark iCarousel methods
 
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
     return self.sharedModel.filterNamesChosen.count;
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     //NSLog(@"filter index %lu", (unsigned long)index);
     //create new view if no view is available for recycling

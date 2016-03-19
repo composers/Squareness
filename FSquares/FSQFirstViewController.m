@@ -67,11 +67,33 @@
 
 - (IBAction)takePhoto:(id)sender
 {
-    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-    photoPicker.delegate = self;
-    photoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    [self presentViewController:photoPicker animated:YES completion:NULL];
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+        photoPicker.delegate = self;
+        photoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:photoPicker animated:YES completion:NULL];
+    }
+    else
+    {
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"I n f o"
+                                                         andMessage:@"Camera not available"];
+        
+        [alertView addButtonWithTitle:@"O K"
+                                 type:SIAlertViewButtonTypeDefault
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                              }];
+        
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+        alertView.titleColor = [UIColor darkGrayColor];
+        alertView.messageColor = [UIColor darkGrayColor];
+        alertView.alpha = 0.85;
+        
+        [alertView show];
+
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info

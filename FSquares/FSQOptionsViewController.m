@@ -14,7 +14,7 @@
 
 
 @interface FSQOptionsViewController ()
-@property (nonatomic, strong) FSQModelController *sharedModel;
+
 @end
 
 @implementation FSQOptionsViewController
