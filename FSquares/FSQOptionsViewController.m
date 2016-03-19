@@ -115,9 +115,9 @@
             default:
                 break;
         }
-
-        [self.sharedModel divideOriginalImageInView:carouselController.scrollView];
-        [self.sharedModel divideProcessedImageInView:carouselController.scrollView];
+        
+        [carouselController divideOriginalImage];
+        [carouselController divideProcessedImage];
         [carouselController addGestureRecognizersToSubviews];
     });
 }

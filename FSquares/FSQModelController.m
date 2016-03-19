@@ -79,7 +79,8 @@
     _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
 }
 
-- (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName{
+- (UIImage *)processImage:(UIImage *)myImage
+           withFilterName:(NSString *)filterName{
     
     if (myImage == nil) {
         //NSLog(@"No image loaded");
@@ -202,79 +203,6 @@
     
     UIGraphicsEndImageContext();
     self.image = image;
-}
-
-
-- (void)divideOriginalImageInView:(UIView *)view
-{
-    self.originalSubImages = [self divideImage:self.originalImage
-                                withSquareSize:self.gridSquareSize
-                                  andPutInView:view];
-}
-
-- (void)divideProcessedImageInView:(UIView *)view
-{
-    self.subImages = [self divideImage:self.image
-                        withSquareSize:self.gridSquareSize
-                          andPutInView:view];
-}
-
-- (NSMutableDictionary *)divideImage:(UIImage *)image
-                      withSquareSize:(NSInteger)squareSize
-                        andPutInView:(UIView *)view
-{
-    [[view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first!!!
-    
-    NSMutableDictionary *subImages = [[NSMutableDictionary alloc] init];
-    NSInteger partId = 100;
-    
-    CGFloat squareWidth = squareSize;
-    CGFloat squareHeight = squareSize;
-    CGFloat imageWidth = image.size.width;
-    CGFloat imageHeight = image.size.height;
-    
-    float ratio = view.frame.size.width / imageWidth;
-    
-    for (CGFloat x = 0; x < imageWidth; x += squareWidth)
-    {
-        for(CGFloat y = 0; y < imageHeight; y += squareHeight)
-        {
-            if (x + squareWidth > imageWidth)
-            {
-                squareWidth = imageWidth - x;
-            }
-            else
-            {
-                squareWidth = squareSize;
-            }
-            
-            if (y + squareHeight > imageHeight)
-            {
-                squareHeight = imageHeight - y;
-            }
-            else
-            {
-                squareHeight = squareSize;
-            }
-            
-            CGImageRef cgSubImage = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(x, y, squareWidth, squareHeight));
-            
-            UIImage *subImage = [UIImage imageWithCGImage:cgSubImage];
-            
-            [subImages setObject:subImage forKey:[NSNumber numberWithInteger:partId]];
-            
-            UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x * ratio, y * ratio, squareWidth * ratio, squareHeight * ratio)];
-            subImageView.userInteractionEnabled = YES;
-            [subImageView setImage:subImage];
-            subImageView.tag = partId;
-            [view addSubview:subImageView];
-            partId++;
-            
-            
-            CGImageRelease(cgSubImage);
-        }
-    }
-    return subImages;
 }
 
 

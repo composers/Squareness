@@ -33,7 +33,5 @@
 - (UIImage *)processImage:(UIImage *)myImage
            withFilterName:(NSString *)filterName;
 - (void)generateImageFromSubimages;
-- (void)divideOriginalImageInView:(UIView *)view;
-- (void)divideProcessedImageInView:(UIView *)view;
 @end
 

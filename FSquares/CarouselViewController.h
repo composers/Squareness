@@ -13,6 +13,9 @@
 @interface CarouselViewController : FSQBaseViewController <iCarouselDataSource, iCarouselDelegate>
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+- (void)divideOriginalImage;
+- (void)divideProcessedImage;
 - (void)addGestureRecognizersToSubviews;
 - (void)putBorderWithWidth:(float)borderWidth;
 @end

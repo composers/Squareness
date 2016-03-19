@@ -145,10 +145,8 @@
         CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
         carouselController.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
         
-        //TODO: No need to put in view original subImages -> change this
-        [self.sharedModel divideOriginalImageInView:carouselController.scrollView];
-        //
-        [self.sharedModel divideProcessedImageInView:carouselController.scrollView];
+        [carouselController divideOriginalImage];
+        [carouselController divideProcessedImage];
         [carouselController addGestureRecognizersToSubviews];
                 
         carouselController.carousel.delegate = carouselController;
@@ -298,7 +296,7 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        [self.sharedModel divideProcessedImageInView:carouselController.scrollView];
+        [carouselController divideProcessedImage];
         [carouselController addGestureRecognizersToSubviews];
         
         self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];

@@ -15,6 +15,7 @@
 		2607C8E01C9D9A70008B05A9 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8DF1C9D9A70008B05A9 /* UIColor+HexString.m */; };
 		2607C9931C9DC91D008B05A9 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2607C9921C9DC91D008B05A9 /* libGPUImage.a */; };
 		2607C9961C9DCA9E008B05A9 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9951C9DCA9E008B05A9 /* iCarousel.m */; };
+		2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
 		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
 		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
@@ -298,6 +299,8 @@
 		2607C9921C9DC91D008B05A9 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
 		2607C9941C9DCA9E008B05A9 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		2607C9951C9DCA9E008B05A9 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		2607C9981C9DEAF3008B05A9 /* UIView+Divide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Divide.h"; sourceTree = "<group>"; };
+		2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Divide.m"; sourceTree = "<group>"; };
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
@@ -487,6 +490,7 @@
 		2607C8C41C9D5BB2008B05A9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				2607C9971C9DEAB6008B05A9 /* UIView */,
 				2607C8DD1C9D9A45008B05A9 /* UIColor */,
 				2607C8CC1C9D5CB4008B05A9 /* NSString */,
 				2607C8CB1C9D5CA8008B05A9 /* UIImage */,
@@ -879,6 +883,15 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		2607C9971C9DEAB6008B05A9 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				2607C9981C9DEAF3008B05A9 /* UIView+Divide.h */,
+				2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
 		26BB4E9A197098630077FF6F = {
 			isa = PBXGroup;
 			children = (
@@ -1173,6 +1186,7 @@
 				260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */,
 				26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */,
 				2607C8D31C9D6A10008B05A9 /* FSQBaseViewController.m in Sources */,
+				2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

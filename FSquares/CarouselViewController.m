@@ -14,6 +14,7 @@
 #import "DDIndicator.h"
 #import "SIAlertView.h"
 #import "UIImage+Border.h"
+#import "UIView+Divide.h"
 
 @interface CarouselViewController ()
 
@@ -42,7 +43,8 @@
                     {
                         UIImageView *subImageView = (UIImageView *)subview;
                         dispatch_sync(dispatch_get_main_queue(), ^{
-                            subImageView.image = [self.sharedModel processImage:subImageView.image withFilterName:[self.sharedModel.filterNamesChosen objectAtIndex:(arc4random() % self.sharedModel.filterNamesChosen.count)]];
+                            subImageView.image = [self.sharedModel processImage:subImageView.image
+                                                                 withFilterName:[self.sharedModel.filterNamesChosen objectAtIndex:(arc4random() % self.sharedModel.filterNamesChosen.count)]];
                             [self.sharedModel.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
                         });
 
@@ -75,7 +77,8 @@
     }
 }
 
-- (UIButton *)buttonForTitleView{
+- (UIButton *)buttonForTitleView
+{
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
@@ -121,9 +124,8 @@
                                            orientation:self.sharedModel.originalImage.imageOrientation];
     CGImageRelease(newCgIm);
 
-    
-    [self.sharedModel divideOriginalImageInView:self.scrollView];
-    [self.sharedModel divideProcessedImageInView:self.scrollView];
+    [self divideOriginalImage];
+    [self divideProcessedImage];
     [self addGestureRecognizersToSubviews];
     
     self.carousel.delegate = self;
@@ -159,6 +161,19 @@
     [alertView show];
     
 }
+
+- (void)divideOriginalImage
+{
+    self.sharedModel.originalSubImages = [self.scrollView addImage:self.sharedModel.originalImage
+                                                    withSquareSize:self.sharedModel.gridSquareSize];
+}
+
+- (void)divideProcessedImage
+{
+    self.sharedModel.subImages = [self.scrollView addImage:self.sharedModel.image
+                                            withSquareSize:self.sharedModel.gridSquareSize];
+}
+
 - (void)addGestureRecognizersToSubviews
 {
     for (UIView *subveiw in self.scrollView.subviews)
