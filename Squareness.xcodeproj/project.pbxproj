@@ -637,6 +637,42 @@
 			name = UIColor;
 			sourceTree = "<group>";
 		};
+		2607C8E11C9D9B3E008B05A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2607C8D71C9D8FF6008B05A9 /* camera.png */,
+				2635DECA19DF7C7700AB4D19 /* little_info.ico */,
+				2607C8DB1C9D9239008B05A9 /* save.png */,
+				2635DEC419DF6EA800AB4D19 /* little_grid.ico */,
+				2635DEF119E04A1200AB4D19 /* big_grid.ico */,
+				26AB7A9B19F5B56200A7BB46 /* lines.ico */,
+				2607C8D91C9D919E008B05A9 /* info.png */,
+				2635DECC19DFF16D00AB4D19 /* little_floppy.ico */,
+				2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */,
+				2635DEEF19E0486400AB4D19 /* big_mountain.ico */,
+				2635DEE319E032DE00AB4D19 /* random_spiral_icon.ico */,
+				2635DEE519E035CA00AB4D19 /* random_spiral_icon_new.ico */,
+				2635DEE919E0384700AB4D19 /* random_icon.ico */,
+				2635DEEB19E03EB000AB4D19 /* list_icon.ico */,
+				2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */,
+				26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */,
+				2635DEDF19E00BD200AB4D19 /* spirala.ico */,
+				26E5A90B19CEFA2B006C4014 /* artwork-source.png */,
+				26E5A90519CEFA12006C4014 /* icon_58.png */,
+				26E5A90619CEFA12006C4014 /* icon_80.png */,
+				26E5A90719CEFA12006C4014 /* icon_120.png */,
+				268FCE591A3487840079E38E /* icon_180.png */,
+				268FCE5B1A3489130079E38E /* icon_29.png */,
+				268FCE5C1A3489130079E38E /* icon_40.png */,
+				268FCE5D1A3489130079E38E /* icon_76.png */,
+				268FCE5E1A3489130079E38E /* icon_87.png */,
+				268FCE5F1A3489130079E38E /* icon_152.png */,
+				26FA904C19A68013001B1B79 /* Default-568h@2x.png */,
+				26FA904E19A68018001B1B79 /* Default@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		26BB4E9A197098630077FF6F = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +714,7 @@
 		26BB4EAC197098630077FF6F /* FSquares */ = {
 			isa = PBXGroup;
 			children = (
+				2607C8E11C9D9B3E008B05A9 /* Resources */,
 				2607C8C51C9D5BCC008B05A9 /* External */,
 				2607C8C41C9D5BB2008B05A9 /* Categories */,
 				2607C8C31C9D5B6F008B05A9 /* Model */,
@@ -696,35 +733,6 @@
 		26BB4EAD197098630077FF6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2607C8D71C9D8FF6008B05A9 /* camera.png */,
-				2635DECA19DF7C7700AB4D19 /* little_info.ico */,
-				2607C8DB1C9D9239008B05A9 /* save.png */,
-				2635DEC419DF6EA800AB4D19 /* little_grid.ico */,
-				2635DEF119E04A1200AB4D19 /* big_grid.ico */,
-				26AB7A9B19F5B56200A7BB46 /* lines.ico */,
-				2607C8D91C9D919E008B05A9 /* info.png */,
-				2635DECC19DFF16D00AB4D19 /* little_floppy.ico */,
-				2635DEC819DF7B4D00AB4D19 /* little_mountain.ico */,
-				2635DEEF19E0486400AB4D19 /* big_mountain.ico */,
-				2635DEE319E032DE00AB4D19 /* random_spiral_icon.ico */,
-				2635DEE519E035CA00AB4D19 /* random_spiral_icon_new.ico */,
-				2635DEE919E0384700AB4D19 /* random_icon.ico */,
-				2635DEEB19E03EB000AB4D19 /* list_icon.ico */,
-				2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */,
-				26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */,
-				2635DEDF19E00BD200AB4D19 /* spirala.ico */,
-				26E5A90B19CEFA2B006C4014 /* artwork-source.png */,
-				26E5A90519CEFA12006C4014 /* icon_58.png */,
-				26E5A90619CEFA12006C4014 /* icon_80.png */,
-				26E5A90719CEFA12006C4014 /* icon_120.png */,
-				268FCE591A3487840079E38E /* icon_180.png */,
-				268FCE5B1A3489130079E38E /* icon_29.png */,
-				268FCE5C1A3489130079E38E /* icon_40.png */,
-				268FCE5D1A3489130079E38E /* icon_76.png */,
-				268FCE5E1A3489130079E38E /* icon_87.png */,
-				268FCE5F1A3489130079E38E /* icon_152.png */,
-				26FA904C19A68013001B1B79 /* Default-568h@2x.png */,
-				26FA904E19A68018001B1B79 /* Default@2x.png */,
 				26BB4EAE197098630077FF6F /* Squareness-Info.plist */,
 				26BB4EAF197098630077FF6F /* InfoPlist.strings */,
 				26BB4EB2197098630077FF6F /* main.m */,
