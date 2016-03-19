@@ -16,20 +16,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    modelController = [FSQModelController sharedInstance];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    FSQModelController *sharedModel = [FSQModelController sharedInstance];
+    
     self.viewController = [[JASidePanelController alloc] init];
     
-    self.viewController.leftPanel = [[FSQFirstViewController alloc] init];
-    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CarouselViewController alloc] init]];
-    self.viewController.rightPanel = [[FSQOptionsViewController alloc] init];
+    FSQFirstViewController *firstVC = [[FSQFirstViewController alloc] initWithModel:sharedModel];
+    CarouselViewController *carouselVC = [[CarouselViewController alloc] initWithModel:sharedModel];
+    FSQOptionsViewController *optionsVC = [[FSQOptionsViewController alloc] initWithModel:sharedModel];
+    
+    self.viewController.leftPanel = firstVC;
+    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:carouselVC];
+    self.viewController.rightPanel = optionsVC;
     
     self.window.rootViewController = self.viewController;
-    
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

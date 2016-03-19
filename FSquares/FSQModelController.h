@@ -42,4 +42,3 @@
 
 @end
 
-FSQModelController *modelController;

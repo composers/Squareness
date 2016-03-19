@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "EAIntroView.h"
+#import "FSQBaseViewController.h"
 
-@interface FSQFirstViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, EAIntroDelegate>
+@interface FSQFirstViewController : FSQBaseViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, EAIntroDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *saveImageButton;
 @property (weak, nonatomic) IBOutlet UIView *littleSquare;
+@property (weak, nonatomic) IBOutlet UIButton *resetImageButton;
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender;
 - (IBAction)saveImage:(UIButton *)sender;
 - (IBAction)displayInfo:(UIButton *)sender;
 - (IBAction)resetImage:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIButton *resetImageButton;
 - (IBAction)shareImage:(UIButton *)sender;
 @end

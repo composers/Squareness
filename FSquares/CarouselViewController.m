@@ -7,7 +7,6 @@
 //
 
 #import "CarouselViewController.h"
-#import "FSQModelController.h"
 #import "UIImage+Resize.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
@@ -17,6 +16,7 @@
 
 @interface CarouselViewController ()
 
+@property (nonatomic, strong) FSQModelController *sharedModel;
 @property(assign, nonatomic) int tapCount;
 @property(assign, nonatomic) BOOL shouldNotDisplayDoubleTapAlert;
 @property(assign, nonatomic) NSUInteger selectedIndex;
@@ -25,17 +25,8 @@
 
 @implementation CarouselViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)applyRandomFilters:(id)sender{
-    if (modelController.filterNamesChosen.count > 0)
+    if (self.sharedModel.filterNamesChosen.count > 0)
     {
         DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [self.view addSubview:ind];
@@ -51,8 +42,8 @@
                     {
                         UIImageView *subImageView = (UIImageView *)subview;
                         dispatch_sync(dispatch_get_main_queue(), ^{
-                            subImageView.image = [modelController processImage:subImageView.image withFilterName:[modelController.filterNamesChosen objectAtIndex:(arc4random() % modelController.filterNamesChosen.count)]];
-                            [modelController.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
+                            subImageView.image = [self.sharedModel processImage:subImageView.image withFilterName:[self.sharedModel.filterNamesChosen objectAtIndex:(arc4random() % self.sharedModel.filterNamesChosen.count)]];
+                            [self.sharedModel.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
                         });
 
                     }
@@ -111,7 +102,7 @@
     
     self.scrollView.scrollEnabled = YES;
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    CGFloat scrollViewHeight = screenFrame.size.width * modelController.image.size.height / modelController.image.size.width;
+    CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
     self.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
 
     self.scrollView.backgroundColor = [UIColor blackColor];
@@ -124,26 +115,26 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
     
-    CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
-    modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+    CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
+    self.sharedModel.image = [UIImage imageWithCGImage:newCgIm scale:self.sharedModel.originalImage.scale orientation:self.sharedModel.originalImage.imageOrientation];
     CGImageRelease(newCgIm);
     
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-    modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+    self.sharedModel.originalSubImages = [self.sharedModel divideImage:self.sharedModel.originalImage withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
     
-    modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+    self.sharedModel.subImages = [self.sharedModel divideImage:self.sharedModel.image withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
     
-    [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+    [self.sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     
     carouselController.carousel.delegate = carouselController;
     carouselController.carousel.dataSource = carouselController;
     
-    modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+    self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
     
-    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+    [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -175,13 +166,13 @@
 {
     self.tapCount++;
 
-    [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth:0.0];
 
     
-    modelController.selectedSubImageView = (UIImageView *)gesture.view;
+    self.sharedModel.selectedSubImageView = (UIImageView *)gesture.view;
     
-    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+    [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     if (self.tapCount == 4)
     {
@@ -205,20 +196,20 @@
 
 - (void)doubletapAction:(UITapGestureRecognizer*)gesture
 {
-    [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth:0.0];
 
     UIImageView *touchedSubImageView = (UIImageView *)gesture.view;
     
-    UIImage *originalSubImage = [modelController.originalSubImages objectForKey:[NSNumber numberWithInteger:touchedSubImageView.tag]];
+    UIImage *originalSubImage = [self.sharedModel.originalSubImages objectForKey:[NSNumber numberWithInteger:touchedSubImageView.tag]];
     
     [touchedSubImageView setImage:originalSubImage];
     
-    [modelController.subImages setObject:originalSubImage forKey:[NSNumber numberWithInteger:touchedSubImageView.tag]];
+    [self.sharedModel.subImages setObject:originalSubImage forKey:[NSNumber numberWithInteger:touchedSubImageView.tag]];
     
-    modelController.selectedSubImageView = touchedSubImageView;
+    self.sharedModel.selectedSubImageView = touchedSubImageView;
     
-    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+    [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     
@@ -231,13 +222,13 @@
     
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
-        CGPoint previousPoint = modelController.selectedSubImageView.frame.origin;
+        CGPoint previousPoint = self.sharedModel.selectedSubImageView.frame.origin;
         UIImageView *touchedSubImageView = (UIImageView *)gesture.view;
         CGPoint currentPoint = touchedSubImageView.frame.origin;
         
         if (previousPoint.x == currentPoint.x)
         {
-            for (UIImageView *imageView in modelController.selectedSubImageView.superview.subviews)
+            for (UIImageView *imageView in self.sharedModel.selectedSubImageView.superview.subviews)
             {
                 if ([imageView isKindOfClass:[UIImageView class]])
                 {
@@ -245,8 +236,8 @@
                     {
                         if((imageView.frame.origin.y >= previousPoint.y && imageView.frame.origin.y <= currentPoint.y) || (imageView.frame.origin.y <= previousPoint.y && imageView.frame.origin.y >= currentPoint.y))
                         {
-                            imageView.image = [modelController processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
-                            [modelController.subImages setObject:imageView.image forKey:[NSNumber numberWithInteger:imageView.tag]];
+                            imageView.image = [self.sharedModel processImage:imageView.image withFilterName:self.sharedModel.filterNameSelectedCI];
+                            [self.sharedModel.subImages setObject:imageView.image forKey:[NSNumber numberWithInteger:imageView.tag]];
                         }
                     }
                 }
@@ -255,7 +246,7 @@
         
         if (previousPoint.y == currentPoint.y)
         {
-            for (UIImageView *imageView in modelController.selectedSubImageView.superview.subviews)
+            for (UIImageView *imageView in self.sharedModel.selectedSubImageView.superview.subviews)
             {
                 if ([imageView isKindOfClass:[UIImageView class]])
                 {
@@ -263,8 +254,8 @@
                     {
                         if((imageView.frame.origin.x >= previousPoint.x && imageView.frame.origin.x <= currentPoint.x) || (imageView.frame.origin.x <= previousPoint.x && imageView.frame.origin.x >= currentPoint.x))
                         {
-                            imageView.image = [modelController processImage:imageView.image withFilterName:modelController.filterNameSelectedCI];
-                            [modelController.subImages setObject:imageView.image forKey:[NSNumber numberWithInteger:imageView.tag]];
+                            imageView.image = [self.sharedModel processImage:imageView.image withFilterName:self.sharedModel.filterNameSelectedCI];
+                            [self.sharedModel.subImages setObject:imageView.image forKey:[NSNumber numberWithInteger:imageView.tag]];
                         }
                     }
                 }
@@ -273,12 +264,12 @@
     }
     
 
-    [modelController.selectedSubImageView.layer setBorderWidth:0.0];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth:0.0];
     
-    modelController.selectedSubImageView = (UIImageView *)gesture.view;
+    self.sharedModel.selectedSubImageView = (UIImageView *)gesture.view;
     
-    [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+    [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     
@@ -295,7 +286,7 @@
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-    return modelController.filterNamesChosen.count;
+    return self.sharedModel.filterNamesChosen.count;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -311,9 +302,9 @@
         view.contentMode = UIViewContentModeCenter;
     }
     
-    if (modelController.selectedSubImageView.image)
+    if (self.sharedModel.selectedSubImageView.image)
     {
-        UIImage *outputImage = [modelController processImage:[modelController.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[modelController.filterNamesChosen objectAtIndex:index]];
+        UIImage *outputImage = [self.sharedModel processImage:[self.sharedModel.selectedSubImageView.image resizedImageToSize:view.frame.size] withFilterName:[self.sharedModel.filterNamesChosen objectAtIndex:index]];
         
         ((UIImageView *)view).image = outputImage;
         
@@ -336,10 +327,10 @@
     
     self.selectedIndex = index;
     
-    modelController.filterNameSelectedCI = [modelController.filterNamesChosen objectAtIndex:index];
+    self.sharedModel.filterNameSelectedCI = [self.sharedModel.filterNamesChosen objectAtIndex:index];
 
-    modelController.selectedSubImageView.image = [modelController processImage:modelController.selectedSubImageView.image withFilterName:modelController.filterNameSelectedCI];
-    [modelController.subImages setObject:modelController.selectedSubImageView.image forKey:[NSNumber numberWithInteger:modelController.selectedSubImageView.tag]];
+    self.sharedModel.selectedSubImageView.image = [self.sharedModel processImage:self.sharedModel.selectedSubImageView.image withFilterName:self.sharedModel.filterNameSelectedCI];
+    [self.sharedModel.subImages setObject:self.sharedModel.selectedSubImageView.image forKey:[NSNumber numberWithInteger:self.sharedModel.selectedSubImageView.tag]];
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     

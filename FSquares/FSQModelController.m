@@ -169,14 +169,15 @@
 
 - (UIImage *)generateImageFromSubimages:(NSMutableDictionary *)subImages
 {
-    CGFloat squareWidth = modelController.gridSquareSize;
-    CGFloat squareHeight = modelController.gridSquareSize;
-    CGFloat imageWidth = modelController.image.size.width;
-    CGFloat imageHeight = modelController.image.size.height;
+    FSQModelController *sharedModel = [FSQModelController sharedInstance];
+    CGFloat squareWidth = sharedModel.gridSquareSize;
+    CGFloat squareHeight = sharedModel.gridSquareSize;
+    CGFloat imageWidth = sharedModel.image.size.width;
+    CGFloat imageHeight = sharedModel.image.size.height;
     
     int partId = 100;
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(modelController.image.size.width, modelController.image.size.height), NO, 1);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(sharedModel.image.size.width, sharedModel.image.size.height), NO, 1);
     
     for (CGFloat x = 0; x < imageWidth; x += squareWidth)
     {
@@ -188,7 +189,7 @@
             }
             else
             {
-                squareWidth = modelController.gridSquareSize;
+                squareWidth = sharedModel.gridSquareSize;
             }
             
             if (y + squareHeight > imageHeight)
@@ -197,7 +198,7 @@
             }
             else
             {
-                squareHeight = modelController.gridSquareSize;
+                squareHeight = sharedModel.gridSquareSize;
             }
             
             
@@ -306,6 +307,7 @@
 }
 
 - (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)view{
+    FSQModelController *sharedModel = [FSQModelController sharedInstance];
     for (UIView *subview in view.subviews)
     {
         if ([subview isKindOfClass:[UIImageView class]])
@@ -314,7 +316,7 @@
             
             subImageView.image = [self imageWithBorderWidth:borderWidth FromImage:subImageView.image];
             
-            [modelController.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
+            [sharedModel.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
         }
     }
 }

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
+#import "FSQBaseViewController.h"
 
-@interface CarouselViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
+@interface CarouselViewController : FSQBaseViewController <iCarouselDataSource, iCarouselDelegate>
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

@@ -7,7 +7,6 @@
 //
 
 #import "FSQFirstViewController.h"
-#import "FSQModelController.h"
 #import "CarouselViewController.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
@@ -20,7 +19,6 @@
 
 
 @interface FSQFirstViewController ()
-
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @property (nonatomic, assign) BOOL imageRotated;
@@ -28,11 +26,10 @@
 
 @implementation FSQFirstViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithModel:(FSQModelController *)model
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithModel:model];
     if (self) {
-        // Custom initialization
         _imageRotated = NO;
     }
     return self;
@@ -99,10 +96,10 @@
         
         image = [image scaleImageToSize:newSize];
         
-        modelController.originalImage = image;
+        self.sharedModel.originalImage = image;
         
         CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
-        modelController.image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
+        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
         CGImageRelease(newCgIm);
         
         [photoPicker dismissViewControllerAnimated:YES completion:nil];
@@ -111,24 +108,24 @@
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
         CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-        CGFloat scrollViewHeight = screenFrame.size.width * modelController.image.size.height / modelController.image.size.width;
+        CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
         carouselController.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
         
         //TODO: No need to put in view original subImages -> change this
-        modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        self.sharedModel.originalSubImages = [self.sharedModel divideImage:self.sharedModel.originalImage withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
         //
         
-        modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        self.sharedModel.subImages = [self.sharedModel divideImage:self.sharedModel.image withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
         
-        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        [self.sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
                 
         carouselController.carousel.delegate = carouselController;
         carouselController.carousel.dataSource = carouselController;
         
-        modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+        self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
         
-        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+        [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
         [carouselController.carousel reloadData];
     }
@@ -140,16 +137,16 @@
 
 - (IBAction)saveImage:(UIButton *)sender {
     
-    modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
+    self.sharedModel.image = [self.sharedModel generateImageFromSubimages:self.sharedModel.subImages];
     
     UIImage *imageToSave;
     if (self.imageRotated)
     {
-        imageToSave = [modelController.image imageRotatedByDegrees:-90];
+        imageToSave = [self.sharedModel.image imageRotatedByDegrees:-90];
     }
     else
     {
-        imageToSave = modelController.image;
+        imageToSave = self.sharedModel.image;
     }
     
     UIImageWriteToSavedPhotosAlbum(imageToSave, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
@@ -260,21 +257,23 @@
 - (IBAction)resetImage:(UIButton *)sender {
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        CGImageRef newCgIm = CGImageCreateCopy(modelController.originalImage.CGImage);
-        modelController.image = [UIImage imageWithCGImage:newCgIm scale:modelController.originalImage.scale orientation:modelController.originalImage.imageOrientation];
+        CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
+        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                     scale:self.sharedModel.originalImage.scale
+                                               orientation:self.sharedModel.originalImage.imageOrientation];
         CGImageRelease(newCgIm);
         
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        self.sharedModel.subImages = [self.sharedModel divideImage:self.sharedModel.image withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
         
-        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        [self.sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
         
-        modelController.selectedSubImageView = carouselController.scrollView.subviews[1];
+        self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
         
-        [modelController.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [modelController.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+        [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
         [carouselController.carousel reloadData];
     });
@@ -282,16 +281,16 @@
 
 - (IBAction)shareImage:(UIButton *)sender
 {
-    modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
+    self.sharedModel.image = [self.sharedModel generateImageFromSubimages:self.sharedModel.subImages];
     
     UIImage *imageToShare;
     if (self.imageRotated)
     {
-        imageToShare = [modelController.image imageRotatedByDegrees:-90];
+        imageToShare = [self.sharedModel.image imageRotatedByDegrees:-90];
     }
     else
     {
-        imageToShare = modelController.image;
+        imageToShare = self.sharedModel.image;
     }
 
     SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];

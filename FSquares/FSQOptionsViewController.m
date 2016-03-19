@@ -7,7 +7,6 @@
 //
 
 #import "FSQOptionsViewController.h"
-#import "FSQModelController.h"
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "CarouselViewController.h"
@@ -15,19 +14,11 @@
 
 
 @interface FSQOptionsViewController ()
-
+@property (nonatomic, strong) FSQModelController *sharedModel;
 @end
 
 @implementation FSQOptionsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -39,21 +30,21 @@
 
 
 - (void)createChooseFiltersCheckbox{
+
+    NSMutableArray *filtersData = [[NSMutableArray alloc] initWithCapacity:self.sharedModel.filterNamesUI.count];
     
-    NSMutableArray *filtersData = [[NSMutableArray alloc] initWithCapacity:modelController.filterNamesUI.count];
-    
-    for (int i = 0; i < modelController.filterNamesUI.count; i++)
+    for (int i = 0; i < self.sharedModel.filterNamesUI.count; i++)
     {
         TNRectangularCheckBoxData *checkboxData = [[TNRectangularCheckBoxData alloc] init];
-        checkboxData.identifier = [modelController.filterNamesCI objectAtIndex:i];
-        checkboxData.labelText = [modelController.filterNamesUI objectAtIndex:i];
+        checkboxData.identifier = [self.sharedModel.filterNamesCI objectAtIndex:i];
+        checkboxData.labelText = [self.sharedModel.filterNamesUI objectAtIndex:i];
         checkboxData.labelColor = [UIColor darkGrayColor];
         checkboxData.borderColor = [UIColor darkGrayColor];
         checkboxData.rectangleColor = [UIColor darkGrayColor];
         checkboxData.borderWidth = checkboxData.borderHeight = 20;
         checkboxData.rectangleWidth = checkboxData.rectangleHeight = 15;
         
-        if([modelController.filterNamesChosen containsObject:checkboxData.identifier])
+        if([self.sharedModel.filterNamesChosen containsObject:checkboxData.identifier])
         {
             checkboxData.checked = YES;
         }
@@ -81,13 +72,13 @@
 
 - (void)chooseFiltersUpdate:(NSNotification *)notification {
     
-    
-    [modelController.filterNamesChosen removeAllObjects];
+    FSQModelController *sharedModel = [FSQModelController sharedInstance];
+    [sharedModel.filterNamesChosen removeAllObjects];
     TNCheckBoxGroup *chooseFiltersCheckbox = notification.object;
     
     for (TNRectangularCheckBoxData *checkboxData in chooseFiltersCheckbox.checkedCheckBoxes)
     {
-        [modelController.filterNamesChosen addObject:checkboxData.identifier];
+        [sharedModel.filterNamesChosen addObject:checkboxData.identifier];
     }
     
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
@@ -103,42 +94,44 @@
 
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
     
+    FSQModelController *sharedModel = [FSQModelController sharedInstance];
     dispatch_async(dispatch_get_main_queue(), ^{
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        modelController.image = [modelController generateImageFromSubimages:modelController.subImages];
+        sharedModel.image = [sharedModel generateImageFromSubimages:sharedModel.subImages];
         
         switch (sender.selectedSegmentIndex)
         {
             case 0:
-                modelController.gridSquareSize = 40;
+                sharedModel.gridSquareSize = 40;
                 break;
             case 1:
-                modelController.gridSquareSize = 80;
+                sharedModel.gridSquareSize = 80;
                 break;
             case 2:
-                modelController.gridSquareSize = 160;
+                sharedModel.gridSquareSize = 160;
                 break;
             case 3:
-                modelController.gridSquareSize = 320;
+                sharedModel.gridSquareSize = 320;
             default:
                 break;
         }
 
         
-        modelController.originalSubImages = [modelController divideImage:modelController.originalImage withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        sharedModel.originalSubImages = [sharedModel divideImage:sharedModel.originalImage withSquareSize:sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
         
-        modelController.subImages = [modelController divideImage:modelController.image withSquareSize:modelController.gridSquareSize andPutInView:carouselController.scrollView];
+        sharedModel.subImages = [sharedModel divideImage:sharedModel.image withSquareSize:sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
         
-        [modelController addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        [sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
     });
 }
 - (IBAction)applyGrid:(UIButton *)sender {
+     FSQModelController *sharedModel = [FSQModelController sharedInstance];
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
     
-    [modelController putBorderWithWidth:BLACK_BORDER_WIDTH aroundImageViewsFromView:carouselController.scrollView];
+    [sharedModel putBorderWithWidth:BLACK_BORDER_WIDTH aroundImageViewsFromView:carouselController.scrollView];
 }
 
 - (void)dealloc {
