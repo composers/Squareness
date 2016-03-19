@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
 #import "UIImage+Rotate.h"
+#import "UIImage+Border.h"
 
 @interface FSQModelController()
 
@@ -97,7 +98,7 @@
     //NSLog(@"Image processing with filter %@", filterName);
     if ([filterName isEqualToString:@"AddBorderFilter"])
     {
-        return [self imageWithBorderWidth:BLACK_BORDER_WIDTH * 2 FromImage:myImage];
+        return [myImage imageWithBorder:BLACK_BORDER_WIDTH];
     }
     
     if ([filterName containsString:@"GPUImage"]) {
@@ -167,17 +168,16 @@
     }
 }
 
-- (UIImage *)generateImageFromSubimages:(NSMutableDictionary *)subImages
+- (void)generateImageFromSubimages
 {
-    FSQModelController *sharedModel = [FSQModelController sharedInstance];
-    CGFloat squareWidth = sharedModel.gridSquareSize;
-    CGFloat squareHeight = sharedModel.gridSquareSize;
-    CGFloat imageWidth = sharedModel.image.size.width;
-    CGFloat imageHeight = sharedModel.image.size.height;
+    CGFloat squareWidth = self.gridSquareSize;
+    CGFloat squareHeight = self.gridSquareSize;
+    CGFloat imageWidth = self.image.size.width;
+    CGFloat imageHeight = self.image.size.height;
     
     int partId = 100;
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(sharedModel.image.size.width, sharedModel.image.size.height), NO, 1);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.image.size.width, self.image.size.height), NO, 1);
     
     for (CGFloat x = 0; x < imageWidth; x += squareWidth)
     {
@@ -189,7 +189,7 @@
             }
             else
             {
-                squareWidth = sharedModel.gridSquareSize;
+                squareWidth = self.gridSquareSize;
             }
             
             if (y + squareHeight > imageHeight)
@@ -198,11 +198,11 @@
             }
             else
             {
-                squareHeight = sharedModel.gridSquareSize;
+                squareHeight = self.gridSquareSize;
             }
             
             
-            [[subImages objectForKey:[NSNumber numberWithInteger:partId]] drawAtPoint:CGPointMake(x, y)];
+            [[self.subImages objectForKey:[NSNumber numberWithInteger:partId]] drawAtPoint:CGPointMake(x, y)];
             partId++;
         }
     }
@@ -210,11 +210,27 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
-    return image;
-    
+    self.image = image;
 }
 
-- (NSMutableDictionary *)divideImage:(UIImage *)image withSquareSize:(NSInteger)squareSize andPutInView:(UIView *)view
+
+- (void)divideOriginalImageInView:(UIView *)view
+{
+    self.originalSubImages = [self divideImage:self.originalImage
+                                withSquareSize:self.gridSquareSize
+                                  andPutInView:view];
+}
+
+- (void)divideProcessedImageInView:(UIView *)view
+{
+    self.subImages = [self divideImage:self.image
+                        withSquareSize:self.gridSquareSize
+                          andPutInView:view];
+}
+
+- (NSMutableDictionary *)divideImage:(UIImage *)image
+                      withSquareSize:(NSInteger)squareSize
+                        andPutInView:(UIView *)view
 {
     [[view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)]; //remove all subviews first!!!
     
@@ -270,56 +286,6 @@
     return subImages;
 }
 
-- (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController{
-    for (UIView *subveiw in view.subviews)
-    {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
-                                                                              action:@selector(tap:)];
-        tap.numberOfTapsRequired = 1;
-        [subveiw addGestureRecognizer:tap];
-        
-        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:viewController
-                                                                                    action:@selector(doubletapAction:)];
-        doubleTap.numberOfTapsRequired = 2;
-        [subveiw addGestureRecognizer:doubleTap];
-        
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:viewController action:@selector(longPressAction:)];
-        longPress.numberOfTouchesRequired = 1;
-        longPress.minimumPressDuration = 0.5;
-        [subveiw addGestureRecognizer:longPress];
-    }
-}
-
-- (UIImage*)imageWithBorderWidth:(float)borderWidth FromImage:(UIImage*)source;
-{
-    CGSize size = [source size];
-    UIGraphicsBeginImageContext(size);
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    [source drawInRect:rect blendMode:kCGBlendModeNormal alpha:1.0];
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
-    CGContextSetLineWidth(context, borderWidth);
-    CGContextStrokeRect(context, rect);
-    UIImage *testImg =  UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return testImg;
-}
-
-- (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)view{
-    FSQModelController *sharedModel = [FSQModelController sharedInstance];
-    for (UIView *subview in view.subviews)
-    {
-        if ([subview isKindOfClass:[UIImageView class]])
-        {
-            UIImageView *subImageView = (UIImageView *)subview;
-            
-            subImageView.image = [self imageWithBorderWidth:borderWidth FromImage:subImageView.image];
-            
-            [sharedModel.subImages setObject:subImageView.image forKey:[NSNumber numberWithInteger:subImageView.tag]];
-        }
-    }
-}
 
 - (void)dealloc {
     // Should never be called, but just here for clarity really.

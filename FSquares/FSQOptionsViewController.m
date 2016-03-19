@@ -72,13 +72,12 @@
 
 - (void)chooseFiltersUpdate:(NSNotification *)notification {
     
-    FSQModelController *sharedModel = [FSQModelController sharedInstance];
-    [sharedModel.filterNamesChosen removeAllObjects];
+    [self.sharedModel.filterNamesChosen removeAllObjects];
     TNCheckBoxGroup *chooseFiltersCheckbox = notification.object;
     
     for (TNRectangularCheckBoxData *checkboxData in chooseFiltersCheckbox.checkedCheckBoxes)
     {
-        [sharedModel.filterNamesChosen addObject:checkboxData.identifier];
+        [self.sharedModel.filterNamesChosen addObject:checkboxData.identifier];
     }
     
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
@@ -94,44 +93,38 @@
 
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
     
-    FSQModelController *sharedModel = [FSQModelController sharedInstance];
     dispatch_async(dispatch_get_main_queue(), ^{
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        sharedModel.image = [sharedModel generateImageFromSubimages:sharedModel.subImages];
+        [self.sharedModel generateImageFromSubimages];
         
         switch (sender.selectedSegmentIndex)
         {
             case 0:
-                sharedModel.gridSquareSize = 40;
+                self.sharedModel.gridSquareSize = 40;
                 break;
             case 1:
-                sharedModel.gridSquareSize = 80;
+                self.sharedModel.gridSquareSize = 80;
                 break;
             case 2:
-                sharedModel.gridSquareSize = 160;
+                self.sharedModel.gridSquareSize = 160;
                 break;
             case 3:
-                sharedModel.gridSquareSize = 320;
+                self.sharedModel.gridSquareSize = 320;
             default:
                 break;
         }
 
-        
-        sharedModel.originalSubImages = [sharedModel divideImage:sharedModel.originalImage withSquareSize:sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
-        
-        sharedModel.subImages = [sharedModel divideImage:sharedModel.image withSquareSize:sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
-        
-        [sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        [self.sharedModel divideOriginalImageInView:carouselController.scrollView];
+        [self.sharedModel divideProcessedImageInView:carouselController.scrollView];
+        [carouselController addGestureRecognizersToSubviews];
     });
 }
 - (IBAction)applyGrid:(UIButton *)sender {
-     FSQModelController *sharedModel = [FSQModelController sharedInstance];
     UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
     CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    
-    [sharedModel putBorderWithWidth:BLACK_BORDER_WIDTH aroundImageViewsFromView:carouselController.scrollView];
+    [carouselController putBorderWithWidth:BLACK_BORDER_WIDTH];
 }
 
 - (void)dealloc {

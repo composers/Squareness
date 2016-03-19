@@ -30,15 +30,10 @@
 
 + (id)sharedInstance;
 
-- (UIImage *)processImage:(UIImage *)myImage withFilterName:(NSString *)filterName;
-
-- (UIImage *)generateImageFromSubimages:(NSMutableDictionary *)subImages;
-
-- (NSMutableDictionary *)divideImage:(UIImage *)image withSquareSize:(NSInteger)squareSize andPutInView:(UIView *)view;
-
-- (void)addGestureRecognizersToSubviewsFromView:(UIView *)view andViewController:(UIViewController *)viewController;
-
-- (void)putBorderWithWidth:(float)borderWidth aroundImageViewsFromView:(UIView *)rootView;
-
+- (UIImage *)processImage:(UIImage *)myImage
+           withFilterName:(NSString *)filterName;
+- (void)generateImageFromSubimages;
+- (void)divideOriginalImageInView:(UIView *)view;
+- (void)divideProcessedImageInView:(UIView *)view;
 @end
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2607C8D31C9D6A10008B05A9 /* FSQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8D21C9D6A10008B05A9 /* FSQBaseViewController.m */; };
+		2607C8D61C9D7CB9008B05A9 /* UIImage+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
 		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
 		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
@@ -110,6 +111,8 @@
 /* Begin PBXFileReference section */
 		2607C8D11C9D6A10008B05A9 /* FSQBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQBaseViewController.h; sourceTree = "<group>"; };
 		2607C8D21C9D6A10008B05A9 /* FSQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQBaseViewController.m; sourceTree = "<group>"; };
+		2607C8D41C9D7CB9008B05A9 /* UIImage+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Border.h"; sourceTree = "<group>"; };
+		2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Border.m"; sourceTree = "<group>"; };
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
@@ -561,6 +564,8 @@
 				260E3723198428D300E5985E /* UIImage+Rotate.m */,
 				26BB4EE41970A2960077FF6F /* UIImage+Resize.h */,
 				26BB4EE51970A2960077FF6F /* UIImage+Resize.m */,
+				2607C8D41C9D7CB9008B05A9 /* UIImage+Border.h */,
+				2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */,
 			);
 			name = UIImage;
 			sourceTree = "<group>";
@@ -1090,6 +1095,7 @@
 				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
 				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
+				2607C8D61C9D7CB9008B05A9 /* UIImage+Border.m in Sources */,
 				260E37411984915700E5985E /* TNImageCheckBoxData.m in Sources */,
 				26BB4F5D1979E39C0077FF6F /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */,

@@ -13,6 +13,7 @@
 #import "FontAwesomeKit/FAKFontAwesome.h"
 #import "DDIndicator.h"
 #import "SIAlertView.h"
+#import "UIImage+Border.h"
 
 @interface CarouselViewController ()
 
@@ -116,29 +117,27 @@
     self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
     
     CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
-    self.sharedModel.image = [UIImage imageWithCGImage:newCgIm scale:self.sharedModel.originalImage.scale orientation:self.sharedModel.originalImage.imageOrientation];
+    self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                 scale:self.sharedModel.originalImage.scale
+                                           orientation:self.sharedModel.originalImage.imageOrientation];
     CGImageRelease(newCgIm);
+
     
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+    [self.sharedModel divideOriginalImageInView:self.scrollView];
+    [self.sharedModel divideProcessedImageInView:self.scrollView];
+    [self addGestureRecognizersToSubviews];
     
-    self.sharedModel.originalSubImages = [self.sharedModel divideImage:self.sharedModel.originalImage withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
+    self.carousel.delegate = self;
+    self.carousel.dataSource = self;
     
-    self.sharedModel.subImages = [self.sharedModel divideImage:self.sharedModel.image withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
-    
-    [self.sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
-    
-    carouselController.carousel.delegate = carouselController;
-    carouselController.carousel.dataSource = carouselController;
-    
-    self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
+    self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
     
     [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
-         [carouselController.carousel reloadData];
+         [self.carousel reloadData];
     });
 }
 
@@ -160,6 +159,42 @@
     
     [alertView show];
     
+}
+- (void)addGestureRecognizersToSubviews
+{
+    for (UIView *subveiw in self.scrollView.subviews)
+    {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(tap:)];
+        tap.numberOfTapsRequired = 1;
+        [subveiw addGestureRecognizer:tap];
+        
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                    action:@selector(doubletapAction:)];
+        doubleTap.numberOfTapsRequired = 2;
+        [subveiw addGestureRecognizer:doubleTap];
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                                action:@selector(longPressAction:)];
+        longPress.numberOfTouchesRequired = 1;
+        longPress.minimumPressDuration = 0.5;
+        [subveiw addGestureRecognizer:longPress];
+    }
+}
+
+
+- (void)putBorderWithWidth:(float)borderWidth
+{
+    for (UIView *subview in self.scrollView.subviews)
+    {
+        if ([subview isKindOfClass:[UIImageView class]])
+        {
+            UIImageView *subImageView = (UIImageView *)subview;
+            subImageView.image = [subImageView.image imageWithBorder:borderWidth];
+            [self.sharedModel.subImages setObject:subImageView.image
+                                           forKey:[NSNumber numberWithInteger:subImageView.tag]];
+        }
+    }
 }
 
 - (void)tap:(UITapGestureRecognizer*)gesture

@@ -40,7 +40,8 @@
     [self performSelector:@selector(squareFalling) withObject:self afterDelay:0.4];
 }
 
--(void)squareFalling{
+-(void)squareFalling
+{
     
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.littleSquare]];
@@ -99,7 +100,9 @@
         self.sharedModel.originalImage = image;
         
         CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
-        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
+        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                     scale:image.scale
+                                               orientation:image.imageOrientation];
         CGImageRelease(newCgIm);
         
         [photoPicker dismissViewControllerAnimated:YES completion:nil];
@@ -112,12 +115,10 @@
         carouselController.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
         
         //TODO: No need to put in view original subImages -> change this
-        self.sharedModel.originalSubImages = [self.sharedModel divideImage:self.sharedModel.originalImage withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
+        [self.sharedModel divideOriginalImageInView:carouselController.scrollView];
         //
-        
-        self.sharedModel.subImages = [self.sharedModel divideImage:self.sharedModel.image withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
-        
-        [self.sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        [self.sharedModel divideProcessedImageInView:carouselController.scrollView];
+        [carouselController addGestureRecognizersToSubviews];
                 
         carouselController.carousel.delegate = carouselController;
         carouselController.carousel.dataSource = carouselController;
@@ -137,7 +138,7 @@
 
 - (IBAction)saveImage:(UIButton *)sender {
     
-    self.sharedModel.image = [self.sharedModel generateImageFromSubimages:self.sharedModel.subImages];
+    [self.sharedModel generateImageFromSubimages];
     
     UIImage *imageToSave;
     if (self.imageRotated)
@@ -266,9 +267,8 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        self.sharedModel.subImages = [self.sharedModel divideImage:self.sharedModel.image withSquareSize:self.sharedModel.gridSquareSize andPutInView:carouselController.scrollView];
-        
-        [self.sharedModel addGestureRecognizersToSubviewsFromView:carouselController.scrollView andViewController:carouselController];
+        [self.sharedModel divideProcessedImageInView:carouselController.scrollView];
+        [carouselController addGestureRecognizersToSubviews];
         
         self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
         
@@ -281,7 +281,7 @@
 
 - (IBAction)shareImage:(UIButton *)sender
 {
-    self.sharedModel.image = [self.sharedModel generateImageFromSubimages:self.sharedModel.subImages];
+    [self.sharedModel generateImageFromSubimages];
     
     UIImage *imageToShare;
     if (self.imageRotated)
