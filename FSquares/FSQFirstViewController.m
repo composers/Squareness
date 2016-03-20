@@ -35,28 +35,6 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self performSelector:@selector(squareFalling) withObject:self afterDelay:0.4];
-}
-
--(void)squareFalling
-{
-    
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.littleSquare]];
-    [self.animator addBehavior:gravityBehavior];
-    
-    UICollisionBehavior* collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.littleSquare]];
-    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
-    [self.animator addBehavior:collisionBehavior];
-    
-    UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.littleSquare]];
-    elasticityBehavior.elasticity = 0.3f;
-    [self.animator addBehavior:elasticityBehavior];
-}
-
-
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender {
     UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
     photoPicker.delegate = self;
@@ -167,54 +145,44 @@
 
 - (IBAction)saveImage:(UIButton *)sender {
     
-    [self.sharedModel generateImageFromSubimages];
-    
-    UIImage *imageToSave;
-    if (self.imageRotated)
-    {
-        imageToSave = [self.sharedModel.image imageRotatedByDegrees:-90];
-    }
-    else
-    {
-        imageToSave = self.sharedModel.image;
-    }
-    
-    UIImageWriteToSavedPhotosAlbum(imageToSave, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    [self startLoading];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.sharedModel generateImageFromSubimages];
+        
+        UIImage *imageToSave;
+        if (self.imageRotated)
+        {
+            imageToSave = [self.sharedModel.image imageRotatedByDegrees:-90];
+        }
+        else
+        {
+            imageToSave = self.sharedModel.image;
+        }
+        UIImageWriteToSavedPhotosAlbum(imageToSave, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    });
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-    NSString *alertTitle;
-    NSString *alertMessage;
-    
-    if(!error)
+    [self stopLoading];
+    if(error)
     {
-        alertTitle   = @"p h o t o   s a v e d";
-        alertMessage = @"photo saved to the photo library";
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"e r r o r"
+                                                         andMessage:@"Unable to save to photo library"];
+        
+        [alertView addButtonWithTitle:@"O K"
+                                 type:SIAlertViewButtonTypeDefault
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                              }];
+        
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+        alertView.titleColor = [UIColor darkGrayColor];
+        alertView.messageColor = [UIColor darkGrayColor];
+        alertView.alpha = 0.85;
+        [alertView show];
     }
-    else
-    {
-        alertTitle   = @"e r r o r";
-        alertMessage = @"Unable to save to photo library";
-    }
-    
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:alertTitle andMessage:alertMessage];
-    
-    [alertView addButtonWithTitle:@"O K"
-                             type:SIAlertViewButtonTypeDefault
-                          handler:^(SIAlertView *alert) {
-                              [alert dismissAnimated:YES];
-                          }];
-    
-    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
-    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor darkGrayColor];
-    alertView.messageColor = [UIColor darkGrayColor];
-    alertView.alpha = 0.85;
-    
-    
-    [alertView show];
-    
 }
 
 - (IBAction)displayInfo:(UIButton *)sender {
@@ -285,8 +253,7 @@
 }
 
 - (IBAction)resetImage:(UIButton *)sender {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
         self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
                                                      scale:self.sharedModel.originalImage.scale
@@ -296,15 +263,17 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        [carouselController divideProcessedImage];
-        [carouselController addGestureRecognizersToSubviews];
-        
-        self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
-        
-        [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
-        
-        [carouselController.carousel reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [carouselController divideProcessedImage];
+            [carouselController addGestureRecognizersToSubviews];
+            
+            self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
+            
+            [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+            [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+            
+            [carouselController.carousel reloadData];
+        });
     });
 }
 

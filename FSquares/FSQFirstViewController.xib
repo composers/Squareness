@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSQFirstViewController">
@@ -88,27 +89,10 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AL-8K-tJA">
                     <rect key="frame" x="203" y="296" width="40" height="40"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjV-iu-Jg5">
-                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="fb">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="shareImage:" destination="-1" eventType="touchUpInside" id="kAm-RY-Yya"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="tjV-iu-Jg5" secondAttribute="bottom" id="AwH-Ow-WbQ"/>
-                        <constraint firstItem="tjV-iu-Jg5" firstAttribute="leading" secondItem="9AL-8K-tJA" secondAttribute="leading" id="FIh-cR-8kb"/>
                         <constraint firstAttribute="width" constant="40" id="UAF-fu-kRa"/>
                         <constraint firstAttribute="height" constant="40" id="eb2-aU-Pjr"/>
-                        <constraint firstItem="tjV-iu-Jg5" firstAttribute="top" secondItem="9AL-8K-tJA" secondAttribute="top" id="mdJ-cP-bXq"/>
-                        <constraint firstAttribute="trailing" secondItem="tjV-iu-Jg5" secondAttribute="trailing" id="tPJ-2S-lyu"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s93-yM-gji">
@@ -162,6 +146,21 @@
                         <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="97n-J1-bio"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjV-iu-Jg5">
+                    <rect key="frame" x="203" y="528" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tjV-iu-Jg5" secondAttribute="height" multiplier="1:1" id="P8M-kV-nvs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="fb">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareImage:" destination="-1" eventType="touchUpInside" id="kAm-RY-Yya"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -187,12 +186,15 @@
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="centerY" secondItem="LhS-ij-gN3" secondAttribute="centerY" id="beN-tD-o8g"/>
                 <constraint firstItem="csb-en-ux0" firstAttribute="top" secondItem="Jeu-GL-yrt" secondAttribute="bottom" constant="20" id="c9G-iH-R57"/>
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="cTb-Ig-BeT"/>
+                <constraint firstItem="tjV-iu-Jg5" firstAttribute="leading" secondItem="9AL-8K-tJA" secondAttribute="leading" id="i1b-Gi-kBv"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="centerY" secondItem="csb-en-ux0" secondAttribute="centerY" id="i91-PY-Qtp"/>
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="centerX" secondItem="8Sf-Fv-VjD" secondAttribute="centerX" id="iaS-4X-03z"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="cfh-hN-IGS" secondAttribute="leading" id="k81-DA-zJ8"/>
                 <constraint firstItem="ZHY-Nb-Pfk" firstAttribute="leading" secondItem="LhS-ij-gN3" secondAttribute="leading" id="niF-eL-LfU"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="LhS-ij-gN3" secondAttribute="leading" id="oKm-uz-OBx"/>
                 <constraint firstItem="4x5-51-1Jd" firstAttribute="top" secondItem="mPh-yz-Rgc" secondAttribute="bottom" constant="1" id="r0U-Xt-toX"/>
+                <constraint firstAttribute="bottom" secondItem="tjV-iu-Jg5" secondAttribute="bottom" id="u2o-wD-of7"/>
+                <constraint firstItem="tjV-iu-Jg5" firstAttribute="trailing" secondItem="9AL-8K-tJA" secondAttribute="trailing" id="vIe-RC-plX"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="Ebq-uE-bxq" secondAttribute="leading" id="vek-gN-8M8"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="yD5-CO-d2w" secondAttribute="leading" id="xc8-B9-OU4"/>
                 <constraint firstItem="LhS-ij-gN3" firstAttribute="leading" secondItem="gYQ-Mn-jiw" secondAttribute="trailing" constant="8" id="zaG-oi-81S"/>

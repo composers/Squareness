@@ -93,7 +93,7 @@
 
 - (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
@@ -116,9 +116,12 @@
                 break;
         }
         
-        [carouselController divideOriginalImage];
-        [carouselController divideProcessedImage];
-        [carouselController addGestureRecognizersToSubviews];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [carouselController divideOriginalImage];
+            [carouselController divideProcessedImage];
+            [carouselController addGestureRecognizersToSubviews];
+        });
+       
     });
 }
 - (IBAction)applyGrid:(UIButton *)sender {

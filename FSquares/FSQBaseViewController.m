@@ -7,9 +7,10 @@
 //
 
 #import "FSQBaseViewController.h"
+#import "DDIndicator.h"
 
 @interface FSQBaseViewController ()
-
+@property (nonatomic, strong) DDIndicator *loadingIndicator;
 @end
 
 @implementation FSQBaseViewController
@@ -32,6 +33,27 @@
         
     }
     return self;
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.loadingIndicator = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    self.loadingIndicator.center = self.view.center;
+}
+
+- (void)startLoading
+{
+    self.view.userInteractionEnabled = NO;
+    [self.view addSubview:self.loadingIndicator];
+    [self.loadingIndicator startAnimating];
+}
+
+- (void)stopLoading
+{
+    [self.loadingIndicator stopAnimating];
+    [self.loadingIndicator removeFromSuperview];
+    self.view.userInteractionEnabled = YES;
 }
 
 

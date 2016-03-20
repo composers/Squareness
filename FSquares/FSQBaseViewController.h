@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) FSQModelController *sharedModel;
 - (instancetype)initWithModel:(FSQModelController *)model;
+- (void)startLoading;
+- (void)stopLoading;
 @end

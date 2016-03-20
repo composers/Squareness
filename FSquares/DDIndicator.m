@@ -34,7 +34,11 @@ static int stage = 0;
 -(void) startAnimating
 {
     if (!self.timer.isValid) {
-        self.timer =[NSTimer timerWithTimeInterval:0.03 target:self selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
+        self.timer = [NSTimer timerWithTimeInterval:0.03
+                                             target:self
+                                           selector:@selector(setNeedsDisplay)
+                                           userInfo:nil
+                                            repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
     
