@@ -1,29 +1,6 @@
-# README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is a repository for my iOS application called Squareness. You can check it out on the App Store. Feel free to contribute.
 
-### What is this repository for? ###
+What is Squareness?
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Think in squares. Let them take your imagination to a whole new level! Squareness lets you divide an image into squares and apply different effect to each. Create unique and cool art with just a few taps. Are you into chaotic patterns, or maybe something neat and predictable? It's your choice. Just tap on a square and choose an effect. If you are feeling lazy, you can always let the app apply effects randomly and surprise you. Additionally, try changing the square size, the available effects or apply a grid. If you change your mind, you can always undo the applied effects for a particular square or the whole image.
