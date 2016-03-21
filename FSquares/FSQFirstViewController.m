@@ -35,11 +35,11 @@
     return self;
 }
 
-- (IBAction)selectPhotoFromAlbum:(UIButton *)sender {
+- (IBAction)selectPhotoFromAlbum:(UIButton *)sender
+{
     UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
     photoPicker.delegate = self;
     photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
     [self presentViewController:photoPicker animated:YES completion:NULL];
 }
 
@@ -126,12 +126,8 @@
         [carouselController divideOriginalImage];
         [carouselController divideProcessedImage];
         [carouselController addGestureRecognizersToSubviews];
-                
-        carouselController.carousel.delegate = carouselController;
-        carouselController.carousel.dataSource = carouselController;
         
         self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
-        
         [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
         [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
@@ -183,6 +179,67 @@
         alertView.alpha = 0.85;
         [alertView show];
     }
+}
+
+- (IBAction)resetImage:(UIButton *)sender {
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
+        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                     scale:self.sharedModel.originalImage.scale
+                                               orientation:self.sharedModel.originalImage.imageOrientation];
+        CGImageRelease(newCgIm);
+        
+        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
+        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [carouselController divideProcessedImage];
+            [carouselController addGestureRecognizersToSubviews];
+            
+            self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
+            
+            [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+            [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+            
+            [carouselController.carousel reloadData];
+        });
+    });
+}
+
+- (IBAction)shareImage:(UIButton *)sender
+{
+    [self.sharedModel generateImageFromSubimages];
+    
+    UIImage *imageToShare;
+    if (self.imageRotated)
+    {
+        imageToShare = [self.sharedModel.image imageRotatedByDegrees:-90];
+    }
+    else
+    {
+        imageToShare = self.sharedModel.image;
+    }
+    
+    SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    [mySLComposerSheet setInitialText:@"#squareness\nAvailable on the App Store\n"];
+    [mySLComposerSheet addURL:[NSURL URLWithString:@"https://itunes.apple.com/mk/app/squareness/id914835206?mt=8"]];
+    [mySLComposerSheet addImage:imageToShare];
+    [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                NSLog(@"Post Canceled");
+                break;
+            case SLComposeViewControllerResultDone:
+                NSLog(@"Post Sucessful");
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+    [self presentViewController:mySLComposerSheet animated:YES completion:nil];
 }
 
 - (IBAction)displayInfo:(UIButton *)sender {
@@ -250,67 +307,6 @@
 
 - (void)introDidFinish:(EAIntroView *)introView{
     introView = nil;
-}
-
-- (IBAction)resetImage:(UIButton *)sender {
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
-        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
-                                                     scale:self.sharedModel.originalImage.scale
-                                               orientation:self.sharedModel.originalImage.imageOrientation];
-        CGImageRelease(newCgIm);
-        
-        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [carouselController divideProcessedImage];
-            [carouselController addGestureRecognizersToSubviews];
-            
-            self.sharedModel.selectedSubImageView = carouselController.scrollView.subviews[1];
-            
-            [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-            [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
-            
-            [carouselController.carousel reloadData];
-        });
-    });
-}
-
-- (IBAction)shareImage:(UIButton *)sender
-{
-    [self.sharedModel generateImageFromSubimages];
-    
-    UIImage *imageToShare;
-    if (self.imageRotated)
-    {
-        imageToShare = [self.sharedModel.image imageRotatedByDegrees:-90];
-    }
-    else
-    {
-        imageToShare = self.sharedModel.image;
-    }
-
-    SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    
-    [mySLComposerSheet setInitialText:@"#squareness\nAvailable on the App Store\n"];
-    [mySLComposerSheet addURL:[NSURL URLWithString:@"https://itunes.apple.com/mk/app/squareness/id914835206?mt=8"]];
-    [mySLComposerSheet addImage:imageToShare];
-    [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
-        switch (result) {
-            case SLComposeViewControllerResultCancelled:
-                NSLog(@"Post Canceled");
-                break;
-            case SLComposeViewControllerResultDone:
-                NSLog(@"Post Sucessful");
-                break;
-                
-            default:
-                break;
-        }
-    }];
-    
-    [self presentViewController:mySLComposerSheet animated:YES completion:nil];
 }
 
 @end

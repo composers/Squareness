@@ -26,6 +26,59 @@
 
 @implementation CarouselViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    self.navigationItem.titleView = [self buttonForTitleView];
+    
+    //configure carousel
+    _carousel.type = iCarouselTypeLinear;
+    _carousel.backgroundColor = [UIColor blackColor];
+    _carousel.centerItemWhenSelected = YES;
+    
+    
+    self.scrollView.scrollEnabled = YES;
+    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
+    self.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
+    
+    self.scrollView.backgroundColor = [UIColor blackColor];
+    
+    
+    [self.sidePanelController showLeftPanelAnimated:YES];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
+    
+    CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
+    self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                 scale:self.sharedModel.originalImage.scale
+                                           orientation:self.sharedModel.originalImage.imageOrientation];
+    CGImageRelease(newCgIm);
+    
+    [self divideOriginalImage];
+    [self divideProcessedImage];
+    [self addGestureRecognizersToSubviews];
+    
+    self.carousel.delegate = self;
+    self.carousel.dataSource = self;
+    
+    self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
+    
+    [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.carousel reloadData];
+    });
+}
+
 - (void)applyRandomFilters:(id)sender{
     if (self.sharedModel.filterNamesChosen.count > 0)
     {
@@ -87,59 +140,6 @@
     
     [button sizeToFit];
     return button;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor blackColor];
-    
-    self.navigationItem.titleView = [self buttonForTitleView];
-    
-    //configure carousel
-    _carousel.type = iCarouselTypeLinear;
-    _carousel.backgroundColor = [UIColor blackColor];
-    _carousel.centerItemWhenSelected = YES;
-    
-    
-    self.scrollView.scrollEnabled = YES;
-    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
-    self.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
-
-    self.scrollView.backgroundColor = [UIColor blackColor];
-    
-    
-    [self.sidePanelController showLeftPanelAnimated:YES];
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-    
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
-    
-    CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
-    self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
-                                                 scale:self.sharedModel.originalImage.scale
-                                           orientation:self.sharedModel.originalImage.imageOrientation];
-    CGImageRelease(newCgIm);
-
-    [self divideOriginalImage];
-    [self divideProcessedImage];
-    [self addGestureRecognizersToSubviews];
-    
-    self.carousel.delegate = self;
-    self.carousel.dataSource = self;
-    
-    self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
-    
-    [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
-    
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-         [self.carousel reloadData];
-    });
 }
 
 - (IBAction)displayInfoForDoubleTap{
