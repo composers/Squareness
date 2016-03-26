@@ -96,9 +96,9 @@
                         <constraint firstAttribute="width" constant="40" id="nKl-VA-fpE"/>
                     </constraints>
                 </view>
-                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-yz-Rgc">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-yz-Rgc">
                     <rect key="frame" x="203" y="233" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.30588235289999999" green="0.4941176471" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.91923063993453979" green="0.68985539674758911" blue="0.27463209629058838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Qur-zV-OVY"/>
                         <constraint firstAttribute="width" constant="40" id="spo-y4-thh"/>
@@ -154,9 +154,9 @@
                         <action selector="shareImage:" destination="-1" eventType="touchUpInside" id="kAm-RY-Yya"/>
                     </connections>
                 </button>
-                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbM-Nt-tPc">
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbM-Nt-tPc">
                     <rect key="frame" x="117" y="296" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.47596120834350586" green="0.62539958953857422" blue="0.91174525022506714" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.30588235289999999" green="0.4941176471" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="bVu-H2-LMH"/>
                         <constraint firstAttribute="height" constant="40" id="gCf-ev-1wV"/>
