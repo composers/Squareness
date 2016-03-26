@@ -21,73 +21,66 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-ij-gN3">
-                    <rect key="frame" x="60" y="56" width="64" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="60" y="56" width="66" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="p h o t o s">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="selectPhotoFromAlbum:" destination="-1" eventType="touchUpInside" id="D3G-DQ-iza"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD5-CO-d2w">
-                    <rect key="frame" x="60" y="432" width="42" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="60" y="430" width="43" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="s a v e">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="saveImage:" destination="-1" eventType="touchUpInside" id="5aU-DZ-U6Z"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-hN-IGS">
-                    <rect key="frame" x="60" y="159" width="36" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="60" y="161" width="37" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="i n f o">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="displayInfo:" destination="-1" eventType="touchUpInside" id="MAH-AN-E0y"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="save.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jeu-GL-yrt">
-                    <rect key="frame" x="22" y="433" width="28" height="28"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="save_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jeu-GL-yrt">
+                    <rect key="frame" x="20" y="429" width="32" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="2jf-bB-Uvx"/>
-                        <constraint firstAttribute="width" constant="28" id="aXb-uA-rek"/>
+                        <constraint firstAttribute="height" constant="32" id="2jf-bB-Uvx"/>
+                        <constraint firstAttribute="width" constant="32" id="aXb-uA-rek"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="little_grid.ico" translatesAutoresizingMaskIntoConstraints="NO" id="csb-en-ux0">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reset_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="csb-en-ux0">
                     <rect key="frame" x="20" y="481" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="nml-lL-Lgf"/>
+                        <constraint firstAttribute="width" constant="32" id="ozt-A8-Gfm"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="little_mountain.ico" translatesAutoresizingMaskIntoConstraints="NO" id="gYQ-Mn-jiw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photos_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="gYQ-Mn-jiw">
                     <rect key="frame" x="20" y="55" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="u5i-ez-71A"/>
                         <constraint firstAttribute="width" constant="32" id="wqN-XQ-P3H"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDx-PZ-Hoy">
-                    <rect key="frame" x="60" y="482" width="49" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="r e s e t">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="resetImage:" destination="-1" eventType="touchUpInside" id="5YB-ob-3g0"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="s q u a r e n e s s " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x5-51-1Jd">
-                    <rect key="frame" x="110" y="274" width="133" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="107" y="274" width="136" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AL-8K-tJA">
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AL-8K-tJA">
                     <rect key="frame" x="203" y="296" width="40" height="40"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -95,24 +88,24 @@
                         <constraint firstAttribute="height" constant="40" id="eb2-aU-Pjr"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s93-yM-gji">
+                <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s93-yM-gji">
                     <rect key="frame" x="160" y="296" width="40" height="40"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.91434305906295776" green="0.4806368350982666" blue="0.57221585512161255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="e8a-CW-toh"/>
                         <constraint firstAttribute="width" constant="40" id="nKl-VA-fpE"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-yz-Rgc">
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-yz-Rgc">
                     <rect key="frame" x="203" y="233" width="40" height="40"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.30588235289999999" green="0.4941176471" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Qur-zV-OVY"/>
                         <constraint firstAttribute="width" constant="40" id="spo-y4-thh"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebq-uE-bxq">
-                    <rect key="frame" x="60" y="377" width="30" height="30"/>
+                    <rect key="frame" x="60" y="375" width="30" height="30"/>
                     <state key="normal">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,26 +114,26 @@
                         <action selector="shareImage:" destination="-1" eventType="touchUpInside" id="ThL-ut-c1h"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Sf-Fv-VjD">
-                    <rect key="frame" x="20" y="157" width="32" height="32"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Sf-Fv-VjD">
+                    <rect key="frame" x="20" y="159" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="B0r-n2-fns"/>
                         <constraint firstAttribute="width" constant="32" id="LkD-Ha-tap"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zkm-mM-dEE">
-                    <rect key="frame" x="21" y="107" width="30" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zkm-mM-dEE">
+                    <rect key="frame" x="20" y="107" width="32" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="OHy-gP-dta"/>
-                        <constraint firstAttribute="height" constant="30" id="gcv-sJ-n2E"/>
+                        <constraint firstAttribute="width" constant="32" id="OHy-gP-dta"/>
+                        <constraint firstAttribute="height" constant="32" id="gcv-sJ-n2E"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHY-Nb-Pfk">
-                    <rect key="frame" x="60" y="108" width="67" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="60" y="109" width="69" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="c a m e r a">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="97n-J1-bio"/>
@@ -148,21 +141,40 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjV-iu-Jg5">
                     <rect key="frame" x="203" y="528" width="40" height="40"/>
-                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="tjV-iu-Jg5" secondAttribute="height" multiplier="1:1" id="P8M-kV-nvs"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <state key="normal" title="fb">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.30588235289999999" green="0.4941176471" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.30588235289999999" green="0.4941176471" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="shareImage:" destination="-1" eventType="touchUpInside" id="kAm-RY-Yya"/>
                     </connections>
                 </button>
+                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbM-Nt-tPc">
+                    <rect key="frame" x="117" y="296" width="40" height="40"/>
+                    <color key="backgroundColor" red="0.47596120834350586" green="0.62539958953857422" blue="0.91174525022506714" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="bVu-H2-LMH"/>
+                        <constraint firstAttribute="height" constant="40" id="gCf-ev-1wV"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDx-PZ-Hoy">
+                    <rect key="frame" x="60" y="482" width="50" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="r e s e t">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resetImage:" destination="-1" eventType="touchUpInside" id="5YB-ob-3g0"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="9AL-8K-tJA" secondAttribute="trailing" constant="77" id="2GV-xW-zyM"/>
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="centerX" secondItem="csb-en-ux0" secondAttribute="centerX" id="7K8-Z4-c33"/>
@@ -186,12 +198,14 @@
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="centerY" secondItem="LhS-ij-gN3" secondAttribute="centerY" id="beN-tD-o8g"/>
                 <constraint firstItem="csb-en-ux0" firstAttribute="top" secondItem="Jeu-GL-yrt" secondAttribute="bottom" constant="20" id="c9G-iH-R57"/>
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="cTb-Ig-BeT"/>
+                <constraint firstItem="s93-yM-gji" firstAttribute="leading" secondItem="xbM-Nt-tPc" secondAttribute="trailing" constant="3" id="hlR-Db-LZO"/>
                 <constraint firstItem="tjV-iu-Jg5" firstAttribute="leading" secondItem="9AL-8K-tJA" secondAttribute="leading" id="i1b-Gi-kBv"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="centerY" secondItem="csb-en-ux0" secondAttribute="centerY" id="i91-PY-Qtp"/>
                 <constraint firstItem="gYQ-Mn-jiw" firstAttribute="centerX" secondItem="8Sf-Fv-VjD" secondAttribute="centerX" id="iaS-4X-03z"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="cfh-hN-IGS" secondAttribute="leading" id="k81-DA-zJ8"/>
                 <constraint firstItem="ZHY-Nb-Pfk" firstAttribute="leading" secondItem="LhS-ij-gN3" secondAttribute="leading" id="niF-eL-LfU"/>
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="LhS-ij-gN3" secondAttribute="leading" id="oKm-uz-OBx"/>
+                <constraint firstItem="xbM-Nt-tPc" firstAttribute="bottom" secondItem="s93-yM-gji" secondAttribute="bottom" id="orX-fO-VDH"/>
                 <constraint firstItem="4x5-51-1Jd" firstAttribute="top" secondItem="mPh-yz-Rgc" secondAttribute="bottom" constant="1" id="r0U-Xt-toX"/>
                 <constraint firstAttribute="bottom" secondItem="tjV-iu-Jg5" secondAttribute="bottom" id="u2o-wD-of7"/>
                 <constraint firstItem="tjV-iu-Jg5" firstAttribute="trailing" secondItem="9AL-8K-tJA" secondAttribute="trailing" id="vIe-RC-plX"/>
@@ -199,14 +213,14 @@
                 <constraint firstItem="eDx-PZ-Hoy" firstAttribute="leading" secondItem="yD5-CO-d2w" secondAttribute="leading" id="xc8-B9-OU4"/>
                 <constraint firstItem="LhS-ij-gN3" firstAttribute="leading" secondItem="gYQ-Mn-jiw" secondAttribute="trailing" constant="8" id="zaG-oi-81S"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="42"/>
+            <point key="canvasLocation" x="204" y="54"/>
         </view>
     </objects>
     <resources>
-        <image name="camera.png" width="64" height="64"/>
-        <image name="info.png" width="512" height="512"/>
-        <image name="little_grid.ico" width="32" height="32"/>
-        <image name="little_mountain.ico" width="32" height="32"/>
-        <image name="save.png" width="256" height="256"/>
+        <image name="camera_white.png" width="200" height="200"/>
+        <image name="info_white.png" width="200" height="200"/>
+        <image name="photos_white.png" width="200" height="200"/>
+        <image name="reset_white.png" width="200" height="200"/>
+        <image name="save_white.png" width="200" height="200"/>
     </resources>
 </document>

@@ -133,12 +133,11 @@
 - (UIButton *)buttonForTitleView
 {
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
     //[button setImage:[[FAKFontAwesome thIconWithSize:30] imageWithSize:CGSizeMake(30.f, 30.f)] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"random_icon.ico"] forState:UIControlStateNormal];
-    
-    [button sizeToFit];
+    [button setImage:[UIImage imageNamed:@"randomness_gray.png"] forState:UIControlStateNormal];
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;    
     return button;
 }
 

@@ -247,7 +247,10 @@
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"p h o t o";
     page1.desc = @"Import a photo or take one with the camera. Pick a square area from the photo and apply an effect using the carousel in the bottom. You can always play around with the default image before choosing your own.";
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera.png"]];
+    UIImageView *cameraImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 45.0, 45.0)];
+    cameraImageView.image = [UIImage imageNamed:@"camera_gray.png"];
+    cameraImageView.contentMode = UIViewContentModeScaleAspectFit;
+    page1.titleIconView = cameraImageView;
     page1.titleIconPositionY = 200;
     page1.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page1.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
@@ -256,7 +259,12 @@
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"r a n d o m n e s s";
     page2.desc = @"Using the grid button above the image, you can apply effects to all the squares randomly. Only the effects included in the carousel are taken into consideration.";
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"random_icon.ico"]];
+    
+    UIImageView *randomnessImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 45.0, 45.0)];
+    randomnessImageView.image = [UIImage imageNamed:@"randomness_gray.png"];
+    randomnessImageView.contentMode = UIViewContentModeScaleAspectFit;
+
+    page2.titleIconView = randomnessImageView;
     page2.titleIconPositionY = 200;
     page2.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page2.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
@@ -265,7 +273,10 @@
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"r e s e t";
     page3.desc = @"If you need to undo the applied effects for a particular square, just double tap on the square. If you need to start over with the original photo, tap on the reset button.";
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_grid.ico"]];
+    UIImageView *resetImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 45.0, 45.0)];
+    resetImageView.image = [UIImage imageNamed:@"reset_gray.png"];
+    resetImageView.contentMode = UIViewContentModeScaleAspectFit;
+    page3.titleIconView = resetImageView;
     page3.titleIconPositionY = 200;
     page3.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page3.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
@@ -274,12 +285,14 @@
     EAIntroPage *page4 = [EAIntroPage page];
     page4.title = @"s t r i p e s";
     page4.desc = @"You can apply an effect to horizontal or vertical stripes of squares. Just tap on a square, and then long-press on another square that is on the same vertical or horizontal line.";
-    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lines.ico"]];
+    UIImageView *stripesImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 45.0, 45.0)];
+    stripesImageView.image = [UIImage imageNamed:@"stripes_gray.png"];
+    stripesImageView.contentMode = UIViewContentModeScaleAspectFit;
+    page4.titleIconView = stripesImageView;
     page4.titleIconPositionY = 200;
     page4.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
     page4.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
     page4.descColor = [UIColor grayColor];
-    
     
     EAIntroPage *page5 = [EAIntroPage page];
     page5.title = @"c o n f i g u r e";
