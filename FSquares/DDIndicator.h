@@ -10,9 +10,7 @@
 
 @interface DDIndicator : UIView
 
-
--(void) startAnimating;
--(void) stopAnimating;
-
+-(void)startAnimating;
+-(void)stopAnimating;
 
 @end

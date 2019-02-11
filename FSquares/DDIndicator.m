@@ -15,8 +15,10 @@ static int stage = 0;
 @interface DDIndicator ()
 @property (nonatomic, strong) NSTimer *timer;
 @end
+
 @implementation DDIndicator
-- (id)initWithFrame:(CGRect)frame
+
+-(id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -27,11 +29,7 @@ static int stage = 0;
     
 }
 
--(void) test
-{
-    
-}
--(void) startAnimating
+-(void)startAnimating
 {
     if (!self.timer.isValid) {
         self.timer = [NSTimer timerWithTimeInterval:0.03
@@ -47,12 +45,13 @@ static int stage = 0;
     
     stage++;
 }
--(void) stopAnimating
+-(void)stopAnimating
 {
     self.hidden = YES;
     [self.timer invalidate];
 }
--(UIColor *) getColorForStage:(int) currentStage WithAlpha:(double) alpha
+-(UIColor *)getColorForStage:(int) currentStage
+                   WithAlpha:(double) alpha
 {
     int max = 20;
     int cycle = currentStage % max;
@@ -63,13 +62,11 @@ static int stage = 0;
         return [UIColor colorWithRed:238.0/255.0 green:90.0/255.0 blue:40.0/255.0 alpha:alpha];
     } else if (cycle < max/4*3) {
         return [UIColor colorWithRed:33.0/255.0 green:31.0/255.0 blue:31.0/255.0 alpha:alpha];
-        
     } else  {
         return [UIColor colorWithRed:251.0/255.0 green:184.0/255.0 blue:18.0/255.0 alpha:alpha];
-    } 
-    
+    }
 }
--(CGPoint) pointOnInnerCirecleWithAngel:(int) angel
+-(CGPoint)pointOnInnerCirecleWithAngel:(int) angel
 {
     double r = self.frame.size.height/2/2;
     double cx = self.frame.size.width/2;
@@ -78,7 +75,7 @@ static int stage = 0;
     double y = cy + r*sin(M_PI/10*angel);
     return CGPointMake(x, y);
 }
--(CGPoint) pointOnOuterCirecleWithAngel:(int) angel
+-(CGPoint)pointOnOuterCirecleWithAngel:(int) angel
 {
     double r = self.frame.size.height/2;
     double cx = self.frame.size.width/2;
@@ -88,7 +85,7 @@ static int stage = 0;
     return CGPointMake(x, y);
 }
 
--(void) drawRect:(CGRect)rect
+-(void)drawRect:(CGRect)rect
 {
     CGPoint point;
    
@@ -96,7 +93,6 @@ static int stage = 0;
     CGContextSetLineWidth(ctx, 2.0);
     
     for (int i = 1 ; i<=10; ++i) {
-    
         CGContextSetStrokeColorWithColor(ctx, [[self getColorForStage:stage+i WithAlpha:0.1 *i] CGColor]);
         point = [self pointOnOuterCirecleWithAngel:stage+i];
         CGContextMoveToPoint(ctx, point.x, point.y);
@@ -107,6 +103,5 @@ static int stage = 0;
     
     stage++;
 }
-
 
 @end
