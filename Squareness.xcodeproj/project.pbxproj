@@ -10,18 +10,8 @@
 		2607C8D31C9D6A10008B05A9 /* FSQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8D21C9D6A10008B05A9 /* FSQBaseViewController.m */; };
 		2607C8D61C9D7CB9008B05A9 /* UIImage+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */; };
 		2607C8E01C9D9A70008B05A9 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8DF1C9D9A70008B05A9 /* UIColor+HexString.m */; };
-		2607C9961C9DCA9E008B05A9 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9951C9DCA9E008B05A9 /* iCarousel.m */; };
 		2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
-		260E373B1984915700E5985E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37281984915700E5985E /* TNCheckBox.m */; };
-		260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372A1984915700E5985E /* TNCheckBoxData.m */; };
-		260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E372D1984915700E5985E /* TNCheckBoxGroup.m */; };
-		260E373E1984915700E5985E /* TNCircularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37301984915700E5985E /* TNCircularCheckBox.m */; };
-		260E373F1984915700E5985E /* TNCircularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37321984915700E5985E /* TNCircularCheckBoxData.m */; };
-		260E37401984915700E5985E /* TNImageCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37341984915700E5985E /* TNImageCheckbox.m */; };
-		260E37411984915700E5985E /* TNImageCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37361984915700E5985E /* TNImageCheckBoxData.m */; };
-		260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E37381984915700E5985E /* TNRectangularCheckBox.m */; };
-		260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
 		2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEB19E03EB000AB4D19 /* list_icon.ico */; };
 		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
@@ -90,9 +80,6 @@
 		26E5A90919CEFA12006C4014 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90619CEFA12006C4014 /* icon_80.png */; };
 		26E5A90A19CEFA12006C4014 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90719CEFA12006C4014 /* icon_120.png */; };
 		26E5A90C19CEFA2B006C4014 /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E5A90B19CEFA2B006C4014 /* artwork-source.png */; };
-		26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26FA903E19955DE6001B1B79 /* SIAlertView.bundle */; };
-		26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904019955DE6001B1B79 /* SIAlertView.m */; };
-		26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */; };
 		26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FA904C19A68013001B1B79 /* Default-568h@2x.png */; };
 		26FA904F19A68018001B1B79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FA904E19A68018001B1B79 /* Default@2x.png */; };
 		4EC701B052D02EEE72FD5780 /* libPods-Squareness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */; };
@@ -117,32 +104,10 @@
 		2607C8D51C9D7CB9008B05A9 /* UIImage+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Border.m"; sourceTree = "<group>"; };
 		2607C8DE1C9D9A70008B05A9 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		2607C8DF1C9D9A70008B05A9 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
-		2607C9941C9DCA9E008B05A9 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
-		2607C9951C9DCA9E008B05A9 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		2607C9981C9DEAF3008B05A9 /* UIView+Divide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Divide.h"; sourceTree = "<group>"; };
 		2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Divide.m"; sourceTree = "<group>"; };
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		260E37271984915700E5985E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
-		260E37281984915700E5985E /* TNCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBox.m; sourceTree = "<group>"; };
-		260E37291984915700E5985E /* TNCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxData.h; sourceTree = "<group>"; };
-		260E372A1984915700E5985E /* TNCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBoxData.m; sourceTree = "<group>"; };
-		260E372B1984915700E5985E /* TNCheckBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxDelegate.h; sourceTree = "<group>"; };
-		260E372C1984915700E5985E /* TNCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxGroup.h; sourceTree = "<group>"; };
-		260E372D1984915700E5985E /* TNCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBoxGroup.m; sourceTree = "<group>"; };
-		260E372E1984915700E5985E /* TNCheckBoxProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxProtocol.h; sourceTree = "<group>"; };
-		260E372F1984915700E5985E /* TNCircularCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularCheckBox.h; sourceTree = "<group>"; };
-		260E37301984915700E5985E /* TNCircularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularCheckBox.m; sourceTree = "<group>"; };
-		260E37311984915700E5985E /* TNCircularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularCheckBoxData.h; sourceTree = "<group>"; };
-		260E37321984915700E5985E /* TNCircularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularCheckBoxData.m; sourceTree = "<group>"; };
-		260E37331984915700E5985E /* TNImageCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageCheckbox.h; sourceTree = "<group>"; };
-		260E37341984915700E5985E /* TNImageCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageCheckbox.m; sourceTree = "<group>"; };
-		260E37351984915700E5985E /* TNImageCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageCheckBoxData.h; sourceTree = "<group>"; };
-		260E37361984915700E5985E /* TNImageCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageCheckBoxData.m; sourceTree = "<group>"; };
-		260E37371984915700E5985E /* TNRectangularCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBox.h; sourceTree = "<group>"; };
-		260E37381984915700E5985E /* TNRectangularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBox.m; sourceTree = "<group>"; };
-		260E37391984915700E5985E /* TNRectangularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBoxData.h; sourceTree = "<group>"; };
-		260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBoxData.m; sourceTree = "<group>"; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
 		2635DEEB19E03EB000AB4D19 /* list_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = list_icon.ico; sourceTree = "<group>"; };
@@ -231,11 +196,6 @@
 		26E5A90619CEFA12006C4014 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
 		26E5A90719CEFA12006C4014 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		26E5A90B19CEFA2B006C4014 /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
-		26FA903E19955DE6001B1B79 /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
-		26FA903F19955DE6001B1B79 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
-		26FA904019955DE6001B1B79 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
-		26FA904119955DE6001B1B79 /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
-		26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
 		26FA904C19A68013001B1B79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		26FA904E19A68018001B1B79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Squareness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,39 +281,9 @@
 			children = (
 				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
 				2607C8C91C9D5C7C008B05A9 /* DDIndicator */,
-				2607C8C81C9D5C63008B05A9 /* iCarousel */,
 				2607C8C71C9D5C53008B05A9 /* JASidePanel */,
-				2607C8C61C9D5C2E008B05A9 /* TNCheckBox */,
-				26FA903D19955DE6001B1B79 /* SIAlertView */,
 			);
 			name = External;
-			sourceTree = "<group>";
-		};
-		2607C8C61C9D5C2E008B05A9 /* TNCheckBox */ = {
-			isa = PBXGroup;
-			children = (
-				260E37271984915700E5985E /* TNCheckBox.h */,
-				260E37281984915700E5985E /* TNCheckBox.m */,
-				260E37291984915700E5985E /* TNCheckBoxData.h */,
-				260E372A1984915700E5985E /* TNCheckBoxData.m */,
-				260E372B1984915700E5985E /* TNCheckBoxDelegate.h */,
-				260E372C1984915700E5985E /* TNCheckBoxGroup.h */,
-				260E372D1984915700E5985E /* TNCheckBoxGroup.m */,
-				260E372E1984915700E5985E /* TNCheckBoxProtocol.h */,
-				260E372F1984915700E5985E /* TNCircularCheckBox.h */,
-				260E37301984915700E5985E /* TNCircularCheckBox.m */,
-				260E37311984915700E5985E /* TNCircularCheckBoxData.h */,
-				260E37321984915700E5985E /* TNCircularCheckBoxData.m */,
-				260E37331984915700E5985E /* TNImageCheckbox.h */,
-				260E37341984915700E5985E /* TNImageCheckbox.m */,
-				260E37351984915700E5985E /* TNImageCheckBoxData.h */,
-				260E37361984915700E5985E /* TNImageCheckBoxData.m */,
-				260E37371984915700E5985E /* TNRectangularCheckBox.h */,
-				260E37381984915700E5985E /* TNRectangularCheckBox.m */,
-				260E37391984915700E5985E /* TNRectangularCheckBoxData.h */,
-				260E373A1984915700E5985E /* TNRectangularCheckBoxData.m */,
-			);
-			name = TNCheckBox;
 			sourceTree = "<group>";
 		};
 		2607C8C71C9D5C53008B05A9 /* JASidePanel */ = {
@@ -365,15 +295,6 @@
 				267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */,
 			);
 			name = JASidePanel;
-			sourceTree = "<group>";
-		};
-		2607C8C81C9D5C63008B05A9 /* iCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				2607C9941C9DCA9E008B05A9 /* iCarousel.h */,
-				2607C9951C9DCA9E008B05A9 /* iCarousel.m */,
-			);
-			name = iCarousel;
 			sourceTree = "<group>";
 		};
 		2607C8C91C9D5C7C008B05A9 /* DDIndicator */ = {
@@ -610,18 +531,6 @@
 			path = FontAwesomeKit;
 			sourceTree = "<group>";
 		};
-		26FA903D19955DE6001B1B79 /* SIAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				26FA903E19955DE6001B1B79 /* SIAlertView.bundle */,
-				26FA903F19955DE6001B1B79 /* SIAlertView.h */,
-				26FA904019955DE6001B1B79 /* SIAlertView.m */,
-				26FA904119955DE6001B1B79 /* UIWindow+SIUtils.h */,
-				26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */,
-			);
-			path = SIAlertView;
-			sourceTree = "<group>";
-		};
 		F25E5E6964CA9C12B4E12038 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,7 +625,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26FA904319955DE6001B1B79 /* SIAlertView.bundle in Resources */,
 				267E737A1CA71714002B7DE4 /* grid_white.png in Resources */,
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
 				267E737E1CA71CED002B7DE4 /* randomness_gray.png in Resources */,
@@ -784,6 +692,7 @@
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+				"${PODS_ROOT}/SIAlertView/SIAlertView/SIAlertView.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -794,6 +703,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SIAlertView.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -851,7 +761,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				260E373B1984915700E5985E /* TNCheckBox.m in Sources */,
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
 				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
@@ -859,29 +768,18 @@
 				267E73651CA69AF4002B7DE4 /* JASidePanelController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
 				2607C8D61C9D7CB9008B05A9 /* UIImage+Border.m in Sources */,
-				260E37411984915700E5985E /* TNImageCheckBoxData.m in Sources */,
 				26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */,
-				260E37431984915700E5985E /* TNRectangularCheckBoxData.m in Sources */,
-				260E37421984915700E5985E /* TNRectangularCheckBox.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
-				260E373C1984915700E5985E /* TNCheckBoxData.m in Sources */,
-				260E373E1984915700E5985E /* TNCircularCheckBox.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
 				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
-				260E373D1984915700E5985E /* TNCheckBoxGroup.m in Sources */,
 				267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,
 				26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */,
-				260E37401984915700E5985E /* TNImageCheckbox.m in Sources */,
 				2607C8E01C9D9A70008B05A9 /* UIColor+HexString.m in Sources */,
 				26BB4F91197DBC520077FF6F /* FAKFontAwesome.m in Sources */,
-				2607C9961C9DCA9E008B05A9 /* iCarousel.m in Sources */,
-				260E373F1984915700E5985E /* TNCircularCheckBoxData.m in Sources */,
 				26BB4F2A197473CF0077FF6F /* FSQModelController.m in Sources */,
 				26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */,
-				26FA904419955DE6001B1B79 /* SIAlertView.m in Sources */,
 				260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */,
-				26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */,
 				2607C8D31C9D6A10008B05A9 /* FSQBaseViewController.m in Sources */,
 				2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */,
 			);

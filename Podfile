@@ -8,6 +8,9 @@ target 'Squareness' do
   # Pods for Squareness
   pod 'GPUImage', '~> 0.1'
   pod 'EAIntroView', '~> 2.9'
+  pod 'iCarousel', '~> 1.8'
+  pod 'SIAlertView', '~> 1.3'
+  pod 'TNCheckBoxGroup', '~> 0.1'
 
   target 'SquarenessTests' do
     inherit! :search_paths

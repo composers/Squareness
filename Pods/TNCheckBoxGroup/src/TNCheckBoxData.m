@@ -12,7 +12,7 @@
 
 #pragma mark - Debug
 - (NSString *)description {
-    return [NSString stringWithFormat:@"[TNCheckBoxData] Identifier: %@ - Tag: %li - Checked: %d", self.identifier, (long)self.tag, self.checked];
+    return [NSString stringWithFormat:@"[TNCheckBoxData] Identifier: %@ - Tag: %i - Checked: %d", self.identifier, self.tag, self.checked];
 }
 
 @end
