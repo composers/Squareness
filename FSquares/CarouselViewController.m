@@ -41,7 +41,7 @@
     
     
     self.scrollView.scrollEnabled = YES;
-    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    CGRect screenFrame = [[UIScreen mainScreen] bounds];
     CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
     self.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
     
