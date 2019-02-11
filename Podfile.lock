@@ -1,3 +1,24 @@
-PODFILE CHECKSUM: 07e4bd0f9961e659ef18d39e18d2e003389061df
+PODS:
+  - EAIntroView (2.9.0):
+    - EARestrictedScrollView (~> 1.1.0)
+  - EARestrictedScrollView (1.1.0)
+  - GPUImage (0.1.7)
+
+DEPENDENCIES:
+  - EAIntroView (~> 2.9)
+  - GPUImage (~> 0.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - EAIntroView
+    - EARestrictedScrollView
+    - GPUImage
+
+SPEC CHECKSUMS:
+  EAIntroView: 76f68cc56242f2e25359419e6ecc2344ee7e1756
+  EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+
+PODFILE CHECKSUM: 1c371a9e802d5e6b7adbfaedf35042a2011b4edb
 
 COCOAPODS: 1.6.0

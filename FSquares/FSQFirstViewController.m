@@ -291,8 +291,9 @@
     page1.titleIconView = cameraImageView;
     page1.titleIconPositionY = 200;
     page1.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-    page1.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page1.descFont = [UIFont fontWithName:@"HelveticaNeue" size:12];
     page1.descColor = [UIColor grayColor];
+    page1.bgColor = [UIColor blackColor];
     
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"r a n d o m n e s s";
@@ -305,8 +306,9 @@
     page2.titleIconView = randomnessImageView;
     page2.titleIconPositionY = 200;
     page2.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-    page2.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page2.descFont = [UIFont fontWithName:@"HelveticaNeue" size:12];
     page2.descColor = [UIColor grayColor];
+    page2.bgColor = [UIColor blackColor];
     
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"r e s e t";
@@ -317,8 +319,9 @@
     page3.titleIconView = resetImageView;
     page3.titleIconPositionY = 200;
     page3.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-    page3.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page3.descFont = [UIFont fontWithName:@"HelveticaNeue" size:12];
     page3.descColor = [UIColor grayColor];
+    page3.bgColor = [UIColor blackColor];
     
     EAIntroPage *page4 = [EAIntroPage page];
     page4.title = @"s t r i p e s";
@@ -329,8 +332,9 @@
     page4.titleIconView = stripesImageView;
     page4.titleIconPositionY = 200;
     page4.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-    page4.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page4.descFont = [UIFont fontWithName:@"HelveticaNeue" size:12];
     page4.descColor = [UIColor grayColor];
+    page4.bgColor = [UIColor blackColor];
     
     EAIntroPage *page5 = [EAIntroPage page];
     page5.title = @"c o n f i g u r e";
@@ -338,10 +342,10 @@
     
     page5.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_settings_icon.ico"]];
     page5.titleIconPositionY = 200;
-    
     page5.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-    page5.descFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    page5.descFont = [UIFont fontWithName:@"HelveticaNeue" size:12];
     page5.descColor = [UIColor grayColor];
+    page5.bgColor = [UIColor blackColor];
     
     EAIntroView *introView = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1, page2, page3, page4, page5]];
     
