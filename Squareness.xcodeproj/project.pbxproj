@@ -98,6 +98,8 @@
 		26FA904519955DE6001B1B79 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */; };
 		26FA904D19A68013001B1B79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FA904C19A68013001B1B79 /* Default-568h@2x.png */; };
 		26FA904F19A68018001B1B79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FA904E19A68018001B1B79 /* Default@2x.png */; };
+		4EC701B052D02EEE72FD5780 /* libPods-Squareness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */; };
+		C6AEEDD0848A7E10C5531465 /* libPods-SquarenessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F83F22E7F16AC31D1588EA5 /* libPods-SquarenessTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F83F22E7F16AC31D1588EA5 /* libPods-SquarenessTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SquarenessTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2607C8D11C9D6A10008B05A9 /* FSQBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQBaseViewController.h; sourceTree = "<group>"; };
 		2607C8D21C9D6A10008B05A9 /* FSQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQBaseViewController.m; sourceTree = "<group>"; };
 		2607C8D41C9D7CB9008B05A9 /* UIImage+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Border.h"; sourceTree = "<group>"; };
@@ -416,6 +419,11 @@
 		26FA904219955DE6001B1B79 /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
 		26FA904C19A68013001B1B79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		26FA904E19A68018001B1B79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Squareness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E4AC2D71250DA9B83CEC0BD /* Pods-Squareness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squareness.debug.xcconfig"; path = "Target Support Files/Pods-Squareness/Pods-Squareness.debug.xcconfig"; sourceTree = "<group>"; };
+		94B7D66A6D014EE440F0DFA6 /* Pods-SquarenessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquarenessTests.release.xcconfig"; path = "Target Support Files/Pods-SquarenessTests/Pods-SquarenessTests.release.xcconfig"; sourceTree = "<group>"; };
+		DAF4E3CDC22DADB360AF0315 /* Pods-SquarenessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquarenessTests.debug.xcconfig"; path = "Target Support Files/Pods-SquarenessTests/Pods-SquarenessTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DDB6CC34001F9D88D63EDA92 /* Pods-Squareness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squareness.release.xcconfig"; path = "Target Support Files/Pods-Squareness/Pods-Squareness.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +442,7 @@
 				2607C9931C9DC91D008B05A9 /* libGPUImage.a in Frameworks */,
 				26BB4EAB197098630077FF6F /* UIKit.framework in Frameworks */,
 				26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */,
+				4EC701B052D02EEE72FD5780 /* libPods-Squareness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +453,7 @@
 				26BB4EC0197098630077FF6F /* XCTest.framework in Frameworks */,
 				26BB4EC2197098630077FF6F /* UIKit.framework in Frameworks */,
 				26BB4EC1197098630077FF6F /* Foundation.framework in Frameworks */,
+				C6AEEDD0848A7E10C5531465 /* libPods-SquarenessTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +898,7 @@
 				26BB4EC5197098630077FF6F /* FSquaresTests */,
 				26BB4EA5197098630077FF6F /* Frameworks */,
 				26BB4EA4197098630077FF6F /* Products */,
+				F25E5E6964CA9C12B4E12038 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -915,6 +926,8 @@
 				26BB4EA8197098630077FF6F /* CoreGraphics.framework */,
 				26BB4EAA197098630077FF6F /* UIKit.framework */,
 				26BB4EBF197098630077FF6F /* XCTest.framework */,
+				5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */,
+				1F83F22E7F16AC31D1588EA5 /* libPods-SquarenessTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1001,6 +1014,17 @@
 			path = SIAlertView;
 			sourceTree = "<group>";
 		};
+		F25E5E6964CA9C12B4E12038 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7E4AC2D71250DA9B83CEC0BD /* Pods-Squareness.debug.xcconfig */,
+				DDB6CC34001F9D88D63EDA92 /* Pods-Squareness.release.xcconfig */,
+				DAF4E3CDC22DADB360AF0315 /* Pods-SquarenessTests.debug.xcconfig */,
+				94B7D66A6D014EE440F0DFA6 /* Pods-SquarenessTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1008,6 +1032,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26BB4ECF197098630077FF6F /* Build configuration list for PBXNativeTarget "Squareness" */;
 			buildPhases = (
+				69A0EFEE338B5960F6D77817 /* [CP] Check Pods Manifest.lock */,
 				26BB4E9F197098630077FF6F /* Sources */,
 				26BB4EA0197098630077FF6F /* Frameworks */,
 				26BB4EA1197098630077FF6F /* Resources */,
@@ -1025,6 +1050,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26BB4ED2197098630077FF6F /* Build configuration list for PBXNativeTarget "SquarenessTests" */;
 			buildPhases = (
+				8A4C2D9053EB3D4BC9D1EE61 /* [CP] Check Pods Manifest.lock */,
 				26BB4EBA197098630077FF6F /* Sources */,
 				26BB4EBB197098630077FF6F /* Frameworks */,
 				26BB4EBC197098630077FF6F /* Resources */,
@@ -1132,6 +1158,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69A0EFEE338B5960F6D77817 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Squareness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A4C2D9053EB3D4BC9D1EE61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SquarenessTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		26BB4E9F197098630077FF6F /* Sources */ = {
@@ -1319,6 +1392,7 @@
 		};
 		26BB4ED0197098630077FF6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E4AC2D71250DA9B83CEC0BD /* Pods-Squareness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1333,7 +1407,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "FSquares/Squareness-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Release-iphone/lib",
@@ -1349,6 +1423,7 @@
 		};
 		26BB4ED1197098630077FF6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDB6CC34001F9D88D63EDA92 /* Pods-Squareness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1363,7 +1438,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "FSquares/Squareness-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Release-iphone/lib",
@@ -1379,6 +1454,7 @@
 		};
 		26BB4ED3197098630077FF6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAF4E3CDC22DADB360AF0315 /* Pods-SquarenessTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FSquares.app/FSquares";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1402,6 +1478,7 @@
 		};
 		26BB4ED4197098630077FF6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94B7D66A6D014EE440F0DFA6 /* Pods-SquarenessTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FSquares.app/FSquares";
 				FRAMEWORK_SEARCH_PATHS = (

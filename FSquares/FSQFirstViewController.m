@@ -151,7 +151,7 @@
         UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
         CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
         
-        CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+        CGRect screenFrame = [[UIScreen mainScreen] bounds];
         CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
         carouselController.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
         
@@ -370,7 +370,9 @@
 - (void)openAppSettings {
     NSURL *appSettingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if ([[UIApplication sharedApplication] canOpenURL:appSettingsURL]) {
-        [[UIApplication sharedApplication] openURL:appSettingsURL];
+        [[UIApplication sharedApplication] openURL:appSettingsURL
+                                           options:@{}
+                                 completionHandler:nil];
     }
 }
 

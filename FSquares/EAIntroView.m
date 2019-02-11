@@ -74,7 +74,7 @@
 
 - (void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
     [UIView animateWithDuration:0.3 animations:^{
-        for (int idx = 0; idx < _pages.count; idx++) {
+        for (int idx = 0; idx < self->_pages.count; idx++) {
             if (idx == panelIndex) {
                 [[self viewForPageIndex:idx] setAlpha:1];
             } else {
@@ -654,11 +654,11 @@ float easeOutValue(float value) {
     [UIView animateWithDuration:duration animations:^{
         self.alpha = 1;
     } completion:^(BOOL finished) {
-        EAIntroPage* currentPage = _pages[self.currentPageIndex];
+        EAIntroPage* currentPage = self->_pages[self.currentPageIndex];
         if(currentPage.onPageDidAppear) currentPage.onPageDidAppear();
         
         if ([(id)self.delegate respondsToSelector:@selector(intro:pageAppeared:withIndex:)]) {
-            [self.delegate intro:self pageAppeared:_pages[self.currentPageIndex] withIndex:self.currentPageIndex];
+            [self.delegate intro:self pageAppeared:self->_pages[self.currentPageIndex] withIndex:self.currentPageIndex];
         }
     }];
 }

@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^VoidBlock)();
+typedef void (^VoidBlock)(void);
 
 @interface EAIntroPage : NSObject
 
