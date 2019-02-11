@@ -16,6 +16,8 @@
 #import "UIImage+Rotate.h"
 #import "UIImage+Resize.h"
 #import <Social/Social.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
 
 
 @interface FSQFirstViewController ()
@@ -37,20 +39,51 @@
 
 - (IBAction)selectPhotoFromAlbum:(UIButton *)sender
 {
-    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-    photoPicker.delegate = self;
-    photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:photoPicker animated:YES completion:NULL];
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusAuthorized) {
+        [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    } else if (status == PHAuthorizationStatusDenied) {
+        [self openAppSettings];
+    } else if (status == PHAuthorizationStatusNotDetermined) {
+        // Access has not been determined.
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            } else {
+                [self openAppSettings];
+            }
+        }];
+    }
+    else if (status == PHAuthorizationStatusRestricted) {
+        // Restricted access - normally won't happen.
+    }
 }
 
 - (IBAction)takePhoto:(id)sender
 {
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
     {
-        UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
-        photoPicker.delegate = self;
-        photoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:photoPicker animated:YES completion:NULL];
+        NSString *mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        if(authStatus == AVAuthorizationStatusAuthorized) {
+            [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+        } else if(authStatus == AVAuthorizationStatusDenied){
+            [self openAppSettings];
+        } else if(authStatus == AVAuthorizationStatusRestricted){
+            // restricted, normally won't happen
+        } else if(authStatus == AVAuthorizationStatusNotDetermined){
+            // not determined?!
+            [AVCaptureDevice requestAccessForMediaType:mediaType
+                                     completionHandler:^(BOOL granted) {
+                if(granted){
+                    [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+                } else {
+                    [self openAppSettings];
+                }
+            }];
+        } else {
+            // impossible, unknown authorization status
+        }
     }
     else
     {
@@ -70,7 +103,6 @@
         alertView.alpha = 0.85;
         
         [alertView show];
-
     }
 }
 
@@ -164,10 +196,16 @@
     if(error)
     {
         SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"e r r o r"
-                                                         andMessage:@"Unable to save to photo library"];
+                                                         andMessage:@"Unable to save. Check your app settings"];
         
-        [alertView addButtonWithTitle:@"O K"
+        [alertView addButtonWithTitle:@"Go to settings"
                                  type:SIAlertViewButtonTypeDefault
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                                  [self openAppSettings];
+                              }];
+        [alertView addButtonWithTitle:@"Cancel"
+                                 type:SIAlertViewButtonTypeCancel
                               handler:^(SIAlertView *alert) {
                                   [alert dismissAnimated:YES];
                               }];
@@ -320,6 +358,20 @@
 
 - (void)introDidFinish:(EAIntroView *)introView{
     introView = nil;
+}
+
+-(void)presentPhotoPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
+    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+    photoPicker.delegate = self;
+    photoPicker.sourceType = sourceType;
+    [self presentViewController:photoPicker animated:YES completion:NULL];
+}
+
+- (void)openAppSettings {
+    NSURL *appSettingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL:appSettingsURL]) {
+        [[UIApplication sharedApplication] openURL:appSettingsURL];
+    }
 }
 
 @end
