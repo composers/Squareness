@@ -595,7 +595,7 @@
 				TargetAttributes = {
 					26BB4EA2197098630077FF6F = {
 						DevelopmentTeam = 7N365M3AC6;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					26BB4EBD197098630077FF6F = {
 						TestTargetID = 26BB4EA2197098630077FF6F;
@@ -934,7 +934,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7N365M3AC6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -954,7 +954,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ss.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Squareness;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Squareness development profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -966,9 +966,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7N365M3AC6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -988,7 +988,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ss.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Squareness;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Squareness App Store Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

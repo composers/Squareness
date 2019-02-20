@@ -20,10 +20,11 @@
 #import <Photos/Photos.h>
 
 
-@interface FSQFirstViewController ()
+@interface FSQFirstViewController () <UIDocumentInteractionControllerDelegate>
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @property (nonatomic, assign) BOOL imageRotated;
+@property (nonatomic, retain) UIDocumentInteractionController *documentInteractionController;
 @end
 
 @implementation FSQFirstViewController
@@ -258,26 +259,26 @@
         imageToShare = self.sharedModel.image;
     }
     
-    SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    //Create path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"squarenessPhoto.png"];
     
-    [mySLComposerSheet setInitialText:@"#squareness\nAvailable on the App Store\n"];
-    [mySLComposerSheet addURL:[NSURL URLWithString:@"https://itunes.apple.com/mk/app/squareness/id914835206?mt=8"]];
-    [mySLComposerSheet addImage:imageToShare];
-    [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
-        switch (result) {
-            case SLComposeViewControllerResultCancelled:
-                NSLog(@"Post Canceled");
-                break;
-            case SLComposeViewControllerResultDone:
-                NSLog(@"Post Sucessful");
-                break;
-                
-            default:
-                break;
-        }
-    }];
+    //Save image
+    [UIImagePNGRepresentation(imageToShare) writeToFile:filePath atomically:YES];
+    CGRect rect = CGRectMake(0, 0, 0, 0);
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIGraphicsEndImageContext();
     
-    [self presentViewController:mySLComposerSheet animated:YES completion:nil];
+    NSURL *igImageHookFile = [[NSURL alloc] initWithString:[[NSString alloc]
+                                                            initWithFormat:@"file://%@", filePath]];
+    self.documentInteractionController.UTI = @"com.instagram.photo";
+    self.documentInteractionController = [self setupControllerWithURL:igImageHookFile
+                              usingDelegate:self];
+    self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:igImageHookFile];
+    [self.documentInteractionController presentOpenInMenuFromRect:rect
+                                 inView:self.view
+                               animated:YES];
 }
 
 - (IBAction)displayInfo:(UIButton *)sender {
@@ -378,6 +379,13 @@
                                            options:@{}
                                  completionHandler:nil];
     }
+}
+
+- (UIDocumentInteractionController *)setupControllerWithURL:(NSURL*)fileURL
+                                              usingDelegate:(id<UIDocumentInteractionControllerDelegate>) interactionDelegate {
+    UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+    interactionController.delegate = interactionDelegate;
+    return interactionController;
 }
 
 @end
