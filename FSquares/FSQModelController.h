@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #define WHITE_BORDER_WIDTH 1.3
-#define BLACK_BORDER_WIDTH 2.6
+#define BLACK_BORDER_WIDTH 5.2
+#define LARGEST_SQUARE_SIZE 640.0
 
 @interface FSQModelController : NSObject
 @property (nonatomic, strong) NSArray *filterNamesUI;

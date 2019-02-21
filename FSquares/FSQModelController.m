@@ -51,13 +51,13 @@
         [self.filterNamesChosen removeObject:@"AddBorderFilter"];
         [self.filterNamesChosen removeObject:@"GPUImageSwirlFilter"];
         
-        self.gridSquareSize = 160;
+        self.gridSquareSize = LARGEST_SQUARE_SIZE / 2;
         
         [self initFilters];
         
         UIImage *image = [UIImage imageNamed:@"artwork-source.png"];
         
-        CGSize newSize = CGSizeMake(640.0, 640.0);
+        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 2, LARGEST_SQUARE_SIZE * 2);
         
         image = [image resizedImageToSize:newSize];
         

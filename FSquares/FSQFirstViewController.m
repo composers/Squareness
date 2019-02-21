@@ -124,18 +124,19 @@
             self.imageRotated = NO;
         }
                 
-        //Find the closes height (upper limit) that is a multiple of 320 (full largest squares)
-        int temp1 = (int) 960 * image.size.height/image.size.width;
+        //Find the closes height (upper limit) that is a multiple of largest square size
+        int temp1 = (int)LARGEST_SQUARE_SIZE * 3 * image.size.height/image.size.width;
         int temp2;
-        if (temp1 % 320 == 0)
+        if (temp1 % (int)LARGEST_SQUARE_SIZE == 0)
         {
-            temp2 = (temp1 / 320);
+            temp2 = (temp1 / LARGEST_SQUARE_SIZE);
         }
         else
         {
-            temp2 = (temp1 / 320) + 1;
+            temp2 = (temp1 / LARGEST_SQUARE_SIZE) + 1;
         }
-        CGSize newSize = CGSizeMake(960.0, temp2 * 320);
+        
+        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 3, temp2 * LARGEST_SQUARE_SIZE);
         
         image = [image scaleImageToSize:newSize];
         

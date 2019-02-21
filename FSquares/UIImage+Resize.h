@@ -32,7 +32,8 @@
 
 
 @interface UIImage(ResizeCategory)
-- (UIImage*)resizedImageToSize:(CGSize)dstSize;
-- (UIImage*)resizedImageToFitInSize:(CGSize)boundingSize scaleIfSmaller:(BOOL)scale;
-- (UIImage*)scaleImageToSize:(CGSize)size;
+- (UIImage *)resizedImageToSize:(CGSize)dstSize;
+- (UIImage *)resizedImageToFitInSize:(CGSize)boundingSize scaleIfSmaller:(BOOL)scale;
+- (UIImage *)scaleImageToSize:(CGSize)size;
+- (UIImage *)cropImageToSize:(CGSize)size;
 @end

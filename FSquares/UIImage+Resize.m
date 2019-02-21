@@ -160,7 +160,7 @@
     [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
     
     // Create a new image from current context
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     
     // Pop the current context from the stack
     UIGraphicsEndImageContext();
@@ -169,5 +169,13 @@
     return scaledImage;
 }
 
+- (UIImage *)cropImageToSize:(CGSize)size
+{
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], rect);
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return cropped;
+}
 
 @end

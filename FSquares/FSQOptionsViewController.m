@@ -102,16 +102,16 @@
         switch (sender.selectedSegmentIndex)
         {
             case 0:
-                self.sharedModel.gridSquareSize = 40;
+                self.sharedModel.gridSquareSize = LARGEST_SQUARE_SIZE / 8;
                 break;
             case 1:
-                self.sharedModel.gridSquareSize = 80;
+                self.sharedModel.gridSquareSize = LARGEST_SQUARE_SIZE / 4;
                 break;
             case 2:
-                self.sharedModel.gridSquareSize = 160;
+                self.sharedModel.gridSquareSize = LARGEST_SQUARE_SIZE / 2;
                 break;
             case 3:
-                self.sharedModel.gridSquareSize = 320;
+                self.sharedModel.gridSquareSize = LARGEST_SQUARE_SIZE;
             default:
                 break;
         }
