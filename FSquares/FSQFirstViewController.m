@@ -22,7 +22,6 @@
 
 @interface FSQFirstViewController () <UIDocumentInteractionControllerDelegate>
 @property (nonatomic, strong) UIDynamicAnimator *animator;
-@property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @property (nonatomic, assign) BOOL imageRotated;
 @property (nonatomic, retain) UIDocumentInteractionController *documentInteractionController;
 @end
@@ -366,7 +365,7 @@
     introView = nil;
 }
 
--(void)presentPhotoPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
+- (void)presentPhotoPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
     UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
     photoPicker.delegate = self;
     photoPicker.sourceType = sourceType;

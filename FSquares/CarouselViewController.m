@@ -33,6 +33,8 @@
     self.view.backgroundColor = [UIColor blackColor];
     
     self.navigationItem.titleView = [self buttonForTitleView];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
     
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
@@ -47,9 +49,8 @@
     
     self.scrollView.backgroundColor = [UIColor blackColor];
     
-    
     [self.sidePanelController showLeftPanelAnimated:YES];
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -38,9 +38,9 @@
         TNRectangularCheckBoxData *checkboxData = [[TNRectangularCheckBoxData alloc] init];
         checkboxData.identifier = [self.sharedModel.filterNamesCI objectAtIndex:i];
         checkboxData.labelText = [self.sharedModel.filterNamesUI objectAtIndex:i];
-        checkboxData.labelColor = [UIColor darkGrayColor];
-        checkboxData.borderColor = [UIColor darkGrayColor];
-        checkboxData.rectangleColor = [UIColor darkGrayColor];
+        checkboxData.labelColor = [UIColor blackColor];
+        checkboxData.borderColor = [UIColor blackColor];
+        checkboxData.rectangleColor = [UIColor blackColor];
         checkboxData.borderWidth = checkboxData.borderHeight = 20;
         checkboxData.rectangleWidth = checkboxData.rectangleHeight = 15;
         
@@ -62,9 +62,10 @@
     [self.chooseFiltersCheckboxContainer addSubview:chooseFiltersCheckbox];
     UIScrollView *scrollView = (UIScrollView *)self.chooseFiltersCheckboxContainer;
     scrollView.contentSize = CGSizeMake(0, chooseFiltersCheckbox.frame.size.height + 20);
-    [scrollView.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+    [scrollView.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [scrollView.layer setBorderWidth: 2.0];
-
+    scrollView.layer.cornerRadius = 6.0;
+    scrollView.showsVerticalScrollIndicator = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseFiltersUpdate:) name:GROUP_CHANGED object:chooseFiltersCheckbox];
 }

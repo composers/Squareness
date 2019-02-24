@@ -249,13 +249,6 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		2607C8C21C9D5B55008B05A9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
 		2607C8C31C9D5B6F008B05A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,7 +461,6 @@
 				2607C8C51C9D5BCC008B05A9 /* External */,
 				2607C8C41C9D5BB2008B05A9 /* Categories */,
 				2607C8C31C9D5B6F008B05A9 /* Model */,
-				2607C8C21C9D5B55008B05A9 /* Views */,
 				2607C8C11C9D5B4C008B05A9 /* ViewControllers */,
 				26BB4EB5197098630077FF6F /* FSQAppDelegate.h */,
 				26BB4EB6197098630077FF6F /* FSQAppDelegate.m */,
