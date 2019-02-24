@@ -34,11 +34,17 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>to take a photo for editing</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>to save the edited photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>to select a photo for editing</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -55,11 +61,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>to take a photo for editing</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>to select a photo for editing</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>to save the edited photo</string>
 </dict>
 </plist>
