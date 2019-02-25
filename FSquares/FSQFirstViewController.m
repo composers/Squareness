@@ -165,6 +165,8 @@
         [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
         [carouselController.carousel reloadData];
+        
+        [self.sidePanelController showCenterPanelAnimated:NO];
     }
     else
     {
@@ -241,6 +243,7 @@
             [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
             
             [carouselController.carousel reloadData];
+            [self.sidePanelController showCenterPanelAnimated:YES];
         });
     });
 }

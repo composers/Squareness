@@ -64,7 +64,9 @@
         _originalImage = image;
         
         CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
-        _image = [UIImage imageWithCGImage:newCgIm scale:image.scale orientation:image.imageOrientation];
+        _image = [UIImage imageWithCGImage:newCgIm
+                                     scale:image.scale
+                               orientation:image.imageOrientation];
         CGImageRelease(newCgIm);
     }
     return self;

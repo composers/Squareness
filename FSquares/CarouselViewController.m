@@ -18,8 +18,6 @@
 
 @interface CarouselViewController ()
 
-@property(assign, nonatomic) int tapCount;
-@property(assign, nonatomic) BOOL shouldNotDisplayDoubleTapAlert;
 @property(assign, nonatomic) NSUInteger selectedIndex;
 
 @end
@@ -51,10 +49,6 @@
     
     [self.sidePanelController showLeftPanelAnimated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.shouldNotDisplayDoubleTapAlert = [defaults boolForKey:@"shouldNotDisplayDoubleTapAlert"];
     
     CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
     self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
@@ -144,26 +138,6 @@
     return button;
 }
 
-- (IBAction)displayInfoForDoubleTap{
-    
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"T i p" andMessage:@"If you need to undo the applied effects for a particular square, just double tap on the square"];
-    
-    [alertView addButtonWithTitle:@"O K"
-                             type:SIAlertViewButtonTypeDefault
-                          handler:^(SIAlertView *alert) {
-                              [alert dismissAnimated:YES];
-                          }];
-    
-    alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
-    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-    alertView.titleColor = [UIColor darkGrayColor];
-    alertView.messageColor = [UIColor darkGrayColor];
-    alertView.alpha = 0.85;
-    
-    [alertView show];
-    
-}
-
 - (void)divideOriginalImage
 {
     self.sharedModel.originalSubImages = [self.scrollView addImage:self.sharedModel.originalImage
@@ -215,8 +189,6 @@
 
 - (void)tap:(UITapGestureRecognizer*)gesture
 {
-    self.tapCount++;
-
     [self.sharedModel.selectedSubImageView.layer setBorderWidth:0.0];
 
     
@@ -224,19 +196,6 @@
     
     [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
-    
-    if (self.tapCount == 4)
-    {
-        if (!self.shouldNotDisplayDoubleTapAlert)
-        {
-            [self displayInfoForDoubleTap];
-            
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:YES forKey:@"shouldNotDisplayDoubleTapAlert"];
-            [defaults synchronize];
-        }
-    }
     
     [self.carousel performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     
