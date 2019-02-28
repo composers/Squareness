@@ -92,7 +92,6 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="squareness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMi-DP-Q7N">
                     <rect key="frame" x="77" y="219" width="163" height="42"/>
                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="35"/>
-                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

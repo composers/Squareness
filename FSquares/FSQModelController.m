@@ -55,7 +55,7 @@
         
         [self initFilters];
         
-        UIImage *image = [UIImage imageNamed:@"artwork-source.png"];
+        UIImage *image = [UIImage imageNamed:@"default_image.JPG"];
         
         CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 2, LARGEST_SQUARE_SIZE * 2);
         
