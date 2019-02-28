@@ -128,13 +128,11 @@
 - (UIButton *)buttonForTitleView
 {
     UIButton *button = [[UIButton alloc] init];
-    [button addTarget:self action:@selector(applyRandomFilters:) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[UIImage imageNamed:@"randomness_gray.png"] forState:UIControlStateNormal];
-    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    NSLayoutConstraint *widthConstraint = [button.widthAnchor constraintEqualToConstant:30];
-    widthConstraint.active = true;
-    NSLayoutConstraint *heightConstraint = [button.heightAnchor constraintEqualToConstant:30];
-    heightConstraint.active = true;
+    [button addTarget:self
+               action:@selector(applyRandomFilters:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"randomize" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     return button;
 }
 
