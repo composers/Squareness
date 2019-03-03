@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="squareness" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="132" y="312.5" width="163" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="35"/>
+                                <rect key="frame" x="127.5" y="312" width="167.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lz-hj-BEm">

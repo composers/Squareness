@@ -72,6 +72,7 @@
 		26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */; };
 		26FC1F15222733B300D3675A /* default_image.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 26FC1F14222733B300D3675A /* default_image.JPG */; };
 		26FC1F1D2228854800D3675A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FC1F1C2228854800D3675A /* Launch Screen.storyboard */; };
+		26FC1F27222BF0A100D3675A /* EAIntroPage+customPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FC1F26222BF0A100D3675A /* EAIntroPage+customPage.m */; };
 		4EC701B052D02EEE72FD5780 /* libPods-Squareness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */; };
 		C6AEEDD0848A7E10C5531465 /* libPods-SquarenessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F83F22E7F16AC31D1588EA5 /* libPods-SquarenessTests.a */; };
 /* End PBXBuildFile section */
@@ -178,6 +179,8 @@
 		26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_settings_icon.ico; sourceTree = "<group>"; };
 		26FC1F14222733B300D3675A /* default_image.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_image.JPG; sourceTree = "<group>"; };
 		26FC1F1C2228854800D3675A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		26FC1F25222BF0A100D3675A /* EAIntroPage+customPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EAIntroPage+customPage.h"; sourceTree = "<group>"; };
+		26FC1F26222BF0A100D3675A /* EAIntroPage+customPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EAIntroPage+customPage.m"; sourceTree = "<group>"; };
 		5097298FB0C6DD0FF37DA6FF /* libPods-Squareness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Squareness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4AC2D71250DA9B83CEC0BD /* Pods-Squareness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squareness.debug.xcconfig"; path = "Target Support Files/Pods-Squareness/Pods-Squareness.debug.xcconfig"; sourceTree = "<group>"; };
 		94B7D66A6D014EE440F0DFA6 /* Pods-SquarenessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquarenessTests.release.xcconfig"; path = "Target Support Files/Pods-SquarenessTests/Pods-SquarenessTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 			children = (
 				2607C9981C9DEAF3008B05A9 /* UIView+Divide.h */,
 				2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */,
+				26FC1F25222BF0A100D3675A /* EAIntroPage+customPage.h */,
+				26FC1F26222BF0A100D3675A /* EAIntroPage+customPage.m */,
 			);
 			name = UIView;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
 				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
+				26FC1F27222BF0A100D3675A /* EAIntroPage+customPage.m in Sources */,
 				267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,
 				26BB4F94197DBC520077FF6F /* FAKIonIcons.m in Sources */,
