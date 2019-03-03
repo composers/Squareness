@@ -17,19 +17,7 @@
 		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
 		267E73651CA69AF4002B7DE4 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73621CA69AF4002B7DE4 /* JASidePanelController.m */; };
 		267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */; };
-		267E73681CA6FA82002B7DE4 /* photos_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73671CA6FA82002B7DE4 /* photos_white.png */; };
-		267E736C1CA704E3002B7DE4 /* info_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E736B1CA704E3002B7DE4 /* info_white.png */; };
-		267E73701CA709AD002B7DE4 /* camera_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E736F1CA709AD002B7DE4 /* camera_white.png */; };
-		267E73761CA7123F002B7DE4 /* save_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73751CA7123F002B7DE4 /* save_white.png */; };
 		267E737A1CA71714002B7DE4 /* grid_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73771CA71713002B7DE4 /* grid_white.png */; };
-		267E737C1CA71714002B7DE4 /* stripes_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73791CA71714002B7DE4 /* stripes_white.png */; };
-		267E737E1CA71CED002B7DE4 /* randomness_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E737D1CA71CED002B7DE4 /* randomness_gray.png */; };
-		267E73801CA71CFD002B7DE4 /* reset_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E737F1CA71CFD002B7DE4 /* reset_white.png */; };
-		267E73821CA71D88002B7DE4 /* randomness_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73811CA71D88002B7DE4 /* randomness_white.png */; };
-		267E73851CA722A5002B7DE4 /* camera_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73831CA722A5002B7DE4 /* camera_gray.png */; };
-		267E73861CA722A5002B7DE4 /* reset_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73841CA722A5002B7DE4 /* reset_gray.png */; };
-		267E73881CA722E4002B7DE4 /* grid_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73871CA722E4002B7DE4 /* grid_gray.png */; };
-		267E738A1CA7235B002B7DE4 /* stripes_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73891CA7235B002B7DE4 /* stripes_gray.png */; };
 		268666741AB8DB1600071C38 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 268666731AB8DB1600071C38 /* Social.framework */; };
 		26BB4EA7197098630077FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA6197098630077FF6F /* Foundation.framework */; };
 		26BB4EA9197098630077FF6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EA8197098630077FF6F /* CoreGraphics.framework */; };
@@ -107,19 +95,7 @@
 		267E73621CA69AF4002B7DE4 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		267E73631CA69AF4002B7DE4 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
-		267E73671CA6FA82002B7DE4 /* photos_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photos_white.png; sourceTree = "<group>"; };
-		267E736B1CA704E3002B7DE4 /* info_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_white.png; sourceTree = "<group>"; };
-		267E736F1CA709AD002B7DE4 /* camera_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_white.png; sourceTree = "<group>"; };
-		267E73751CA7123F002B7DE4 /* save_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_white.png; sourceTree = "<group>"; };
 		267E73771CA71713002B7DE4 /* grid_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_white.png; sourceTree = "<group>"; };
-		267E73791CA71714002B7DE4 /* stripes_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes_white.png; sourceTree = "<group>"; };
-		267E737D1CA71CED002B7DE4 /* randomness_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = randomness_gray.png; sourceTree = "<group>"; };
-		267E737F1CA71CFD002B7DE4 /* reset_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset_white.png; sourceTree = "<group>"; };
-		267E73811CA71D88002B7DE4 /* randomness_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = randomness_white.png; sourceTree = "<group>"; };
-		267E73831CA722A5002B7DE4 /* camera_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_gray.png; sourceTree = "<group>"; };
-		267E73841CA722A5002B7DE4 /* reset_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset_gray.png; sourceTree = "<group>"; };
-		267E73871CA722E4002B7DE4 /* grid_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_gray.png; sourceTree = "<group>"; };
-		267E73891CA7235B002B7DE4 /* stripes_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes_gray.png; sourceTree = "<group>"; };
 		268666731AB8DB1600071C38 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		268666751AB8DB2500071C38 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		26BB4EA3197098630077FF6F /* Squareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,19 +331,7 @@
 		2607C8E11C9D9B3E008B05A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				267E73871CA722E4002B7DE4 /* grid_gray.png */,
-				267E73831CA722A5002B7DE4 /* camera_gray.png */,
-				267E73841CA722A5002B7DE4 /* reset_gray.png */,
-				267E73811CA71D88002B7DE4 /* randomness_white.png */,
-				267E737F1CA71CFD002B7DE4 /* reset_white.png */,
-				267E737D1CA71CED002B7DE4 /* randomness_gray.png */,
 				267E73771CA71713002B7DE4 /* grid_white.png */,
-				267E73791CA71714002B7DE4 /* stripes_white.png */,
-				267E73751CA7123F002B7DE4 /* save_white.png */,
-				267E736F1CA709AD002B7DE4 /* camera_white.png */,
-				267E736B1CA704E3002B7DE4 /* info_white.png */,
-				267E73671CA6FA82002B7DE4 /* photos_white.png */,
-				267E73891CA7235B002B7DE4 /* stripes_gray.png */,
 				2635DEEB19E03EB000AB4D19 /* list_icon.ico */,
 				2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */,
 				26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */,
@@ -594,27 +558,15 @@
 			files = (
 				267E737A1CA71714002B7DE4 /* grid_white.png in Resources */,
 				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
-				267E737E1CA71CED002B7DE4 /* randomness_gray.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
-				267E737C1CA71714002B7DE4 /* stripes_white.png in Resources */,
-				267E738A1CA7235B002B7DE4 /* stripes_gray.png in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
 				26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */,
-				267E73881CA722E4002B7DE4 /* grid_gray.png in Resources */,
-				267E73681CA6FA82002B7DE4 /* photos_white.png in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
-				267E73701CA709AD002B7DE4 /* camera_white.png in Resources */,
-				267E73821CA71D88002B7DE4 /* randomness_white.png in Resources */,
-				267E73861CA722A5002B7DE4 /* reset_gray.png in Resources */,
 				2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
-				267E73801CA71CFD002B7DE4 /* reset_white.png in Resources */,
-				267E73761CA7123F002B7DE4 /* save_white.png in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
-				267E73851CA722A5002B7DE4 /* camera_gray.png in Resources */,
-				267E736C1CA704E3002B7DE4 /* info_white.png in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */,
 				26FC1F1D2228854800D3675A /* Launch Screen.storyboard in Resources */,
