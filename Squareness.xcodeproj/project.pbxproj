@@ -13,8 +13,13 @@
 		2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
-		2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEEB19E03EB000AB4D19 /* list_icon.ico */; };
-		2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */; };
+		263290F0222F388E006BD83F /* photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290EF222F388E006BD83F /* photos.png */; };
+		263290F2222F38E3006BD83F /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F1222F38E3006BD83F /* camera.png */; };
+		263290F4222F3991006BD83F /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F3222F3991006BD83F /* share.png */; };
+		263290F6222F3A18006BD83F /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F5222F3A18006BD83F /* save.png */; };
+		263290F8222F3A93006BD83F /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F7222F3A93006BD83F /* reset.png */; };
+		263290FA222F3B14006BD83F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F9222F3B14006BD83F /* settings.png */; };
+		263290FC222F3BCE006BD83F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290FB222F3BCD006BD83F /* info.png */; };
 		267E73651CA69AF4002B7DE4 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73621CA69AF4002B7DE4 /* JASidePanelController.m */; };
 		267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */; };
 		267E737A1CA71714002B7DE4 /* grid_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73771CA71713002B7DE4 /* grid_white.png */; };
@@ -31,8 +36,6 @@
 		26BB4EC2197098630077FF6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4EAA197098630077FF6F /* UIKit.framework */; };
 		26BB4ECA197098630077FF6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EC8197098630077FF6F /* InfoPlist.strings */; };
 		26BB4ECC197098630077FF6F /* FSquaresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4ECB197098630077FF6F /* FSquaresTests.m */; };
-		26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */; };
-		26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */; };
 		26BB4EE61970A2960077FF6F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EE51970A2960077FF6F /* UIImage+Resize.m */; };
 		26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB4EF01971BDF60077FF6F /* FSQOptionsViewController.m */; };
 		26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4EF11971BDF60077FF6F /* FSQOptionsViewController.xib */; };
@@ -57,7 +60,6 @@
 		26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F8F197DBC520077FF6F /* ionicons.ttf */; };
 		26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */; };
 		26BB4F9B197DBC670077FF6F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB4F9A197DBC670077FF6F /* CoreText.framework */; };
-		26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */; };
 		26FC1F15222733B300D3675A /* default_image.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 26FC1F14222733B300D3675A /* default_image.JPG */; };
 		26FC1F1D2228854800D3675A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FC1F1C2228854800D3675A /* Launch Screen.storyboard */; };
 		26FC1F27222BF0A100D3675A /* EAIntroPage+customPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FC1F26222BF0A100D3675A /* EAIntroPage+customPage.m */; };
@@ -89,8 +91,13 @@
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
-		2635DEEB19E03EB000AB4D19 /* list_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = list_icon.ico; sourceTree = "<group>"; };
-		2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = big_settings_icon.ico; sourceTree = "<group>"; };
+		263290EF222F388E006BD83F /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photos.png; sourceTree = "<group>"; };
+		263290F1222F38E3006BD83F /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		263290F3222F3991006BD83F /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		263290F5222F3A18006BD83F /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		263290F7222F3A93006BD83F /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
+		263290F9222F3B14006BD83F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		263290FB222F3BCD006BD83F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		267E73611CA69AF4002B7DE4 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		267E73621CA69AF4002B7DE4 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		267E73631CA69AF4002B7DE4 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
@@ -114,9 +121,6 @@
 		26BB4EC7197098630077FF6F /* SquarenessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SquarenessTests-Info.plist"; sourceTree = "<group>"; };
 		26BB4EC9197098630077FF6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		26BB4ECB197098630077FF6F /* FSquaresTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSquaresTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FSQFirstViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FSQFirstViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSQFirstViewController.xib; sourceTree = "<group>"; };
 		26BB4EE41970A2960077FF6F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		26BB4EE51970A2960077FF6F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		26BB4EEF1971BDF60077FF6F /* FSQOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FSQOptionsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -152,7 +156,6 @@
 		26BB4F8F197DBC520077FF6F /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		26BB4F90197DBC520077FF6F /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
 		26BB4F9A197DBC670077FF6F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = little_settings_icon.ico; sourceTree = "<group>"; };
 		26FC1F14222733B300D3675A /* default_image.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_image.JPG; sourceTree = "<group>"; };
 		26FC1F1C2228854800D3675A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		26FC1F25222BF0A100D3675A /* EAIntroPage+customPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EAIntroPage+customPage.h"; sourceTree = "<group>"; };
@@ -201,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				2607C8D01C9D69DF008B05A9 /* BaseViewController */,
-				2607C8CD1C9D5CD7008B05A9 /* FirstViewController */,
 				2607C8CF1C9D5CF7008B05A9 /* CarouselViewController */,
 				2607C8CE1C9D5CE6008B05A9 /* OptionsViewController */,
 			);
@@ -280,16 +282,6 @@
 			name = NSString;
 			sourceTree = "<group>";
 		};
-		2607C8CD1C9D5CD7008B05A9 /* FirstViewController */ = {
-			isa = PBXGroup;
-			children = (
-				26BB4EDA197099E50077FF6F /* FSQFirstViewController.h */,
-				26BB4EDB197099E50077FF6F /* FSQFirstViewController.m */,
-				26BB4EDC197099E50077FF6F /* FSQFirstViewController.xib */,
-			);
-			name = FirstViewController;
-			sourceTree = "<group>";
-		};
 		2607C8CE1C9D5CE6008B05A9 /* OptionsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,10 +323,14 @@
 		2607C8E11C9D9B3E008B05A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				263290EF222F388E006BD83F /* photos.png */,
+				263290F1222F38E3006BD83F /* camera.png */,
+				263290F3222F3991006BD83F /* share.png */,
+				263290F7222F3A93006BD83F /* reset.png */,
+				263290F5222F3A18006BD83F /* save.png */,
+				263290F9222F3B14006BD83F /* settings.png */,
+				263290FB222F3BCD006BD83F /* info.png */,
 				267E73771CA71713002B7DE4 /* grid_white.png */,
-				2635DEEB19E03EB000AB4D19 /* list_icon.ico */,
-				2635DEF319E04C4200AB4D19 /* big_settings_icon.ico */,
-				26BFA6D019E1C0B500B9EFDC /* little_settings_icon.ico */,
 				26FC1F14222733B300D3675A /* default_image.JPG */,
 			);
 			name = Resources;
@@ -557,19 +553,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				267E737A1CA71714002B7DE4 /* grid_white.png in Resources */,
-				26BB4EDE197099E50077FF6F /* FSQFirstViewController.xib in Resources */,
+				263290F6222F3A18006BD83F /* save.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
-				26BFA6D119E1C0B500B9EFDC /* little_settings_icon.ico in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
-				2635DEEC19E03EB000AB4D19 /* list_icon.ico in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
+				263290F8222F3A93006BD83F /* reset.png in Resources */,
+				263290FC222F3BCE006BD83F /* info.png in Resources */,
+				263290F2222F38E3006BD83F /* camera.png in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
+				263290F4222F3991006BD83F /* share.png in Resources */,
+				263290F0222F388E006BD83F /* photos.png in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
-				2635DEF419E04C4200AB4D19 /* big_settings_icon.ico in Resources */,
 				26FC1F1D2228854800D3675A /* Launch Screen.storyboard in Resources */,
+				263290FA222F3B14006BD83F /* settings.png in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
 				26FC1F15222733B300D3675A /* default_image.JPG in Resources */,
@@ -673,7 +672,6 @@
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
 				26BB4F64197AB86E0077FF6F /* CarouselViewController.m in Sources */,
-				26BB4EDD197099E50077FF6F /* FSQFirstViewController.m in Sources */,
 				267E73651CA69AF4002B7DE4 /* JASidePanelController.m in Sources */,
 				26BB4EB7197098630077FF6F /* FSQAppDelegate.m in Sources */,
 				2607C8D61C9D7CB9008B05A9 /* UIImage+Border.m in Sources */,

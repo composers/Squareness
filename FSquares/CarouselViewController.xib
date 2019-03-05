@@ -11,8 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselViewController">
             <connections>
+                <outlet property="cameraItem" destination="Nma-Xi-naW" id="cHf-H9-Psp"/>
                 <outlet property="carousel" destination="yq7-iH-e7A" id="TCI-zg-B01"/>
+                <outlet property="photosItem" destination="sIP-aG-N2T" id="14J-vL-16p"/>
+                <outlet property="resetItem" destination="Rtb-Cw-1KP" id="HLq-V9-fpH"/>
+                <outlet property="saveItem" destination="VIF-aJ-Zls" id="CgS-ND-AyN"/>
                 <outlet property="scrollView" destination="zO1-ai-9zB" id="x0S-Rl-csn"/>
+                <outlet property="shareItem" destination="jdM-LA-fpD" id="1ug-xc-0bk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,27 +26,54 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-ai-9zB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yq7-iH-e7A" customClass="iCarousel">
-                    <rect key="frame" x="0.0" y="602" width="375" height="65"/>
+                    <rect key="frame" x="0.0" y="558" width="375" height="65"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="QSg-il-Uy3"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-ai-9zB">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
-                </scrollView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5N-lj-RMb">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem title="photos" image="photos.png" id="sIP-aG-N2T"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="w7J-yE-4gl"/>
+                        <barButtonItem title="camera" image="camera.png" id="Nma-Xi-naW"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="wOJ-Hl-9ej"/>
+                        <barButtonItem title="Item" image="share.png" id="jdM-LA-fpD"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="tYo-UT-NQI"/>
+                        <barButtonItem title="save" image="save.png" id="VIF-aJ-Zls"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="H9c-AW-5mv"/>
+                        <barButtonItem title="reset" image="reset.png" id="Rtb-Cw-1KP"/>
+                    </items>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="yq7-iH-e7A" secondAttribute="trailing" id="241-vB-cPD"/>
+                <constraint firstAttribute="bottom" secondItem="B5N-lj-RMb" secondAttribute="bottom" id="7JP-Vg-XRE"/>
+                <constraint firstItem="B5N-lj-RMb" firstAttribute="top" secondItem="yq7-iH-e7A" secondAttribute="bottom" id="CMQ-li-qij"/>
                 <constraint firstItem="zO1-ai-9zB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ew9-Vh-aI3"/>
-                <constraint firstItem="yq7-iH-e7A" firstAttribute="top" secondItem="zO1-ai-9zB" secondAttribute="bottom" id="Fr9-li-tG2"/>
-                <constraint firstAttribute="bottom" secondItem="yq7-iH-e7A" secondAttribute="bottom" id="I7b-8J-KDP"/>
+                <constraint firstItem="yq7-iH-e7A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fo4-Qa-y7v"/>
                 <constraint firstItem="zO1-ai-9zB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZiR-bv-TJ1"/>
+                <constraint firstItem="yq7-iH-e7A" firstAttribute="top" secondItem="zO1-ai-9zB" secondAttribute="bottom" id="hJu-1P-vqd"/>
+                <constraint firstItem="B5N-lj-RMb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kCF-u8-bcv"/>
                 <constraint firstAttribute="trailing" secondItem="zO1-ai-9zB" secondAttribute="trailing" id="ldz-xi-WDu"/>
-                <constraint firstAttribute="trailing" secondItem="yq7-iH-e7A" secondAttribute="trailing" id="qzq-MK-wo3"/>
-                <constraint firstItem="yq7-iH-e7A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rea-vy-aXn"/>
+                <constraint firstAttribute="trailing" secondItem="B5N-lj-RMb" secondAttribute="trailing" id="tet-xI-bFU"/>
             </constraints>
+            <point key="canvasLocation" x="79.200000000000003" y="58.920539730134934"/>
         </view>
     </objects>
+    <resources>
+        <image name="camera.png" width="25" height="25"/>
+        <image name="photos.png" width="25" height="25"/>
+        <image name="reset.png" width="25" height="25"/>
+        <image name="save.png" width="25" height="25"/>
+        <image name="share.png" width="25" height="25"/>
+    </resources>
 </document>

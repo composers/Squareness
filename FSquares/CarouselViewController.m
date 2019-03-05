@@ -15,11 +15,24 @@
 #import "SIAlertView.h"
 #import "UIImage+Border.h"
 #import "UIView+Divide.h"
+#import "UIImage+Rotate.h"
+#import <Social/Social.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
+#import "EAIntroPage+customPage.h"
+#import "EAIntroView.h"
 
-@interface CarouselViewController ()
+@interface CarouselViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate>
 
 @property(assign, nonatomic) NSUInteger selectedIndex;
-
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *photosItem;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *cameraItem;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *shareItem;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *saveItem;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *resetItem;
+@property (nonatomic, assign) BOOL imageRotated;
+@property (nonatomic, retain) UIDocumentInteractionController *documentInteractionController;
+@property (nonatomic, strong) EAIntroView *introView;
 @end
 
 @implementation CarouselViewController
@@ -27,12 +40,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _imageRotated = NO;
     self.view.backgroundColor = [UIColor blackColor];
     
     self.navigationItem.titleView = [self buttonForTitleView];
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info.png"]
+                                                                              style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    [self.photosItem setTarget:self];
+    [self.photosItem setAction:@selector(selectPhotoFromAlbum)];
+    [self.cameraItem setTarget:self];
+    [self.cameraItem setAction:@selector(takePhoto)];
+    [self.shareItem setTarget:self];
+    [self.shareItem setAction:@selector(shareImage)];
+    [self.saveItem setTarget:self];
+    [self.saveItem setAction:@selector(saveImage)];
+    [self.resetItem setTarget:self];
+    [self.resetItem setAction:@selector(resetImage)];
     
     //configure carousel
     _carousel.type = iCarouselTypeLinear;
@@ -47,7 +74,6 @@
     
     self.scrollView.backgroundColor = [UIColor blackColor];
     
-    [self.sidePanelController showLeftPanelAnimated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
@@ -131,8 +157,8 @@
     [button addTarget:self
                action:@selector(applyRandomFilters:)
      forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"randomize" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitle:@"I'm lazy" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     return button;
 }
 
@@ -355,5 +381,306 @@
     }
     return value;
 }
+
+- (void)selectPhotoFromAlbum
+{
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusAuthorized) {
+        [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    } else if (status == PHAuthorizationStatusDenied) {
+        [self openAppSettings];
+    } else if (status == PHAuthorizationStatusNotDetermined) {
+        // Access has not been determined.
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            } else {
+                [self openAppSettings];
+            }
+        }];
+    }
+    else if (status == PHAuthorizationStatusRestricted) {
+        // Restricted access - normally won't happen.
+    }
+}
+
+- (void)takePhoto
+{
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+        NSString *mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        if(authStatus == AVAuthorizationStatusAuthorized) {
+            [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+        } else if(authStatus == AVAuthorizationStatusDenied){
+            [self openAppSettings];
+        } else if(authStatus == AVAuthorizationStatusRestricted){
+            // restricted, normally won't happen
+        } else if(authStatus == AVAuthorizationStatusNotDetermined){
+            // not determined?!
+            [AVCaptureDevice requestAccessForMediaType:mediaType
+                                     completionHandler:^(BOOL granted) {
+                                         if(granted){
+                                             [self presentPhotoPickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+                                         } else {
+                                             [self openAppSettings];
+                                         }
+                                     }];
+        } else {
+            // impossible, unknown authorization status
+        }
+    }
+    else
+    {
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"I n f o"
+                                                         andMessage:@"Camera not available"];
+        
+        [alertView addButtonWithTitle:@"O K"
+                                 type:SIAlertViewButtonTypeDefault
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                              }];
+        
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+        alertView.titleColor = [UIColor darkGrayColor];
+        alertView.messageColor = [UIColor darkGrayColor];
+        alertView.alpha = 0.85;
+        
+        [alertView show];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)photoPicker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    if (image)
+    {
+        if (image.size.height < image.size.width)
+        {
+            image = [image imageRotatedByDegrees:90];
+            self.imageRotated = YES;
+        }
+        else
+        {
+            self.imageRotated = NO;
+        }
+        
+        //Find the closes height (upper limit) that is a multiple of largest square size
+        int temp1 = (int)LARGEST_SQUARE_SIZE * 3 * image.size.height/image.size.width;
+        int temp2;
+        if (temp1 % (int)LARGEST_SQUARE_SIZE == 0)
+        {
+            temp2 = (temp1 / LARGEST_SQUARE_SIZE);
+        }
+        else
+        {
+            temp2 = (temp1 / LARGEST_SQUARE_SIZE) + 1;
+        }
+        
+        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 3, temp2 * LARGEST_SQUARE_SIZE);
+        
+        image = [image scaleImageToSize:newSize];
+        
+        self.sharedModel.originalImage = image;
+        
+        CGImageRef newCgIm = CGImageCreateCopy(image.CGImage);
+        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                     scale:image.scale
+                                               orientation:image.imageOrientation];
+        CGImageRelease(newCgIm);
+        
+        [photoPicker dismissViewControllerAnimated:YES completion:nil];
+        
+        CGRect screenFrame = [[UIScreen mainScreen] bounds];
+        CGFloat scrollViewHeight = screenFrame.size.width * self.sharedModel.image.size.height / self.sharedModel.image.size.width;
+        self.scrollView.contentSize = CGSizeMake(screenFrame.size.width, scrollViewHeight);
+        
+        [self divideOriginalImage];
+        [self divideProcessedImage];
+        [self addGestureRecognizersToSubviews];
+        
+        self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
+        [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+        
+        [self.carousel reloadData];
+        
+        [self.sidePanelController showCenterPanelAnimated:NO];
+    }
+    else
+    {
+        //user chose cancel
+    }
+}
+
+- (void)saveImage
+{
+    
+    [self startLoading];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.sharedModel generateImageFromSubimages];
+        
+        UIImage *imageToSave;
+        if (self.imageRotated)
+        {
+            imageToSave = [self.sharedModel.image imageRotatedByDegrees:-90];
+        }
+        else
+        {
+            imageToSave = self.sharedModel.image;
+        }
+        UIImageWriteToSavedPhotosAlbum(imageToSave, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    });
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    [self stopLoading];
+    if(error)
+    {
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"error"
+                                                         andMessage:@"Unable to save. Check your app settings"];
+        
+        [alertView addButtonWithTitle:@"Go to settings"
+                                 type:SIAlertViewButtonTypeDefault
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                                  [self openAppSettings];
+                              }];
+        [alertView addButtonWithTitle:@"Cancel"
+                                 type:SIAlertViewButtonTypeCancel
+                              handler:^(SIAlertView *alert) {
+                                  [alert dismissAnimated:YES];
+                              }];
+        
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+        alertView.titleColor = [UIColor darkGrayColor];
+        alertView.messageColor = [UIColor darkGrayColor];
+        alertView.alpha = 0.85;
+        [alertView show];
+    }
+}
+
+- (void)resetImage
+{
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGImageRef newCgIm = CGImageCreateCopy(self.sharedModel.originalImage.CGImage);
+        self.sharedModel.image = [UIImage imageWithCGImage:newCgIm
+                                                     scale:self.sharedModel.originalImage.scale
+                                               orientation:self.sharedModel.originalImage.imageOrientation];
+        CGImageRelease(newCgIm);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self divideProcessedImage];
+            [self addGestureRecognizersToSubviews];
+            
+            self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
+            
+            [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+            [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
+            
+            [self.carousel reloadData];
+            [self.sidePanelController showCenterPanelAnimated:YES];
+        });
+    });
+}
+
+- (void)shareImage
+{
+    [self.sharedModel generateImageFromSubimages];
+    
+    UIImage *imageToShare;
+    if (self.imageRotated)
+    {
+        imageToShare = [self.sharedModel.image imageRotatedByDegrees:-90];
+    }
+    else
+    {
+        imageToShare = self.sharedModel.image;
+    }
+    
+    //Create path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"squarenessPhoto.png"];
+    
+    //Save image
+    [UIImagePNGRepresentation(imageToShare) writeToFile:filePath atomically:YES];
+    CGRect rect = CGRectMake(0, 0, 0, 0);
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIGraphicsEndImageContext();
+    
+    NSURL *igImageHookFile = [[NSURL alloc] initWithString:[[NSString alloc]
+                                                            initWithFormat:@"file://%@", filePath]];
+    self.documentInteractionController.UTI = @"com.instagram.photo";
+    self.documentInteractionController = [self setupControllerWithURL:igImageHookFile
+                                                        usingDelegate:self];
+    self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:igImageHookFile];
+    [self.documentInteractionController presentOpenInMenuFromRect:rect
+                                                           inView:self.view
+                                                         animated:YES];
+}
+
+- (void)presentPhotoPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
+    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+    photoPicker.delegate = self;
+    photoPicker.sourceType = sourceType;
+    [self presentViewController:photoPicker animated:YES completion:NULL];
+}
+
+- (void)openAppSettings {
+    NSURL *appSettingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL:appSettingsURL]) {
+        [[UIApplication sharedApplication] openURL:appSettingsURL
+                                           options:@{}
+                                 completionHandler:nil];
+    }
+}
+
+- (UIDocumentInteractionController *)setupControllerWithURL:(NSURL*)fileURL
+                                              usingDelegate:(id<UIDocumentInteractionControllerDelegate>) interactionDelegate {
+    UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+    interactionController.delegate = interactionDelegate;
+    return interactionController;
+}
+
+- (void)showHelp
+{
+    EAIntroPage *page1 = [EAIntroPage customPage];
+    page1.title = @"photo";
+    page1.desc = @"Pick or take a photo. Then tap anywhere and apply an effect using the list in the bottom. You can always play around with the default image before choosing your own.";
+    
+    EAIntroPage *page2 = [EAIntroPage customPage];
+    page2.title = @"I'm lazy";
+    page2.desc = @"Using the I'm lazy button, you can apply effects to all the squares randomly. Only the effects included in the list are used.";
+    
+    EAIntroPage *page3 = [EAIntroPage customPage];
+    page3.title = @"restore";
+    page3.desc = @"If you need to undo the applied effects for a particular square, just double tap on that square. If you need to start over with the original photo, tap on the restore button.";
+    
+    EAIntroPage *page4 = [EAIntroPage customPage];
+    page4.title = @"stripes";
+    page4.desc = @"You can apply effects to horizontal or vertical stripes. Tap on a square, and then long-press on another square that is on the same vertical or horizontal line.";
+    
+    EAIntroPage *page5 = [EAIntroPage customPage];
+    page5.title = @"configure";
+    page5.desc = @"Using the options menu, you can apply a grid around the squares, change the square size or add/remove effects from the list.";
+    
+    [self.introView removeFromSuperview];
+    self.introView = [[EAIntroView alloc] initWithFrame:self.view.bounds
+                                               andPages:@[page1, page2, page3, page4, page5]];
+    self.introView.pageControl.pageIndicatorTintColor = [UIColor darkTextColor];
+    self.introView.pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
+    [self.introView.skipButton setTitleColor:[UIColor grayColor]
+                               forState:UIControlStateNormal];
+    [self.introView showInView:self.view
+               animateDuration:0.2];
+    
+}
+
 
 @end

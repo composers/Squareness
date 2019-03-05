@@ -7,7 +7,6 @@
 //
 
 #import "FSQAppDelegate.h"
-#import "FSQFirstViewController.h"
 #import "FSQOptionsViewController.h"
 #import "FSQModelController.h"
 #import "CarouselViewController.h"
@@ -23,14 +22,11 @@
     FSQModelController *sharedModel = [FSQModelController sharedInstance];
     
     self.viewController = [[JASidePanelController alloc] init];
-    self.viewController.leftFixedWidth = [UIScreen mainScreen].bounds.size.width - 60.0;
     self.viewController.rightFixedWidth = [UIScreen mainScreen].bounds.size.width - 90.0;
     
-    FSQFirstViewController *firstVC = [[FSQFirstViewController alloc] initWithModel:sharedModel];
     CarouselViewController *carouselVC = [[CarouselViewController alloc] initWithModel:sharedModel];
     FSQOptionsViewController *optionsVC = [[FSQOptionsViewController alloc] initWithModel:sharedModel];
     
-    self.viewController.leftPanel = firstVC;
     self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:carouselVC];
     self.viewController.rightPanel = optionsVC;
     

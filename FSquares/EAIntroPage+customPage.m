@@ -18,7 +18,7 @@
     page.descFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightUltraLight];
     page.titleColor = [UIColor darkTextColor];
     page.descColor = [UIColor darkTextColor];
-    page.bgColor = [UIColor colorWithWhite:1.0 alpha:0.91];
+    page.bgColor = [UIColor colorWithWhite:1.0 alpha:0.93];
     return page;
 }
 @end
