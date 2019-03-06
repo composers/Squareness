@@ -46,7 +46,7 @@
     self.navigationItem.titleView = [self buttonForTitleView];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info.png"]
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"]
                                                                               style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     

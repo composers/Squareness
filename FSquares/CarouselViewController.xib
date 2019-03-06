@@ -27,27 +27,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-ai-9zB">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yq7-iH-e7A" customClass="iCarousel">
-                    <rect key="frame" x="0.0" y="558" width="375" height="65"/>
+                    <rect key="frame" x="0.0" y="557" width="375" height="65"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="QSg-il-Uy3"/>
                     </constraints>
                 </view>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5N-lj-RMb">
-                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                     <items>
-                        <barButtonItem title="photos" image="photos.png" id="sIP-aG-N2T"/>
+                        <barButtonItem title="photos" image="photos" id="sIP-aG-N2T"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="w7J-yE-4gl"/>
-                        <barButtonItem title="camera" image="camera.png" id="Nma-Xi-naW"/>
+                        <barButtonItem title="camera" image="camera" id="Nma-Xi-naW"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="wOJ-Hl-9ej"/>
-                        <barButtonItem title="Item" image="share.png" id="jdM-LA-fpD"/>
+                        <barButtonItem title="Item" image="share" id="jdM-LA-fpD"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="tYo-UT-NQI"/>
-                        <barButtonItem title="save" image="save.png" id="VIF-aJ-Zls"/>
+                        <barButtonItem title="save" image="save" id="VIF-aJ-Zls"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="H9c-AW-5mv"/>
-                        <barButtonItem title="reset" image="reset.png" id="Rtb-Cw-1KP"/>
+                        <barButtonItem title="reset" image="restore" id="Rtb-Cw-1KP"/>
                     </items>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,10 +70,10 @@
         </view>
     </objects>
     <resources>
-        <image name="camera.png" width="25" height="25"/>
-        <image name="photos.png" width="25" height="25"/>
-        <image name="reset.png" width="25" height="25"/>
-        <image name="save.png" width="25" height="25"/>
-        <image name="share.png" width="25" height="25"/>
+        <image name="camera" width="45" height="45"/>
+        <image name="photos" width="45" height="45"/>
+        <image name="restore" width="45" height="45"/>
+        <image name="save" width="45" height="45"/>
+        <image name="share" width="45" height="45"/>
     </resources>
 </document>

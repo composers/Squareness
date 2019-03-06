@@ -13,13 +13,6 @@
 		2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
 		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
-		263290F0222F388E006BD83F /* photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290EF222F388E006BD83F /* photos.png */; };
-		263290F2222F38E3006BD83F /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F1222F38E3006BD83F /* camera.png */; };
-		263290F4222F3991006BD83F /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F3222F3991006BD83F /* share.png */; };
-		263290F6222F3A18006BD83F /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F5222F3A18006BD83F /* save.png */; };
-		263290F8222F3A93006BD83F /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F7222F3A93006BD83F /* reset.png */; };
-		263290FA222F3B14006BD83F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290F9222F3B14006BD83F /* settings.png */; };
-		263290FC222F3BCE006BD83F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 263290FB222F3BCD006BD83F /* info.png */; };
 		267E73651CA69AF4002B7DE4 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73621CA69AF4002B7DE4 /* JASidePanelController.m */; };
 		267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */; };
 		267E737A1CA71714002B7DE4 /* grid_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73771CA71713002B7DE4 /* grid_white.png */; };
@@ -91,13 +84,6 @@
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
-		263290EF222F388E006BD83F /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photos.png; sourceTree = "<group>"; };
-		263290F1222F38E3006BD83F /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		263290F3222F3991006BD83F /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
-		263290F5222F3A18006BD83F /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
-		263290F7222F3A93006BD83F /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
-		263290F9222F3B14006BD83F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		263290FB222F3BCD006BD83F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		267E73611CA69AF4002B7DE4 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		267E73621CA69AF4002B7DE4 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		267E73631CA69AF4002B7DE4 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
@@ -323,13 +309,6 @@
 		2607C8E11C9D9B3E008B05A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				263290EF222F388E006BD83F /* photos.png */,
-				263290F1222F38E3006BD83F /* camera.png */,
-				263290F3222F3991006BD83F /* share.png */,
-				263290F7222F3A93006BD83F /* reset.png */,
-				263290F5222F3A18006BD83F /* save.png */,
-				263290F9222F3B14006BD83F /* settings.png */,
-				263290FB222F3BCD006BD83F /* info.png */,
 				267E73771CA71713002B7DE4 /* grid_white.png */,
 				26FC1F14222733B300D3675A /* default_image.JPG */,
 			);
@@ -553,22 +532,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				267E737A1CA71714002B7DE4 /* grid_white.png in Resources */,
-				263290F6222F3A18006BD83F /* save.png in Resources */,
 				26BB4EB1197098630077FF6F /* InfoPlist.strings in Resources */,
 				26BB4EFE19728A070077FF6F /* FilterNamesCoreImage.plist in Resources */,
 				26BB4EF31971BDF60077FF6F /* FSQOptionsViewController.xib in Resources */,
 				26BB4F99197DBC520077FF6F /* zocial-regular-webfont.ttf in Resources */,
-				263290F8222F3A93006BD83F /* reset.png in Resources */,
-				263290FC222F3BCE006BD83F /* info.png in Resources */,
-				263290F2222F38E3006BD83F /* camera.png in Resources */,
 				26BB4F98197DBC520077FF6F /* ionicons.ttf in Resources */,
 				26BB4F65197AB86E0077FF6F /* CarouselViewController.xib in Resources */,
 				26BB4F96197DBC520077FF6F /* FontAwesome.otf in Resources */,
-				263290F4222F3991006BD83F /* share.png in Resources */,
-				263290F0222F388E006BD83F /* photos.png in Resources */,
 				26BB4F97197DBC520077FF6F /* foundation-icons.ttf in Resources */,
 				26FC1F1D2228854800D3675A /* Launch Screen.storyboard in Resources */,
-				263290FA222F3B14006BD83F /* settings.png in Resources */,
 				26BB4EB9197098630077FF6F /* Images.xcassets in Resources */,
 				26BB4EFC1972894A0077FF6F /* FilterNamesUser.plist in Resources */,
 				26FC1F15222733B300D3675A /* default_image.JPG in Resources */,

@@ -980,7 +980,7 @@ static char ja_kvoContext;
 
 - (UIBarButtonItem *)rightButtonForCenterPanel {
     //UIImage *icon = [[FAKFontAwesome cogIconWithSize:25] imageWithSize:CGSizeMake(25.f, 25.f)];
-    UIImage *icon = [UIImage imageNamed:@"settings.png"];
+    UIImage *icon = [UIImage imageNamed:@"settings"];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(toggleRightPanel:)];
     rightBarButtonItem.tintColor = [UIColor whiteColor];
     return rightBarButtonItem;
