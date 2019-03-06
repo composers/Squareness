@@ -10,7 +10,13 @@
 
 #define WHITE_BORDER_WIDTH 1.3
 #define BLACK_BORDER_WIDTH 5.2
-#define LARGEST_SQUARE_SIZE 640.0
+
+typedef enum FSQSquareSizeType : NSUInteger {
+    FSQSquareTypeTiny,
+    FSQSquareTypeSmall,
+    FSQSquareTypeMedium,
+    FSQSquareTypeLarge
+} FSQSquareSizeType;
 
 @interface FSQModelController : NSObject
 @property (nonatomic, strong) NSArray *filterNamesUI;
@@ -18,7 +24,9 @@
 @property (nonatomic, strong) NSString *filterNameSelectedCI;
 @property (nonatomic, strong) NSMutableArray *filterNamesChosen;
 
-@property (nonatomic, assign) int gridSquareSize;
+@property (nonatomic, assign) int squareSize;
+@property (nonatomic, assign) CGFloat largestSquareSize;
+@property (nonatomic, assign) FSQSquareSizeType squareSizeType;
 
 @property (nonatomic, strong) UIImage *originalImage;
 @property (nonatomic, strong) UIImage *image;

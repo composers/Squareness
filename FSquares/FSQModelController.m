@@ -51,15 +51,12 @@
         [self.filterNamesChosen removeObject:@"AddBorderFilter"];
         [self.filterNamesChosen removeObject:@"GPUImageSwirlFilter"];
         
-        self.gridSquareSize = LARGEST_SQUARE_SIZE / 2;
-        
         [self initFilters];
         
         UIImage *image = [UIImage imageNamed:@"default_image.JPG"];
         
-        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 2, LARGEST_SQUARE_SIZE * 2);
-        
-        image = [image resizedImageToSize:newSize];
+        _squareSizeType = FSQSquareTypeMedium;
+        self.largestSquareSize = image.size.width * image.scale / 2.0;
         
         _originalImage = image;
         
@@ -70,6 +67,38 @@
         CGImageRelease(newCgIm);
     }
     return self;
+}
+
+- (void)setLargestSquareSize:(CGFloat)largestSquareSize {
+    _largestSquareSize = largestSquareSize;
+    [self updateSquareSize];
+}
+
+- (void)updateSquareSize
+{
+    switch (self.squareSizeType) {
+        case FSQSquareTypeLarge:
+            self.squareSize = self.largestSquareSize;
+            break;
+        case FSQSquareTypeMedium:
+            self.squareSize = self.largestSquareSize / 2.0;
+            break;
+        case FSQSquareTypeSmall:
+            self.squareSize = self.largestSquareSize / 4.0;
+            break;
+        case FSQSquareTypeTiny:
+            self.squareSize = self.largestSquareSize / 8.0;
+            break;
+        default:
+            self.squareSize = self.largestSquareSize;
+            break;
+    }
+}
+
+- (void)setSquareSizeType:(FSQSquareSizeType)squareSizeType
+{
+    _squareSizeType = squareSizeType;
+    [self updateSquareSize];
 }
 
 - (void)initFilters {
@@ -164,8 +193,8 @@
 
 - (void)generateImageFromSubimages
 {
-    CGFloat squareWidth = self.gridSquareSize;
-    CGFloat squareHeight = self.gridSquareSize;
+    CGFloat squareWidth = self.squareSize;
+    CGFloat squareHeight = self.squareSize;
     CGFloat imageWidth = self.image.size.width;
     CGFloat imageHeight = self.image.size.height;
     
@@ -183,7 +212,7 @@
             }
             else
             {
-                squareWidth = self.gridSquareSize;
+                squareWidth = self.squareSize;
             }
             
             if (y + squareHeight > imageHeight)
@@ -192,7 +221,7 @@
             }
             else
             {
-                squareHeight = self.gridSquareSize;
+                squareHeight = self.squareSize;
             }
             
             

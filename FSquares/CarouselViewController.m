@@ -21,6 +21,7 @@
 #import <Photos/Photos.h>
 #import "EAIntroPage+customPage.h"
 #import "EAIntroView.h"
+#import "UIImage+fixOrientation.h"
 
 @interface CarouselViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -165,13 +166,13 @@
 - (void)divideOriginalImage
 {
     self.sharedModel.originalSubImages = [self.scrollView addImage:self.sharedModel.originalImage
-                                                    withSquareSize:self.sharedModel.gridSquareSize];
+                                                    withSquareSize:self.sharedModel.squareSize];
 }
 
 - (void)divideProcessedImage
 {
     self.sharedModel.subImages = [self.scrollView addImage:self.sharedModel.image
-                                            withSquareSize:self.sharedModel.gridSquareSize];
+                                            withSquareSize:self.sharedModel.squareSize];
 }
 
 - (void)addGestureRecognizersToSubviews
@@ -432,10 +433,10 @@
     }
     else
     {
-        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"I n f o"
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Info"
                                                          andMessage:@"Camera not available"];
         
-        [alertView addButtonWithTitle:@"O K"
+        [alertView addButtonWithTitle:@"OK"
                                  type:SIAlertViewButtonTypeDefault
                               handler:^(SIAlertView *alert) {
                                   [alert dismissAnimated:YES];
@@ -455,7 +456,6 @@
 {
     
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    
     if (image)
     {
         if (image.size.height < image.size.width)
@@ -468,9 +468,9 @@
             self.imageRotated = NO;
         }
         
-        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 3,  image.size.height * 3 * LARGEST_SQUARE_SIZE / image.size.width);
+        image = [image fixOrientation];
         
-        image = [image scaleImageToSize:newSize];
+        self.sharedModel.largestSquareSize = image.size.width * image.scale / 2.0;
         
         self.sharedModel.originalImage = image;
         
