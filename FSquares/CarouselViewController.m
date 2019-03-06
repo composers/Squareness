@@ -468,19 +468,7 @@
             self.imageRotated = NO;
         }
         
-        //Find the closes height (upper limit) that is a multiple of largest square size
-        int temp1 = (int)LARGEST_SQUARE_SIZE * 3 * image.size.height/image.size.width;
-        int temp2;
-        if (temp1 % (int)LARGEST_SQUARE_SIZE == 0)
-        {
-            temp2 = (temp1 / LARGEST_SQUARE_SIZE);
-        }
-        else
-        {
-            temp2 = (temp1 / LARGEST_SQUARE_SIZE) + 1;
-        }
-        
-        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 3, temp2 * LARGEST_SQUARE_SIZE);
+        CGSize newSize = CGSizeMake(LARGEST_SQUARE_SIZE * 3,  image.size.height * 3 * LARGEST_SQUARE_SIZE / image.size.width);
         
         image = [image scaleImageToSize:newSize];
         
@@ -507,8 +495,6 @@
         [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         
         [self.carousel reloadData];
-        
-        [self.sidePanelController showCenterPanelAnimated:NO];
     }
     else
     {
@@ -584,7 +570,6 @@
             [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
             
             [self.carousel reloadData];
-            [self.sidePanelController showCenterPanelAnimated:YES];
         });
     });
 }
