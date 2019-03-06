@@ -47,9 +47,21 @@
     self.navigationItem.titleView = [self buttonForTitleView];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"]
+    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"]
                                                                               style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    infoBarButtonItem.tintColor = [UIColor whiteColor];
+
+    UIBarButtonItem *squareSizeBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"square"]
+                                                                          style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
+    squareSizeBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItems = @[infoBarButtonItem, squareSizeBarButtonItem];
+    
+    UIBarButtonItem *settingsBarButtonItem = self.navigationItem.rightBarButtonItem;
+    
+    UIBarButtonItem *gridBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"grid"]
+                                                                                style:UIBarButtonItemStylePlain target:self action:@selector(applyGrid)];
+    gridBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItems = @[settingsBarButtonItem, gridBarButtonItem];
     
     [self.photosItem setTarget:self];
     [self.photosItem setAction:@selector(selectPhotoFromAlbum)];
@@ -664,8 +676,25 @@
                                forState:UIControlStateNormal];
     [self.introView showInView:self.view
                animateDuration:0.2];
-    
 }
 
+- (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.sharedModel generateImageFromSubimages];
+        [self.sharedModel setSquareSizeType:sender.selectedSegmentIndex];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self divideOriginalImage];
+            [self divideProcessedImage];
+            [self addGestureRecognizersToSubviews];
+        });
+        
+    });
+}
+- (void)applyGrid
+{
+    [self putBorderWithWidth:BLACK_BORDER_WIDTH];
+}
 
 @end

@@ -11,7 +11,5 @@
 
 @interface FSQOptionsViewController : FSQBaseViewController
 
-//@property (weak, nonatomic) IBOutlet UIView *gridStatusCheckboxContainer;
 @property (weak, nonatomic) IBOutlet UIScrollView *chooseFiltersCheckboxContainer;
-- (IBAction)squareSizeChanged:(UISegmentedControl *)sender;
 @end

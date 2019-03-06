@@ -12,11 +12,6 @@
 #import "CarouselViewController.h"
 #import "TNCheckBoxGroup.h"
 
-
-@interface FSQOptionsViewController ()
-
-@end
-
 @implementation FSQOptionsViewController
 
 
@@ -26,8 +21,6 @@
     // Do any additional setup after loading the view from its nib.
     [self createChooseFiltersCheckbox];
 }
-
-
 
 - (void)createChooseFiltersCheckbox{
 
@@ -67,7 +60,10 @@
     scrollView.layer.cornerRadius = 6.0;
     scrollView.showsVerticalScrollIndicator = NO;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseFiltersUpdate:) name:GROUP_CHANGED object:chooseFiltersCheckbox];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(chooseFiltersUpdate:)
+                                                 name:GROUP_CHANGED
+                                               object:chooseFiltersCheckbox];
 }
 
 
@@ -89,30 +85,6 @@
     //    dispatch_async(dispatch_get_main_queue(), ^{
     //        [carouselController.carousel reloadData];
     //    });
-}
-
-
-- (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
-    
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-        CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-        
-        [self.sharedModel generateImageFromSubimages];
-        [self.sharedModel setSquareSizeType:sender.selectedSegmentIndex];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [carouselController divideOriginalImage];
-            [carouselController divideProcessedImage];
-            [carouselController addGestureRecognizersToSubviews];
-        });
-       
-    });
-}
-- (IBAction)applyGrid:(UIButton *)sender {
-    UINavigationController *navigationController = (UINavigationController *)self.sidePanelController.centerPanel;
-    CarouselViewController *carouselController = [navigationController.viewControllers objectAtIndex:0];
-    [carouselController putBorderWithWidth:BLACK_BORDER_WIDTH];
 }
 
 - (void)dealloc {
