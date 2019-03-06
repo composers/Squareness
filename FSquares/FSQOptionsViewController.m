@@ -35,7 +35,7 @@
         checkboxData.borderColor = [UIColor blackColor];
         checkboxData.rectangleColor = [UIColor blackColor];
         checkboxData.borderWidth = checkboxData.borderHeight = 20;
-        checkboxData.rectangleWidth = checkboxData.rectangleHeight = 15;
+        checkboxData.rectangleWidth = checkboxData.rectangleHeight = 18;
         
         if([self.sharedModel.filterNamesChosen containsObject:checkboxData.identifier])
         {

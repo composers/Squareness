@@ -11,7 +11,8 @@ target 'Squareness' do
   pod 'iCarousel', '~> 1.8'
   pod 'SIAlertView', '~> 1.3'
   pod 'TNCheckBoxGroup', '~> 0.1'
-
+  pod 'FTPopOverMenu'
+  
   target 'SquarenessTests' do
     inherit! :search_paths
     # Pods for testing

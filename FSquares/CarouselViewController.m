@@ -22,6 +22,7 @@
 #import "EAIntroPage+customPage.h"
 #import "EAIntroView.h"
 #import "UIImage+fixOrientation.h"
+#import "FTPopOverMenu.h"
 
 @interface CarouselViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -52,7 +53,7 @@
     infoBarButtonItem.tintColor = [UIColor whiteColor];
 
     UIBarButtonItem *squareSizeBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"square"]
-                                                                          style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
+                                                                          style:UIBarButtonItemStylePlain target:self action:@selector(onSquareSizeButtonTapped:event:)];
     squareSizeBarButtonItem.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItems = @[infoBarButtonItem, squareSizeBarButtonItem];
     
@@ -103,14 +104,31 @@
     self.carousel.dataSource = self;
     
     self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
-    
     [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
-    
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.carousel reloadData];
     });
+}
+
+-(void)onSquareSizeButtonTapped:(UIBarButtonItem *)sender
+                          event:(UIEvent *)event
+{
+    FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
+    configuration.menuWidth = 70.0;
+    configuration.menuRowHeight = 60.0;
+    configuration.textColor = [UIColor whiteColor];
+    configuration.textFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightUltraLight];
+    configuration.textAlignment = UITextAlignmentCenter;
+    configuration.allowRoundedArrow = YES;
+    configuration.separatorColor = [UIColor blackColor];
+    configuration.backgroundColor = [UIColor blackColor];
+    configuration.selectedTextColor = [UIColor blackColor];
+    
+    [FTPopOverMenu showFromEvent:event withMenuArray:@[@"XS", @"S", @"M", @"L"] imageArray:nil configuration:configuration doneBlock:^(NSInteger selectedIndex) {
+        [self squareSizeChanged:selectedIndex];
+    } dismissBlock:nil];
 }
 
 - (void)applyRandomFilters:(id)sender{
@@ -145,7 +163,7 @@
     }
     else
     {
-        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"N o  e f f e c t s  s e l e c t e d" andMessage:@"Add some effects into the carousel from the effects palette"];
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"No  effects  selected" andMessage:@"Add some effects into the list from the effects palette"];
         
         [alertView addButtonWithTitle:@"O K"
                                  type:SIAlertViewButtonTypeDefault
@@ -228,7 +246,6 @@
 {
     [self.sharedModel.selectedSubImageView.layer setBorderWidth:0.0];
 
-    
     self.sharedModel.selectedSubImageView = (UIImageView *)gesture.view;
     
     [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
@@ -665,7 +682,7 @@
     
     EAIntroPage *page5 = [EAIntroPage customPage];
     page5.title = @"configure";
-    page5.desc = @"Using the options menu, you can apply a grid around the squares, change the square size or add/remove effects from the list.";
+    page5.desc = @"Using the configure menu, you can add or remove effects from the list.";
     
     [self.introView removeFromSuperview];
     self.introView = [[EAIntroView alloc] initWithFrame:self.view.bounds
@@ -678,18 +695,21 @@
                animateDuration:0.2];
 }
 
-- (IBAction)squareSizeChanged:(UISegmentedControl *)sender {
+- (void)squareSizeChanged:(NSUInteger)index {
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.sharedModel generateImageFromSubimages];
-        [self.sharedModel setSquareSizeType:sender.selectedSegmentIndex];
+        [self.sharedModel setSquareSizeType:index];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self divideOriginalImage];
             [self divideProcessedImage];
             [self addGestureRecognizersToSubviews];
+            
+            self.sharedModel.selectedSubImageView = self.scrollView.subviews[1];
+            [self.sharedModel.selectedSubImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+            [self.sharedModel.selectedSubImageView.layer setBorderWidth: WHITE_BORDER_WIDTH];
         });
-        
     });
 }
 - (void)applyGrid
