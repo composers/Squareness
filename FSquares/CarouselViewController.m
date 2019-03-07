@@ -57,7 +57,7 @@
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                               target:nil
                                               action:nil];
-    fixedBarButtonItem.width = 30.0;
+    fixedBarButtonItem.width = 25.0;
     
     self.squareSizeBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"M"
                                                                     style:UIBarButtonItemStylePlain
@@ -208,7 +208,7 @@
     [button addTarget:self
                action:@selector(applyRandomFilters:)
      forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"randomize" forState:UIControlStateNormal];
+    [button setTitle:@"random" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     return button;
 }
@@ -689,8 +689,8 @@
     page1.desc = @"Pick or take a photo. Then tap anywhere and apply an effect using the list in the bottom. You can always play around with the default image before choosing your own.";
     
     EAIntroPage *page2 = [EAIntroPage customPage];
-    page2.title = @"randomize";
-    page2.desc = @"Using the randomize button, you can apply effects to all the squares randomly. Only the effects included in the list are used.";
+    page2.title = @"random";
+    page2.desc = @"Using the random button, you can apply effects to all the squares randomly. Only the effects included in the list are used.";
     
     EAIntroPage *page3 = [EAIntroPage customPage];
     page3.title = @"restore";
