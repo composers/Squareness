@@ -11,7 +11,6 @@
 #import "UIViewController+JASidePanel.h"
 #import "JASidePanelController.h"
 #import "FontAwesomeKit/FAKFontAwesome.h"
-#import "DDIndicator.h"
 #import "SIAlertView.h"
 #import "UIImage+Border.h"
 #import "UIView+Divide.h"
@@ -23,6 +22,7 @@
 #import "EAIntroView.h"
 #import "UIImage+fixOrientation.h"
 #import "FTPopOverMenu.h"
+#import "InstagramActivityIndicator.h"
 
 @interface CarouselViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -134,10 +134,15 @@
 - (void)applyRandomFilters:(id)sender{
     if (self.sharedModel.filterNamesChosen.count > 0)
     {
-        DDIndicator *ind = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [self.view addSubview:ind];
-        [ind startAnimating];
-        self.navigationItem.titleView = ind;
+        InstagramActivityIndicator *indicator = [[InstagramActivityIndicator alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+        indicator.lineWidth = 3;
+        indicator.strokeColor = [UIColor whiteColor];
+        indicator.numSegments = 15;
+        indicator.rotationDuration = 10;
+        indicator.animationDuration = 1.0;
+        [self.view addSubview:indicator];
+        [indicator startAnimating];
+        self.navigationItem.titleView = indicator;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             for (UIView *subview in self.scrollView.subviews)

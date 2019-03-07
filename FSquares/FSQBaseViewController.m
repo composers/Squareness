@@ -7,10 +7,10 @@
 //
 
 #import "FSQBaseViewController.h"
-#import "DDIndicator.h"
+#import "InstagramActivityIndicator.h"
 
 @interface FSQBaseViewController ()
-@property (nonatomic, strong) DDIndicator *loadingIndicator;
+@property (nonatomic, strong) InstagramActivityIndicator *loadingIndicator;
 @end
 
 @implementation FSQBaseViewController
@@ -38,7 +38,13 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.loadingIndicator = [[DDIndicator alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    self.loadingIndicator = [[InstagramActivityIndicator alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    self.loadingIndicator.center = self.view.center;
+    self.loadingIndicator.lineWidth = 6;
+    self.loadingIndicator.strokeColor = [UIColor whiteColor];
+    self.loadingIndicator.numSegments = 15;
+    self.loadingIndicator.rotationDuration = 10;
+    self.loadingIndicator.animationDuration = 1.0;
     self.loadingIndicator.center = self.view.center;
 }
 

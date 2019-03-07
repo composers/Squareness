@@ -12,8 +12,8 @@
 		2607C8E01C9D9A70008B05A9 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C8DF1C9D9A70008B05A9 /* UIColor+HexString.m */; };
 		2607C99A1C9DEAF3008B05A9 /* UIView+Divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */; };
 		260E3724198428D300E5985E /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 260E3723198428D300E5985E /* UIImage+Rotate.m */; };
-		2622918D19839E200001C116 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622918C19839E200001C116 /* DDIndicator.m */; };
 		263290FF223055F4006BD83F /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 263290FE223055F4006BD83F /* UIImage+fixOrientation.m */; };
+		263291032231A1BF006BD83F /* InstagramActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 263291012231A1BF006BD83F /* InstagramActivityIndicator.m */; };
 		267E73651CA69AF4002B7DE4 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73621CA69AF4002B7DE4 /* JASidePanelController.m */; };
 		267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */; };
 		267E737A1CA71714002B7DE4 /* grid_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 267E73771CA71713002B7DE4 /* grid_white.png */; };
@@ -83,10 +83,10 @@
 		2607C9991C9DEAF3008B05A9 /* UIView+Divide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Divide.m"; sourceTree = "<group>"; };
 		260E3722198428D300E5985E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+Rotate.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		260E3723198428D300E5985E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+Rotate.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		2622918B19839E200001C116 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
-		2622918C19839E200001C116 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
 		263290FD223055F4006BD83F /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
 		263290FE223055F4006BD83F /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		263291012231A1BF006BD83F /* InstagramActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramActivityIndicator.m; sourceTree = "<group>"; };
+		263291022231A1BF006BD83F /* InstagramActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramActivityIndicator.h; sourceTree = "<group>"; };
 		267E73611CA69AF4002B7DE4 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		267E73621CA69AF4002B7DE4 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		267E73631CA69AF4002B7DE4 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
@@ -222,8 +222,8 @@
 		2607C8C51C9D5BCC008B05A9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				263291002231A1BF006BD83F /* InstagramActivityIndicator */,
 				26BB4F81197DBC520077FF6F /* FontAwesomeKit */,
-				2607C8C91C9D5C7C008B05A9 /* DDIndicator */,
 				2607C8C71C9D5C53008B05A9 /* JASidePanel */,
 			);
 			name = External;
@@ -238,15 +238,6 @@
 				267E73641CA69AF4002B7DE4 /* UIViewController+JASidePanel.m */,
 			);
 			name = JASidePanel;
-			sourceTree = "<group>";
-		};
-		2607C8C91C9D5C7C008B05A9 /* DDIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				2622918B19839E200001C116 /* DDIndicator.h */,
-				2622918C19839E200001C116 /* DDIndicator.m */,
-			);
-			name = DDIndicator;
 			sourceTree = "<group>";
 		};
 		2607C8CB1C9D5CA8008B05A9 /* UIImage */ = {
@@ -329,6 +320,15 @@
 				26FC1F26222BF0A100D3675A /* EAIntroPage+customPage.m */,
 			);
 			name = UIView;
+			sourceTree = "<group>";
+		};
+		263291002231A1BF006BD83F /* InstagramActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				263291012231A1BF006BD83F /* InstagramActivityIndicator.m */,
+				263291022231A1BF006BD83F /* InstagramActivityIndicator.h */,
+			);
+			path = InstagramActivityIndicator;
 			sourceTree = "<group>";
 		};
 		26BB4E9A197098630077FF6F = {
@@ -646,6 +646,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263291032231A1BF006BD83F /* InstagramActivityIndicator.m in Sources */,
 				263290FF223055F4006BD83F /* UIImage+fixOrientation.m in Sources */,
 				26BB4EB3197098630077FF6F /* main.m in Sources */,
 				26BB4EF21971BDF60077FF6F /* FSQOptionsViewController.m in Sources */,
@@ -656,7 +657,6 @@
 				26BB4F95197DBC520077FF6F /* FAKZocial.m in Sources */,
 				26BB4F27197302B00077FF6F /* NSString+ContainsString.m in Sources */,
 				26BB4F92197DBC520077FF6F /* FAKFoundationIcons.m in Sources */,
-				2622918D19839E200001C116 /* DDIndicator.m in Sources */,
 				26FC1F27222BF0A100D3675A /* EAIntroPage+customPage.m in Sources */,
 				267E73661CA69AF4002B7DE4 /* UIViewController+JASidePanel.m in Sources */,
 				26BB4F93197DBC520077FF6F /* FAKIcon.m in Sources */,
