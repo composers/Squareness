@@ -32,6 +32,7 @@
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *shareItem;
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *saveItem;
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *resetItem;
+@property(strong, nonatomic) UIBarButtonItem *squareSizeBarButtonItem;
 @property (nonatomic, assign) BOOL imageRotated;
 @property (nonatomic, retain) UIDocumentInteractionController *documentInteractionController;
 @property (nonatomic, strong) EAIntroView *introView;
@@ -51,11 +52,24 @@
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"]
                                                                               style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
     infoBarButtonItem.tintColor = [UIColor whiteColor];
-
-    UIBarButtonItem *squareSizeBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"square"]
-                                                                          style:UIBarButtonItemStylePlain target:self action:@selector(onSquareSizeButtonTapped:event:)];
-    squareSizeBarButtonItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItems = @[infoBarButtonItem, squareSizeBarButtonItem];
+    
+    UIBarButtonItem *fixedBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                              target:nil
+                                              action:nil];
+    fixedBarButtonItem.width = 30.0;
+    
+    self.squareSizeBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"M"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(onSquareSizeButtonTapped:event:)];
+    self.squareSizeBarButtonItem.tintColor = [UIColor whiteColor];
+    [self.squareSizeBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIFont systemFontOfSize:25.0 weight:UIFontWeightRegular], NSFontAttributeName,
+                                        nil]
+                              forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItems = @[infoBarButtonItem, fixedBarButtonItem, self.squareSizeBarButtonItem];
     
     UIBarButtonItem *settingsBarButtonItem = self.navigationItem.rightBarButtonItem;
     
@@ -124,10 +138,11 @@
     configuration.allowRoundedArrow = YES;
     configuration.separatorColor = [UIColor blackColor];
     configuration.backgroundColor = [UIColor blackColor];
-    configuration.selectedTextColor = [UIColor blackColor];
     
-    [FTPopOverMenu showFromEvent:event withMenuArray:@[@"XS", @"S", @"M", @"L"] imageArray:nil configuration:configuration doneBlock:^(NSInteger selectedIndex) {
+    NSArray *squareSizeArray = @[@"XS", @"S", @"M", @"L"];
+    [FTPopOverMenu showFromEvent:event withMenuArray:squareSizeArray imageArray:nil configuration:configuration doneBlock:^(NSInteger selectedIndex) {
         [self squareSizeChanged:selectedIndex];
+        self.squareSizeBarButtonItem.title = squareSizeArray[selectedIndex];
     } dismissBlock:nil];
 }
 
@@ -193,7 +208,7 @@
     [button addTarget:self
                action:@selector(applyRandomFilters:)
      forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"I'm lazy" forState:UIControlStateNormal];
+    [button setTitle:@"randomize" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     return button;
 }
@@ -674,8 +689,8 @@
     page1.desc = @"Pick or take a photo. Then tap anywhere and apply an effect using the list in the bottom. You can always play around with the default image before choosing your own.";
     
     EAIntroPage *page2 = [EAIntroPage customPage];
-    page2.title = @"I'm lazy";
-    page2.desc = @"Using the I'm lazy button, you can apply effects to all the squares randomly. Only the effects included in the list are used.";
+    page2.title = @"randomize";
+    page2.desc = @"Using the randomize button, you can apply effects to all the squares randomly. Only the effects included in the list are used.";
     
     EAIntroPage *page3 = [EAIntroPage customPage];
     page3.title = @"restore";
