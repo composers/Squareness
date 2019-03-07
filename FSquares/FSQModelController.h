@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define WHITE_BORDER_WIDTH 1.3
-#define BLACK_BORDER_WIDTH 5.2
+#define WHITE_BORDER_WIDTH 2.0
+#define BLACK_BORDER_WIDTH 8.0
 
 typedef enum FSQSquareSizeType : NSUInteger {
     FSQSquareTypeTiny,
