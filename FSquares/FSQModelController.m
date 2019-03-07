@@ -19,7 +19,7 @@
 @property (nonatomic, retain) GPUImageSmoothToonFilter *gpuImageSmoothToonFilter;
 @property (nonatomic, retain) GPUImageSwirlFilter *gpuImageSwirlFilter;
 @property (nonatomic, retain) GPUImageMonochromeFilter *gpuImageMonochromeFilter;
-
+@property (nonatomic, retain) GPUImageiOSBlurFilter *gpuImageIosBlurFilter;
 @end
 
 @implementation FSQModelController
@@ -102,12 +102,13 @@
 }
 
 - (void)initFilters {
-    
     _gpuImageSmoothToonFilter = [[GPUImageSmoothToonFilter alloc] init];
     _gpuImageSmoothToonFilter.threshold = 0.4;
     
     _gpuImageSwirlFilter = [[GPUImageSwirlFilter alloc] init];
     _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
+    _gpuImageIosBlurFilter = [[GPUImageiOSBlurFilter alloc] init];
+    _gpuImageIosBlurFilter.blurRadiusInPixels = 10.0;
 }
 
 - (UIImage *)processImage:(UIImage *)myImage
@@ -125,9 +126,7 @@
     }
     
     if ([filterName containsString:@"GPUImage"]) {
-        
         id filterGPU;
-        
         
         if ([filterName isEqualToString:@"GPUImageSmoothToonFilter"]) {
             filterGPU = _gpuImageSmoothToonFilter;
@@ -137,15 +136,17 @@
             filterGPU = _gpuImageSwirlFilter;
         }
         
+        if ([filterName isEqualToString:@"GPUImageBlurFilter"]) {
+            filterGPU = _gpuImageIosBlurFilter;
+        }
         
-        if ([filterName isEqualToString:@"GPUImageRedFilter"]) {
+        if ([filterName isEqualToString:@"GPUImagePinkFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:1.0 green:0.68 blue:0.68];
             filterGPU = _gpuImageMonochromeFilter;
         }
         
         if ([filterName isEqualToString:@"GPUImageGreenFilter"]) {
-            [_gpuImageMonochromeFilter setColorRed:0.68 green:1.0 blue:0.68];
-            //[_gpuImageMonochromeFilter setColorRed:170.0/255.0 green:212.0/255.0 blue:80.0/255.0];
+            [_gpuImageMonochromeFilter setColorRed:170.0/255.0 green:212.0/255.0 blue:80.0/255.0];
             filterGPU = _gpuImageMonochromeFilter;
         }
         
@@ -156,22 +157,26 @@
         
         if ([filterName isEqualToString:@"GPUImageOrangeFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0];
-            
             filterGPU = _gpuImageMonochromeFilter;
         }
         
+        if ([filterName isEqualToString:@"GPUImageOceanFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:46.0/255.0 green:174.0/255.0 blue:178.0/255.0];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
         
-        //            GPUImagePicture *inputImage = [[GPUImagePicture alloc] initWithImage:myImage];
-        //            [inputImage addTarget:filterGPU];
-        //            [filterGPU useNextFrameForImageCapture];
-        //            [inputImage processImage];
-        //            return [filterGPU imageFromCurrentFramebuffer];
+        if ([filterName isEqualToString:@"GPUImageRedFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:178.0/255.0 green:19.0/255.0 blue:19.0/255.0];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
+        
+        if ([filterName isEqualToString:@"GPUImageYellowFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:206.0/255.0 green:176.0/255.0 blue:28.0/255.0];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
         
         return [filterGPU imageByFilteringImage:myImage];
-    }
-    else
-    {
-        
+    } else {
         CIContext *context = [CIContext contextWithOptions:nil];               // 1
         CIImage *image = [CIImage imageWithCGImage:myImage.CGImage];               // 2
         CIFilter *filter = [CIFilter filterWithName:filterName];           // 3
