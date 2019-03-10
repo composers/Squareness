@@ -108,7 +108,7 @@
     _gpuImageSwirlFilter = [[GPUImageSwirlFilter alloc] init];
     _gpuImageMonochromeFilter = [[GPUImageMonochromeFilter alloc] init];
     _gpuImageIosBlurFilter = [[GPUImageiOSBlurFilter alloc] init];
-    _gpuImageIosBlurFilter.blurRadiusInPixels = 10.0;
+    _gpuImageIosBlurFilter.blurRadiusInPixels = 8.0;
 }
 
 - (UIImage *)processImage:(UIImage *)myImage
@@ -172,6 +172,11 @@
         
         if ([filterName isEqualToString:@"GPUImageYellowFilter"]) {
             [_gpuImageMonochromeFilter setColorRed:206.0/255.0 green:176.0/255.0 blue:28.0/255.0];
+            filterGPU = _gpuImageMonochromeFilter;
+        }
+        
+        if ([filterName isEqualToString:@"GPUImageWhiteFilter"]) {
+            [_gpuImageMonochromeFilter setColorRed:1.0 green:1.0 blue:1.0];
             filterGPU = _gpuImageMonochromeFilter;
         }
         

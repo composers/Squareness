@@ -6,9 +6,7 @@
 	<string>sepia</string>
 	<string>coolness</string>
 	<string>warmness</string>
-	<string>tonal</string>
 	<string>grayness</string>
-	<string>noir</string>
 	<string>toonify</string>
 	<string>swirl</string>
 	<string>blur</string>
@@ -19,5 +17,6 @@
 	<string>ocean</string>
 	<string>red velvet</string>
 	<string>desert</string>
+	<string>white</string>
 </array>
 </plist>

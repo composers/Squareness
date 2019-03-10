@@ -6,9 +6,7 @@
 	<string>CISepiaTone</string>
 	<string>CIPhotoEffectProcess</string>
 	<string>CIPhotoEffectTransfer</string>
-	<string>CIPhotoEffectTonal</string>
 	<string>CIPhotoEffectMono</string>
-	<string>CIPhotoEffectNoir</string>
 	<string>GPUImageSmoothToonFilter</string>
 	<string>GPUImageSwirlFilter</string>
 	<string>GPUImageBlurFilter</string>
@@ -19,5 +17,6 @@
 	<string>GPUImageOceanFilter</string>
 	<string>GPUImageRedFilter</string>
 	<string>GPUImageYellowFilter</string>
+	<string>GPUImageWhiteFilter</string>
 </array>
 </plist>
