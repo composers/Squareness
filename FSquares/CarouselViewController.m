@@ -24,7 +24,7 @@
 #import "FTPopOverMenu.h"
 #import "InstagramActivityIndicator.h"
 
-@interface CarouselViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate>
+@interface CarouselViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate, EAIntroDelegate>
 
 @property(assign, nonatomic) NSUInteger selectedIndex;
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *photosItem;
@@ -50,7 +50,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"]
-                                                                              style:UIBarButtonItemStylePlain target:self action:@selector(showHelp)];
+                                                                              style:UIBarButtonItemStylePlain target:self action:@selector(toggleHelp)];
     infoBarButtonItem.tintColor = [UIColor whiteColor];
     
     UIBarButtonItem *fixedBarButtonItem = [[UIBarButtonItem alloc]
@@ -69,14 +69,15 @@
                                         nil]
                               forState:UIControlStateNormal];
     
-    self.navigationItem.leftBarButtonItems = @[infoBarButtonItem, fixedBarButtonItem, self.squareSizeBarButtonItem];
+    UIBarButtonItem *gridBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"grid"]
+                                                                          style:UIBarButtonItemStylePlain target:self action:@selector(applyGrid)];
+    gridBarButtonItem.tintColor = [UIColor whiteColor];
     
     UIBarButtonItem *settingsBarButtonItem = self.navigationItem.rightBarButtonItem;
     
-    UIBarButtonItem *gridBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"grid"]
-                                                                                style:UIBarButtonItemStylePlain target:self action:@selector(applyGrid)];
-    gridBarButtonItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItems = @[settingsBarButtonItem, gridBarButtonItem];
+    self.navigationItem.leftBarButtonItems = @[infoBarButtonItem, fixedBarButtonItem, gridBarButtonItem];
+    
+    self.navigationItem.rightBarButtonItems = @[settingsBarButtonItem, fixedBarButtonItem, self.squareSizeBarButtonItem];
     
     [self.photosItem setTarget:self];
     [self.photosItem setAction:@selector(selectPhotoFromAlbum)];
@@ -134,7 +135,7 @@
     configuration.menuRowHeight = 60.0;
     configuration.textColor = [UIColor whiteColor];
     configuration.textFont = [UIFont systemFontOfSize:15.0 weight:UIFontWeightUltraLight];
-    configuration.textAlignment = UITextAlignmentCenter;
+    configuration.textAlignment = NSTextAlignmentCenter;
     configuration.allowRoundedArrow = YES;
     configuration.separatorColor = [UIColor blackColor];
     configuration.backgroundColor = [UIColor blackColor];
@@ -682,8 +683,14 @@
     return interactionController;
 }
 
-- (void)showHelp
+- (void)toggleHelp
 {
+    if (self.introView) {
+        [self.introView removeFromSuperview];
+        self.introView = nil;
+        return;
+    }
+    
     EAIntroPage *page1 = [EAIntroPage customPage];
     page1.title = @"photo";
     page1.desc = @"Pick or take a photo. Then tap anywhere and apply an effect using the list in the bottom. You can always play around with the default image before choosing your own.";
@@ -704,15 +711,21 @@
     page5.title = @"configure";
     page5.desc = @"Using the configure menu, you can add or remove effects from the list.";
     
-    [self.introView removeFromSuperview];
     self.introView = [[EAIntroView alloc] initWithFrame:self.view.bounds
                                                andPages:@[page1, page2, page3, page4, page5]];
     self.introView.pageControl.pageIndicatorTintColor = [UIColor darkTextColor];
     self.introView.pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
     [self.introView.skipButton setTitleColor:[UIColor grayColor]
                                forState:UIControlStateNormal];
+    self.introView.delegate = self;
     [self.introView showInView:self.view
                animateDuration:0.2];
+}
+
+- (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped
+{
+    [self.introView removeFromSuperview];
+    self.introView = nil;
 }
 
 - (void)squareSizeChanged:(NSUInteger)index {
